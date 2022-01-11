@@ -1,0 +1,40 @@
+@font-face{
+    font-family: 'Integral CF';
+    src: url('IntegralCF-Regular.woff') format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face{
+    font-family: 'Integral CF Bold';
+    src: url('IntegralCF-Bold.woff') format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face{
+    font-family: 'Integral CF Heavy';
+    src: url('IntegralCF-Heavy.woff') format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face{
+    font-family: 'MADE OUTER Sans';
+    src: url('MADE-Outer-Sans-Light.otf') format("otf");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Druk Wide Bold';
+    src: url('DrukWide-Bold.woff2') format('woff2'),
+        url('DrukWide-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
