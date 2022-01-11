@@ -8,10 +8,11 @@ const Typography = createGlobalStyle`
     }
     p, li {
         letter-spacing: 0.5px;
-        font-family: Lato;
+        font-family: 'MADE Outer Sans';
     }
     h1,h2,h3,h4,h5,h6 {
-        font-family: 'Integral CF';
+        font-family: 'Integral CF Heavy';
+        font-style: italic;
         color: var(--darkpurple);
         font-weight: normal;
         margin: 0;
