@@ -2,7 +2,6 @@ import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
-
 const IndexPage = () => (
   <>
     <h1>Hi people</h1>
@@ -18,6 +17,7 @@ const IndexPage = () => (
     />
     <p>
       <Link to="/page-2/">Go to page 2</Link> <br />
+      <Link to="/Hero/">Go to hero page</Link> <br />
     </p>
   </>
 )
