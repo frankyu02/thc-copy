@@ -35,7 +35,7 @@ module.exports = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         custom: {
-          families: ["Integral CF", "Integral CF Bold", "Integral CF Heavy", "MADE Outer Sans Light"],
+          families: ["Integral CF", "Integral CF Bold", "Integral CF Heavy", "MADE Outer Sans Light", "Neumatic Compressed Bold"],
           urls: ["/fonts/fonts.css"],
         },
       },

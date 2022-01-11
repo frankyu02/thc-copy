@@ -8,7 +8,7 @@ const Typography = createGlobalStyle`
     }
     p, li {
         letter-spacing: 0.5px;
-        font-family: 'MADE Outer Sans';
+        font-family: 'MADE Outer Sans Light';
     }
     h1,h2,h3,h4,h5,h6 {
         font-family: 'Integral CF Heavy';
