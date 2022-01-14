@@ -11,10 +11,7 @@ const Typography = createGlobalStyle`
         font-family: 'MADE Outer Sans Light';
     }
     h1,h2,h3,h4,h5,h6 {
-        font-family: 'Integral CF Heavy';
-        font-style: italic;
-        color: var(--darkpurple);
-        font-weight: normal;
+        font-family: 'Integral CF';
         margin: 0;
     }
     h1{
