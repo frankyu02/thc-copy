@@ -1,13 +1,34 @@
+require("dotenv").config({ path: ".env" });
+
+const {
+  HTTPBASICAUTH_USERNAME,
+  HTTPBASICAUTH_PASSWORD,
+  GATSBY_SOURCE,
+  SITE_URL
+} = process.env;
+
 module.exports = {
   siteMetadata: {
     title: `THC`,
     description: ``,
     author: `Blackhawk Digital`,
-    siteUrl: `https://weareblackhawk.com/`,
+    siteUrl: SITE_URL,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        url: GATSBY_SOURCE,
+        auth: {
+          htaccess: {
+            username: HTTPBASICAUTH_USERNAME,
+            password: HTTPBASICAUTH_PASSWORD,
+          }
+        }        
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

@@ -2,13 +2,11 @@ import * as React from "react";
 import { HeroHome } from "../components/home/Hero";
 import Layout from "../components/layout/Layout";
 
-
-
-const HomePage = () => {
+const ReviewsPage = () => {
 
   const seo = {
-    title: 'Home Title',
-    description: 'Home Description'
+    title: 'Reviews Title',
+    description: 'Reviews Description'
   }
 
   return (
@@ -20,4 +18,4 @@ const HomePage = () => {
   )
 }
 
-export default HomePage;
+export default ReviewsPage;
