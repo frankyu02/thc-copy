@@ -1,7 +1,6 @@
 import * as React from "react";
-import { Link, StaticQuery } from "gatsby";
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
-import { graphql } from "gatsby";
+import { Link, StaticQuery, graphql } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { HeroStyles } from "./HeroStyles";
 import { getImageData } from "../../utils/get_image_data";
 
@@ -13,7 +12,6 @@ export const HeroHome = () => {
           query={graphql`
             query {
               wpPage(uri: {eq: "/"}) {
-                id
                 home {
                   overBanner {
                     overBannerLocation1
@@ -29,6 +27,13 @@ export const HeroHome = () => {
                       }
                       altText
                     }
+                    bannerIcon {
+                      localFile {
+                        childImageSharp {
+                          gatsbyImageData
+                        }
+                      }
+                    }
                     bannerTitle
                     bannerButtonName
                     bannerButtonLink
@@ -40,11 +45,12 @@ export const HeroHome = () => {
 
           render = {( { wpPage: { home } } ) => {
             const {
-              banner: {bannerBg, bannerButtonLink, bannerButtonName, bannerTitle}, 
+              banner: {bannerBg, bannerIcon, bannerButtonLink, bannerButtonName, bannerTitle},
               overBanner: {overBannerLocation1, overBannerLocation2, overBannerTitle}
             } = home;
 
             const bannerImg = getImageData(bannerBg);
+            const bannerIconImg = getImageData(bannerIcon)
             return (
               <div className="container">
                 <div className="header">
@@ -56,7 +62,7 @@ export const HeroHome = () => {
                 </div>
                 <div className="inner">
                   <GatsbyImage className={'background'} image={bannerImg} alt={bannerBg.altText}/>
-                  <StaticImage placeholder='blurred' className={'mark'} src="../../images/bg_mark.png" alt="A dinosaur" />
+                  <GatsbyImage className={'mark'} image={bannerIconImg} alt="mark" />
                   <div className="caption">
                     <h3 className="title">{bannerTitle}</h3>
                     <Link to={bannerButtonLink || '#'} className="btn btn--white" target="_parent">{bannerButtonName}</Link>
