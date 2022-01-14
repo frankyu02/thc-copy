@@ -1,9 +1,18 @@
+require("dotenv").config({ path: ".env" });
+
+const {
+  HTTPBASICAUTH_USERNAME,
+  HTTPBASICAUTH_PASSWORD,
+  GATSBY_SOURCE,
+  SITE_URL
+} = process.env;
+
 module.exports = {
   siteMetadata: {
     title: `THC`,
     description: ``,
     author: `Blackhawk Digital`,
-    siteUrl: `https://weareblackhawk.com/`,
+    siteUrl: SITE_URL,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -11,11 +20,11 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        url: "https://thc-wp-backend.flywheelsites.com/graphql",
+        url: GATSBY_SOURCE,
         auth: {
           htaccess: {
-            username: 'flywheel',
-            password: 'interesting-plate',
+            username: HTTPBASICAUTH_USERNAME,
+            password: HTTPBASICAUTH_PASSWORD,
           }
         }        
       }
