@@ -9,6 +9,18 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        url: "https://thc-wp-backend.flywheelsites.com/graphql",
+        auth: {
+          htaccess: {
+            username: 'flywheel',
+            password: 'interesting-plate',
+          }
+        }        
+      }
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,

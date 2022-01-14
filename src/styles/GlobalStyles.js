@@ -1,4 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
+import { media, xl, lg, md, sm, xs, xxs } from './utils/media_queries';
+import { __CONTAINERS } from './utils/variables';
+
 
 const GlobalStyles = createGlobalStyle`
     :root {
@@ -6,6 +9,8 @@ const GlobalStyles = createGlobalStyle`
         --black:      #000000;
         --grey:       #F0F0F0;
         --white:      #FFFFFF;
+        --container-xl: 1400px;
+        --container: 97%;
     }
     html {
         font-size: 10px;
@@ -26,6 +31,22 @@ const GlobalStyles = createGlobalStyle`
         border-color: rgba(0,0,0,0.1);
         border-width: 1px;
     }
+    .container {
+        width: ${__CONTAINERS.xl};
+        margin: 0 auto;       
+    }
+
+
+
+    ${lg(`
+        .container {
+            width: ${__CONTAINERS.lg}
+        }
+    `)}
+    
+
+    
+
 `;
 
 export default GlobalStyles;
