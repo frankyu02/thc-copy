@@ -1,5 +1,6 @@
 import * as React from "react";
 import { HeroHome } from "../components/home/Hero";
+import {Legendary} from '../components/home/legendary/Legendary'
 import Layout from "../components/layout/Layout";
 
 
@@ -15,6 +16,7 @@ const HomePage = () => {
     <>
       <Layout seo={seo}>
         <HeroHome/>
+        <Legendary/>
       </Layout>
     </>
   )
