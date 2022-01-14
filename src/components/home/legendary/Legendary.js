@@ -10,8 +10,11 @@ export const Legendary = () => {
             wpPage(uri: {eq: "/"}) {
                 home {
                     storyLegendary {
-                        storyLegendaryButtonLink
-                        storyLegendaryButtonName
+                        storyLegendaryButton {
+                            target
+                            title
+                            url
+                        }
                         storyLegendaryText
                         storyLegendaryTitle
                         storyLegendaryMainImg {
@@ -24,8 +27,11 @@ export const Legendary = () => {
                         }
                     }
                     cardsJoin {
-                        cardsJoinButtonLink
-                        cardsJoinButtonName
+                        cardsJoinButton {
+                            target
+                            title
+                            url
+                        }
                         cardsJoinSubTitle
                         cardsJoinTitle
                         cardsJoinBgImg {
@@ -53,7 +59,7 @@ export const Legendary = () => {
                         <h2>{storyLegendary.storyLegendaryTitle}</h2>
                         <p>{storyLegendary.storyLegendaryText}</p>
                         <div>Read more...</div>
-                        <Link to="#">{storyLegendary.storyLegendaryButtonName}</Link>
+                        <Link to="#">{storyLegendary.storyLegendaryButton.title}</Link>
                     </div>
                 </div>
                 <div className={'legendary_parent'}>
@@ -62,7 +68,7 @@ export const Legendary = () => {
                             <GatsbyImage image={getImage(item.cardsJoinBgImg.localFile.childrenImageSharp[0].gatsbyImageData)} alt={'banner'}/>
                             <h3>{item.cardsJoinTitle}</h3>
                             <p>{item.cardsJoinSubTitle}</p>
-                            <Link to="#">{item.cardsJoinButtonName}</Link>
+                            <Link to="#">{item.cardsJoinButton.title}</Link>
                         </div>
                     ))}
                 </div>

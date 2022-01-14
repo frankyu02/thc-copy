@@ -5,7 +5,6 @@ import { HeroStyles } from "./HeroStyles";
 import { getImageData } from "../../utils/get_image_data";
 
 export const HeroHome = () => {
-
   return (
       <HeroStyles>
         <StaticQuery
@@ -35,8 +34,11 @@ export const HeroHome = () => {
                       }
                     }
                     bannerTitle
-                    bannerButtonName
-                    bannerButtonLink
+                    bannerButton {
+                      target
+                      title
+                      url
+                    }
                   }
                 }
               }
@@ -45,7 +47,7 @@ export const HeroHome = () => {
 
           render = {( { wpPage: { home } } ) => {
             const {
-              banner: {bannerBg, bannerIcon, bannerButtonLink, bannerButtonName, bannerTitle},
+              banner: {bannerBg, bannerIcon, bannerButton: {title, url, target}, bannerTitle},
               overBanner: {overBannerLocation1, overBannerLocation2, overBannerTitle}
             } = home;
 
@@ -65,7 +67,7 @@ export const HeroHome = () => {
                   <GatsbyImage className={'mark'} image={bannerIconImg} alt="mark" />
                   <div className="caption">
                     <h3 className="title">{bannerTitle}</h3>
-                    <Link to={bannerButtonLink || '#'} className="btn btn--white" target="_parent">{bannerButtonName}</Link>
+                    <Link to={url || '#'} className="btn btn--white" target={target}>{title}</Link>
                   </div>
                 </div>
               </div>
