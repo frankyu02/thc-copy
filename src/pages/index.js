@@ -3,6 +3,7 @@ import { HeroHome } from "../components/home/Hero";
 import {Legendary} from '../components/home/legendary/Legendary';
 import {ThcTv} from '../components/home/thctv/ThcTv';
 import {CategorySection} from '../components/home/category-section/CategorySection';
+import {Brands} from '../components/home/brands/Brands';
 import Layout from "../components/layout/Layout";
 
 
@@ -21,6 +22,7 @@ const HomePage = () => {
         <Legendary/>
         <CategorySection/>
         <ThcTv/>
+        <Brands/>
       </Layout>
     </>
   )
