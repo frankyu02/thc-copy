@@ -22,9 +22,9 @@ const HomePage = () => {
         <HeroHome/>
         <Legendary/>
         <CategorySection/>
-        <SettingStandart/>
         <ThcTv/>
         <BlogBanner/>
+        <SettingStandart/>
       </Layout>
     </>
   )

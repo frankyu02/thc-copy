@@ -11,7 +11,9 @@ export const SettingStandart = () => {
                 home {
                     news {
                         newsOpenModal
-                        newsText
+                        newsText {
+                            newsTextParagraph
+                        }
                         newsTitle
                         newsButton {
                             target
@@ -29,6 +31,7 @@ export const SettingStandart = () => {
                 }
             }
         }
+
     `)
     const {wpPage: {home: {news}}} = data;
     return (
@@ -40,8 +43,10 @@ export const SettingStandart = () => {
                     </div>
                     <div className='setting_text'>
                         <h3>{news.newsTitle}</h3>
-                        <p>{news.newsText}</p>
-                        <div>{news.newsOpenModal}</div>
+                        {news.newsText.map((item, key) => (
+                            <p key={key}>{item.newsTextParagraph}</p>
+                        ))}
+                        <div className='read_more'>{news.newsOpenModal}</div>
                         <Link className={'link'} to="#">{news.newsButton.title}</Link>
                     </div>
                 </div>
