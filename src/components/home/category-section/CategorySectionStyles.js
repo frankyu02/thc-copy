@@ -14,6 +14,7 @@ export const CategoryStyles = styled.section`
         h3{
             font-size: 35px;
             font-weight: 700;
+            font-family: Integral CF Bold;
             font-style: italic;
             margin-bottom: 45px;
         }   
