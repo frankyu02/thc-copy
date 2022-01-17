@@ -98,7 +98,7 @@ export const HeroStyles = styled.section`
       margin-bottom: 20px;
       align-items: center;
       h1 {
-        font-size: 54px;
+        font-size: 52px;
       }
     }
     .inner {
@@ -116,7 +116,7 @@ export const HeroStyles = styled.section`
     .header {
       flex-direction: column-reverse;
       h1 {
-        font-size: 13.5vw;
+        font-size: 13.3vw;
       }
       .address_parent {
         width: 100%;

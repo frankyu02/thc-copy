@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const SettingStyle = styled.section` 
+    * {
+      box-sizing: border-box;
+    }
     .link {
       border: 1px solid black;
       padding: 17px 15px;
@@ -26,6 +29,7 @@ export const SettingStyle = styled.section`
       justify-content: center;
         width: 100%;
         padding-left: 100px;
+        padding-right: 20px;
         h3 {
           font-size: 50px;
           font-family: 'Integral CF Bold';
@@ -46,7 +50,50 @@ export const SettingStyle = styled.section`
         }
       }
     }
+     @media (max-width: 1365px) {
+       .setting_standart {
+       .settings_image {
+          .gatsby-image-wrapper {
+            height: 100%;
+          }
+       }
+        .setting_text {
+           padding: 30px;
+           h3 {
+            font-size: 46px;
+           }
+        }
+       }
+   }
+   @media (max-width: 967px) {
+       .setting_standart {
+        .setting_text {
+        padding: 30px 10px;
+           h3 {
+            font-size: 32px;
+           }
+           p {
+            font-size: 16px;
+            margin-bottom: 20px;
+           }
+           .read_more {
+               font-size: 18px;
+               margin-bottom: 20px;
+           }
+        }
+       }
+   }
     @media (max-width: 767px) {
+        .setting_standart {
+          flex-direction: column;
+          .settings_image {
+            order: 2;
+            max-width: 100%;
+            .gatsby-image-wrapper {
+            width: 100%;
+            }
+          }
+        }
        .link {
         font-size: 18px;
        }
