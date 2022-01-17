@@ -39,20 +39,7 @@ export const HeroStyles = styled.section`
           max-width: 820px;
           margin-bottom: 70px;
         }
-        a {
-          display: block;
-          max-width: 330px;
-          text-align: center;
-          padding: 19px;
-          box-sizing: border-box;
-          margin: 0 auto;
-          background: white;
-          border: 1px solid black;
-          font-weight: 900;
-          font-size: 18px;
-          font-style: normal;
-          text-transform: uppercase;
-        }
+        
     }
     .background {
       position: absolute;
@@ -116,7 +103,7 @@ export const HeroStyles = styled.section`
     .header {
       flex-direction: column-reverse;
       h1 {
-        font-size: 13.3vw;
+        font-size: 13vw;
       }
       .address_parent {
         width: 100%;
@@ -145,10 +132,6 @@ export const HeroStyles = styled.section`
       .caption {
         h3 {
           font-size: 30px;
-        }
-        a {
-          width: 330px;
-          max-width: 90%;
         }
       }
     }

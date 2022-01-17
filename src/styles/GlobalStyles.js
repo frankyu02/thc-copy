@@ -35,8 +35,33 @@ const GlobalStyles = createGlobalStyle`
         width: ${__CONTAINERS.xl};
         margin: 0 auto;       
     }
-
-
+    .main_button {
+          border: 1px solid black;
+          padding: 17px 0;
+          box-sizing: border-box;
+          font-family: 'Integral CF Bold';
+          background: white;
+          color: black;
+          width: 100%;
+          max-width: 330px;
+          font-style: normal;
+          text-transform: uppercase;
+          margin: 0 auto;
+          display: block;
+          text-align: center;
+          transition: 0.2s;
+        }
+    .main_button:hover {
+      font-style: italic;
+      background: #612c8f;
+      color: white;
+    }
+    @media (max-width: 767px) {
+      .main_button {
+        font-size: 18px;
+        max-width: calc(100% - 10px);
+      }
+    }
 
     ${lg(`
         .container {

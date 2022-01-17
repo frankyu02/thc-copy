@@ -3,6 +3,7 @@ import { Link, StaticQuery, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { HeroStyles } from "./HeroStyles";
 import { getImageData } from "../../utils/get_image_data";
+import { MainButton } from "../ui/main_button/MainButton";
 
 export const HeroHome = () => {
   return (
@@ -67,7 +68,7 @@ export const HeroHome = () => {
                   <GatsbyImage className={'mark'} image={bannerIconImg} alt="mark" />
                   <div className="caption">
                     <h3 className="title">{bannerTitle}</h3>
-                    <Link to={url || '#'} className="btn btn--white" target={target}>{title}</Link>
+                    <MainButton url={url} target={target}>{title}</MainButton>
                   </div>
                 </div>
               </div>
