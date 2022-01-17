@@ -32,9 +32,16 @@ export const ThcTvStyles = styled.section`
         font-style: normal;
         margin-top: 59px;
         text-transform: uppercase;
+        transition: all .3s linear;
         svg{
             display: block;
             margin-left: 14px;
+        }
+        &:hover{
+            background: #612C8F;
+            border-color: #fff;
+            color: #fff;
+            font-style: italic
         }
       }
   }

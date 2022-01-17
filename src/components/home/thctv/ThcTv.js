@@ -41,7 +41,7 @@ export const ThcTv = () => {
                         <div className={'thc-tv-img-mob'}>
                             <GatsbyImage image={getImageData(thcTv.thcTvImg)} alt={thcTv.thcTvImg.altText || 'banner'}/>
                         </div>
-                        <Link to={thcTv.thcTvButton.url || '#'} className="btn btn--white" >{thcTv.thcTvButton.title} 
+                        <Link to={thcTv.thcTvButton.url || '#'} className="btn btn--white" target={thcTv.thcTvButton.target}>{thcTv.thcTvButton.title} 
                         <svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0 16V2.22222V0L13 8L0 16Z" fill="black"/>
                         </svg>
