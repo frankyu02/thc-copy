@@ -4,6 +4,7 @@ import {Legendary} from '../components/home/legendary/Legendary';
 import {ThcTv} from '../components/home/thctv/ThcTv';
 import {CategorySection} from '../components/home/category-section/CategorySection';
 import {BlogBanner} from '../components/home/blog-banner/BlogBanner';
+import {Footer} from '../components/footer/Footer';
 import Layout from "../components/layout/Layout";
 
 
@@ -23,6 +24,7 @@ const HomePage = () => {
         <CategorySection/>
         <ThcTv/>
         <BlogBanner/>
+        <Footer/>
       </Layout>
     </>
   )

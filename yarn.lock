@@ -3250,7 +3250,6 @@
   dependencies:
     "anymatch" "~3.1.2"
     "braces" "~3.0.2"
-    "fsevents" "~2.3.2"
     "glob-parent" "~5.1.2"
     "is-binary-path" "~2.1.0"
     "is-glob" "~4.0.1"
@@ -7992,8 +7991,6 @@
   "integrity" "sha512-I1CXFG8BYYSeIhtDlHpUVMsdDiyvP9JAh1d9QoBnkPx3ETPeH/1lR14hweM9GETs09wCWlaOyhtXxIc9boxAAA=="
   "resolved" "https://registry.npmjs.org/msgpackr/-/msgpackr-1.5.1.tgz"
   "version" "1.5.1"
-  dependencies:
-    "msgpackr-extract" "^1.0.14"
   optionalDependencies:
     "msgpackr-extract" "^1.0.14"
 
