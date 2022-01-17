@@ -52,23 +52,26 @@ export const Legendary = () => {
         <LegendaryStyles>
             <div className={'container'}>
                 <div className={'main_legendary'}>
-                    <div>
-                        <GatsbyImage image={getImageData(storyLegendary.storyLegendaryMainImg)} alt={storyLegendary.storyLegendaryMainImg.altText || 'banner'}/>
+                    <div className='legendary_image'>
+                        <GatsbyImage className='legendary_baner' image={getImageData(storyLegendary.storyLegendaryMainImg)} alt={storyLegendary.storyLegendaryMainImg.altText || 'banner'}/>
                     </div>
-                    <div>
+                    <div className={'legendary_text'}>
                         <h2>{storyLegendary.storyLegendaryTitle}</h2>
                         <p>{storyLegendary.storyLegendaryText}</p>
-                        <div>Read more...</div>
-                        <Link to="#">{storyLegendary.storyLegendaryButton.title}</Link>
+                        <div className='read_more'>Read more...</div>
+                        <div><Link className={'link'} to="#">{storyLegendary.storyLegendaryButton.title}</Link></div>
                     </div>
                 </div>
                 <div className={'legendary_parent'}>
                     {cardsJoin.map((item, key) => (
-                        <div key={key}>
-                            <GatsbyImage image={getImage(item.cardsJoinBgImg.localFile.childrenImageSharp[0].gatsbyImageData)} alt={'banner'}/>
-                            <h3>{item.cardsJoinTitle}</h3>
-                            <p>{item.cardsJoinSubTitle}</p>
-                            <Link to="#">{item.cardsJoinButton.title}</Link>
+                        <div key={key} className='legendary_item'>
+                            <div className='overlay'></div>
+                            <GatsbyImage layout={'constrained'} className='image_bg' image={getImage(item.cardsJoinBgImg.localFile.childrenImageSharp[0].gatsbyImageData)} alt={'banner'}/>
+                            <div className='content_parent'>
+                                <h3>{item.cardsJoinTitle}</h3>
+                                <p>{item.cardsJoinSubTitle}</p>
+                                <Link className={'link'} to="#">{item.cardsJoinButton.title}</Link>
+                            </div>
                         </div>
                     ))}
                 </div>
