@@ -4,9 +4,6 @@ import {GatsbyImage, getImage} from "gatsby-plugin-image";
 import { CategoryStyles } from "./CategorySectionStyles";
 
 
-import {getImageData} from "../../../utils/get_image_data";
-import {LegendaryStyles} from "../legendary/LegendaryStyles";
-
 export const CategorySection = () => {
     const data = useStaticQuery(graphql`
         query {

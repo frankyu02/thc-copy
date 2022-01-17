@@ -43,6 +43,16 @@ const GlobalStyles = createGlobalStyle`
             width: ${__CONTAINERS.lg}
         }
     `)}
+    ${xs(`
+        .container {
+            width: ${__CONTAINERS.xs}
+        }
+    `)}
+    ${xxs(`
+        .container {
+            width: ${__CONTAINERS.xxs}
+        }
+    `)}
     
 
     

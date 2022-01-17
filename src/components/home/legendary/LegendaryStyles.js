@@ -129,14 +129,18 @@ export const LegendaryStyles = styled.section`
     }
    }
    @media (max-width: 967px) {
+   .main_legendary {
+    .legendary_text {
+      h2 {
+        font-size: 48px;
+      }
+    }
+   }
     .legendary_parent {
       .legendary_item {
         .content_parent {
           left: 10px;
           bottom: 10px;
-          h3 {
-          font-size: 48px;
-          }
           p {
             font-size: 18px;
             max-width: 350px;
