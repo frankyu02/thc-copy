@@ -1,4 +1,7 @@
 import styled from 'styled-components';
 
-export const HeroStyles = styled.section` 
+
+
+export const EducationHeroStyles = styled.section` 
+
 `;

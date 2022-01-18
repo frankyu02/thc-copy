@@ -1,12 +1,12 @@
 import * as React from "react";
-import {Link, graphql, useStaticQuery} from "gatsby";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
-import { HeroStyles } from "./EducationHero.styled";
+import { EducationHeroStyles } from "./EducationHero.styled";
 
-export const EducationHero = () => {
+export const EducationHero = ({title, data}) => {
     return (
-        <HeroStyles>
-           <h1></h1>
-        </HeroStyles>
+        <EducationHeroStyles>
+           <h1>{title}</h1>
+            <time>{data}</time>
+        </EducationHeroStyles>
     );
 }

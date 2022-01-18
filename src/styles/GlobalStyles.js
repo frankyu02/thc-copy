@@ -33,7 +33,8 @@ const GlobalStyles = createGlobalStyle`
     }
     .container {
         width: ${__CONTAINERS.xl};
-        margin: 0 auto;       
+        margin: 0 auto;  
+        max-width: 1400px;
     }
     .main_button {
           border: 1px solid black;

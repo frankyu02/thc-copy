@@ -7,7 +7,8 @@ import {graphql, useStaticQuery} from "gatsby";
 
 const EducationPage = () => {
 
-    const headingText = 'How to Judge the Quality of Cannabis'
+    const headingText = 'How to Judge the Quality of Cannabis';
+    const data = 'JANUARY 28, 2021';
 
     const seo = {
         title: 'Education',
@@ -18,7 +19,7 @@ const EducationPage = () => {
         <>
             <Layout seo={seo}>
                 <HeaderMenu/>
-                <EducationHero/>
+                <EducationHero title={headingText} data={data}/>
                 <Footer/>
             </Layout>
         </>
