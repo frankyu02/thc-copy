@@ -17,7 +17,6 @@ export const ThcTvStyles = styled.section`
       line-height: 20.11px;
       padding: 0 120px 0 100px;
       .btn{
-        display: block;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -55,9 +54,6 @@ export const ThcTvStyles = styled.section`
       margin-bottom: 60px;
       line-height: 96px;
   }
-  .thc-tv-img-mob{
-      display: none;
-  }
   
   @media (max-width: 1200px){
     .thc-tv-text{
@@ -80,9 +76,6 @@ export const ThcTvStyles = styled.section`
             max-width: 100%;
         }
     }
-    .thc-tv-img{
-        display: none;
-    }
     .thc-tv-img-mob{
         display: block;
         width: 100%;
@@ -95,6 +88,13 @@ export const ThcTvStyles = styled.section`
     .thctv-block{
         .container{
             flex-wrap: wrap;
+            flex-direction: column;
+            .thc-tv-text {
+              display: contents;
+              .btn.btn--white {
+                order: 1;
+              }
+            }
         }
     }
   }
