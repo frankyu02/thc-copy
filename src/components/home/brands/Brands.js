@@ -33,23 +33,23 @@ export const Brands = () => {
             }
           }
     `)
-    const {wpPage: {home: {brands}}} = data;
+    const brands = data?.wpPage?.home?.brands;
     return (
         <BrandsStyles>
             <div className="container">
                 <div className={'brand-section'}>
                     <div className={'brand-title'}>
-                        <h2>{brands.brandsTitle}</h2>
-                        <h3>{brands.brandsSubTitle}</h3>
+                        <h2>{brands?.brandsTitle}</h2>
+                        <h3>{brands?.brandsSubTitle}</h3>
                     </div>
                     <div className={'brand-grid'}>
-                        {brands.brandsLogo.map((item, key) => (
-                            <Link to={item.brandsLogoItem.link || '#'} key={key} className={'brand-item'}>
-                                <GatsbyImage image={getImage(item.brandsLogoItem.localFile.childrenImageSharp[0].gatsbyImageData)} alt={'brands'}/>
+                        {brands?.brandsLogo?.map?.((item, key) => (
+                            <Link to={item?.brandsLogoItem?.link || '#'} key={key} className={'brand-item'}>
+                                <GatsbyImage image={getImage(item?.brandsLogoItem?.localFile?.childrenImageSharp[0]?.gatsbyImageData)} alt={'brands'}/>
                             </Link>
                         ))}
                     </div>
-                    <MainButton url={brands.brandsButton.url} target={brands.brandsButton.target}>{brands.brandsButton.title}</MainButton>
+                    <MainButton url={brands?.brandsButton?.url} target={brands?.brandsButton?.target}>{brands?.brandsButton?.title}</MainButton>
                 </div>
             </div>
         </BrandsStyles>
