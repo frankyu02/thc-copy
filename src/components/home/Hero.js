@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link, StaticQuery, graphql } from "gatsby";
+import { StaticQuery, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { HeroStyles } from "./HeroStyles";
 import { getImageData } from "../../utils/get_image_data";

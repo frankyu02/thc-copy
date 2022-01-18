@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useStaticQuery, graphql } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage} from "gatsby-plugin-image";
 import { ThcTvStyles } from "./ThcTvStyles";
 import { getImageData } from "../../../utils/get_image_data";
 
