@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { BrandsStyles } from "./BrandsStyles";
+import { MainButton } from "../../ui/main_button/MainButton";
 
 export const Brands = () => {
     const data = useStaticQuery(graphql`
@@ -48,7 +49,7 @@ export const Brands = () => {
                             </Link>
                         ))}
                     </div>
-                    <Link to={brands.brandsButton.url || '#'} className="btn btn--white" target={brands.brandsButton.target}>{brands.brandsButton.title}</Link>
+                    <MainButton url={brands.brandsButton.url} target={brands.brandsButton.target}>{brands.brandsButton.title}</MainButton>
                 </div>
             </div>
         </BrandsStyles>

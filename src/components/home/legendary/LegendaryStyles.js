@@ -47,6 +47,9 @@ export const LegendaryStyles = styled.section`
           cursor: pointer;
           margin-bottom: 40px;
         }
+        .main_button{
+          margin: 0;
+        }
       }
     }
   }
@@ -78,10 +81,12 @@ export const LegendaryStyles = styled.section`
           font-family: 'Integral CF';
           font-style: italic;
           max-width: 490px;
-          margin: 0;
+          margin: 0 0 20px;
           font-size: 28px;
         }
-        
+        .main_button {
+          margin: 0;
+        }
       }
       .overlay {
         position: absolute;
@@ -190,6 +195,7 @@ export const LegendaryStyles = styled.section`
       .legendary_item {
       margin-bottom: 40px;
         .content_parent {
+          width: 100%;
           left: 10px;
           bottom: 10px;
           h3 {
@@ -201,8 +207,8 @@ export const LegendaryStyles = styled.section`
             max-width: 350px;
           }
         }
-        .link {
-          max-width: calc(100% - 10px);
+        .main_button {
+          max-width: calc(100% - 20px);
         }
       }
     }
@@ -213,5 +219,8 @@ export const LegendaryStyles = styled.section`
           height: 400px;
         }
       }
+      .main_button{
+          max-width: 100%;
+        }
     }
 `;
