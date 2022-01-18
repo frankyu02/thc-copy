@@ -24,7 +24,7 @@ export const HeaderMenu = () => {
       }
   `)
     const {allWpMenuItem: {edges: node}} = data;
-    console.log(node[0]);
+    console.log(node);
     return (
         <HeaderMenuStyles>
           <div className={'header-alert'}>
@@ -35,6 +35,11 @@ export const HeaderMenu = () => {
                 {node.map((item, key) => (
                         <div className={'item'} key={key}>
                             <Link to={item.url || '#'}>{item.node.label}</Link>
+                            {item.node.childItems.nodes.length != 0 ?
+                                item.node.childItems.nodes.map((item, key)=> (
+                                    <div key={key}>{item.label}</div>
+                                )) : ""
+                            }
                         </div>
                   ))}
             </div>
