@@ -1,4 +1,5 @@
 import * as React from "react";
+import { HeaderMenu } from "../navigation/HeaderMenu";
 import { HeroHome } from "../components/home/Hero";
 import {Legendary} from '../components/home/legendary/Legendary';
 import {ThcTv} from '../components/home/thctv/ThcTv';
@@ -20,6 +21,7 @@ const HomePage = () => {
   return (
     <>
       <Layout seo={seo}>
+        <HeaderMenu/>
         <HeroHome/>
         <Legendary/>
         <CategorySection/>
