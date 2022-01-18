@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link, StaticQuery, graphql } from "gatsby";
+import { StaticQuery, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { HeroStyles } from "./HeroStyles";
 import { getImageData } from "../../utils/get_image_data";
@@ -9,8 +9,7 @@ export const HeroHome = () => {
   return (
       <HeroStyles>
         <StaticQuery
-          query={graphql`
-            query {
+          query={graphql`query {
               wpPage(uri: {eq: "/"}) {
                 home {
                   overBanner {
@@ -27,13 +26,6 @@ export const HeroHome = () => {
                       }
                       altText
                     }
-                    bannerIcon {
-                      localFile {
-                        childImageSharp {
-                          gatsbyImageData
-                        }
-                      }
-                    }
                     bannerTitle
                     bannerButton {
                       target
@@ -48,12 +40,11 @@ export const HeroHome = () => {
 
           render = {( { wpPage: { home } } ) => {
             const {
-              banner: {bannerBg, bannerIcon, bannerButton: {title, url, target}, bannerTitle},
+              banner: {bannerBg, bannerButton: {title, url, target}, bannerTitle},
               overBanner: {overBannerLocation1, overBannerLocation2, overBannerTitle}
             } = home;
 
             const bannerImg = getImageData(bannerBg);
-            const bannerIconImg = getImageData(bannerIcon)
             return (
               <div className="container">
                 <div className="header">
@@ -65,7 +56,6 @@ export const HeroHome = () => {
                 </div>
                 <div className="inner">
                   <GatsbyImage className={'background'} image={bannerImg} alt={bannerBg.altText}/>
-                  <GatsbyImage className={'mark'} image={bannerIconImg} alt="mark" />
                   <div className="caption">
                     <h3 className="title">{bannerTitle}</h3>
                     <MainButton url={url} target={target}>{title}</MainButton>
