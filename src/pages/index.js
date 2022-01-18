@@ -8,6 +8,7 @@ import {Brands} from '../components/home/brands/Brands';
 import { SettingStandart } from '../components/home/setting_standart/SettingStandart';
 import {BlogBanner} from '../components/home/blog-banner/BlogBanner';
 import {Footer} from '../components/footer/Footer';
+import {ShopLink} from '../components/ui/shop_link/ShopLink';
 import Layout from "../components/layout/Layout";
 
 
@@ -31,6 +32,7 @@ const HomePage = () => {
         <SettingStandart/>
         <Brands/>
         <Footer/>
+        <ShopLink/>
       </Layout>
     </>
   )
