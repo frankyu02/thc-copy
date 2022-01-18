@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { media, xl, lg, md, sm, xs, xxs } from './utils/media_queries';
+import { lg, xs, xxs } from './utils/media_queries';
 import { __CONTAINERS } from './utils/variables';
 
 

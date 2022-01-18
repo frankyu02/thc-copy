@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Link, StaticQuery, graphql, useStaticQuery} from "gatsby";
+import {Link, graphql, useStaticQuery} from "gatsby";
 import { FooterTwoStyles } from "./FooterTwoStyles";
 
 export const FooterTwo = () => {
@@ -18,11 +18,11 @@ export const FooterTwo = () => {
     const {wpMenu: {menuItems: {nodes}}} = data;
     return (
         <FooterTwoStyles>
-            {nodes.map((item, key) => (
-                <div className="social-item" key={key}>
+            <div className="footer-menu-wrap">
+                {nodes.map((item, key) => (
                     <Link to={item.url || '#'} key={key}>{item.label}</Link>
-                </div>
-            ))}
+                ))}
+            </div>
         </FooterTwoStyles>
     );
 }

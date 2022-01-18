@@ -1,8 +1,6 @@
 import * as React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { HeaderMenuStyles } from "./HeaderMenuStyles";
-import { getImageData } from "../../utils/get_image_data";
 
 export const HeaderMenu = () => {
     const data = useStaticQuery(graphql`
@@ -31,7 +29,6 @@ export const HeaderMenu = () => {
     `)
     const {allWpMenuItem: {edges: node}} = data;
     const {site: {siteMetadata}} = data;
-    console.log(node[0]);
     return (
         <HeaderMenuStyles>
             <div className={'header-alert'}>
@@ -64,8 +61,8 @@ export const HeaderMenu = () => {
                 <div className={'search'}>
                     <button type={'button'} className={'search-btn'}>
                         <svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="10.7368" cy="10.7368" r="9.73684" stroke="black" stroke-width="2"/>
-                            <line x1="18.3914" y1="16.9771" x2="24.7072" y2="23.2929" stroke="black" stroke-width="2"/>
+                            <circle cx="10.7368" cy="10.7368" r="9.73684" stroke="black" strokeWidth="2"/>
+                            <line x1="18.3914" y1="16.9771" x2="24.7072" y2="23.2929" stroke="black" strokeWidth="2"/>
                         </svg>
                     </button>
                 </div>
