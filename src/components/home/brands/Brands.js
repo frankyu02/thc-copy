@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { BrandsStyles } from "./BrandsStyles";
-import { getImageData } from "../../../utils/get_image_data";
 import { MainButton } from "../../ui/main_button/MainButton";
 
 export const Brands = () => {

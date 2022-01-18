@@ -72,13 +72,13 @@ export const CategoryStyles = styled.section`
                 line-height: 1;
                 transition: .4s;
                 svg{
+                    transition: .4s;
                     margin-left: 12px;
                 }
             }
             a:hover{
-                align-items: flex-start;
                 svg{
-                    margin-top: 5px;
+                    padding-bottom: 20px;
                     width: 36px;
                     height: 36px;
                 }
