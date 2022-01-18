@@ -1,70 +1,62 @@
 import * as React from "react";
-import { StaticQuery, graphql } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { useStaticQuery, graphql } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { HeroStyles } from "./HeroStyles";
-import { getImageData } from "../../utils/get_image_data";
 import { MainButton } from "../ui/main_button/MainButton";
 
 export const HeroHome = () => {
+    const data = useStaticQuery(graphql`
+        query {
+            wpPage(uri: {eq: "/"}) {
+                home {
+                    overBanner {
+                        overBannerLocation1
+                        overBannerLocation2
+                        overBannerTitle
+                    }
+                    banner {
+                        bannerBg {
+                            localFile {
+                                childImageSharp {
+                                    gatsbyImageData
+                                }
+                            }
+                            altText
+                        }
+                        bannerTitle
+                        bannerButton {
+                            target
+                            title
+                            url
+                        }
+                    }
+                }
+            }
+        }
+    `)
+    const overBanner = data?.wpPage?.home?.overBanner;
+    const banner = data?.wpPage?.home?.banner?.bannerBg?.localFile?.childImageSharp?.gatsbyImageData;
+    const bannerText = data?.wpPage?.home?.banner?.bannerBg?.altText;
+    const bannerTitle = data?.wpPage?.home?.banner?.bannerTitle;
+    const bannerButton = data?.wpPage?.home?.banner?.bannerButton;
   return (
       <HeroStyles>
-        <StaticQuery
-          query={graphql`query {
-              wpPage(uri: {eq: "/"}) {
-                home {
-                  overBanner {
-                    overBannerLocation1
-                    overBannerLocation2
-                    overBannerTitle
-                  }
-                  banner {
-                    bannerBg {
-                      localFile {
-                        childImageSharp {
-                          gatsbyImageData
-                        }
-                      }
-                      altText
-                    }
-                    bannerTitle
-                    bannerButton {
-                      target
-                      title
-                      url
-                    }
-                  }
-                }
-              }
-            }
-          `}
-
-          render = {( { wpPage: { home } } ) => {
-            const {
-              banner: {bannerBg, bannerButton: {title, url, target}, bannerTitle},
-              overBanner: {overBannerLocation1, overBannerLocation2, overBannerTitle}
-            } = home;
-
-            const bannerImg = getImageData(bannerBg);
-            return (
-              <div className="container">
-                <div className="header">
+          <div className="container">
+              <div className="header">
                   <div className='address_parent'>
-                      <h4>{overBannerLocation1}</h4>
-                      <h4>{overBannerLocation2}</h4>
+                      <h4>{overBanner?.overBannerLocation1}</h4>
+                      <h4>{overBanner?.overBannerLocation2}</h4>
                   </div>
-                  <h1>{overBannerTitle}</h1>
-                </div>
-                <div className="inner">
-                  <GatsbyImage className={'background'} image={bannerImg} alt={bannerBg.altText}/>
-                  <div className="caption">
-                    <h3 className="title">{bannerTitle}</h3>
-                    <MainButton url={url} target={target}>{title}</MainButton>
-                  </div>
-                </div>
+                  <h1>{overBanner?.overBannerTitle}</h1>
               </div>
-            )
-          }}
-        />
+              <div className="inner">
+                  <GatsbyImage className={'background'} image={getImage(banner)} alt={bannerText}/>
+                  <div className="caption">
+                      <h3 className="title">{bannerTitle}</h3>
+                      <MainButton url={bannerButton?.url} target={bannerButton?.target}>{bannerButton?.title}</MainButton>
+                  </div>
+              </div>
+          </div>
       </HeroStyles>
   )
 }
