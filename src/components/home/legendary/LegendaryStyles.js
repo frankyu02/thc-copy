@@ -78,6 +78,7 @@ export const LegendaryStyles = styled.section`
           font-family: 'Integral CF';
           font-style: italic;
           max-width: 490px;
+          margin: 0;
           font-size: 28px;
         }
         

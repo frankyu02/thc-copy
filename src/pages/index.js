@@ -7,6 +7,7 @@ import {CategorySection} from '../components/home/category-section/CategorySecti
 import {Brands} from '../components/home/brands/Brands';
 import { SettingStandart } from '../components/home/setting_standart/SettingStandart';
 import {BlogBanner} from '../components/home/blog-banner/BlogBanner';
+import {Footer} from '../components/footer/Footer';
 import Layout from "../components/layout/Layout";
 
 
@@ -25,10 +26,11 @@ const HomePage = () => {
         <HeroHome/>
         <Legendary/>
         <CategorySection/>
-        <SettingStandart/>
         <ThcTv/>
         <BlogBanner/>
+        <SettingStandart/>
         <Brands/>
+        <Footer/>
       </Layout>
     </>
   )
