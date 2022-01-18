@@ -62,6 +62,7 @@ const GlobalStyles = createGlobalStyle`
         max-width: calc(100% - 10px);
       }
     }
+    
 
     ${lg(`
         .container {
