@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link, useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { SettingStyle } from "./SettingStyle";
 import { getImageData } from "../../../utils/get_image_data";
+import { MainButton } from "../../ui/main_button/MainButton";
 
 export const SettingStandart = () => {
     const data = useStaticQuery(graphql`
@@ -47,12 +48,10 @@ export const SettingStandart = () => {
                             <p key={key}>{item.newsTextParagraph}</p>
                         ))}
                         <div className='read_more'>{news.newsOpenModal}</div>
-                        <Link className={'link'} to="#">{news.newsButton.title}</Link>
+                        <MainButton url={news.newsButton.url} target={news.newsButton.target}>{news.newsButton.title}</MainButton>
                     </div>
                 </div>
             </div>
         </SettingStyle>
     );
 };
-
-export default SettingStandart;

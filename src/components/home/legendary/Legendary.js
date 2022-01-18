@@ -3,6 +3,7 @@ import { Link, useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { LegendaryStyles } from "./LegendaryStyles";
 import { getImageData } from "../../../utils/get_image_data";
+import { MainButton } from "../../ui/main_button/MainButton";
 
 export const Legendary = () => {
     const data = useStaticQuery(graphql`
@@ -59,7 +60,7 @@ export const Legendary = () => {
                         <h2>{storyLegendary.storyLegendaryTitle}</h2>
                         <p>{storyLegendary.storyLegendaryText}</p>
                         <div className='read_more'>Read more...</div>
-                        <div><Link className={'link'} to="#">{storyLegendary.storyLegendaryButton.title}</Link></div>
+                        <div><MainButton url={storyLegendary.storyLegendaryButton.url} target={storyLegendary.storyLegendaryButton.target}>{storyLegendary.storyLegendaryButton.title}</MainButton></div>
                     </div>
                 </div>
                 <div className={'legendary_parent'}>
@@ -70,7 +71,7 @@ export const Legendary = () => {
                             <div className='content_parent'>
                                 <h3>{item.cardsJoinTitle}</h3>
                                 <p>{item.cardsJoinSubTitle}</p>
-                                <Link className={'link'} to="#">{item.cardsJoinButton.title}</Link>
+                                <MainButton url={item.cardsJoinButton.url} target={item.cardsJoinButton.target}>{item.cardsJoinButton.title}</MainButton>
                             </div>
                         </div>
                     ))}

@@ -48,6 +48,9 @@ export const SettingStyle = styled.section`
           font-size: 18px;
           margin: 0 0 30px;
         }
+        .main_button {
+          margin: 0;
+        }
       }
     }
      @media (max-width: 1365px) {
@@ -92,6 +95,11 @@ export const SettingStyle = styled.section`
             .gatsby-image-wrapper {
             width: 100%;
             }
+          }
+          .setting_text {
+              .main_button {
+                max-width: 100%;
+              }
           }
         }
        .link {

@@ -2,6 +2,7 @@ import * as React from "react";
 import {Link, StaticQuery, graphql, useStaticQuery} from "gatsby";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
 import { BlogBannerStyles } from "./BlogBannerStyles";
+import { MainButton } from "../../ui/main_button/MainButton";
 
 export const BlogBanner = () => {
     const data = useStaticQuery(graphql`
@@ -57,7 +58,7 @@ export const BlogBanner = () => {
                         ))}
                     </div>
                     <div className="button">
-                        <Link to={thcBlog.thcBlogButton.url || '#'} className="btn" target={thcBlog.thcBlogButton.target}>{thcBlog.thcBlogButton.title}</Link>
+                        <MainButton url={thcBlog.thcBlogButton.url} target={thcBlog.thcBlogButton.target}>{thcBlog.thcBlogButton.title}</MainButton>
                     </div>
                 </div>
             </div>
