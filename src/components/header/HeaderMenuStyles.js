@@ -107,17 +107,19 @@ export const HeaderMenuStyles = styled.section`
     }
 
     .headerList {
+      height: 100%;
       margin: 0;
       padding: 0;
       flex-direction: column;
       justify-content: left;
       text-align: left;
       ${lg(`
-               list-style: none;
+      list-style: none;
+      flex-direction:row;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-  
+       text-align:center;
       justify-content: center;
       `)}
 
@@ -162,7 +164,9 @@ export const HeaderMenuStyles = styled.section`
       font-weight: normal;
       font-size: 14px;
       line-height: 100%;
-      border-left: 1px solid #000;
+      ${lg(`
+           border-left: 1px solid #000;
+      `)}
     }
   }
 
