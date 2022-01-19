@@ -37,15 +37,16 @@ export const BrandsStyles = styled.section`
                 line-height: 100%;
                 color: #612C8F;
                 text-transform: uppercase;
-                margin: 0
+                margin: 0;
+                line-height: 90%;
+                letter-spacing: 0.01em;
             }
             h3{
-                font-weight: bold;
                 font-size: 35px;
                 line-height: 100%;
                 color: #000000;
                 font-style: italic;
-                font-family: 'Integral CF';
+                font-family: 'Integral CF Bold';
                 margin-bottom: 39px
             }
         }
