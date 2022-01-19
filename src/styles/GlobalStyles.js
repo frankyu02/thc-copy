@@ -32,7 +32,7 @@ const GlobalStyles = createGlobalStyle`
         border-width: 1px;
     }
     .container {
-        width: ${__CONTAINERS.xl};
+        width: ${__CONTAINERS.xxs};
         margin: 0 auto;  
         max-width: 1400px;
     }

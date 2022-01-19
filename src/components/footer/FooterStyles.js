@@ -1,27 +1,31 @@
 import styled from 'styled-components';
+import {md, sm, xs, xxs} from "../../styles/utils/media_queries";
 
 export const FooterStyles = styled.footer`
     background: #612C8F;
     color: #fff;
-        h2{
-            box-sizing: border-box;
-            font-family: Neumatic Compressed Bold;
-            font-size: 80px;
-            text-transform: uppercase;
-            margin: 40px 0 90px;
-            line-height: 95%;
-            width: 30%;
-            padding-right: 8%;
-        }
+    h2{
+        order: -2;
+        border-bottom: 1px solid #fff;
+        margin: 40px 0 50px;
+        margin-bottom: 0;
+        padding-bottom: 25px;
+        padding-right: 5%;
+        font-family: Neumatic Compressed Bold;
+        font-size: 50px;
+        box-sizing: border-box;
+        line-height: 95%;
+        text-transform: uppercase;
+    }
     .footer-wrap{
         display: flex;
         flex-wrap: wrap;
         margin-bottom: 30px;
     }
     .footer-menu{
-        box-sizing: border-box;
-        border: 1px solid #fff;
-        width: 30%;
+        order: -1;
+        border: 0;
+        width: 50%;
         text-transform: uppercase;
         font-weight: 700;
         font-size: 18px;
@@ -36,13 +40,17 @@ export const FooterStyles = styled.footer`
         }
     }
     .footer-menu-wrap{
-        margin: 0 auto;
+        margin: 0;
         max-width: 160px;
+        padding-right: 15px;
     }
     .footer-form{
+        width: 100%;
+        order: 1;
+        padding: 30px 0;
+        border-bottom: 1px solid #fff;
+        border-top: 1px solid #fff;
         box-sizing: border-box;
-        padding: 70px 5% 0;
-        width: 40%;
         h3{
             text-transform: uppercase;
             margin-bottom: 55px;
@@ -105,9 +113,6 @@ export const FooterStyles = styled.footer`
     }
     .footer-location{
         box-sizing: border-box;
-        width: 30%;
-        border: 1px solid #fff;
-        border-left: 0;
         padding: 30px 0;
         font-size: 16px;
         text-transform: uppercase;
@@ -129,37 +134,52 @@ export const FooterStyles = styled.footer`
         padding-bottom: 20px; 
         
     }
-    @media (max-width: 1200px){
+
+    ${xxs(`
         h2{
-            margin: 40px 0 50px;
-            padding-right: 5%;
+            font-size: 70px;
         }
-    }
-    @media (max-width: 992px){
+    `)}
+    ${xs(`
         h2{
-            width: 100%;
-            order: -2;
-            border-bottom: 1px solid #fff;
-            margin-bottom: 0;
-            padding-bottom: 25px;
-        }
-        .footer-menu{
-            order: -1;
-            border: 0;
-            width: 50%;
-        }
-        .footer-menu-wrap{
-            margin: 0;
+            font-size: 80px;
         }
         .footer-form{
-            order: 1;
-            width: 100%;
-            padding: 30px 0;
-            border-bottom: 1px solid #fff;
+            border-bottom: 0;
+        }
+    `)}
+    ${sm(`
+        .footer-menu-wrap{
+            padding-right: 0;
+            margin: 0 auto;
+        }
+        h2{
+            margin: 40px 0 50px;
+            width: 30%;
+            padding-right: 5%;
+            border-bottom: 0;
+        }
+        .footer-menu{
+            order: 0;
+            width: 30%;
+            box-sizing: border-box;
+            border: 1px solid #fff;
+        }
+        .footer-form{
+            order: 0;
+            padding: 70px 5% 0;
+            width: 40%;
         }
         .footer-location{
-            width: 100%;
-            border-right: 0;
+            width: 30%;
+            border: 1px solid #fff;
+            border-left: 0;
         }
-    }
+    `)}
+    ${md(`
+        h2{
+            margin: 40px 0 90px;
+            padding-right: 8%;
+        }
+    `)}
 `;

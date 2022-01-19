@@ -1,35 +1,43 @@
 import styled from 'styled-components';
+import {md, sm, xs} from "../../../styles/utils/media_queries";
 
 export const FooterSocialStyles = styled.div`
-    width: 40%;
+    width: 100%;
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
     text-align: center;
+    order: 2;
+    font-size: 28px;
     a{  
-        padding: 40px 0;
+        padding: 25px 0;
         display: block;
-        width: 50%;
-        border: 1px solid #fff;
+        border-bottom: 1px solid #fff;
         box-sizing: border-box;
         transition: .3s;
         font-family: Integral CF Bold;
         letter-spacing: 0.01em;
+        width: 100%;
     }
     a:hover{
         background: #fff;
         color: #612C8F;
     }
-    @media (max-width: 992px){
-        order: 2;
-        width: 100%;
-    }
-    @media (max-width: 768px){
+    ${xs(`
+        font-size: 22px;
         a{
-            border: 0;
-            border-bottom: 1px solid #fff;
-            width: 100%;
-            font-size: 28px;
+            border: 1px solid #fff;
+            width: 50%;
+            
         }
-    }
+    `)}
+    ${sm(`
+        width: 40%;
+        a{
+            padding: 40px 0;
+        }
+    `)}
+    ${md(`
+        font-size: 28px;
+    `)}
 `;

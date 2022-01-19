@@ -2,8 +2,7 @@ import * as React from "react";
 import { HeaderMenu } from "../components/header/HeaderMenu";
 import {Footer} from '../components/footer/Footer';
 import Layout from "../components/layout/Layout";
-import {EducationHero} from "../components/global-component/education-hero/EducationHero";
-import {graphql, useStaticQuery} from "gatsby";
+import {EducationHero} from "../components/global_component/education-hero/EducationHero";
 
 const EducationPage = () => {
 
