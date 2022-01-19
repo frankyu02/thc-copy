@@ -30,7 +30,6 @@ export const LegendaryStyles = styled.section`
       flex-direction: column;
       justify-content: center;
       border-left: 1px solid black;
-      {
         h2 {
           font-size: 64px;
           font-family: 'Integral CF Bold';
@@ -76,9 +75,11 @@ export const LegendaryStyles = styled.section`
         h3 {
           font-family: 'Neumatic Compressed Bold';
           font-size: 80px;
+          text-transform: uppercase;
+          letter-spacing: 0.01em;
         }
         p {
-          font-family: 'Integral CF';
+          font-family: 'Integral CF Bold';
           font-style: italic;
           max-width: 490px;
           margin: 0 0 20px;

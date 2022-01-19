@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Link, graphql, useStaticQuery} from "gatsby";
-import { FooterSocialStyles } from "./FooterSocialStyles";
+import { FooterSocialStyled } from "./FooterSocial.styled";
 
 export const FooterSocial = () => {
     const data = useStaticQuery(graphql`
@@ -17,10 +17,10 @@ export const FooterSocial = () => {
     `)
     const {wpMenu: {menuItems: {nodes}}} = data;
     return (
-        <FooterSocialStyles>
+        <FooterSocialStyled>
             {nodes.map((item, key) => (
                 <Link to={item.url || '#'} key={key}>{item.label}</Link>
             ))}
-        </FooterSocialStyles>
+        </FooterSocialStyled>
     );
 }

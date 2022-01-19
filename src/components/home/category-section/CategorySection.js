@@ -3,7 +3,6 @@ import {Link, graphql, useStaticQuery} from "gatsby";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
 import { CategoryStyles } from "./CategorySectionStyles";
 
-
 export const CategorySection = () => {
     const data = useStaticQuery(graphql`
         query {

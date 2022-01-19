@@ -18,6 +18,15 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // Change plugin default options here, e.g.:
+        // ssr: false
+        // displayName: false,
+        // minify: false
+      },
+    },
+    {
       resolve: `gatsby-source-wordpress`,
       options: {
         url: GATSBY_SOURCE,

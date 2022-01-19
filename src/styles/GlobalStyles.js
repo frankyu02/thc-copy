@@ -27,13 +27,17 @@ const GlobalStyles = createGlobalStyle`
         padding: 0px 0px;
     }
 
+    *{
+        box-sizing: border-box;
+    }
     fieldset {
         border-color: rgba(0,0,0,0.1);
         border-width: 1px;
     }
     .container {
-        width: ${__CONTAINERS.xl};
-        margin: 0 auto;       
+        width: ${__CONTAINERS.xxs};
+        margin: 0 auto;  
+        max-width: 1400px;
     }
     .main_button {
           border: 1px solid black;
@@ -50,6 +54,7 @@ const GlobalStyles = createGlobalStyle`
           display: block;
           text-align: center;
           transition: 0.2s;
+          font-size: 18px;
         }
     .main_button:hover {
       font-style: italic;
@@ -62,10 +67,10 @@ const GlobalStyles = createGlobalStyle`
         max-width: calc(100% - 10px);
       }
     }
-
-    ${lg(`
+    
+    ${xxs(`
         .container {
-            width: ${__CONTAINERS.lg}
+            width: ${__CONTAINERS.xxs}
         }
     `)}
     ${xs(`
@@ -73,11 +78,13 @@ const GlobalStyles = createGlobalStyle`
             width: ${__CONTAINERS.xs}
         }
     `)}
-    ${xxs(`
+    ${lg(`
         .container {
-            width: ${__CONTAINERS.xxs}
+            width: ${__CONTAINERS.lg}
         }
     `)}
+    
+    
     
 
     

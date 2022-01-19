@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Link, graphql, useStaticQuery} from "gatsby";
-import { FooterStyles } from "./FooterStyles";
+import { FooterStyled } from "./Footer.styled";
 import { FooterSocial } from "./footer-social/FooterSocial";
 import { FooterTwo } from "./footer-two/FooterTwo";
 
@@ -12,6 +12,7 @@ export const Footer = () => {
                   nodes {
                     label
                     url
+                    path
                   }
                 }
             }
@@ -46,14 +47,14 @@ export const Footer = () => {
     const nodes = data?.wpMenu?.menuItems?.nodes;
     const footer = data?.wp?.acfOptionsFooterOptions?.footer;
     return (
-        <FooterStyles>
+        <FooterStyled>
             <div className="container">
                 <div className="footer-wrap">
                     <h2>{footer?.footerTitle}</h2>
                     <div className="footer-menu">
                         <div className="footer-menu-wrap">
                             {nodes?.map?.((item, key) => (
-                                <Link className="menu-item" to={item?.url || '#'} key={key}>{item?.label}</Link>
+                                <Link className="menu-item" to={item?.path || '#'} key={key}>{item?.label}</Link>
                             ))}
                         </div>
                     </div>
@@ -90,6 +91,6 @@ export const Footer = () => {
                 </div>
                 <p className="copyright">{footer?.footerCopyRight}</p>
             </div>
-        </FooterStyles>
+        </FooterStyled>
     );
 }

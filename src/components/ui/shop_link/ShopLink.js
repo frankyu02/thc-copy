@@ -27,7 +27,7 @@ export const ShopLink = () => {
     const {wp: {thcwebsiteGeneralOption: {shoplink: {shopLogo}}}} = data;
     return (
         <LinkStyles>
-            <a target={'_blank'} href={config_file.shop_link}>
+            <a target={'_blank'} rel='noreferrer' href={config_file.shop_link}>
                 <GatsbyImage className={'link'} image={getImage(shopLogo.localFile.childrenImageSharp[0].gatsbyImageData)} alt='link_to_hop'/>
             </a>
         </LinkStyles>

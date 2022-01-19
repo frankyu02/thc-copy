@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const ThcTvStyles = styled.section` 
   .thctv-block{
       background: #EBEBEB;
-      padding: 103px 0 125px;
+      padding: 103px 0;
       .container{
           display: flex;
           align-items: center;
@@ -13,9 +13,9 @@ export const ThcTvStyles = styled.section`
   .thc-tv-text{
       font-weight: 300;
       font-size: 16px;
-      width: 40%;
+      width: 50%;
       line-height: 20.11px;
-      padding: 0 120px 0 100px;
+      padding: 0 0 0 100px;
       .btn{
         display: flex;
         align-items: center;
@@ -49,10 +49,10 @@ export const ThcTvStyles = styled.section`
   }
   h2{
       font-style: italic;
-      font-weight: 900;
       font-size: 96px;
       margin-bottom: 60px;
       line-height: 96px;
+      font-family: 'Integral CF Bold';
   }
   
   @media (max-width: 1200px){
