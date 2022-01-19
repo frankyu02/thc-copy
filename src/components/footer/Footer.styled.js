@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import {md, sm, xs, xxs} from "../../styles/utils/media_queries";
 
-export const FooterStyles = styled.footer`
+export const FooterStyled = styled.footer`
     background: #612C8F;
     color: #fff;
     h2{

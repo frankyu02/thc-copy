@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import {sm} from "../../../styles/utils/media_queries";
 
-export const FooterTwoStyles = styled.div`
+export const FooterTwoStyled = styled.div`
     box-sizing: border-box;
     text-transform: uppercase;
     font-weight: 700;

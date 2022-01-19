@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import {md, sm, xs} from "../../../styles/utils/media_queries";
 
-export const FooterSocialStyles = styled.div`
+export const FooterSocialStyled = styled.div`
     width: 100%;
     box-sizing: border-box;
     display: flex;
