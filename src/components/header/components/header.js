@@ -4,7 +4,6 @@ import { NavItem } from "./navItem"
 import { Search } from "./search"
 
 export const Header = ({ logoText, navItems }) => {
-  console.log(navItems)
   return (
     <header className={"header"}>
       <div className="item header-logo">

@@ -18,8 +18,6 @@ const Item = styled.li`
 
 export const NavItem = ({ item }) => {
 
-  const url = item.node.url
-  console.log(item)
   return (
     <Item>
       {item.url ? <Link to={item.url}>{item.node.label}</Link> : <p>{item.node.label}  </p>}
