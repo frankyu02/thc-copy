@@ -13,9 +13,9 @@ export const ThcTvStyles = styled.section`
   .thc-tv-text{
       font-weight: 300;
       font-size: 16px;
-      width: 40%;
+      width: 50%;
       line-height: 20.11px;
-      padding: 0 120px 0 100px;
+      padding: 0 0 0 100px;
       .btn{
         display: flex;
         align-items: center;

@@ -27,6 +27,9 @@ const GlobalStyles = createGlobalStyle`
         padding: 0px 0px;
     }
 
+    *{
+        box-sizing: border-box;
+    }
     fieldset {
         border-color: rgba(0,0,0,0.1);
         border-width: 1px;
@@ -64,10 +67,9 @@ const GlobalStyles = createGlobalStyle`
       }
     }
     
-
-    ${lg(`
+    ${xxs(`
         .container {
-            width: ${__CONTAINERS.lg}
+            width: ${__CONTAINERS.xxs}
         }
     `)}
     ${xs(`
@@ -75,11 +77,13 @@ const GlobalStyles = createGlobalStyle`
             width: ${__CONTAINERS.xs}
         }
     `)}
-    ${xxs(`
+    ${lg(`
         .container {
-            width: ${__CONTAINERS.xxs}
+            width: ${__CONTAINERS.lg}
         }
     `)}
+    
+    
     
 
     

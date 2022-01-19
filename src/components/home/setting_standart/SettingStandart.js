@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { SettingStyle } from "./SettingStyle";
 import { MainButton } from "../../ui/main_button/MainButton";
+import { ModalSettingSrandart } from "../../ui/modal_setting-standart/ModalSettingStandart";
 
 export const SettingStandart = () => {
     const data = useStaticQuery(graphql`
@@ -50,6 +51,7 @@ export const SettingStandart = () => {
                         <MainButton url={news?.newsButton?.url} target={news?.newsButton?.target}>{news?.newsButton?.title}</MainButton>
                     </div>
                 </div>
+                <ModalSettingSrandart/>
             </div>
         </SettingStyle>
     );

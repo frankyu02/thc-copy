@@ -7,17 +7,20 @@ export const HeroStyles = styled.section`
     align-items: flex-end;
     justify-content: space-between;
     margin-bottom: 40px;
+    letter-spacing: 0.2rem;
     h1 {
       margin: 0;
       line-height: 1;
       font-size: 160px;
     }
     h4 {
-      font-size: 16px;
-      max-width: 180px;
+        line-height: 130%;
+        font-size: 16px;
+        max-width: 180px;
+        letter-spacing: 0;
     }
     h4:first-child {
-      margin-bottom: 30px;
+      margin-bottom: 23px;
     }
   }
   .inner {
@@ -33,11 +36,13 @@ export const HeroStyles = styled.section`
         z-index: 1;
         font-style: italic;
         h3 {
-          font-size: 48px;
-          color: white;
-          text-align: center;
-          max-width: 820px;
-          margin-bottom: 70px;
+            font-size: 48px;
+            color: white;
+            text-align: center;
+            max-width: 820px;
+            margin-bottom: 65px;
+            line-height: 1;
+            font-style: normal;
         }
         
     }

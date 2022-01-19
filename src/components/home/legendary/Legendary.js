@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { LegendaryStyles } from "./LegendaryStyles";
 import { MainButton } from "../../ui/main_button/MainButton";
+import {ModalLegendary} from "../../ui/modal_legendary/ModalLegendary";
 
 export const Legendary = () => {
     const data = useStaticQuery(graphql`
@@ -16,6 +17,10 @@ export const Legendary = () => {
                             url
                         }
                         storyLegendaryText
+                        storyLegendaryMainText {
+                          fieldGroupName
+                          storyLegendaryMainTextItem
+                        }
                         storyLegendaryTitle
                         storyLegendaryModalOpen
                         storyLegendaryMainImg {
@@ -25,6 +30,10 @@ export const Legendary = () => {
                                 }
                             }
                             altText
+                        }
+                        storyLegendaryModalText {
+                          fieldGroupName
+                          storyLegendaryModalTextItem
                         }
                     }
                     cardsJoin {
@@ -58,11 +67,14 @@ export const Legendary = () => {
                     </div>
                     <div className={'legendary_text'}>
                         <h2>{storyLegendary?.storyLegendaryTitle}</h2>
-                        <p>{storyLegendary?.storyLegendaryText}</p>
+                        {storyLegendary?.storyLegendaryMainText?.map?.((item, key) => (
+                            <p key={key}>{item?.storyLegendaryMainTextItem}</p>
+                        ))}
                         <div className='read_more'>{storyLegendary?.storyLegendaryModalOpen}</div>
                         <div><MainButton url={storyLegendary?.storyLegendaryButton?.url} target={storyLegendary?.storyLegendaryButton?.target}>{storyLegendary?.storyLegendaryButton?.title}</MainButton></div>
                     </div>
                 </div>
+                <ModalLegendary/>
                 <div className={'legendary_parent'}>
                     {cardsJoin?.map?.((item, key) => (
                         <div key={key} className='legendary_item'>

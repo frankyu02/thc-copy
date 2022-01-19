@@ -36,6 +36,7 @@ export const BrandsStyles = styled.section`
                 font-size: 130px;
                 line-height: 100%;
                 color: #612C8F;
+                text-transform: uppercase;
                 margin: 0
             }
             h3{
