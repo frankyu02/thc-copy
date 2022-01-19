@@ -5573,10 +5573,10 @@
     "svgo" "1.3.2"
     "uuid" "3.4.0"
 
-"gatsby-plugin-styled-components@^5.4.0":
-  "integrity" "sha512-YsQJW4nuhuSIRrLRwexXWmrqIgirFWfYVtdhPTIHcrq5VCDW2OkMw/Kn+WNpHt1GUmP+3piKfKtofeF61xKwuw=="
-  "resolved" "https://registry.npmjs.org/gatsby-plugin-styled-components/-/gatsby-plugin-styled-components-5.4.0.tgz"
-  "version" "5.4.0"
+"gatsby-plugin-styled-components@^5.5.0":
+  "integrity" "sha512-XYDKMXF3GYCFZrW5HfLGb9elDxCfZWoSYyDUZ6j6rBhuaRlNDwBtRyyEmnTBEOS0e3+v65XwJWBx78+2QMljXw=="
+  "resolved" "https://registry.npmjs.org/gatsby-plugin-styled-components/-/gatsby-plugin-styled-components-5.5.0.tgz"
+  "version" "5.5.0"
   dependencies:
     "@babel/runtime" "^7.15.4"
 
