@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
 export const CategoryStyles = styled.section` 
+    border-bottom: 1px solid #000;
     .category-section{
-        padding: 100px 0;
+        padding: 100px 0 84px;
         h2{
             font-size: 130px;
             font-weight: 900;      
             color: #612C8F;
             text-transform: uppercase;
             letter-spacing: 0.01em;
+            line-height: 88%;
             font-family: 'Neumatic Compressed Bold';
         }
         h3{
@@ -28,12 +30,12 @@ export const CategoryStyles = styled.section`
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
             a{  
                 position: relative;
                 cursor: pointer;
                 border: 1px solid #000000;
-                width: 48%;
+                width: 49.5%;
                 margin-bottom: 16px;
                 transition: .4s;
                 .gatsby-image-wrapper{
@@ -47,7 +49,8 @@ export const CategoryStyles = styled.section`
                     z-index: -1;
                 }
                 h4{
-                    padding: 55px 25px;
+                    padding: 50px 44px;
+                    letter-spacing: 0.02em;
                 }
             }
             a:hover{

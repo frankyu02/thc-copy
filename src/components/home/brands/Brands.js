@@ -1,11 +1,11 @@
-import React from 'react';
-import { Link, useStaticQuery, graphql } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { BrandsStyles } from "./BrandsStyles";
-import { MainButton } from "../../ui/main_button/MainButton";
+import React from "react"
+import { graphql, useStaticQuery } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { BrandsStyles } from "./BrandsStyles"
+import { MainButton } from "../../ui/main_button/MainButton"
 
 export const Brands = () => {
-    const data = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
         query {
             wpPage(uri: {eq: "/"}) {
               home {
@@ -33,27 +33,29 @@ export const Brands = () => {
             }
           }
     `)
-    const brands = data?.wpPage?.home?.brands;
-    return (
-        <BrandsStyles>
-            <div className="container">
-                <div className={'brand-section'}>
-                    <div className={'brand-title'}>
-                        <h2>{brands?.brandsTitle}</h2>
-                        <h3>{brands?.brandsSubTitle}</h3>
-                    </div>
-                    <div className={'brand-grid'}>
-                        {brands?.brandsLogo?.map?.((item, key) => (
-                            <Link to={item?.brandsLogoItem?.link || '#'} key={key} className={'brand-item'}>
-                                <GatsbyImage image={getImage(item?.brandsLogoItem?.localFile?.childrenImageSharp[0]?.gatsbyImageData)} alt={'brands'}/>
-                            </Link>
-                        ))}
-                    </div>
-                    <MainButton url={brands?.brandsButton?.url} target={brands?.brandsButton?.target}>{brands?.brandsButton?.title}</MainButton>
-                </div>
-            </div>
-        </BrandsStyles>
-    );
-};
+  const brands = data?.wpPage?.home?.brands
+  return (
+    <BrandsStyles>
+      <div className="container">
+        <div className={"brand-section"}>
+          <div className={"brand-title"}>
+            <h2>{brands?.brandsTitle}</h2>
+            <h3>{brands?.brandsSubTitle}</h3>
+          </div>
+          <div className={"brand-grid"}>
+            {brands?.brandsLogo?.map?.((item, key) => (
+              <a target={"_blank"} href={item?.brandsLogoItem?.link || "#"} key={key} className={"brand-item"}>
+                <GatsbyImage image={getImage(item?.brandsLogoItem?.localFile?.childrenImageSharp[0]?.gatsbyImageData)}
+                             alt={"brands"} />
+              </a>
+            ))}
+          </div>
+          <MainButton url={brands?.brandsButton?.url}
+                      target={brands?.brandsButton?.target}>{brands?.brandsButton?.title}</MainButton>
+        </div>
+      </div>
+    </BrandsStyles>
+  )
+}
 
-export default Brands;
+export default Brands

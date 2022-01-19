@@ -30,7 +30,6 @@ export const LegendaryStyles = styled.section`
       flex-direction: column;
       justify-content: center;
       border-left: 1px solid black;
-      {
         h2 {
           font-size: 64px;
           font-family: 'Integral CF Bold';

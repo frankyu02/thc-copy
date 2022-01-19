@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ModalLegendaryStyles = styled.div` 
-    display: flex;
+    // display: flex;
     
     display: none;
     

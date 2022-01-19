@@ -16,12 +16,14 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-image`, {
-      resolve: "gatsby-plugin-react-svg",
+    `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-plugin-styled-components`,
       options: {
-        rule: {
-          include: /assets/
-        }
+        // Change plugin default options here, e.g.:
+        // ssr: false
+        // displayName: false,
+        // minify: false
       }
     },
     {
@@ -36,7 +38,6 @@ module.exports = {
         }
       }
     },
-
     {
       resolve: `gatsby-source-filesystem`,
       options: {

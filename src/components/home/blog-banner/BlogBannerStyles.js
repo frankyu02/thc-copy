@@ -8,10 +8,11 @@ export const BlogBannerStyles = styled.section`
         h2{
             font-size: 96px;
             font-style: italic;
-            font-weight: bold;
             font-family: Integral CF Bold;
+            line-height: 100%;
             text-align: right;
             margin-bottom: 50px;
+            padding-right: 1%;
         }
         .blog-wrap{
             display: flex;
@@ -25,7 +26,6 @@ export const BlogBannerStyles = styled.section`
                 font-family: Neumatic Compressed Bold;
                 text-transform: uppercase;
                 font-size: 96px;
-                margin-bottom: 15px;
             }
             .gatsby-image-wrapper{
                 margin-bottom: 15px;
