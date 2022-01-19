@@ -6,8 +6,9 @@ export const FooterStyles = styled.footer`
     color: #fff;
     h2{
         order: -2;
+        border-top: 1px solid #fff;
         border-bottom: 1px solid #fff;
-        margin: 40px 0 50px;
+        padding: 40px 0 50px;
         margin-bottom: 0;
         padding-bottom: 25px;
         padding-right: 5%;
@@ -154,7 +155,7 @@ export const FooterStyles = styled.footer`
             margin: 0 auto;
         }
         h2{
-            margin: 40px 0 50px;
+            padding: 40px 0 50px;
             width: 30%;
             padding-right: 5%;
             border-bottom: 0;
@@ -178,7 +179,7 @@ export const FooterStyles = styled.footer`
     `)}
     ${md(`
         h2{
-            margin: 40px 0 90px;
+            padding: 40px 0 90px;
             padding-right: 8%;
         }
     `)}
