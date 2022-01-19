@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { BrandsStyles } from "./BrandsStyles";
 import { MainButton } from "../../ui/main_button/MainButton";
@@ -23,7 +23,6 @@ export const Brands = () => {
                           gatsbyImageData
                         }
                       }
-                      link
                     }
                   }
                   brandsSubTitle
@@ -44,9 +43,9 @@ export const Brands = () => {
                     </div>
                     <div className={'brand-grid'}>
                         {brands?.brandsLogo?.map?.((item, key) => (
-                            <Link to={item?.brandsLogoItem?.link || '#'} key={key} className={'brand-item'}>
+                            <div key={key} className={'brand-item'}>
                                 <GatsbyImage image={getImage(item?.brandsLogoItem?.localFile?.childrenImageSharp[0]?.gatsbyImageData)} alt={'brands'}/>
-                            </Link>
+                            </div>
                         ))}
                     </div>
                     <MainButton url={brands?.brandsButton?.url} target={brands?.brandsButton?.target}>{brands?.brandsButton?.title}</MainButton>
