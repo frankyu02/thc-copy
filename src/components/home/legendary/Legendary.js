@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { LegendaryStyles } from "./LegendaryStyles";
@@ -58,6 +58,7 @@ export const Legendary = () => {
     `)
     const storyLegendary =  data?.wpPage?.home?.storyLegendary;
     const cardsJoin =  data?.wpPage?.home?.cardsJoin;
+    const [modal, setModal] = useState(false)
     return (
         <LegendaryStyles>
             <div className={'container'}>
@@ -70,11 +71,11 @@ export const Legendary = () => {
                         {storyLegendary?.storyLegendaryMainText?.map?.((item, key) => (
                             <p key={key}>{item?.storyLegendaryMainTextItem}</p>
                         ))}
-                        <div className='read_more'>{storyLegendary?.storyLegendaryModalOpen}</div>
+                        <div onClick={()=>setModal(true)} className='read_more'>{storyLegendary?.storyLegendaryModalOpen}</div>
                         <div><MainButton url={storyLegendary?.storyLegendaryButton?.url} target={storyLegendary?.storyLegendaryButton?.target}>{storyLegendary?.storyLegendaryButton?.title}</MainButton></div>
                     </div>
                 </div>
-                <ModalLegendary/>
+                <ModalLegendary open={modal} close={() => setModal(false)}/>
                 <div className={'legendary_parent'}>
                     {cardsJoin?.map?.((item, key) => (
                         <div key={key} className='legendary_item'>
