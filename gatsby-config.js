@@ -1,22 +1,29 @@
-require("dotenv").config({ path: ".env" });
+require("dotenv").config({ path: ".env" })
 
 const {
   HTTPBASICAUTH_USERNAME,
   HTTPBASICAUTH_PASSWORD,
   GATSBY_SOURCE,
   SITE_URL
-} = process.env;
+} = process.env
 
 module.exports = {
   siteMetadata: {
     title: `THC`,
     description: ``,
     author: `Blackhawk Digital`,
-    siteUrl: SITE_URL,
+    siteUrl: SITE_URL
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-image`,
+    `gatsby-plugin-image`, {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /assets/
+        }
+      }
+    },
     {
       resolve: `gatsby-source-wordpress`,
       options: {
@@ -24,17 +31,18 @@ module.exports = {
         auth: {
           htaccess: {
             username: HTTPBASICAUTH_USERNAME,
-            password: HTTPBASICAUTH_PASSWORD,
+            password: HTTPBASICAUTH_PASSWORD
           }
-        }        
+        }
       }
     },
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
-      },
+        path: `${__dirname}/src/images`
+      }
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -49,20 +57,20 @@ module.exports = {
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-      },
+        icon: `src/images/gatsby-icon.png` // This path is relative to the root of the site.
+      }
     },
     {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         custom: {
           families: ["Integral CF", "Integral CF Bold", "Integral CF Heavy", "MADE Outer Sans Light", "Neumatic Compressed Bold"],
-          urls: ["/fonts/fonts.css"],
-        },
-      },
-    },
+          urls: ["/fonts/fonts.css"]
+        }
+      }
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
-  ],
+  ]
 }
