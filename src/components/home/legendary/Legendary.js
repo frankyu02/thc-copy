@@ -92,3 +92,4 @@ export const Legendary = () => {
         </LegendaryStyles>
     );
 };
+export default Legendary;
