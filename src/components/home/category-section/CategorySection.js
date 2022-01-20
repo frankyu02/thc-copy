@@ -21,7 +21,7 @@ export const CategorySection = () => {
                         categoriesCannabisItemImg {
                           localFile {
                             childrenImageSharp {
-                                gatsbyImageData
+                                gatsbyImageData(quality: 100)
                             }
                           }
                         }

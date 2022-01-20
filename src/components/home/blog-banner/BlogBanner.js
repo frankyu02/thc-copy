@@ -28,7 +28,7 @@ export const BlogBanner = () => {
                       thcBlogCardImg{
                           localFile {
                             childrenImageSharp {
-                                gatsbyImageData
+                                gatsbyImageData(quality: 100)
                             }
                           }
                       }

@@ -20,7 +20,7 @@ export const Brands = () => {
                       altText
                       localFile {
                         childrenImageSharp {
-                          gatsbyImageData
+                          gatsbyImageData(quality: 100)
                         }
                       }
                       link

@@ -2,7 +2,7 @@ import React from 'react';
 import 'normalize.css';
 import GlobalStyles from '../../styles/GlobalStyles';
 import Typography from '../../styles/Typography';
-import SEO from './SEO';
+import Seo from './Seo';
 
 
 const Layout = ({children, seo}) => {
@@ -10,7 +10,7 @@ const Layout = ({children, seo}) => {
         <>
             <GlobalStyles />
             <Typography />
-            <SEO {...seo} />
+            <Seo {...seo} />
 
             {children}
         </>

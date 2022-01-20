@@ -24,7 +24,7 @@ export const SettingStandart = () => {
                         newsImg {
                             localFile {
                                 childImageSharp {
-                                    gatsbyImageData
+                                    gatsbyImageData(quality: 100)
                                 }
                             }
                         }

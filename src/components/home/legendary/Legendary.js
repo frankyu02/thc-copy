@@ -26,7 +26,7 @@ export const Legendary = () => {
                         storyLegendaryMainImg {
                             localFile {
                                 childImageSharp {
-                                    gatsbyImageData
+                                    gatsbyImageData(quality: 100)
                                 }
                             }
                             altText
@@ -43,7 +43,7 @@ export const Legendary = () => {
                         cardsJoinBgImg {
                             localFile {
                                 childrenImageSharp {
-                                    gatsbyImageData
+                                    gatsbyImageData(quality: 100)
                                 }
                             }
                         }

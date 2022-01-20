@@ -14,7 +14,7 @@ export const ThcTv = () => {
                         thcTvImg {
                             localFile {
                                 childImageSharp {
-                                    gatsbyImageData
+                                    gatsbyImageData(quality: 100)
                                 }
                             }
                         }
