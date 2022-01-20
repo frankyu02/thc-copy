@@ -14,6 +14,7 @@ export const ShopLink = () => {
                         fieldGroupName
                         shopLink
                         shopLogo {
+                            mediaItemUrl
                             localFile {
                                 childrenImageSharp {
                                     gatsbyImageData
@@ -29,8 +30,9 @@ export const ShopLink = () => {
   return (
     <LinkStyles>
       <a target={'_blank'} href={MENU_LINK}>
-        <GatsbyImage className={'link'} image={getImage(shopLogo.localFile.childrenImageSharp[0].gatsbyImageData)}
-                     alt='link_to_hop' />
+        {/*<GatsbyImage className={'link'} image={getImage(shopLogo.localFile.childrenImageSharp[0].gatsbyImageData)}*/}
+        {/*             alt='link_to_hop' />*/}
+        <img className={'link'} src={shopLogo.mediaItemUrl} alt='link_to_hop'/>
       </a>
     </LinkStyles>
   );

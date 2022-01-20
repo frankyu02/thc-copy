@@ -32,7 +32,7 @@ export const FooterSocialStyled = styled.div`
         }
     `)}
     ${sm(`
-        width: 40%;
+        width: 44%;
         a{
             padding: 40px 0;
         }

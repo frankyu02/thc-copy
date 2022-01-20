@@ -58,6 +58,7 @@ const GlobalStyles = createGlobalStyle`
     display: block;
     text-align: center;
     transition: 0.2s;
+    font-size: 18px;
   }
 
   .main_button:hover {
@@ -82,7 +83,6 @@ const GlobalStyles = createGlobalStyle`
           display: block;
           text-align: center;
           transition: 0.2s;
-          font-size: 18px;
         }
     .main_button:hover {
       font-style: italic;

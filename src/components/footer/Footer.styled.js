@@ -169,6 +169,7 @@ export const FooterStyled = styled.footer`
         }
         .footer-form{
             order: 0;
+            border-right: 1px solid #fff;
             padding: 70px 5% 0;
             width: 44%;
         }
