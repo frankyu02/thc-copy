@@ -54,11 +54,10 @@ export const ModalSettingSrandart = ({open, close}) => {
                             <p key={key}>{item?.newsModalTextParagraph}</p>
                         ))}
                     </div>
-
                     <MainButton url={news?.newsButton?.url} target={news?.newsButton?.target}>{news?.newsButton?.title}</MainButton>
                 </div>
                 <div className='legendary-modal_image'>
-                    <GatsbyImage className='legendary_baner' image={getImage(news?.newsModalImg?.localFile?.childImageSharp?.gatsbyImageData)} alt={news.newsModalImg.altText || 'modal-img'}/>
+                    <GatsbyImage image={getImage(news?.newsModalImg?.localFile?.childImageSharp?.gatsbyImageData)} alt={news.newsModalImg.altText || 'modal-img'}/>
                 </div>
             </div>
             <div className={'overlay'} onClick={close}></div>
