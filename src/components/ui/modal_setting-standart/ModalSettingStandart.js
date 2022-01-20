@@ -40,14 +40,14 @@ export const ModalSettingSrandart = ({open, close}) => {
     return (
         <ModalSettingSrandartStyles className={open ? "active" : ''}>
             <div className={'modal_content'}>
-                <div className={'close'} onClick={close}>
+                <button className={'close'} onClick={close}>
                     <StaticImage
                         src="../../../images/close.svg"
                         alt="close"
                         placeholder="blurred"
                         layout="fixed"
                     />
-                </div>
+                </button>
                 <div className={'legendary-modal_context'}>
                     <div className="legendary-modal_text">
                         {news?.newsModalText?.map?.((item, key) => (
@@ -60,7 +60,7 @@ export const ModalSettingSrandart = ({open, close}) => {
                     <GatsbyImage image={getImage(news?.newsModalImg?.localFile?.childImageSharp?.gatsbyImageData)} alt={news.newsModalImg.altText || 'modal-img'}/>
                 </div>
             </div>
-            <div className={'overlay'} onClick={close}></div>
+            <button className={'overlay'} onClick={close}>overlay</button>
         </ModalSettingSrandartStyles>
     );
 };

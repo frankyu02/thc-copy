@@ -21,13 +21,17 @@ export const ModalLegendaryStyles = styled.div`
       position: absolute;
       top: 10px;
       right: 10px;
+      font-size: 0;
       cursor: pointer;
+      border: none;
+      background: transparent;
     }
     &.active {
       display: block;
     }
     .overlay {
     position: fixed;
+    border: none;
     z-index: 200;
     width: 100%;
     height: 100%;

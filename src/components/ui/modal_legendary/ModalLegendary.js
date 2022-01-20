@@ -46,14 +46,14 @@ export const ModalLegendary = ({open, close}) => {
     return (
         <ModalLegendaryStyles className={open ? "active" : ''}>
             <div className={'modal_content'}>
-                <div className={'close'} onClick={close}>
+                <button className={'close'} onClick={close}>
                     <StaticImage
                         src="../../../images/close.svg"
                         alt="close"
                         placeholder="blurred"
                         layout="fixed"
                     />
-                </div>
+                </button>
                 <div className='legendary-modal_image'>
                     <GatsbyImage className='top_baner' image={getImage(storyLegendary?.storyLegendaryModalImg1?.localFile?.childImageSharp?.gatsbyImageData)} alt={storyLegendary?.storyLegendaryModalImg1?.altText || 'banner'}/>
                     <GatsbyImage className='bottom_baner' image={getImage(storyLegendary?.storyLegendaryModalImg2?.localFile?.childImageSharp?.gatsbyImageData)} alt={storyLegendary?.storyLegendaryModalImg2?.altText || 'banner'}/>
@@ -67,7 +67,7 @@ export const ModalLegendary = ({open, close}) => {
                     <div><MainButton url={storyLegendary?.storyLegendaryButton?.url} target={storyLegendary?.storyLegendaryButton?.target}>{storyLegendary?.storyLegendaryButton?.title}</MainButton></div>
                 </div>
             </div>
-            <div className={'overlay'} onClick={close}></div>
+            <button className={'overlay'} onClick={close}>overlay</button>
         </ModalLegendaryStyles>
     );
 };
