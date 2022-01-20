@@ -7,8 +7,10 @@ import "swiper/css";
 import "swiper/css/navigation"
 import { ClientReviewStyle, Reviews, SwiperContainer } from "./ReviewStyles";
 SwiperCore.use([Navigation]);
+import img from '../../../images/Group585.png';
 
 export default function ClientReview(){
+    console.log({img});
     const data = useStaticQuery(graphql`
         query{
             wpPage( title: {eq: "Reviews"}) {

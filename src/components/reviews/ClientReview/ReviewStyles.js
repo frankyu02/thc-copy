@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import img from '../../../images/Group585.png';
 export const ClientReviewStyle = styled.div`
     *{
         box-sizing: border-box;
@@ -53,7 +53,7 @@ export const Reviews = styled.div`
     position: relative;
     padding-bottom: 1%;
     min-height: 330px;
-    min-width: 592px;
+    min-width: min(592px, 40vw);
     padding-left: 5%;
     padding-right: 5%;
     .stars{
@@ -79,7 +79,7 @@ export const Reviews = styled.div`
     .name{
         position: absolute;
         top: 20%;
-        margin-top: 23%;
+        margin-top: 150px;
         p{
             font-family: "Integral CF";
             font-size: 25px;
@@ -118,14 +118,14 @@ export const Reviews = styled.div`
             }
         }
         .name{
-            margin-top: min(79%, 270px);
+            margin-top: 200px;
             p{
                 text-align: center;
                 font-size: max(14px, 5vw);
             }
         }
         .location{
-            margin-top: 10%;
+            margin-top: min(10%,20px);
         }
     }
 `;
@@ -133,19 +133,26 @@ export const SwiperContainer = styled.div`
     position: relative;
     overflow: visible;
     .swiper-button-next{
-        width: 48px;
-        height: 48px;
-        background: #612C8F;
+        width: 2.5vw;
+        height: 2.5vw;
+        background-image: url(${img});
+        background-repeat: no-repeat;
+        background-size: 100% auto;
         position: absolute;
+        color: transparent;
         top: 5%;
     }
     .swiper-button-prev{
         position: absolute;
-        width: 48px;
-        height: 48px;
+        width: 2.5vw;
+        height: 2.5vw;
         top: 5%;
-        left: 90%;
-        background: #612C8F;
+        left: 93%;
+        background-image: url(${img});
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        transform: rotate(180deg);
+        color: transparent;
     }
     .swiper-slide{
         padding-top: 100px;
@@ -157,12 +164,12 @@ export const SwiperContainer = styled.div`
         justify-content: center;
     }
     .swiper-button-next{
-        width: auto;
+        width: 32.14px;
         height: auto;
         top: 50%;
     }
     .swiper-button-prev{
-        width: auto;
+        width: 32.14px;
         height: auto;
         top: 50%;
         left: 0;
