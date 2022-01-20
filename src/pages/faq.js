@@ -1,21 +1,49 @@
 import * as React from "react";
-import { HeroHome } from "../components/home/Hero";
 import Layout from "../components/layout/Layout";
+import {graphql, useStaticQuery} from "gatsby";
+import {SmallHero} from "../components/global_component/small_hero/SmallHero";
+import {HeaderMenu} from "../components/header/HeaderMenu";
+import {Footer} from "../components/footer/Footer";
+import {GatsbyImage, getImage} from "gatsby-plugin-image";
 
-const ReviewsPage = () => {
+const FaqPage = () => {
 
     const seo = {
-        title: 'Reviews Title',
-        description: 'Reviews Description'
+        title: 'Faq Title',
+        description: 'Faq Description'
     }
 
+    const data = useStaticQuery(graphql`
+        query {
+            allWpPage(filter: {id: {eq: "cG9zdDoyNjY="}}) {
+                nodes {
+                  faq {
+                    faqBanner {
+                      faqBannerTitle
+                      faqBannerImg {
+                        localFile {
+                          childImageSharp {
+                            gatsbyImageData
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+            }
+        }
+    `)
+    const title = data?.allWpPage?.nodes[0]?.faq?.faqBanner?.faqBannerTitle;
+    const banner = data?.allWpPage?.nodes[0]?.faq?.faqBanner?.faqBannerImg?.localFile?.childImageSharp?.gatsbyImageData;
     return (
         <>
             <Layout seo={seo}>
-                <HeroHome/>
+                <HeaderMenu/>
+                <SmallHero title={title} banner={banner}/>
+                <Footer/>
             </Layout>
         </>
-    )
+    );
 }
 
-export default ReviewsPage;
+export default FaqPage;
