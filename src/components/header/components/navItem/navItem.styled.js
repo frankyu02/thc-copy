@@ -2,25 +2,26 @@ import styled from "styled-components"
 import { lg } from "../../../../styles/utils/media_queries"
 
 export const MenuItem = styled.li`
-
-  .icon {
-    margin-left: 10px;
-    display: inline-block;
-  }
-
-  padding: 5px 1px;
-  font-size: 14px;
-  line-height: 100%;
+  border-bottom: 1px solid #000000;
+  font-weight: 400;
+  font-size: 20px;
   text-transform: uppercase;
   display: flex;
+  padding: 20px;
+  width: 100%;
+
   ${lg(`
-    display: flex; 
-  `
+        display: flex; 
+      `
   )}
-
-  align-items: center;
-  margin-right: 60px;
-
+  .desktopIcon {
+    display: none;
+    ${lg(`
+        display:  inline-block; 
+         margin-left: 10px;
+      `
+    )}
+  }
 
   .dropDown {
     list-style: none;
@@ -34,13 +35,7 @@ export const MenuItem = styled.li`
     z-index: 2;
   }
 
-
   .dropdownItem {
-    box-sizing: border-box;
-    padding: 10px 5px;
-    display: none;
-    align-items: center;
-    justify-content: center;
     font-size: 12px;
     width: 100%;
     z-index: 2;
@@ -48,7 +43,6 @@ export const MenuItem = styled.li`
     &:hover {
       background-color: #919191;
     }
-
   }
 
   &:hover {

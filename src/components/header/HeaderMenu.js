@@ -31,6 +31,7 @@ export const HeaderMenu = () => {
   const logoText = data?.site?.siteMetadata?.title
   const promobarText = data?.wp?.acfOptionsHeaderOptions?.preHeader?.promobarText
   const headerRef = useRef()
+
   return (
 
 

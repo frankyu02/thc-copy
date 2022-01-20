@@ -4,8 +4,8 @@ import { lg } from "../../styles/utils/media_queries"
 export const HeaderMenuStyles = styled.section`
   position: sticky;
   top: 0;
-  z-index: 33;
- 
+  z-index: 110;
+
   .header {
     background-color: #fff;
     display: flex;
@@ -17,7 +17,6 @@ export const HeaderMenuStyles = styled.section`
       ${lg(`
       min-height: 80px;
       `)}
-
       display: flex;
       align-item: center;
       border-right: 1px solid #000;
@@ -55,14 +54,9 @@ export const HeaderMenuStyles = styled.section`
       }
 
       ${lg(`
-    display:none
+            display:none
       `)}
       &.open {
-        & .line {
-
-
-        }
-
         & .line:nth-child(1) {
           margin: 0 0 -2px 0;
 
@@ -81,19 +75,32 @@ export const HeaderMenuStyles = styled.section`
       }
     }
 
+    .order-button {
+      flex-grow: 1;
+      width: 100%;
+      justify-content: center;
+      align-items: flex-end;
+      display: flex;
+      margin-bottom: 30px;
+      padding: 10px;
+
+      .main_button {
+        background-color: var(--darkpurple);
+        color: white;
+      }
+    }
 
     nav {
-      transition: .5s;
+      transition: .6s;
       flex: 1;
       position: fixed;
       left: -100%;
+      right: -100%;
       bottom: 0;
       top: 110px;
       z-index: 11;
       background-color: #fff;
       width: 100%;
-
-      max-width: 400px;
       opacity: 0;
       ${lg(`
            opacity: 1;
@@ -104,7 +111,8 @@ export const HeaderMenuStyles = styled.section`
       justify-content: center;
 
       &.open {
-        padding: 30px;
+        transition: .3s;
+        right: 0;
         left: 0;
         opacity: 1;
 
@@ -115,13 +123,15 @@ export const HeaderMenuStyles = styled.section`
       height: 100%;
       margin: 0;
       padding: 0;
+      display: flex;
+
       flex-direction: column;
       justify-content: left;
       text-align: left;
       ${lg(`
       list-style: none;
       flex-direction:row;
-      display: flex;
+     
       flex-wrap: wrap;
       align-items: center;
        text-align:center;

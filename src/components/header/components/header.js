@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import { NavItem } from "./navItem"
 import { Search } from "./search"
 import { ROUTES } from "../../../utils/config"
+import MainButton from "../../ui/main_button/MainButton"
 
 export const Header = ({ toggleMenu, menuOpen, logoText, headerRef }) => {
 
@@ -22,6 +23,7 @@ export const Header = ({ toggleMenu, menuOpen, logoText, headerRef }) => {
           {ROUTES.map((item, i) => (
             <NavItem className={"menu-item"} item={item} key={i} />
           ))}
+          <li className={"order-button"}><MainButton> ORDER NOW</MainButton></li>
         </ul>
       </nav>
 
