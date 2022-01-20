@@ -3,7 +3,7 @@ import {sm, xs, xxs} from "../../../styles/utils/media_queries";
 
 
 
-export const SmallHeroStyles = styled.section` 
+export const SmallHeroStyled = styled.section` 
     color: #fff;
     .hero-title{
         padding-top: 20px;
