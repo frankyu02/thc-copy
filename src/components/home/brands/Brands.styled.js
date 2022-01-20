@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const BrandsStyles = styled.section` 
+export const BrandsStyled = styled.section` 
     .btn{
         display: block;
         display: flex;
