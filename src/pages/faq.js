@@ -4,7 +4,6 @@ import {graphql, useStaticQuery} from "gatsby";
 import {SmallHero} from "../components/global_component/small_hero/SmallHero";
 import {HeaderMenu} from "../components/header/HeaderMenu";
 import {Footer} from "../components/footer/Footer";
-import {GatsbyImage, getImage} from "gatsby-plugin-image";
 
 const FaqPage = () => {
 

@@ -26,10 +26,14 @@ export const ModalSettingSrandartStyles = styled.div`
       position: absolute;
       top: 10px;
       right: 10px;
+      border: none;
+      background: transparent;
       cursor: pointer;
     }
     .overlay {
     position: fixed;
+    border: none;
+    font-size: 0;
     z-index: 200;
     width: 100%;
     height: 100%;
