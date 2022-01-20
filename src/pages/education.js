@@ -8,6 +8,8 @@ const EducationPage = () => {
 
     const headingText = 'How to Judge the Quality of Cannabis';
     const data = 'JANUARY 28, 2021';
+    const banner = '';
+
 
     const seo = {
         title: 'Education',
@@ -18,7 +20,7 @@ const EducationPage = () => {
         <>
             <Layout seo={seo}>
                 <HeaderMenu/>
-                <EducationHero title={headingText} data={data}/>
+                <EducationHero title={headingText} data={data} banner={banner}/>
                 <Footer/>
             </Layout>
         </>
