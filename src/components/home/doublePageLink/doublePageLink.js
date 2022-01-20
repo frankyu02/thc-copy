@@ -4,55 +4,60 @@ import DoublePageLinkStyles from './doublePageLink.styled';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-import locationImage from '../../../images/location.png';
-import questionImage from '../../../images/question.png';
-
 const DoublePageLink = () => {
     const data = useStaticQuery(graphql`
         query {
             wpPage(title: {eq: "Reviews"}) {
                 reviews {
                   recommendation {
-                    recommendationTitle
-                    recommendationButtonName
                     recommendationImg {
+                      altText
                       localFile {
-                        childImageSharp {
+                        childrenImageSharp {
                           gatsbyImageData
                         }
                       }
                     }
+                    recommendationButtonName
+                    recommendationButtonLink
+                    recommendationTitle
                   }
                 }
-            }
+              }
         }
     `)
 
     const recommendation = data?.wpPage?.reviews?.recommendation;
-
+    console.log(recommendation);
     return (
         <DoublePageLinkStyles>
             <div className="container">
                 <div className='wrapper'>
                     <div className="location">
-                        <img src={locationImage} alt='picture1' className='image'/>
+                        <GatsbyImage 
+                            image={getImage(recommendation[0]?.recommendationImg?.localFile?.childrenImageSharp[0]?.gatsbyImageData)} 
+                            alt={recommendation[0]?.recommendationImg?.altText} 
+                        />
                         <div className='content'>
                             <div className="title">
-                                <h3>OUR STORE LOCATION</h3>
+                                <h3>{recommendation[0]?.recommendationTitle}</h3>
                             </div>
                             <div className="link">
-                                <Link>Visit us <FiArrowUpRight/></Link>
+                                <Link to={recommendation[0]?.recommendationButtonLink}>{recommendation[0]?.recommendationButtonName} <FiArrowUpRight/></Link>
                             </div>
                         </div>
                     </div>
                     <div className="question">
-                        <img src={questionImage} alt='picture2' className='image'/>
+                        <GatsbyImage 
+                            image={getImage(recommendation[1]?.recommendationImg?.localFile?.childrenImageSharp[0]?.gatsbyImageData)}
+                            alt={recommendation[1]?.recommendationImg?.altText}
+                        />
                         <div className='content'>
                             <div className="title">
-                                <h3>HAVE QUESTIONS?</h3>
+                                <h3>{recommendation[1]?.recommendationTitle}</h3>
                             </div>
                             <div className="link">
-                                <Link>FAQ's <FiArrowUpRight/></Link>
+                                <Link to={recommendation[1]?.recommendationButtonLink}>{recommendation[1]?.recommendationButtonName} <FiArrowUpRight/></Link>
                             </div>
                         </div>
                     </div>

@@ -38,10 +38,10 @@ const DoublePageLinkStyles = styled.div`
     .location, .question {
         position: relative;
         width: 100%;
+        height: 100%;
         border: 1px solid white;
         display: flex;
-        max-height: 385px;
-        .image {
+        .gatsby-image-wrapper {
             position: relative;
             flex: 1;
             object-fit: cover;
@@ -51,8 +51,7 @@ const DoublePageLinkStyles = styled.div`
             transition: .4s;
         }
         &:hover {
-            
-            .image {
+            .gatsby-image-wrapper {
                 opacity: 1;
                 transition: .4s;
             }
@@ -63,50 +62,117 @@ const DoublePageLinkStyles = styled.div`
     }
     .content {
         position: absolute;
+        display: grid;
         color: white;
-        padding-bottom: 52px;
-        z-index: 50;
         background: linear-gradient(50.45deg, #612C8F 1.24%, rgba(97, 44, 143, 0) 70.46%);
-        background: rgba(25, 100, 45, 0.6);
         width: 100%;
         height: 100%;
-        outline: 2px solid red;
+        padding-bottom: 50px;
         .title {
             font-style: normal;
             font-weight: bold;
             font-size: 96px;
-            margin-top: 180px;
+            margin-top: 150px;
             margin-left: 50px;
         }
         .link {
+            font-family: MADE OUTER Sans Light;
             font-style: normal;
             font-weight: normal;
             font-size: 18px;
             margin-left: 50px;
         }
     }
-    .icon {
-        font-size: 22px;
-    }
-    @media (max-width: 1500px) {
+    @media (max-width: 1400px) {
         .content {
             .title {
-                margin: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 70px;
+                font-size: 80px;
             }
         }
     }
-    @media (max-width: 1200px) {
+    @media (max-width: 1250px) {
         .wrapper {
             grid-template-columns: auto;
             grid-template-rows: 1fr 1fr;
         }
-        
+        .content {
+            padding-bottom: 40px;
+            .title {
+                margin-top: 160px;
+                margin-left: 40px;
+            }
+            .link {
+                margin-left: 40px;
+            }
+        }
     }
-    @media (max-width: 850px) {
+    @media (max-width: 650px) {
+        .content {
+            .title {
+                font-size: 70px;
+            }
+        }
+    }
+    @media (max-width: 570px) {
+        .content {
+            .title {
+                margin-top: 120px;
+            }
+        }
+    }
+    @media (max-width: 500px) {
+        .content {
+            .title {
+                margin-top: 100px;
+            }
+        }
+    }
+    @media (max-width: 450px) {
+        .content {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            flex-direction: column;
+            padding-top: 80px;
+            .title {
+                font-size: 60px;
+                margin: 0;
+                flex: 1;
+                margin-left: 25px;
+            }
+            .link {
+                margin: 0;
+                flex: 1;
+                margin-left: 25px;
+            }
+        }
+    }
+    @media (max-width: 375px) {
+        .content {
+            padding-top: 60px;
+            .title {
+                font-size: 50px;
+            }
+        }
+    }
+    @media (max-width: 325px) {
+        .content {
+            padding-top: 45px;
+            .title {
+                margin-left: 20px;
+            }
+            link {
+                margin-left: 20px;
+            }
+        }
+    }
+    @media (max-width: 300px) {
+        .content {
+            padding-top: 40px;
+            .title {
+                font-size: 45px;
+            }
+        }
     }
 `
 export default DoublePageLinkStyles;
