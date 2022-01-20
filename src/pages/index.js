@@ -11,7 +11,7 @@ import {Footer} from '../components/footer/Footer';
 import {ShopLink} from '../components/ui/shop_link/ShopLink';
 import Layout from "../components/layout/Layout";
 
-
+import DoublePageLink from "../components/home/doublePageLink/doublePageLink";
 
 const HomePage = () => {
 
@@ -22,7 +22,8 @@ const HomePage = () => {
 
   return (
     <>
-      <Layout seo={seo}>
+      <DoublePageLink />
+      {/* <Layout seo={seo}>
         <HeaderMenu/>
         <HeroHome/>
         <Legendary/>
@@ -33,7 +34,7 @@ const HomePage = () => {
         <Brands/>
         <Footer/>
         <ShopLink/>
-      </Layout>
+      </Layout> */}
     </>
   )
 }
