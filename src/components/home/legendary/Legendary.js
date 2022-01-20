@@ -17,6 +17,10 @@ export const Legendary = () => {
                             url
                         }
                         storyLegendaryText
+                        storyLegendaryMainText {
+                          fieldGroupName
+                          storyLegendaryMainTextItem
+                        }
                         storyLegendaryTitle
                         storyLegendaryModalOpen
                         storyLegendaryMainImg {
@@ -62,9 +66,9 @@ export const Legendary = () => {
           </div>
           <div className={"legendary_text"}>
             <h2>{storyLegendary?.storyLegendaryTitle}</h2>
-            {storyLegendary?.storyLegendaryMainText?.map?.((item, key) => (
-              <p key={key}>{item?.storyLegendaryMainTextItem}</p>
-            ))}
+              {storyLegendary?.storyLegendaryMainText?.map?.((item, key) => (
+                <p key={key}>{item?.storyLegendaryMainTextItem}</p>
+              ))}
             <div onClick={() => setModal(true)} className="read_more">{storyLegendary?.storyLegendaryModalOpen}</div>
             <div><MainButton url={storyLegendary?.storyLegendaryButton?.url}
                              target={storyLegendary?.storyLegendaryButton?.target}>{storyLegendary?.storyLegendaryButton?.title}</MainButton>

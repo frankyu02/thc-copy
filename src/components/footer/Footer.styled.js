@@ -156,33 +156,34 @@ export const FooterStyled = styled.footer`
             margin: 0 auto;
         }
         h2{
-            padding: 40px 0 50px;
+            padding: 40px 20px 50px;
             width: 26%;
-            padding-right: 5%;
-            border-bottom: 0;
+            border: 1px solid #fff;
         }
         .footer-menu{
             order: 0;
             width: 30%;
             box-sizing: border-box;
             border: 1px solid #fff;
+            border-left: 0;
         }
         .footer-form{
             order: 0;
             border-right: 1px solid #fff;
+            border-bottom: 1px solid #fff;
             padding: 70px 5% 0;
             width: 44%;
         }
         .footer-location{
             width: 26%;
             border: 1px solid #fff;
-            border-left: 0;
+            border-top: 0;  
+            padding: 30px 20px;
         }
     `)}
     ${md(`
         h2{
-            padding: 34px 0 76px;
-            padding-right: 8%;
+            padding: 34px 2% 76px 20px;
         }
     `)}
 `;

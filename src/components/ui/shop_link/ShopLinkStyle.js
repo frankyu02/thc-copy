@@ -9,7 +9,20 @@ export const LinkStyles = styled.section`
     right: 60px;
     bottom: 60px;
     z-index: 100;
+    img{
+        animation: spin 5s linear 0s infinite;
+    }
   }
+  a: hover{
+      img{
+        animation-play-state: paused;
+      }
+  }
+  @keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+  }
+
   @media (max-width: 1365px) {
       a {
         width: 100px;
