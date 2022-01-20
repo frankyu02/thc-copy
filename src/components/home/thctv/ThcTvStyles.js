@@ -13,7 +13,7 @@ export const ThcTvStyles = styled.section`
   .thc-tv-text{
       font-weight: 300;
       font-size: 16px;
-      width: 50%;
+      width: 45%;
       line-height: 20.11px;
       padding: 0 0 0 100px;
       .btn{

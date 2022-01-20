@@ -12,7 +12,6 @@ export const Footer = () => {
                   nodes {
                     label
                     url
-                    path
                   }
                 }
             }
@@ -54,7 +53,7 @@ export const Footer = () => {
                     <div className="footer-menu">
                         <div className="footer-menu-wrap">
                             {nodes?.map?.((item, key) => (
-                                <Link className="menu-item" to={item?.path || '#'} key={key}>{item?.label}</Link>
+                                <Link className="menu-item" to={item?.url || '#'} key={key}>{item?.label}</Link>
                             ))}
                         </div>
                     </div>

@@ -75,11 +75,9 @@ export const LegendaryStyles = styled.section`
         h3 {
           font-family: 'Neumatic Compressed Bold';
           font-size: 80px;
-          text-transform: uppercase;
-          letter-spacing: 0.01em;
         }
         p {
-          font-family: 'Integral CF Bold';
+          font-family: 'Integral CF';
           font-style: italic;
           max-width: 490px;
           margin: 0 0 20px;
