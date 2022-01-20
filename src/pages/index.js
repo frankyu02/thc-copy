@@ -32,7 +32,7 @@ const HomePage = () => {
         <SettingStandart/>
         <Brands/>
         <Footer/>
-        <ShopLink/>
+        {/* <ShopLink/> */}
       </Layout>
     </>
   )
