@@ -33,7 +33,7 @@ export const Brands = () => {
             }
           }
     `)
-  const brands = data?.wpPage?.home?.brands
+  const brands = data?.wpPage?.home?.brands;
   return (
     <BrandsStyles>
       <div className="container">
@@ -44,10 +44,10 @@ export const Brands = () => {
           </div>
           <div className={"brand-grid"}>
             {brands?.brandsLogo?.map?.((item, key) => (
-              <a target={"_blank"} href={item?.brandsLogoItem?.link || "#"} key={key} className={"brand-item"}>
+              <div key={key} className={"brand-item"}>
                 <GatsbyImage image={getImage(item?.brandsLogoItem?.localFile?.childrenImageSharp[0]?.gatsbyImageData)}
                              alt={"brands"} />
-              </a>
+              </div>
             ))}
           </div>
           <MainButton url={brands?.brandsButton?.url}

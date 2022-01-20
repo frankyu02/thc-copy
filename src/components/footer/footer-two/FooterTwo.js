@@ -10,6 +10,7 @@ export const FooterTwo = () => {
                   nodes {
                     label
                     url
+                    path
                   }
                 }
             }
@@ -20,7 +21,7 @@ export const FooterTwo = () => {
         <FooterTwoStyled>
             <div className="footer-menu-wrap">
                 {nodes.map((item, key) => (
-                    <Link to={item.url || '#'} key={key}>{item.label}</Link>
+                    <Link to={item.path || '#'} key={key}>{item.label}</Link>
                 ))}
             </div>
         </FooterTwoStyled>
