@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useRef, useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { HeaderMenuStyles } from "./HeaderMenuStyles"
 import { PromoBar } from "./components/promobar"
@@ -22,15 +23,25 @@ export const HeaderMenu = () => {
   }
         }
     `)
+  const [menuOpen, SetMenuOpen] = useState(false)
+  const toggleMenu = () => {
+    SetMenuOpen(!menuOpen)
+  }
 
   const logoText = data?.site?.siteMetadata?.title
   const promobarText = data?.wp?.acfOptionsHeaderOptions?.preHeader?.promobarText
-
+  const headerRef = useRef()
   return (
+
+
     <HeaderMenuStyles>
-      <PromoBar promoText={promobarText} />
-      <Header logoText={logoText} />
+      <div ref={headerRef}> {/*dropdown wrapper */}
+        <PromoBar promoText={promobarText} />
+        <Header headerRef={headerRef} toggleMenu={toggleMenu} menuOpen={menuOpen} logoText={logoText} />
+      </div>
     </HeaderMenuStyles>
+
+
   )
 }
 

@@ -2,7 +2,12 @@ import styled from "styled-components"
 import { lg } from "../../styles/utils/media_queries"
 
 export const HeaderMenuStyles = styled.section`
+  position: sticky;
+  top: 0;
+  z-index: 33;
+ 
   .header {
+    background-color: #fff;
     display: flex;
     border-bottom: 1px solid #000;
     font-family: 'Integral CF';

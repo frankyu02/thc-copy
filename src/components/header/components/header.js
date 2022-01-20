@@ -1,14 +1,12 @@
-import React, { useState } from "react"
+import React from "react"
 import { Link } from "gatsby"
 import { NavItem } from "./navItem"
 import { Search } from "./search"
 import { ROUTES } from "../../../utils/config"
 
-export const Header = ({ logoText }) => {
-  const [menuOpen, SetMenuOpen] = useState(false)
-  const toggleMenu = () => {
-    SetMenuOpen(!menuOpen)
-  }
+export const Header = ({ toggleMenu, menuOpen, logoText, headerRef }) => {
+
+  const navIndent = headerRef?.current?.offsetHeight || 105
   return (
     <header className={"header"}>
       <button onClick={toggleMenu} type={"button"} className={"menu-btn " + (menuOpen ? " open" : "")}>
@@ -19,7 +17,7 @@ export const Header = ({ logoText }) => {
       <div className="logo">
         <Link to={"/"}>{logoText}</Link>
       </div>
-      <nav className={"nav " + (menuOpen ? " open" : "")}>
+      <nav style={{ top: navIndent }} className={"nav " + (menuOpen ? " open" : "")}>
         <ul className={"headerList"}>
           {ROUTES.map((item, i) => (
             <NavItem className={"menu-item"} item={item} key={i} />
