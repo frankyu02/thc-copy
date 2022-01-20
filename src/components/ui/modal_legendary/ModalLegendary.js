@@ -24,7 +24,7 @@ export const ModalLegendary = ({open, close}) => {
                         storyLegendaryModalImg1{
                             localFile {
                                 childImageSharp {
-                                    gatsbyImageData
+                                    gatsbyImageData(quality: 100)
                                 }
                             }
                             altText
@@ -32,7 +32,7 @@ export const ModalLegendary = ({open, close}) => {
                         storyLegendaryModalImg2{
                             localFile {
                                 childImageSharp {
-                                    gatsbyImageData
+                                    gatsbyImageData(quality: 100)
                                 }
                             }
                             altText

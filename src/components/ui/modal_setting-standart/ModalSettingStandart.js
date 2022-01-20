@@ -26,7 +26,7 @@ export const ModalSettingSrandart = ({open, close}) => {
                     newsModalImg{
                         localFile {
                         childImageSharp {
-                          gatsbyImageData
+                          gatsbyImageData(quality: 100)
                         }
                       }
                       altText
