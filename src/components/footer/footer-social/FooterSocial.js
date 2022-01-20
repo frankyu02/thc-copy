@@ -10,6 +10,7 @@ export const FooterSocial = () => {
                   nodes {
                     label
                     url
+                    path  
                   }
                 }
             }
@@ -19,7 +20,7 @@ export const FooterSocial = () => {
     return (
         <FooterSocialStyled>
             {nodes.map((item, key) => (
-                <Link to={item.url || '#'} key={key}>{item.label}</Link>
+                <Link to={item.path || '#'} key={key}>{item.label}</Link>
             ))}
         </FooterSocialStyled>
     );

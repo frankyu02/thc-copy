@@ -10,7 +10,7 @@ export const LinkStyles = styled.section`
     bottom: 60px;
     z-index: 100;
     img{
-        animation: spin 5s linear 0s infinite;
+        animation: spin 15s linear 0s infinite;
     }
   }
   a: hover{
