@@ -51,6 +51,7 @@ const DoublePageLinkStyles = styled.div`
             transition: .4s;
         }
         &:hover {
+            
             .image {
                 opacity: 1;
                 transition: .4s;
@@ -61,11 +62,15 @@ const DoublePageLinkStyles = styled.div`
         font-family: Neumatic Compressed Bold;
     }
     .content {
-        position: relative;
+        position: absolute;
         color: white;
         padding-bottom: 52px;
         z-index: 50;
         background: linear-gradient(50.45deg, #612C8F 1.24%, rgba(97, 44, 143, 0) 70.46%);
+        background: rgba(25, 100, 45, 0.6);
+        width: 100%;
+        height: 100%;
+        outline: 2px solid red;
         .title {
             font-style: normal;
             font-weight: bold;
@@ -85,28 +90,23 @@ const DoublePageLinkStyles = styled.div`
     }
     @media (max-width: 1500px) {
         .content {
-            padding-bottom: 58px;
             .title {
-                margin-top: 140px;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 font-size: 70px;
             }
         }
     }
     @media (max-width: 1200px) {
         .wrapper {
-            display: flex;
-            flex-wrap: nowrap;
-            flex-direction: column;
+            grid-template-columns: auto;
+            grid-template-rows: 1fr 1fr;
         }
         
     }
     @media (max-width: 850px) {
-        .content {
-            padding-bottom: 58px;
-            .title {
-                margin-top: 140px;
-            }
-        }
     }
 `
 export default DoublePageLinkStyles;
