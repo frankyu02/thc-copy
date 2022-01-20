@@ -23,7 +23,7 @@ const HomePage = () => {
   return (
     <>
       <DoublePageLink />
-      {/* <Layout seo={seo}>
+      <Layout seo={seo}>
         <HeaderMenu/>
         <HeroHome/>
         <Legendary/>
@@ -34,7 +34,7 @@ const HomePage = () => {
         <Brands/>
         <Footer/>
         <ShopLink/>
-      </Layout> */}
+      </Layout>
     </>
   )
 }
