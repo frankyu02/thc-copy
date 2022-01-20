@@ -4,7 +4,6 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { SettingStyle } from "./SettingStyle";
 import { MainButton } from "../../ui/main_button/MainButton";
 import { ModalSettingSrandart } from "../../ui/modal_setting-standart/ModalSettingStandart";
-import {ModalLegendary} from "../../ui/modal_legendary/ModalLegendary";
 
 export const SettingStandart = () => {
     const data = useStaticQuery(graphql`
@@ -49,7 +48,7 @@ export const SettingStandart = () => {
                         {news?.newsText?.map?.((item, key) => (
                             <p key={key}>{item?.newsTextParagraph}</p>
                         ))}
-                        <div onClick={()=>setModal(true)} className='read_more'>{news?.newsOpenModal}</div>
+                        <button onClick={()=>setModal(true)} className='read_more'>{news?.newsOpenModal}</button>
                         <MainButton url={news?.newsButton?.url} target={news?.newsButton?.target}>{news?.newsButton?.title}</MainButton>
                     </div>
                 </div>

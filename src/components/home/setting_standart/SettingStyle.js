@@ -39,9 +39,15 @@ export const SettingStyle = styled.section`
         }
         .read_more {
           color: #612C8F;
+          font-weight: bold;
           cursor: pointer;
-           font-family: 'MADE OUTER Sans Light';
-           margin-bottom: 30px;
+          margin-bottom: 40px;
+          text-align: left;
+          font-size: 18px;
+          padding: 0;
+          font-family: 'MADE OUTER Sans Light';
+          border: none;
+          background: transparent;
         }
         p {
           max-width: 620px;

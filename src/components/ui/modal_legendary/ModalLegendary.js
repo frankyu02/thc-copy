@@ -55,8 +55,8 @@ export const ModalLegendary = ({open, close}) => {
                     />
                 </div>
                 <div className='legendary-modal_image'>
-                    <GatsbyImage className='legendary_baner' image={getImage(storyLegendary?.storyLegendaryModalImg1?.localFile?.childImageSharp?.gatsbyImageData)} alt={storyLegendary?.storyLegendaryModalImg1?.altText || 'banner'}/>
-                    <GatsbyImage className='legendary_baner' image={getImage(storyLegendary?.storyLegendaryModalImg2?.localFile?.childImageSharp?.gatsbyImageData)} alt={storyLegendary?.storyLegendaryModalImg2?.altText || 'banner'}/>
+                    <GatsbyImage className='top_baner' image={getImage(storyLegendary?.storyLegendaryModalImg1?.localFile?.childImageSharp?.gatsbyImageData)} alt={storyLegendary?.storyLegendaryModalImg1?.altText || 'banner'}/>
+                    <GatsbyImage className='bottom_baner' image={getImage(storyLegendary?.storyLegendaryModalImg2?.localFile?.childImageSharp?.gatsbyImageData)} alt={storyLegendary?.storyLegendaryModalImg2?.altText || 'banner'}/>
                 </div>
                 <div className={'legendary-modal_context'}>
                     <div className="legendary-modal_text">
