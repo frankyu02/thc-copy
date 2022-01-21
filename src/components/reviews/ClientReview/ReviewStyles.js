@@ -32,6 +32,7 @@ export const ClientReviewStyle = styled.div`
     @media(max-width: 992px){
         padding-top: 10%;
         padding-left: 2vw;
+        padding-right: 1vw;
         .title{
             h2{
                 font-size: max(60px, 15vw);
@@ -99,11 +100,9 @@ export const Reviews = styled.div`
         height: 70%;
         min-height: 400px;
         width: 70vw;
-        min-width: 246px;
         .stars{
-            margin-left: 20%;
             .star{
-                width: 10%;
+                width: 5vw;
                 height: auto;
             }
         }
@@ -116,10 +115,14 @@ export const Reviews = styled.div`
         .name{
             p{
                 text-align: center;
-                font-size: max(14px, 5vw);
+                font-size: 4vw;
             }
         }
         .location{
+            bottom: 1vh;
+            p{
+                font-size: 3vw;
+            }
         }
     }
 `;
@@ -135,6 +138,7 @@ export const SwiperContainer = styled.div`
         position: absolute;
         color: transparent;
         top: 5%;
+        
     }
     .swiper-button-prev{
         position: absolute;
@@ -152,21 +156,22 @@ export const SwiperContainer = styled.div`
         padding-top: 100px;
     }
     @media (max-width: 992px){
-    .swiper-slide{
-        padding-top: 0;
-        display: flex;
-        justify-content: center;
-    }
-    .swiper-button-next{
-        width: 40px;
-        height: auto;
-        top: 50%;
-        right: 0;
-    }
-    .swiper-button-prev{
-        width: 40px;
-        height: auto;
-        top: 50%;
-        left: 0;
+        .swiper-slide{
+            padding-top: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .swiper-button-next{
+            width: min(32px, 9vw);
+            height: min(32px, 9vw);
+            top: 27vh;
+            right: 0;
+        }
+        .swiper-button-prev{
+            width: min(32px, 9vw);
+            height: min(32px, 9vw);
+            top: 27vh;
+            left: 0;
+        }
     }
 `;
