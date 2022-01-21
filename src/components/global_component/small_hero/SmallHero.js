@@ -1,38 +1,18 @@
-import React from 'react';
-import { Link, useStaticQuery, graphql } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { SmallHeroStyles } from "./SmallHeroStyles";
-import { getImageData } from "../../../utils/get_image_data";
+import * as React from "react";
+import {GatsbyImage, getImage} from "gatsby-plugin-image";
+import {SmallHeroStyled} from "./SmallHero.styled";
 
-export const SmallHero = () => {
-    const data = useStaticQuery(graphql`
-        query {
-            wpPage(uri: {eq: "/"}) {
-              home {
-                banner {
-                  bannerBg {
-                    localFile {
-                      childrenImageSharp {
-                        gatsbyImageData
-                      }
-                    }
-                  }
-                }
-              }
-              title
-            }
-          }
-    `)
-    const {wpPage: {title}} = data;
-    const {wpPage: {home: {banner}}} = data;
+export const SmallHero = ({title, banner}) => {
     return (
-        <SmallHeroStyles>
-            <div className={'small-hero'}>
-            <GatsbyImage image={getImage(banner.bannerBg.localFile.childrenImageSharp[0].gatsbyImageData)} alt={'brands'}/>
-            <div className={'small-hero-title'}>{title}</div>
-            </div>
-        </SmallHeroStyles>
+        <div className="container">
+            <SmallHeroStyled>
+                <div className="hero-title">
+                    <h1>{title}</h1>
+                </div>
+                <div className="hero-img">
+                    <GatsbyImage image={getImage(banner)} alt={'banner'}/>
+                </div>
+            </SmallHeroStyled>
+        </div>
     );
-};
-
-export default SmallHero;
+}

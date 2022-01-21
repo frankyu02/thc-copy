@@ -6,22 +6,8 @@ import { Header } from "./components/header"
 
 export const HeaderMenu = () => {
   const data = useStaticQuery(graphql`
-        query {
-            allWpMenuItem(filter: {locations: {eq: MENU_HEADER}, parentDatabaseId: {eq: 0}}) {
-                edges {
-                    node {
-                        label
-                        url
-                        childItems {
-                            nodes {
-                                label
-                                url
-                            }
-                        }
-                    }
-                }
-            }
-            site {
+        query { 
+         site {
                 siteMetadata {
                     title
                     siteUrl
@@ -37,14 +23,13 @@ export const HeaderMenu = () => {
         }
     `)
 
-
-  const navItems = data?.allWpMenuItem?.edges
   const logoText = data?.site?.siteMetadata?.title
-  const promobarText = data?.wp?.acfOptionsHeaderOptions?.promobarText
+  const promobarText = data?.wp?.acfOptionsHeaderOptions?.preHeader?.promobarText
+
   return (
     <HeaderMenuStyles>
       <PromoBar promoText={promobarText} />
-      <Header logoText={logoText} navItems={navItems} />
+      <Header logoText={logoText} />
     </HeaderMenuStyles>
   )
 }

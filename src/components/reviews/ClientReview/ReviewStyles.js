@@ -1,11 +1,15 @@
 import styled from 'styled-components';
 import img from '../../../images/Group585.png';
+import { __BREAKPOINTS } from "../../../styles/utils/variables";
+
 export const ClientReviewStyle = styled.div`
     *{
         box-sizing: border-box;
     }
     border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    overflow: visible;
     padding-left: 1vw;
     padding-bottom: 10vh;
     position: relative;
@@ -57,8 +61,6 @@ export const Reviews = styled.div`
     padding-right: 5%;
     .stars{
         margin-top: 5%;
-        position: absolute;
-        top: 0;
         .star{
             width: 17px;
             height: 16px;
@@ -66,7 +68,6 @@ export const Reviews = styled.div`
         }
     }
     .review{
-        margin-bottom: 5%;
         p{
             font-family: "MADE Outer Sans"
             font-size: 18px;
@@ -76,9 +77,7 @@ export const Reviews = styled.div`
         }
     }
     .name{
-        position: absolute;
-        top: 20%;
-        margin-top: 150px;
+        margin-bottom: 5%;
         p{
             font-family: "Integral CF";
             font-size: 25px;
@@ -87,8 +86,8 @@ export const Reviews = styled.div`
         }
     }
     .location{
-        position: absolute;
-        top: 78%;
+        position: relative;
+        bottom: 50px;
         p{
             font-family: "Integral CF";
             font-size: 14px;
@@ -96,35 +95,31 @@ export const Reviews = styled.div`
             color: #612C8F;
         }
     }
-    @media(max-width: 992px){
-        height: 50vh;
-        min-height: 350px;
+    @media(max-width: 1000px){
+        height: 70%;
+        min-height: 400px;
         width: 70vw;
         min-width: 246px;
         .stars{
-            margin-top: 8%;
-            margin-left: 18%;
+            margin-left: 20%;
             .star{
                 width: 10%;
                 height: auto;
             }
         }
         .review{
-            margin-bottom: 20%;
             width: 70%;
             p{
                 font-size: max(12px, 3vw);
             }
         }
         .name{
-            margin-top: 200px;
             p{
                 text-align: center;
                 font-size: max(14px, 5vw);
             }
         }
         .location{
-            margin-top: min(10%,20px);
         }
     }
 `;
@@ -146,7 +141,7 @@ export const SwiperContainer = styled.div`
         width: 2.5vw;
         height: 2.5vw;
         top: 5%;
-        left: 93%;
+        left: 90%;
         background-image: url(${img});
         background-repeat: no-repeat;
         background-size: 100% auto;
@@ -163,12 +158,13 @@ export const SwiperContainer = styled.div`
         justify-content: center;
     }
     .swiper-button-next{
-        width: 32.14px;
+        width: 40px;
         height: auto;
         top: 50%;
+        right: 0;
     }
     .swiper-button-prev{
-        width: 32.14px;
+        width: 40px;
         height: auto;
         top: 50%;
         left: 0;

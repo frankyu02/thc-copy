@@ -6,12 +6,14 @@ export const ModalLegendaryStyles = styled.div`
         display: flex;
         position: fixed;
         left: 50%;
+        padding: 100px 0;
         transform: translate(-50%);
         top: 10%;
         align-items: center;
         background: white;
         justify-content: space-between;
-        max-width: 1100px;
+        max-width: 1080px;
+        width: 100%;
         border: 1px solid #000000;
         z-index: 201;
     }
@@ -19,13 +21,17 @@ export const ModalLegendaryStyles = styled.div`
       position: absolute;
       top: 10px;
       right: 10px;
+      font-size: 0;
       cursor: pointer;
+      border: none;
+      background: transparent;
     }
     &.active {
       display: block;
     }
     .overlay {
     position: fixed;
+    border: none;
     z-index: 200;
     width: 100%;
     height: 100%;
@@ -34,7 +40,21 @@ export const ModalLegendaryStyles = styled.div`
     left: 0;
     }
     .legendary-modal_image{
-        width: 30%;
+      position: relative;
+        .top_baner {
+          position: absolute;
+          bottom: -20px;
+          width: 343px;
+          left: -65px;
+          transform: rotate(6.48deg);
+        }
+        .bottom_baner {
+          position: absolute;
+          top: -30px;
+          left: 0;
+          width: 306px;
+          transform: rotate(-10.79deg);
+        }
     }
     .legendary-modal_context{
         margin-right: 70px;

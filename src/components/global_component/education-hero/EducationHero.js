@@ -1,7 +1,8 @@
 import * as React from "react";
 import { EducationHeroStyles } from "./EducationHero.styled";
+// import {GatsbyImage, getImage} from "gatsby-plugin-image";
 
-export const EducationHero = ({title, data}) => {
+export const EducationHero = ({title, data, banner}) => {
     return (
         <EducationHeroStyles>
             <div className="hero-title">
@@ -9,7 +10,7 @@ export const EducationHero = ({title, data}) => {
                 <time>{data}</time>
             </div>
             <div className="hero-img">
-                {/*<img src="/static/de678efaec14b60c18c417abc8880597/344b2/cards_join_bg_img_1.jpg" alt="hero-img"/>*/}
+                {/*<GatsbyImage image={getImage({banner}.localFile.childrenImageSharp[0].gatsbyImageData)} alt={'banner'}/>*/}
             </div>
            
         </EducationHeroStyles>

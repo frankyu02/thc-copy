@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { HeroStyles } from "./HeroStyles";
+import { HeroStyled } from "./Hero.styled";
 import { MainButton } from "../ui/main_button/MainButton";
 
 export const HeroHome = () => {
@@ -18,7 +18,7 @@ export const HeroHome = () => {
                         bannerBg {
                             localFile {
                                 childImageSharp {
-                                    gatsbyImageData
+                                    gatsbyImageData(quality: 100)
                                 }
                             }
                             altText
@@ -40,7 +40,7 @@ export const HeroHome = () => {
     const bannerTitle = data?.wpPage?.home?.banner?.bannerTitle;
     const bannerButton = data?.wpPage?.home?.banner?.bannerButton;
   return (
-      <HeroStyles>
+      <HeroStyled>
           <div className="container">
               <div className="header">
                   <div className='address_parent'>
@@ -57,6 +57,6 @@ export const HeroHome = () => {
                   </div>
               </div>
           </div>
-      </HeroStyles>
+      </HeroStyled>
   )
 }

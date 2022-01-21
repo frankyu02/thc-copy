@@ -31,6 +31,7 @@ const ReviewGrid = () => {
     const cardsCompanyItem = data?.wpPage?.reviews?.cardsCompany?.cardsCompanyItem;
 
     return (
+      <div className="container">
         <ReviewGridStyles>
             <div className="container">
                 <div className="header">{cardsCompanyTitle}</div>
@@ -50,6 +51,7 @@ const ReviewGrid = () => {
                 </div>
             </div>
         </ReviewGridStyles>
+      </div>
     );
 }
 

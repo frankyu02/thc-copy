@@ -25,5 +25,6 @@ export const FooterTwoStyled = styled.div`
         width: 30%;
         order: 0;
         border-bottom: 1px solid #fff;
+        border-right: 1px solid #fff;
     `)}
 `;
