@@ -4,6 +4,7 @@ import {md, sm, xs, xxs} from "../../styles/utils/media_queries";
 export const FooterStyled = styled.footer`
     background: #612C8F;
     color: #fff;
+    padding: 0px 20px;
     h2{
         order: -2;
         border-top: 1px solid #fff;
@@ -141,6 +142,7 @@ export const FooterStyled = styled.footer`
         h2{
             font-size: 70px;
         }
+        padding: 0px 0px;
     `)}
     ${xs(`
         h2{

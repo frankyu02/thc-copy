@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import img from '../../../images/Group585.png';
 import { __BREAKPOINTS } from "../../../styles/utils/variables";
 
+
+
 export const ClientReviewStyle = styled.div`
     *{
         box-sizing: border-box;
@@ -11,8 +13,10 @@ export const ClientReviewStyle = styled.div`
     border-left: 1px solid black;
     overflow: visible;
     padding-left: 1vw;
+    padding-right: 1vw;
     padding-bottom: 10vh;
     position: relative;
+    background: white;
     .title{
         h2{
             font-family: "Neumatic Compressed Bold";
@@ -23,7 +27,7 @@ export const ClientReviewStyle = styled.div`
     }
     .subtitle{
         h3{
-            font-family: "Integral CF Heavy";
+            font-family: "Integral CF Bold";
             font-size: 35px;
             font-weight: bolder;
             font-style: italic;
@@ -32,6 +36,9 @@ export const ClientReviewStyle = styled.div`
     @media(max-width: 992px){
         padding-top: 10%;
         padding-left: 2vw;
+        padding-right: 2vw;
+        border-right: 0px solid black;
+        border-left: 0px solid black;
         .title{
             h2{
                 font-size: max(60px, 15vw);
@@ -77,6 +84,7 @@ export const Reviews = styled.div`
         }
     }
     .name{
+        font-style: italic;
         margin-bottom: 5%;
         p{
             font-family: "Integral CF";
@@ -96,14 +104,15 @@ export const Reviews = styled.div`
         }
     }
     @media(max-width: 1000px){
-        height: 70%;
+        height: 100%;
         min-height: 400px;
         width: 70vw;
         min-width: 246px;
+        justify-content: center;
+        align-items: center;
         .stars{
-            margin-left: 20%;
             .star{
-                width: 10%;
+                width: 5vw;
                 height: auto;
             }
         }
@@ -116,10 +125,11 @@ export const Reviews = styled.div`
         .name{
             p{
                 text-align: center;
-                font-size: max(14px, 5vw);
+                font-size: 4vw;
             }
         }
         .location{
+            padding: 20px 0px;
         }
     }
 `;
@@ -135,6 +145,7 @@ export const SwiperContainer = styled.div`
         position: absolute;
         color: transparent;
         top: 5%;
+        
     }
     .swiper-button-prev{
         position: absolute;
@@ -152,21 +163,24 @@ export const SwiperContainer = styled.div`
         padding-top: 100px;
     }
     @media (max-width: 992px){
-    .swiper-slide{
-        padding-top: 0;
-        display: flex;
-        justify-content: center;
-    }
-    .swiper-button-next{
-        width: 40px;
-        height: auto;
-        top: 50%;
-        right: 0;
-    }
-    .swiper-button-prev{
-        width: 40px;
-        height: auto;
-        top: 50%;
-        left: 0;
+        .swiper-slide{
+            padding-top: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .swiper-button-next{
+            width: min(32px, 8.5vw);
+            height: min(32px, 8.5vw);
+            top: 0;
+            top: 50%;
+            right: 0;
+        }
+        .swiper-button-prev{
+            width: min(32px, 8.5vw);
+            height: min(32px, 8.5vw);
+            top: 0;
+            top: 50%;
+            left: 0;
+        }
     }
 `;
