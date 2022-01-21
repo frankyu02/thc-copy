@@ -31,6 +31,7 @@ export const BlogBannerStyled = styled.section`
                 margin-bottom: 15px;
             }
             a{
+                font-family: 'MADE OUTER Sans Light';
                 font-size: 18px;
                 svg{
                     margin-left: 10px;
