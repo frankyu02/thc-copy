@@ -45,6 +45,12 @@ export const LegendaryStyles = styled.section`
           font-weight: bold;
           cursor: pointer;
           margin-bottom: 40px;
+          text-align: left;
+          font-size: 18px;
+          padding: 0;
+          font-family: 'MADE OUTER Sans Light';
+          border: none;
+          background: transparent;
         }
         .main_button{
           margin: 0;
@@ -75,11 +81,9 @@ export const LegendaryStyles = styled.section`
         h3 {
           font-family: 'Neumatic Compressed Bold';
           font-size: 80px;
-          text-transform: uppercase;
-          letter-spacing: 0.01em;
         }
         p {
-          font-family: 'Integral CF Bold';
+          font-family: 'Integral CF';
           font-style: italic;
           max-width: 490px;
           margin: 0 0 20px;

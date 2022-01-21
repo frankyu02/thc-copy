@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 import img from '../../../images/Group585.png';
+import { __BREAKPOINTS } from "../../../styles/utils/variables";
+
 export const ClientReviewStyle = styled.div`
     *{
         box-sizing: border-box;
     }
     border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    overflow: visible;
     padding-left: 1vw;
     padding-bottom: 10vh;
     position: relative;

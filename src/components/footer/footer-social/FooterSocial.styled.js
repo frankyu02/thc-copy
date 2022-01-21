@@ -32,8 +32,10 @@ export const FooterSocialStyled = styled.div`
         }
     `)}
     ${sm(`
-        width: 40%;
+        width: 44%;
         a{
+            border-left: 0;
+            border-top: 0;
             padding: 40px 0;
         }
     `)}
