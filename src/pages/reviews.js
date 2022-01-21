@@ -40,19 +40,22 @@ const ReviewsPage = () => {
 
     const ReviewsStyles = styled.div`
       background: var(--grey);
+      position: relative;
+      z-index: -2;
     `;
 
   return (
-    <ReviewsStyles>
-      <Layout seo={seo}>
-          <HeaderMenu/>
-          <SmallHero title={title} banner={banner}/>
-          <ReviewGrid/>
-          <ClientReview/>
-          <DoublePageLink/>
-          <Footer/>
-      </Layout>
-    </ReviewsStyles>
+
+    <Layout seo={seo}>
+      <ReviewsStyles>
+        <HeaderMenu/>
+        <SmallHero title={title} banner={banner}/>
+        <ReviewGrid/>
+        <ClientReview/>
+        <DoublePageLink/>
+        <Footer/>
+      </ReviewsStyles>
+    </Layout>
   )
 }
 
