@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { BrandsStyles } from "./BrandsStyles"
+import { BrandsStyled } from "./Brands.styled"
 import { MainButton } from "../../ui/main_button/MainButton"
 
 export const Brands = () => {
@@ -20,7 +20,7 @@ export const Brands = () => {
                       altText
                       localFile {
                         childrenImageSharp {
-                          gatsbyImageData
+                          gatsbyImageData(quality: 100)
                         }
                       }
                       link
@@ -35,7 +35,7 @@ export const Brands = () => {
     `)
   const brands = data?.wpPage?.home?.brands;
   return (
-    <BrandsStyles>
+    <BrandsStyled>
       <div className="container">
         <div className={"brand-section"}>
           <div className={"brand-title"}>
@@ -54,7 +54,7 @@ export const Brands = () => {
                       target={brands?.brandsButton?.target}>{brands?.brandsButton?.title}</MainButton>
         </div>
       </div>
-    </BrandsStyles>
+    </BrandsStyled>
   )
 }
 

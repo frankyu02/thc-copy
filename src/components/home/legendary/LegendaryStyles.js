@@ -45,6 +45,12 @@ export const LegendaryStyles = styled.section`
           font-weight: bold;
           cursor: pointer;
           margin-bottom: 40px;
+          text-align: left;
+          font-size: 18px;
+          padding: 0;
+          font-family: 'MADE OUTER Sans Light';
+          border: none;
+          background: transparent;
         }
         .main_button{
           margin: 0;

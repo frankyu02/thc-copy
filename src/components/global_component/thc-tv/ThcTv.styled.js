@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ThcTvStyles = styled.section` 
+export const ThcTvStyled = styled.section` 
   .thctv-block{
       background: #EBEBEB;
       padding: 103px 0;

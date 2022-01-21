@@ -26,7 +26,7 @@ export const Legendary = () => {
                         storyLegendaryMainImg {
                             localFile {
                                 childImageSharp {
-                                    gatsbyImageData
+                                    gatsbyImageData(quality: 100)
                                 }
                             }
                             altText
@@ -43,7 +43,7 @@ export const Legendary = () => {
                         cardsJoinBgImg {
                             localFile {
                                 childrenImageSharp {
-                                    gatsbyImageData
+                                    gatsbyImageData(quality: 100)
                                 }
                             }
                         }
@@ -69,7 +69,7 @@ export const Legendary = () => {
               {storyLegendary?.storyLegendaryMainText?.map?.((item, key) => (
                 <p key={key}>{item?.storyLegendaryMainTextItem}</p>
               ))}
-            <div onClick={() => setModal(true)} className="read_more">{storyLegendary?.storyLegendaryModalOpen}</div>
+            <button onClick={() => setModal(true)} className="read_more">{storyLegendary?.storyLegendaryModalOpen}</button>
             <div><MainButton url={storyLegendary?.storyLegendaryButton?.url}
                              target={storyLegendary?.storyLegendaryButton?.target}>{storyLegendary?.storyLegendaryButton?.title}</MainButton>
             </div>

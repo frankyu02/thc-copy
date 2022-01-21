@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 
-export const HeroStyles = styled.section` 
+export const HeroStyled = styled.section` 
   .header {
     display: flex;
     align-items: flex-end;

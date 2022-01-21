@@ -1,7 +1,7 @@
 import * as React from "react";
 import {Link, graphql, useStaticQuery} from "gatsby";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
-import { CategoryStyles } from "./CategorySectionStyles";
+import { CategoryStyles } from "./CategorySection.styled";
 
 export const CategorySection = () => {
     const data = useStaticQuery(graphql`
@@ -21,7 +21,7 @@ export const CategorySection = () => {
                         categoriesCannabisItemImg {
                           localFile {
                             childrenImageSharp {
-                                gatsbyImageData
+                                gatsbyImageData(quality: 100)
                             }
                           }
                         }
