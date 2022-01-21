@@ -4,12 +4,16 @@ import styled from 'styled-components';
 export const LinkStyles = styled.section` 
   a {
     position: fixed;
-    width: 140px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
     right: 60px;
     bottom: 60px;
     z-index: 100;
+    overflow: hidden;
     img{
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
         animation: spin 15s linear 0s infinite;
     }
   }
@@ -20,7 +24,7 @@ export const LinkStyles = styled.section`
   }
   @keyframes spin {
     from {transform:rotate(0deg);}
-    to {transform:rotate(360deg);}
+    to {transform:rotate(-360deg);}
   }
 
   @media (max-width: 1365px) {

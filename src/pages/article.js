@@ -3,6 +3,7 @@ import { HeaderMenu } from "../components/header/HeaderMenu";
 import {Footer} from '../components/footer/Footer';
 import Layout from "../components/layout/Layout";
 import {DoubleBanner} from "../components/article/double_banner/DoubleBanner";
+import {ShopLink} from "../components/ui/shop_link/ShopLink";
 
 const Article = () => {
     const seo = {
@@ -16,6 +17,7 @@ const Article = () => {
                 <HeaderMenu/>
                 <DoubleBanner/>
                 <Footer/>
+                <ShopLink/>
             </Layout>
         </>
     )

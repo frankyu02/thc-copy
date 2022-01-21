@@ -15,7 +15,7 @@ export const DoubleBanner = () => {
                     <div className={'double_item'}>
                         <h3>STAY IN THE KNOW</h3>
                         <p>Become a member and stay up to date with the latest THC news</p>
-                        <MainButton url={'#'} target={'_blank'}>SHOP NOW</MainButton>
+                        <MainButton url={'#'} target={'_blank'}>SUBSCRIBE</MainButton>
                     </div>
                 </div>
             </div>
