@@ -59,7 +59,6 @@ export const Reviews = styled.div`
     padding-right: 5%;
     .stars{
         margin-top: 5%;
-        
         .star{
             width: 17px;
             height: 16px;
@@ -67,7 +66,6 @@ export const Reviews = styled.div`
         }
     }
     .review{
-        
         p{
             font-family: "MADE Outer Sans"
             font-size: 18px;

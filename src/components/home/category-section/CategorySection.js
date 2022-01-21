@@ -21,11 +21,7 @@ export const CategorySection = () => {
                         categoriesCannabisItemImg {
                           localFile {
                             childrenImageSharp {
-<<<<<<< HEAD
-                                gatsbyImageData(quality: 90)
-=======
                                 gatsbyImageData(quality: 100)
->>>>>>> 16757e6c3439489a3531e6e505fc40b5c23f23f6
                             }
                           }
                         }

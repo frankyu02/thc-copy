@@ -1,9 +1,4 @@
 import * as React from "react";
-<<<<<<< HEAD
-import { HeroHome } from "../components/home/Hero";
-import ClientReview from "../components/reviews/ClientReview/ClientReview";
-=======
->>>>>>> 16757e6c3439489a3531e6e505fc40b5c23f23f6
 import Layout from "../components/layout/Layout";
 import {graphql, useStaticQuery} from "gatsby";
 import {SmallHero} from "../components/global_component/small_hero/SmallHero";
