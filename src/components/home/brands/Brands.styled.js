@@ -81,6 +81,8 @@ export const BrandsStyled = styled.section`
         }
     }
     @media (max-width: 767px){
+        padding-left: 10px;
+        padding-right: 10px;
         .brand{
             &-grid{
                 margin-bottom: 50px

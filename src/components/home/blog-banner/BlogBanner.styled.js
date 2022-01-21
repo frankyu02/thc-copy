@@ -72,6 +72,8 @@ export const BlogBannerStyled = styled.section`
         }
     }
     @media (max-width: 768px){
+        padding-left: 10px;
+        padding-right: 10px;
         .blog-banner{
             padding: 50px 0 30px;
             h2{

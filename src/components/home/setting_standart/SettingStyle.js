@@ -93,6 +93,9 @@ export const SettingStyle = styled.section`
        }
    }
     @media (max-width: 767px) {
+      .read_more{
+        display: none;
+      }
         .setting_standart {
           flex-direction: column;
           .settings_image {
