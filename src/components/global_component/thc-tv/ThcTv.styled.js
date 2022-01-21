@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ThcTvStyles = styled.section` 
+export const ThcTvStyled = styled.section` 
   .thctv-block{
       background: #EBEBEB;
       padding: 103px 0;
@@ -13,7 +13,7 @@ export const ThcTvStyles = styled.section`
   .thc-tv-text{
       font-weight: 300;
       font-size: 16px;
-      width: 50%;
+      width: 45%;
       line-height: 20.11px;
       padding: 0 0 0 100px;
       .btn{
@@ -65,6 +65,23 @@ export const ThcTvStyles = styled.section`
         margin-bottom: 30px
     }
   }
+  @media (max-width: 500px){
+    .thc-tv-text{
+        .btn{
+            display: flex;  
+            width: 100%;
+            padding: 19px 15px;
+            font-size: 16px;
+        }
+    }
+  }
+  @media (max-width: 360px){
+    .thc-tv-text{
+        .btn{
+            font-size: 14px;
+        }
+    }
+  }
   @media (max-width: 767px){
     .thc-tv-text{
         font-size: 16px;
@@ -76,7 +93,7 @@ export const ThcTvStyles = styled.section`
             max-width: 100%;
         }
     }
-    .thc-tv-img-mob{
+    .thc-tv-img{
         display: block;
         width: 100%;
         margin: 32px auto 0;

@@ -8,7 +8,7 @@ export const FooterStyled = styled.footer`
         order: -2;
         border-top: 1px solid #fff;
         border-bottom: 1px solid #fff;
-        padding: 40px 0 50px;
+        padding: 34px 0 50px;
         margin-bottom: 0;
         padding-bottom: 25px;
         padding-right: 5%;
@@ -30,7 +30,7 @@ export const FooterStyled = styled.footer`
         text-transform: uppercase;
         font-weight: 700;
         font-size: 18px;
-        padding-top: 40px;
+        padding-top: 34px;
         a{
             display: block;
             margin-bottom: 15px;
@@ -55,6 +55,7 @@ export const FooterStyled = styled.footer`
         h3{
             text-transform: uppercase;
             margin-bottom: 55px;
+            font-size: 32px;
         }
         .footer-form__email{
             display: flex;
@@ -155,32 +156,34 @@ export const FooterStyled = styled.footer`
             margin: 0 auto;
         }
         h2{
-            padding: 40px 0 50px;
-            width: 30%;
-            padding-right: 5%;
-            border-bottom: 0;
+            padding: 40px 20px 50px;
+            width: 26%;
+            border: 1px solid #fff;
         }
         .footer-menu{
             order: 0;
             width: 30%;
             box-sizing: border-box;
             border: 1px solid #fff;
+            border-left: 0;
         }
         .footer-form{
             order: 0;
+            border-right: 1px solid #fff;
+            border-bottom: 1px solid #fff;
             padding: 70px 5% 0;
-            width: 40%;
+            width: 44%;
         }
         .footer-location{
-            width: 30%;
+            width: 26%;
             border: 1px solid #fff;
-            border-left: 0;
+            border-top: 0;  
+            padding: 30px 20px;
         }
     `)}
     ${md(`
         h2{
-            padding: 40px 0 90px;
-            padding-right: 8%;
+            padding: 34px 2% 76px 20px;
         }
     `)}
 `;

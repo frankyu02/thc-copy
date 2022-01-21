@@ -1,26 +1,23 @@
 import styled from 'styled-components';
 
 
-export const HeroStyles = styled.section` 
+export const HeroStyled = styled.section` 
   .header {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     margin-bottom: 40px;
-    letter-spacing: 0.2rem;
     h1 {
       margin: 0;
       line-height: 1;
       font-size: 160px;
     }
     h4 {
-        line-height: 130%;
-        font-size: 16px;
-        max-width: 180px;
-        letter-spacing: 0;
+      font-size: 16px;
+      max-width: 180px;
     }
     h4:first-child {
-      margin-bottom: 23px;
+      margin-bottom: 30px;
     }
   }
   .inner {
@@ -36,13 +33,11 @@ export const HeroStyles = styled.section`
         z-index: 1;
         font-style: italic;
         h3 {
-            font-size: 48px;
-            color: white;
-            text-align: center;
-            max-width: 820px;
-            margin-bottom: 65px;
-            line-height: 1;
-            font-style: normal;
+          font-size: 48px;
+          color: white;
+          text-align: center;
+          max-width: 820px;
+          margin-bottom: 70px;
         }
         
     }

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const BlogBannerStyles = styled.section`
+export const BlogBannerStyled = styled.section`
     background: #612C8F; 
     color: #fff;
     .blog-banner{

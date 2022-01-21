@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { ThcTvStyles } from "./ThcTvStyles";
+import { ThcTvStyled } from "./ThcTv.styled";
 
 export const ThcTv = () => {
     const data = useStaticQuery(graphql`
@@ -14,7 +14,7 @@ export const ThcTv = () => {
                         thcTvImg {
                             localFile {
                                 childImageSharp {
-                                    gatsbyImageData
+                                    gatsbyImageData(quality: 100)
                                 }
                             }
                         }
@@ -30,7 +30,7 @@ export const ThcTv = () => {
     `)
     const thcTv = data?.wpPage?.home?.thcTv
     return (
-        <ThcTvStyles>
+        <ThcTvStyled>
             <div className={'thctv-block'}>
                 <div className={'container'}>
                     <div className={'thc-tv-text'}>
@@ -48,7 +48,7 @@ export const ThcTv = () => {
                     </div>
                 </div>
             </div>
-        </ThcTvStyles>
+        </ThcTvStyled>
     );
 };
 

@@ -1,7 +1,7 @@
 import * as React from "react";
 import {Link, graphql, useStaticQuery} from "gatsby";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
-import { BlogBannerStyles } from "./BlogBannerStyles";
+import { BlogBannerStyled } from "./BlogBanner.styled";
 import { MainButton } from "../../ui/main_button/MainButton";
 
 export const BlogBanner = () => {
@@ -28,7 +28,7 @@ export const BlogBanner = () => {
                       thcBlogCardImg{
                           localFile {
                             childrenImageSharp {
-                                gatsbyImageData
+                                gatsbyImageData(quality: 100)
                             }
                           }
                       }
@@ -40,7 +40,7 @@ export const BlogBanner = () => {
     `)
     const thcBlog = data?.wpPage?.home?.thcBlog
     return (
-        <BlogBannerStyles>
+        <BlogBannerStyled>
             <div className="container">
                 <div className="blog-banner">
                     <h2>{thcBlog?.thcBlogTitle}</h2>
@@ -62,6 +62,6 @@ export const BlogBanner = () => {
                     </div>
                 </div>
             </div>
-        </BlogBannerStyles>
+        </BlogBannerStyled>
     );
 }
