@@ -28,7 +28,7 @@ const DoublePageLink = () => {
     `)
 
     const recommendation = data?.wpPage?.reviews?.recommendation;
-    console.log(recommendation);
+    
     return (
         <DoublePageLinkStyles>
             <div className="container">

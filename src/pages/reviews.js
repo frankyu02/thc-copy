@@ -4,6 +4,9 @@ import {graphql, useStaticQuery} from "gatsby";
 import {SmallHero} from "../components/global_component/small_hero/SmallHero";
 import {HeaderMenu} from "../components/header/HeaderMenu";
 import {Footer} from "../components/footer/Footer";
+import DoublePageLink from "../components/reviews/doublePageLink/doublePageLink";
+import ReviewGrid from "../components/reviews/reviewGrid/reviewGrid";
+import ClientReview from "../components/reviews/ClientReview/ClientReview";
 
 const ReviewsPage = () => {
 
@@ -39,6 +42,9 @@ const ReviewsPage = () => {
       <Layout seo={seo}>
           <HeaderMenu/>
           <SmallHero title={title} banner={banner}/>
+          <ReviewGrid/>
+          <ClientReview/>
+          <DoublePageLink/>
           <Footer/>
       </Layout>
     </>

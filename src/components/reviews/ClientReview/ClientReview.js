@@ -6,8 +6,9 @@ import SwiperCore, { Navigation } from 'swiper';
 import "swiper/css";
 import "swiper/css/navigation"
 import { ClientReviewStyle, Reviews, SwiperContainer } from "./ReviewStyles";
-SwiperCore.use([Navigation]);
 import img from '../../../images/Group585.png';
+
+SwiperCore.use([Navigation]);
 
 export default function ClientReview(){
     console.log({img});
