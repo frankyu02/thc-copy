@@ -4,6 +4,7 @@ import {Footer} from '../components/footer/Footer';
 import Layout from "../components/layout/Layout";
 import {DoubleBanner} from "../components/article/double_banner/DoubleBanner";
 import {ShopLink} from "../components/ui/shop_link/ShopLink";
+import {LargeBanner} from "../components/global_component/large_banner/LargeBanner";
 
 const Article = () => {
     const seo = {
@@ -15,6 +16,7 @@ const Article = () => {
         <>
             <Layout seo={seo}>
                 <HeaderMenu/>
+                <LargeBanner/>
                 <DoubleBanner/>
                 <Footer/>
                 <ShopLink/>
