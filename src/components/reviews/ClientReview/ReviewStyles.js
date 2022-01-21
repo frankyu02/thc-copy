@@ -85,7 +85,7 @@ export const Reviews = styled.div`
     }
     .location{
         position: relative;
-        bottom: 30px;
+        bottom: 50px;
         p{
             font-family: "Integral CF";
             font-size: 14px;
@@ -156,12 +156,13 @@ export const SwiperContainer = styled.div`
         justify-content: center;
     }
     .swiper-button-next{
-        width: 32.14px;
+        width: 40px;
         height: auto;
         top: 50%;
+        right: 0;
     }
     .swiper-button-prev{
-        width: 32.14px;
+        width: 40px;
         height: auto;
         top: 50%;
         left: 0;
