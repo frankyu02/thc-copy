@@ -7,8 +7,9 @@ export const MenuItem = styled.li`
   font-size: 20px;
   text-transform: uppercase;
   display: flex;
-  padding: 20px;
+  padding: 20px 0;
   width: 100%;
+  min-height: 80px;
 
   ${lg(`
         display: flex; 
@@ -21,6 +22,23 @@ export const MenuItem = styled.li`
          margin-left: 10px;
       `
     )}
+  }
+
+  .menuActive {
+    padding: 5px 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    text-transform: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    line-height: 1;
+    cursor: pointer;
   }
 
   .dropDown {
