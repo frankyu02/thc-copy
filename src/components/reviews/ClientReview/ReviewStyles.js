@@ -111,9 +111,8 @@ export const Reviews = styled.div`
         justify-content: center;
         align-items: center;
         .stars{
-            margin-left: 20%;
             .star{
-                width: 10%;
+                width: 5vw;
                 height: auto;
             }
         }
@@ -126,7 +125,7 @@ export const Reviews = styled.div`
         .name{
             p{
                 text-align: center;
-                font-size: max(14px, 5vw);
+                font-size: 4vw;
             }
         }
         .location{
@@ -146,6 +145,7 @@ export const SwiperContainer = styled.div`
         position: absolute;
         color: transparent;
         top: 5%;
+        
     }
     .swiper-button-prev{
         position: absolute;
@@ -163,21 +163,24 @@ export const SwiperContainer = styled.div`
         padding-top: 100px;
     }
     @media (max-width: 992px){
-    .swiper-slide{
-        padding-top: 0;
-        display: flex;
-        justify-content: center;
-    }
-    .swiper-button-next{
-        width: 40px;
-        height: auto;
-        top: 50%;
-        right: 0;
-    }
-    .swiper-button-prev{
-        width: 40px;
-        height: auto;
-        top: 50%;
-        left: 0;
+        .swiper-slide{
+            padding-top: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .swiper-button-next{
+            width: min(32px, 8.5vw);
+            height: min(32px, 8.5vw);
+            top: 0;
+            top: 50%;
+            right: 0;
+        }
+        .swiper-button-prev{
+            width: min(32px, 8.5vw);
+            height: min(32px, 8.5vw);
+            top: 0;
+            top: 50%;
+            left: 0;
+        }
     }
 `;
