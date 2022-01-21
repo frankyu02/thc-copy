@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import img from '../../../images/Group585.png';
 import { __BREAKPOINTS } from "../../../styles/utils/variables";
 
+
+
 export const ClientReviewStyle = styled.div`
     *{
         box-sizing: border-box;
@@ -11,8 +13,10 @@ export const ClientReviewStyle = styled.div`
     border-left: 1px solid black;
     overflow: visible;
     padding-left: 1vw;
+    padding-right: 1vw;
     padding-bottom: 10vh;
     position: relative;
+    background: white;
     .title{
         h2{
             font-family: "Neumatic Compressed Bold";
@@ -23,7 +27,7 @@ export const ClientReviewStyle = styled.div`
     }
     .subtitle{
         h3{
-            font-family: "Integral CF Heavy";
+            font-family: "Integral CF Bold";
             font-size: 35px;
             font-weight: bolder;
             font-style: italic;
@@ -32,6 +36,9 @@ export const ClientReviewStyle = styled.div`
     @media(max-width: 992px){
         padding-top: 10%;
         padding-left: 2vw;
+        padding-right: 2vw;
+        border-right: 0px solid black;
+        border-left: 0px solid black;
         .title{
             h2{
                 font-size: max(60px, 15vw);
@@ -77,6 +84,7 @@ export const Reviews = styled.div`
         }
     }
     .name{
+        font-style: italic;
         margin-bottom: 5%;
         p{
             font-family: "Integral CF";
@@ -96,10 +104,12 @@ export const Reviews = styled.div`
         }
     }
     @media(max-width: 1000px){
-        height: 70%;
+        height: 100%;
         min-height: 400px;
         width: 70vw;
         min-width: 246px;
+        justify-content: center;
+        align-items: center;
         .stars{
             margin-left: 20%;
             .star{
@@ -120,6 +130,7 @@ export const Reviews = styled.div`
             }
         }
         .location{
+            padding: 20px 0px;
         }
     }
 `;

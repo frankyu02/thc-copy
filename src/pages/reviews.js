@@ -1,4 +1,5 @@
 import * as React from "react";
+import styled from 'styled-components';
 import Layout from "../components/layout/Layout";
 import {graphql, useStaticQuery} from "gatsby";
 import {SmallHero} from "../components/global_component/small_hero/SmallHero";
@@ -37,8 +38,12 @@ const ReviewsPage = () => {
     const title = data?.allWpPage?.nodes[0]?.reviews?.reviewsBanner?.reviewsBannerTitle;
     const banner = data?.allWpPage?.nodes[0]?.reviews?.reviewsBanner?.reviewsBannerImg?.localFile?.childImageSharp?.gatsbyImageData;
 
+    const ReviewsStyles = styled.div`
+      background: var(--grey);
+    `;
+
   return (
-    <>
+    <ReviewsStyles>
       <Layout seo={seo}>
           <HeaderMenu/>
           <SmallHero title={title} banner={banner}/>
@@ -47,7 +52,7 @@ const ReviewsPage = () => {
           <DoublePageLink/>
           <Footer/>
       </Layout>
-    </>
+    </ReviewsStyles>
   )
 }
 
