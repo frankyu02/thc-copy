@@ -7,6 +7,8 @@ export const ClientReviewStyle = styled.div`
         box-sizing: border-box;
     }
     border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
     overflow: visible;
     padding-left: 1vw;
     padding-bottom: 10vh;
