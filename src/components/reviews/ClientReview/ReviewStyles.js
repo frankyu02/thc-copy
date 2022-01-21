@@ -162,15 +162,17 @@ export const SwiperContainer = styled.div`
             justify-content: center;
         }
         .swiper-button-next{
-            width: min(32px, 9vw);
-            height: min(32px, 9vw);
-            top: 27vh;
+            width: min(32px, 8.5vw);
+            height: min(32px, 8.5vw);
+            top: 0;
+            top: 50%;
             right: 0;
         }
         .swiper-button-prev{
-            width: min(32px, 9vw);
-            height: min(32px, 9vw);
-            top: 27vh;
+            width: min(32px, 8.5vw);
+            height: min(32px, 8.5vw);
+            top: 0;
+            top: 50%;
             left: 0;
         }
     }
