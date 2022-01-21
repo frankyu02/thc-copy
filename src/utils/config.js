@@ -49,11 +49,13 @@ export const ROUTES = [
   {
     label: "APPAREL",
     link: "pageLink"
+
   },
 
   {
     label: "Delivery",
-    link: "pageLink"
+    link: "pageLink",
+    items: [...subMenu]
   },
   {
     label: "Company",
@@ -67,6 +69,7 @@ export const ROUTES = [
   },
   {
     label: "CONTACT US",
-    link: "pageLink"
+    link: "pageLink",
+    items: [...subMenu]
   }
 ]

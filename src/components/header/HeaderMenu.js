@@ -33,8 +33,6 @@ export const HeaderMenu = () => {
   const headerRef = useRef()
 
   return (
-
-
     <HeaderMenuStyles>
       <div ref={headerRef}> {/*dropdown wrapper */}
         <PromoBar promoText={promobarText} />

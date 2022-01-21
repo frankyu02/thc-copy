@@ -1,12 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
-import { NavItem } from "./navItem"
 import { Search } from "./search"
-import { ROUTES } from "../../../utils/config"
-import MainButton from "../../ui/main_button/MainButton"
+import { NavList } from "./navList"
+
 
 export const Header = ({ toggleMenu, menuOpen, logoText, headerRef }) => {
-
   const navIndent = headerRef?.current?.offsetHeight || 105
   return (
     <header className={"header"}>
@@ -18,13 +16,9 @@ export const Header = ({ toggleMenu, menuOpen, logoText, headerRef }) => {
       <div className="logo">
         <Link to={"/"}>{logoText}</Link>
       </div>
+
       <nav style={{ top: navIndent }} className={"nav " + (menuOpen ? " open" : "")}>
-        <ul className={"headerList"}>
-          {ROUTES.map((item, i) => (
-            <NavItem className={"menu-item"} item={item} key={i} />
-          ))}
-          <li className={"order-button"}><MainButton> ORDER NOW</MainButton></li>
-        </ul>
+        <NavList />
       </nav>
 
       <Search />

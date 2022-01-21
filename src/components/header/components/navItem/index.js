@@ -8,7 +8,7 @@ const MobileIcon = styled.div`
   height: 28px;
   width: 28px;
   position: relative;
- 
+
 
   &::before, &::after {
     display: inline-block;
@@ -16,42 +16,46 @@ const MobileIcon = styled.div`
     top: 50%;
     left: 0;
     right: 0;
-    transform: translateY(-50%);
     content: '';
     height: 2px;
     background-color: var(--darkpurple);
-    transition: 1s;
+    transition: 0.1s;
   }
 
   &::after {
-    transform: rotate(-90deg);
+    transform: ${props => props.isOpen ? " " : "rotate(-90deg)"};
   }
-
 `
 
-export const NavItem = ({ item, className }) => {
+const DropDrown = ({ dropDownItems }) => {
+  return (
+    <ul className={"dropDown"}>
+      {
+        dropDownItems.map((subItem, i) => (
+          <li className={"order-button"} key={i}>
+            <Link className={"dropdownItem"} to={subItem.link || "#"}>{subItem.label}</Link>
+          </li>
+        ))
+      }
+    </ul>
+  )
+
+}
+
+export const NavItem = ({ item, className, onOpen, isOpen }) => {
   const showDropdown = item.items?.length > 0
 
   return (
     <MenuItem className={className}>
       {showDropdown ?
-        <button className={"menuActive"}>{item.label} <MobileIcon /> <span
+        <button onClick={onOpen} className={"menuActive"}>{item.label} <MobileIcon isOpen={isOpen} /> <span
           className={"desktopIcon"}><DesktopIcon /></span></button> :
         <Link className={"menuActive"} to={item.link}>{item.label}   </Link>}
-
-      {item.items?.length > 0 ? <ul className={"dropDown"}>
-          {
-            item.items.map((subItem, key) => (
-              <li className={"order-button"} key={key}>
-                <Link className={"dropdownItem"} to={subItem.link || "#"}>{subItem.label}</Link>
-              </li>
-            ))
-          }
-        </ul>
-        : ""
-      }
+      {item.items?.length > 0 ? < DropDrown dropDownItems={item.items} /> : ""}
     </MenuItem>
   )
 }
+
+
 
 
