@@ -8,7 +8,7 @@ const DoublePageLinkStyles = styled.div`
     * { 
         box-sizing: border-box; 
     }
-    .container {
+    .box {
         background: #612C8F;
         max-width: 100%;
         max-height: 100%;
@@ -21,9 +21,10 @@ const DoublePageLinkStyles = styled.div`
         padding-right: 20px;
         padding-bottom: 100px;
         padding-top: 100px;
+        border-top: 1px solid black;
     }
     @media (min-width: 100px) {
-        .container {
+        .box {
             width: 100%;
             height: 100%;
         }
