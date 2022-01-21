@@ -4,7 +4,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation } from 'swiper';
 import "swiper/css";
-import "swiper/css/navigation"
+import "swiper/css/navigation";
 import { ClientReviewStyle, Reviews, SwiperContainer } from "./ReviewStyles";
 import img from '../../../images/Group585.png';
 
@@ -100,7 +100,7 @@ export default function ClientReview(){
                             )
                         }))
                         : 
-                        <div>loading products...</div>
+                        <div>loading cards...</div>
                         }
                     </Swiper>
                 </SwiperContainer>
