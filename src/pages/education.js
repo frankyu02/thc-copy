@@ -5,6 +5,7 @@ import {SmallHero} from "../components/global_component/small_hero/SmallHero";
 import {HeaderMenu} from "../components/header/HeaderMenu";
 import {Footer} from "../components/footer/Footer";
 import {ThcTv} from '../components/global_component/thc-tv/ThcTv';
+import {ArticlesGrid} from '../components/education/articles-grid/ArticlesGrid';
 
 
 const EducationPage = () => {
@@ -41,6 +42,7 @@ const EducationPage = () => {
             <Layout seo={seo}>
                 <HeaderMenu/>
                 <SmallHero title={title} banner={banner}/>
+                <ArticlesGrid/>
                 <ThcTv/>
                 <Footer/>
             </Layout>
