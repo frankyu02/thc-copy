@@ -1,24 +1,29 @@
 import * as React from "react";
-import { HeaderMenu } from "../components/header/HeaderMenu";
-import {graphql, useStaticQuery} from "gatsby";
-import {Footer} from '../components/footer/Footer';
 import Layout from "../components/layout/Layout";
+import {graphql, useStaticQuery} from "gatsby";
 import {SmallHero} from "../components/global_component/small_hero/SmallHero";
-
+import {HeaderMenu} from "../components/header/HeaderMenu";
+import {Footer} from "../components/footer/Footer";
 
 const EducationPage = () => {
 
+    const seo = {
+        title: 'Education Title',
+        description: 'Education Description'
+    }
+
     const data = useStaticQuery(graphql`
         query {
-            wpPage(id: {eq: "cG9zdDoyOTI="}) {
-                education {
-                    educationBanner {
-                        fieldGroupName
-                        educationBannerTitle
-                        educationBannerImg {
-                            localFile {
-                                childImageSharp {
-                                gatsbyImageData
+            allWpPage(filter: {id: {eq: "cG9zdDoyOTI="}}){
+                nodes{
+                    education {
+                        educationBanner {
+                            educationBannerTitle
+                            educationBannerImg {
+                                localFile {
+                                    childImageSharp {
+                                    gatsbyImageData
+                                    }
                                 }
                             }
                         }
@@ -27,15 +32,8 @@ const EducationPage = () => {
             }
         }
     `)
-
-    const seo = {
-        title: 'Education',
-        description: 'Education Description'
-    }
-
     const title = data?.allWpPage?.nodes[0]?.education?.educationBanner?.educationBannerTitle;
     const banner = data?.allWpPage?.nodes[0]?.education?.educationBanner?.educationBannerImg?.localFile?.childImageSharp?.gatsbyImageData;
-
     return (
         <>
             <Layout seo={seo}>
@@ -44,7 +42,7 @@ const EducationPage = () => {
                 <Footer/>
             </Layout>
         </>
-    )
+    );
 }
 
-export default EducationPage
+export default EducationPage;
