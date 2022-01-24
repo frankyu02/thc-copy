@@ -5,18 +5,18 @@ import { __BREAKPOINTS } from "../../../styles/utils/variables";
 
 
 export const ClientReviewStyle = styled.div`
-    *{
-        box-sizing: border-box;
-    }
     border-top: 1px solid black;
-    border-right: 1px solid black;
-    border-left: 1px solid black;
-    overflow: visible;
-    padding-left: 1vw;
-    padding-right: 1vw;
+    overflow: hidden;
     padding-bottom: 10vh;
     position: relative;
     background: white;
+    .reviewContainer{
+        margin-right: 0;
+        margin-left: max(50px, calc(calc(100vw - 1350px) / 2));
+        @media(max-width: 1000px){
+            margin: 0;
+        }
+    }
     .title{
         h2{
             font-family: "Neumatic Compressed Bold";
@@ -33,7 +33,7 @@ export const ClientReviewStyle = styled.div`
             font-style: italic;
         }
     }
-    @media(max-width: 992px){
+    @media(max-width: 1000px){
         padding-top: 10%;
         padding-left: 2vw;
         padding-right: 2vw;
@@ -56,17 +56,18 @@ export const Reviews = styled.div`
     border: 1px solid black;
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 100%;
+    height: 100%;
     align-items: center;
     justify-content: center;
     margin-top: 40px;
     position: relative;
     padding-bottom: 1%;
-    min-height: 330px;
-    min-width: min(592px, 40vw);
     padding-left: 5%;
     padding-right: 5%;
+    
     .stars{
+        
         margin-top: 5%;
         .star{
             width: 17px;
@@ -75,6 +76,7 @@ export const Reviews = styled.div`
         }
     }
     .review{
+        
         p{
             font-family: "MADE Outer Sans"
             font-size: 18px;
@@ -84,6 +86,7 @@ export const Reviews = styled.div`
         }
     }
     .name{
+        
         font-style: italic;
         margin-bottom: 5%;
         p{
@@ -94,6 +97,7 @@ export const Reviews = styled.div`
         }
     }
     .location{
+        
         position: relative;
         bottom: 50px;
         p{
@@ -107,7 +111,7 @@ export const Reviews = styled.div`
         height: 100%;
         min-height: 400px;
         width: 70vw;
-        min-width: 246px;
+        max-width: 70vw;
         justify-content: center;
         align-items: center;
         .stars{
@@ -135,24 +139,23 @@ export const Reviews = styled.div`
 `;
 export const SwiperContainer = styled.div`
     position: relative;
-    overflow: visible;
     .swiper-button-next{
-        width: 2.5vw;
-        height: 2.5vw;
+        width: 3vw;
+        height: 3vw;
         background-image: url(${img});
         background-repeat: no-repeat;
         background-size: 100% auto;
         position: absolute;
         color: transparent;
         top: 5%;
-        
+        right: max(60px, calc(calc(100vw - 1350px) / 2));
     }
     .swiper-button-prev{
         position: absolute;
-        width: 2.5vw;
-        height: 2.5vw;
+        width: 3vw;
+        height: 3vw;
         top: 5%;
-        left: 90%;
+        left: min(calc(93% - 65px), calc(93% - calc(calc(100vw - 1330px)/2)));
         background-image: url(${img});
         background-repeat: no-repeat;
         background-size: 100% auto;
@@ -162,22 +165,22 @@ export const SwiperContainer = styled.div`
     .swiper-slide{
         padding-top: 100px;
     }
-    @media (max-width: 992px){
+    @media (max-width: 1000px){
         .swiper-slide{
             padding-top: 0;
             display: flex;
             justify-content: center;
         }
         .swiper-button-next{
-            width: min(32px, 8.5vw);
-            height: min(32px, 8.5vw);
+            width: 8.5vw;
+            height: 8.5vw;
             top: 0;
             top: 50%;
             right: 0;
         }
         .swiper-button-prev{
-            width: min(32px, 8.5vw);
-            height: min(32px, 8.5vw);
+            width: 8.5vw;
+            height: 8.5vw;
             top: 0;
             top: 50%;
             left: 0;
