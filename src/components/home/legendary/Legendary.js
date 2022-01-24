@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, {useEffect, useRef, useState} from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { LegendaryStyles } from "./LegendaryStyles"
@@ -55,6 +55,10 @@ export const Legendary = () => {
   const storyLegendary = data?.wpPage?.home?.storyLegendary
   const cardsJoin = data?.wpPage?.home?.cardsJoin
   const [modal, setModal] = useState(false)
+    useEffect(() => {
+        const body = document.querySelector('body');
+        body.style.overflow = modal ? 'hidden' : 'auto';
+    }, [modal])
   return (
     <LegendaryStyles>
       <div className={"container"}>

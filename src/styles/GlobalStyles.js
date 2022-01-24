@@ -38,7 +38,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   .container {
-    width: 92%;
+    width: 100%;
     margin: 0 auto;
     max-width: 1400px;
   }
