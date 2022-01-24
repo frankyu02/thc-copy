@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {sm, xs, xxs} from "../../../styles/utils/media_queries";
+import {md, sm, xs, xxs} from "../../../styles/utils/media_queries";
 
 
 
@@ -47,7 +47,7 @@ export const SmallHeroStyled = styled.section`
         display: flex;
         min-height: 300px;
         h1{
-            font-size: 70px;
+            font-size: 55px;
             margin-bottom: 50px;
         }
         .hero-title{
@@ -63,6 +63,12 @@ export const SmallHeroStyled = styled.section`
         .hero-img{
             width: 60%;
             background: linear-gradient(90.22deg, #612C8F 3.81%, rgba(97, 44, 143, 0) 33.23%);
+        }
+    `)}
+    ${md(`
+        h1{
+            font-size: 70px;
+            margin-bottom: 30px;
         }
     `)}
 `;

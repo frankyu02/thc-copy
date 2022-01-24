@@ -83,6 +83,8 @@ export const ThcTvStyled = styled.section`
     }
   }
   @media (max-width: 767px){
+    
+
     .thc-tv-text{
         font-size: 16px;
         line-height: 18px;
@@ -103,6 +105,8 @@ export const ThcTvStyled = styled.section`
         font-size: 60px;
     }
     .thctv-block{
+        padding-left: 10px;
+        padding-right: 10px;
         .container{
             flex-wrap: wrap;
             flex-direction: column;

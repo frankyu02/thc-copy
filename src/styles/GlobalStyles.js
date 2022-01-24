@@ -38,7 +38,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   .container {
-    width: ${__CONTAINERS.xxs};
+    width: 92%;
     margin: 0 auto;
     max-width: 1400px;
   }
@@ -99,12 +99,12 @@ const GlobalStyles = createGlobalStyle`
 
   ${xxs(`
         .container {
-            width: ${__CONTAINERS.xxs}
+            width: ${__CONTAINERS.xxs};
         }
   `)}
   ${xs(`
         .container {
-            width: ${__CONTAINERS.xs}
+            width: ${__CONTAINERS.xs};
         }
   `)}
   ${lg(`

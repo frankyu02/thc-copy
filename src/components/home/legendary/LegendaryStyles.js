@@ -4,6 +4,7 @@ export const LegendaryStyles = styled.section`
     * {
       box-sizing: border-box;
     }
+    margin-top: 20px;
     .link {
       border: 1px solid black;
       padding: 17px 15px;
@@ -161,11 +162,16 @@ export const LegendaryStyles = styled.section`
     }
    }
    @media (max-width: 767px) {
+  .read_more{
+    display: none;
+  }
    .link {
     font-size: 18px;
    }
     .main_legendary {
     flex-direction: column;
+    border-left: 0px solid black;
+    border-right: 0px solid black;
     .legendary_image {
     order: 2;
     }
@@ -189,7 +195,8 @@ export const LegendaryStyles = styled.section`
       }
     }
     .legendary_parent {
-    margin: 0;
+    margin: 0 10px;
+      border: 0px;
       flex-direction: column;
       &>div {
         width: 100%;
@@ -198,6 +205,7 @@ export const LegendaryStyles = styled.section`
         }
       }
       .legendary_item {
+        border: 1.5px solid black;
       margin-bottom: 40px;
         .content_parent {
           width: 100%;

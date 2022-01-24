@@ -69,4 +69,15 @@ export const ModalLegendaryStyles = styled.div`
     .legendary-modal_text{
         margin-bottom: 50px;
     }
+
+    @media (max-width: 764px){
+      .modal_content{
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        right: 0;
+        transform: translate(0%);
+      }
+    }
 `;

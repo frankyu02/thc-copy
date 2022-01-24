@@ -7,6 +7,7 @@ export const HeroStyled = styled.section`
     align-items: flex-end;
     justify-content: space-between;
     margin-bottom: 40px;
+
     h1 {
       margin: 0;
       line-height: 1;
@@ -128,6 +129,9 @@ export const HeroStyled = styled.section`
     }
    }
    @media (max-width: 767px) {
+    .header {
+      padding: 0px 10px;
+    }
     .inner {
       .caption {
         h3 {

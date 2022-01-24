@@ -11,8 +11,6 @@ import {Footer} from '../components/footer/Footer';
 import {ShopLink} from '../components/ui/shop_link/ShopLink';
 import Layout from "../components/layout/Layout";
 
-
-
 const HomePage = () => {
 
   const seo = {
@@ -32,7 +30,7 @@ const HomePage = () => {
         <SettingStandart/>
         <Brands/>
         <Footer/>
-        <ShopLink/>
+        {/* <ShopLink/> */}
       </Layout>
     </>
   )
