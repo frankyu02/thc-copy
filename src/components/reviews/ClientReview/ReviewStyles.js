@@ -155,7 +155,7 @@ export const SwiperContainer = styled.div`
         width: 3vw;
         height: 3vw;
         top: 5%;
-        left: min(calc(93% - 65px), calc(93% - calc(calc(100vw - 1330px)/2)));
+        left: min(calc(93% - 70px), calc(93% - calc(calc(100vw - 1300px)/2)));
         background-image: url(${img});
         background-repeat: no-repeat;
         background-size: 100% auto;
