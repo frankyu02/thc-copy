@@ -3,6 +3,8 @@ import {md, xs} from "../../../styles/utils/media_queries";
 
 
 export const LargeBannerStyled = styled.section` 
+    // background-color: #F0F0F0;
+    padding-bottom: 45px;
     .gatsby-image-wrapper {
       z-index: -1;
       position:absolute;
@@ -49,6 +51,7 @@ export const LargeBannerStyled = styled.section`
         }
     `)}
     ${xs(`
+        padding-bottom: 100px;
         .large_wrapper {
             .large_banner {
             margin-top: 40px;

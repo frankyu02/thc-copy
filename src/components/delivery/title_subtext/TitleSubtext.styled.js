@@ -3,7 +3,7 @@ import {sm, xs, xxs} from "../../../styles/utils/media_queries";
 
 export const TitleSubtextStyled = styled.section`
   text-align: center;
-  padding: 50px 0;
+  padding: 50px 15px;
   h2{
     font-family: Integral CF Bold;
     font-size: 40px;
@@ -24,7 +24,7 @@ export const TitleSubtextStyled = styled.section`
     text-decoration: none;
   }
   ${xxs(`
-    padding: 60px 0;
+    padding: 60px 15px;
     h2{
       font-size: 45px;
       margin: 0 auto 45px;
