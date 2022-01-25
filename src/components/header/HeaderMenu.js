@@ -23,9 +23,11 @@ export const HeaderMenu = () => {
   }
         }
     `)
-  const [menuOpen, SetMenuOpen] = useState(false)
+
+
+  const [menuOpen, setMenuOpen] = useState(false)
   const toggleMenu = () => {
-    SetMenuOpen(!menuOpen)
+    setMenuOpen(!menuOpen)
   }
 
   const logoText = data?.site?.siteMetadata?.title
@@ -34,7 +36,7 @@ export const HeaderMenu = () => {
 
   return (
     <HeaderMenuStyles>
-      <div ref={headerRef}> {/*dropdown wrapper */}
+      <div ref={headerRef}> {/*header height calculation */}
         <PromoBar promoText={promobarText} />
         <Header headerRef={headerRef} toggleMenu={toggleMenu} menuOpen={menuOpen} logoText={logoText} />
       </div>

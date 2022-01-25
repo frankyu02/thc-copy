@@ -6,16 +6,19 @@ export const MenuItem = styled.li`
   font-weight: 400;
   font-size: 20px;
   text-transform: uppercase;
-  display: flex;
-  padding: 20px 0;
   width: 100%;
-  min-height: 80px;
+  height: auto;
 
+  ${lg(`
+      width:auto;
+      border:none;
+      `
+  )}
   ${lg(`
         display: flex; 
       `
   )}
-  .desktopIcon {
+  .desktop-icon {
     display: none;
     ${lg(`
         display:  inline-block; 
@@ -24,13 +27,14 @@ export const MenuItem = styled.li`
     )}
   }
 
-  .menuActive {
+  .menu-active {
+    transition: 0.5s;
+    min-height: 80px;
     padding: 5px 20px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     margin: 0;
     background-color: transparent;
     border: none;
@@ -39,33 +43,56 @@ export const MenuItem = styled.li`
     font-family: inherit;
     line-height: 1;
     cursor: pointer;
-  }
 
-  .dropDown {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 100%;
-    z-index: 2;
-  }
-
-  .dropdownItem {
-    font-size: 12px;
-    width: 100%;
-    z-index: 2;
-
+    ${lg(`
+          position: relative;
+         min-height: 80px;
+          background-color:#fff;
+              &::after {
+                transition: 0.3s;
+                content: '';
+                display: block;
+                position: absolute;
+                height: 2px;
+                background-color: #000;
+                top: calc(100% - 20px);
+                left: 100%;
+                right: 100%;
+    }
+      `
+    )}
     &:hover {
-      background-color: #919191;
+      background-color: #d3d3d3;
+
+      &::after {
+        left: 15px;
+        right: 15px;
+      }
     }
   }
 
-  &:hover {
-    .dropdownItem {
-      display: inline-flex;
+  &.accordionOpen {
+    background-color: var(--grey);
+
+    .menu-active {
+      min-height: 60px;
+
+
+      ${lg(`
+         min-height: 80px;
+          background-color:#fff;
+          &::after {
+          
+          left:15px;
+          right:15px;
+          }
+      `
+      )}
+
     }
+
+
   }
+
+
 `

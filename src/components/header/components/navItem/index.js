@@ -3,12 +3,13 @@ import { Link } from "gatsby"
 import DesktopIcon from "../../../../images/dropdown.js"
 import { MenuItem } from "./navItem.styled"
 import styled from "styled-components"
+import { DropDownStyled } from "./dropdown.styled"
+import { lg } from "../../../../styles/utils/media_queries"
 
 const MobileIcon = styled.div`
   height: 28px;
   width: 28px;
   position: relative;
-
 
   &::before, &::after {
     display: inline-block;
@@ -25,19 +26,24 @@ const MobileIcon = styled.div`
   &::after {
     transform: ${props => props.isOpen ? " " : "rotate(-90deg)"};
   }
+
+  ${lg(`
+  display:none
+  `)}
 `
 
-const DropDrown = ({ dropDownItems }) => {
+const DropDrown = ({ dropDownItems, isOpen }) => {
+
   return (
-    <ul className={"dropDown"}>
+    <DropDownStyled isOpen={isOpen} className={"drop-down"}>
       {
         dropDownItems.map((subItem, i) => (
-          <li className={"order-button"} key={i}>
-            <Link className={"dropdownItem"} to={subItem.link || "#"}>{subItem.label}</Link>
+          <li className={"dropdown-item"} key={i}>
+            <Link className={"dropdown-item-link"} to={subItem.link || "#"}>{subItem.label}</Link>
           </li>
         ))
       }
-    </ul>
+    </DropDownStyled>
   )
 
 }
@@ -48,10 +54,10 @@ export const NavItem = ({ item, className, onOpen, isOpen }) => {
   return (
     <MenuItem className={className}>
       {showDropdown ?
-        <button onClick={onOpen} className={"menuActive"}>{item.label} <MobileIcon isOpen={isOpen} /> <span
-          className={"desktopIcon"}><DesktopIcon /></span></button> :
-        <Link className={"menuActive"} to={item.link}>{item.label}   </Link>}
-      {item.items?.length > 0 ? < DropDrown dropDownItems={item.items} /> : ""}
+        <button onClick={onOpen} className={"menu-active"}>{item.label} <MobileIcon isOpen={isOpen} /> <span
+          className={"desktop-icon"}><DesktopIcon /></span></button> :
+        <Link className={"menu-active"} to={item.link}>{item.label}   </Link>}
+      {item.items?.length > 0 ? < DropDrown isOpen={isOpen} dropDownItems={item.items} /> : ""}
     </MenuItem>
   )
 }

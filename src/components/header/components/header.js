@@ -5,6 +5,7 @@ import { NavList } from "./navList"
 
 
 export const Header = ({ toggleMenu, menuOpen, logoText, headerRef }) => {
+
   const navIndent = headerRef?.current?.offsetHeight || 105
   return (
     <header className={"header"}>

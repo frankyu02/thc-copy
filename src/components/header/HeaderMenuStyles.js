@@ -88,6 +88,10 @@ export const HeaderMenuStyles = styled.section`
         background-color: var(--darkpurple);
         color: white;
       }
+
+      ${lg(`
+          display:none
+          `)}
     }
 
     nav {
@@ -97,11 +101,27 @@ export const HeaderMenuStyles = styled.section`
       left: -100%;
       right: -100%;
       bottom: 0;
-      top: 110px;
+      overflow: auto;
+      top: 105px;
       z-index: 11;
       background-color: #fff;
       width: 100%;
       opacity: 0;
+
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #eae8e8;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--darkpurple);
+        border-radius: 8px;
+        border: 1px solid #e3ded3;
+      }
+
       ${lg(`
            opacity: 1;
             position:static; 
@@ -119,19 +139,17 @@ export const HeaderMenuStyles = styled.section`
       }
     }
 
-    .headerList {
+    .header-list {
       height: 100%;
       margin: 0;
       padding: 0;
       display: flex;
-
       flex-direction: column;
       justify-content: left;
       text-align: left;
       ${lg(`
       list-style: none;
-      flex-direction:row;
-     
+      flex-direction:row; 
       flex-wrap: wrap;
       align-items: center;
        text-align:center;
