@@ -5,6 +5,7 @@ import {SmallHero} from "../components/global_component/small_hero/SmallHero";
 import {HeaderMenu} from "../components/header/HeaderMenu";
 import {Footer} from "../components/footer/Footer";
 import {TitleSubtext} from "../components/delivery/title_subtext/TitleSubtext";
+import {InfoBanner} from "../components/delivery/delivery-info-banner/InfoBanner";
 
 
 const DeliveryPage = () => {
@@ -34,14 +35,17 @@ const DeliveryPage = () => {
           }
         }
     `)
+
     const title = data?.allWpPage?.nodes[0]?.delivery?.deliveryBanner?.deliveryBannerTitle;
     const banner = data?.allWpPage?.nodes[0]?.delivery?.deliveryBanner?.deliveryBannerImg?.localFile?.childImageSharp?.gatsbyImageData;
+
     return (
         <>
             <Layout seo={seo}>
                 <HeaderMenu/>
                 <SmallHero title={title} banner={banner}/>
                 <TitleSubtext/>
+                <InfoBanner/>
                 <Footer/>
             </Layout>
         </>
