@@ -57,6 +57,9 @@ const DoublePageLinkStyles = styled.div`
                 transition: .4s;
             }
         }
+        .title {
+          text-transform: uppercase;
+        }
     }
     h3 {
         font-family: Neumatic Compressed Bold;

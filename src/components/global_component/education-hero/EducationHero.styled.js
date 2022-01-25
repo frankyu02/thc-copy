@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import {sm, xs, xxs} from "../../../styles/utils/media_queries";
 
-
-
 export const EducationHeroStyles = styled.section` 
     color: #fff;
     .hero-title{

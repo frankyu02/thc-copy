@@ -38,14 +38,14 @@ const GlobalStyles = createGlobalStyle`
   }
 
   .container {
-    width: 92%;
+    width: 100%;
     margin: 0 auto;
     max-width: 1400px;
   }
 
   .main_button {
     border: 1px solid black;
-    padding: 17px 0;
+    padding: 17px 15px;
     box-sizing: border-box;
     font-family: 'Integral CF Bold';
     background: white;
