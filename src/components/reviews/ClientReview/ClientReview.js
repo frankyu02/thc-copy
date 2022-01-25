@@ -30,81 +30,83 @@ export default function ClientReview(){
         }
     `)
     const reviewdata = data?.wpPage?.reviews?.clientReviews;
+    const val = reviewdata.clientReviewsCards.length;
     return(
-        <div className="container">
             <ClientReviewStyle>
-                <div className="title">
-                    <h2>{reviewdata.clientReviewsTitle}</h2>
-                </div>
-                <div className="subtitle">
-                    <h3>{reviewdata.clientReviewsSubTitle}</h3>
-                </div>
-                <SwiperContainer>
-                    <Swiper
-                        className="swiper-review"
-                        spaceBetween={10}
-                        slidesPerView={1}
-                        navigation={true}
-                        breakpoints={{
-                            "992": {
-                                "slidesPerView": 2.3,
+                <div className="reviewContainer">
+                    <div className="title">
+                        <h2>{reviewdata.clientReviewsTitle}</h2>
+                    </div>
+                    <div className="subtitle">
+                        <h3>{reviewdata.clientReviewsSubTitle}</h3>
+                    </div>
+                    <SwiperContainer>
+                        <Swiper
+                            className="swiper-review"
+                            spaceBetween={10}
+                            slidesPerView={1}
+                            navigation={true}
+                            breakpoints={{
+                                "992": {
+                                    "slidesPerView": 2.3,
+                                }
+                            }}
+                        >
+                            {
+                            reviewdata?.clientReviewsCards.length > 0 ?
+                            (reviewdata?.clientReviewsCards.map((review, index) => {
+                                return(
+                                    <SwiperSlide 
+                                        key={index}
+                                        virtualIndex={index}>
+                                        <Reviews>
+                                            <div className="stars">
+                                                <StaticImage
+                                                    className="star"
+                                                    src='../../../images/vector.png'
+                                                    alt="purple Star"
+                                                />
+                                                <StaticImage
+                                                    className="star"
+                                                    src='../../../images/vector.png'
+                                                    alt="purple Star"
+                                                />
+                                                <StaticImage
+                                                    className="star"
+                                                    src='../../../images/vector.png'
+                                                    alt="purple Star"
+                                                />
+                                                <StaticImage
+                                                    className="star"
+                                                    src='../../../images/vector.png'
+                                                    alt="purple Star"
+                                                />
+                                                <StaticImage
+                                                    className="star"
+                                                    src='../../../images/vector.png'
+                                                    alt="purple Star"
+                                                />
+                                            </div>
+                                            <div className="review">
+                                                <p>{review.clientReviewsCardText}</p>
+                                            </div>
+                                            <div className="name">
+                                                <p> {review.clientReviewsCardName} </p>
+                                            </div>
+                                            <div className="location">
+                                                <p>{review.clientReviewsCardLocation}</p>
+                                            </div>
+                                        </Reviews>
+                                    </SwiperSlide>
+                                )
+                            }))
+                            : 
+                            <div>loading cards...</div>
                             }
-                        }}
-                    >
-                        {
-                        reviewdata?.clientReviewsCards.length > 0 ?
-                        (reviewdata?.clientReviewsCards.map((review, index) => {
-                            return(
-                                <SwiperSlide 
-                                    key={index}
-                                    virtualIndex={index}>
-                                    <Reviews>
-                                        <div className="stars">
-                                            <StaticImage
-                                                className="star"
-                                                src='../../../images/vector.png'
-                                                alt="purple Star"
-                                            />
-                                            <StaticImage
-                                                className="star"
-                                                src='../../../images/vector.png'
-                                                alt="purple Star"
-                                            />
-                                            <StaticImage
-                                                className="star"
-                                                src='../../../images/vector.png'
-                                                alt="purple Star"
-                                            />
-                                            <StaticImage
-                                                className="star"
-                                                src='../../../images/vector.png'
-                                                alt="purple Star"
-                                            />
-                                            <StaticImage
-                                                className="star"
-                                                src='../../../images/vector.png'
-                                                alt="purple Star"
-                                            />
-                                        </div>
-                                        <div className="review">
-                                            <p>{review.clientReviewsCardText}</p>
-                                        </div>
-                                        <div className="name">
-                                            <p> {review.clientReviewsCardName} </p>
-                                        </div>
-                                        <div className="location">
-                                            <p>{review.clientReviewsCardLocation}</p>
-                                        </div>
-                                    </Reviews>
-                                </SwiperSlide>
-                            )
-                        }))
-                        : 
-                        <div>loading cards...</div>
-                        }
-                    </Swiper>
-                </SwiperContainer>
+                        </Swiper>
+                    </SwiperContainer>
+                </div>
             </ClientReviewStyle>
-        </div>
+        
     );
 }
