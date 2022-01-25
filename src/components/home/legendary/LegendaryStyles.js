@@ -65,8 +65,8 @@ export const LegendaryStyles = styled.section`
     &>div {
       width: 49.3%;
       .image_bg {
-      height: 100%;
-      width: 100%;
+        height: 100%;
+        width: 100%;
       }
     }
     .legendary_item {
