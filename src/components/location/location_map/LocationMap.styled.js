@@ -55,6 +55,10 @@ export const LocationMapStyle = styled.section`
               max-width calc(100% - 50px);
               margin: 0 auto;
             }
+            .main_button:hover {
+                color: white;
+                background: var(--darkpurple);
+            }
         }
   `)}
     ${md(`
@@ -66,6 +70,7 @@ export const LocationMapStyle = styled.section`
             }
             p {
                 max-width: 100%;
+                font-size: 16px;
             }
             .map_info {
                 width: 50%;
@@ -86,7 +91,7 @@ export const LocationMapStyle = styled.section`
         .location_map {
             .map_info {
                 width: 50%;
-                padding: 85px 95px;
+                padding: 80px 95px;
             }
         }
   `)}
