@@ -23,7 +23,7 @@ export const HeroStyled = styled.section`
   }
   .inner {
     width: 100%;
-    height: 580px;
+    min-height: 580px;
     overflow: hidden;
     position: relative;
     display: flex;
@@ -71,7 +71,7 @@ export const HeroStyled = styled.section`
       }
     }
     .inner {
-        height: 530px;
+        min-height: 530px;
         .mark {
           bottom: 70px;
         }
