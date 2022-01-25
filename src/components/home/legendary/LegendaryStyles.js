@@ -62,12 +62,11 @@ export const LegendaryStyles = styled.section`
   .legendary_parent {
     display: flex;
     justify-content: space-between;
-    margin:  0 15px;
     &>div {
       width: 49.3%;
       .image_bg {
-      height: 100%;
-      width: 100%;
+        height: 100%;
+        width: 100%;
       }
     }
     .legendary_item {
@@ -195,7 +194,6 @@ export const LegendaryStyles = styled.section`
       }
     }
     .legendary_parent {
-    margin: 0 10px;
       border: 0px;
       flex-direction: column;
       &>div {
