@@ -10,7 +10,6 @@ const GlobalStyles = createGlobalStyle`
     --grey: #F0F0F0;
     --white: #FFFFFF;
     --container-xl: 1400px;
-    --container: 97%;
   }
 
   html {
