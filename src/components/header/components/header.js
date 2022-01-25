@@ -4,7 +4,7 @@ import { Search } from "./search"
 import { NavList } from "./navList"
 
 
-export const Header = ({ toggleMenu, menuOpen, logoText, headerRef }) => {
+export const Header = ({ toggleMenu, menuOpen, logoText, headerRef, setMenuOpen }) => {
 
   const navIndent = headerRef?.current?.offsetHeight || 105
   return (
@@ -19,7 +19,7 @@ export const Header = ({ toggleMenu, menuOpen, logoText, headerRef }) => {
       </div>
 
       <nav style={{ top: navIndent }} className={"nav " + (menuOpen ? " open" : "")}>
-        <NavList />
+        <NavList setMenuOpen={setMenuOpen} />
       </nav>
 
       <Search />

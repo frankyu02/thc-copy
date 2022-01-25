@@ -5,6 +5,8 @@ import { MenuItem } from "./navItem.styled"
 import styled from "styled-components"
 import { DropDownStyled } from "./dropdown.styled"
 import { lg } from "../../../../styles/utils/media_queries"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { ArrowIcon } from "../../../../images/arrowIcon"
 
 const MobileIcon = styled.div`
   height: 28px;
@@ -32,14 +34,29 @@ const MobileIcon = styled.div`
   `)}
 `
 
-const DropDrown = ({ dropDownItems, isOpen }) => {
+const DropDrown = ({ dropDownItems, isOpen, onOpen }) => {
+
+  const oddItem = dropDownItems.length % 2 > 0
+  const columnCounter = Math.round(dropDownItems.length / 2)
 
   return (
-    <DropDownStyled isOpen={isOpen} className={"drop-down"}>
+    <DropDownStyled columnCounter={columnCounter} isOpen={isOpen}
+                    className={"drop-down " + (oddItem ? "odd" : " even ")}>
+
       {
         dropDownItems.map((subItem, i) => (
           <li className={"dropdown-item"} key={i}>
-            <Link className={"dropdown-item-link"} to={subItem.link || "#"}>{subItem.label}</Link>
+
+            <Link onClick={() => {
+              onOpen && onOpen(false)
+            }} className={"dropdown-item-link"} to={subItem.link || "#"}><span>
+              {subItem.label} <span
+              className={"iconArrow"}> <ArrowIcon
+            />  </span>
+            </span> </Link>
+            <GatsbyImage className="dropdown-item-img"
+                         image={getImage(subItem.image?.image?.localFile)}
+                         alt={subItem.image?.image?.altText || "link to shop"} />
           </li>
         ))
       }
@@ -48,7 +65,7 @@ const DropDrown = ({ dropDownItems, isOpen }) => {
 
 }
 
-export const NavItem = ({ item, className, onOpen, isOpen }) => {
+export const NavItem = ({ item, className, onOpen, isOpen, setMenuOpen }) => {
   const showDropdown = item.items?.length > 0
 
   return (
@@ -56,8 +73,11 @@ export const NavItem = ({ item, className, onOpen, isOpen }) => {
       {showDropdown ?
         <button onClick={onOpen} className={"menu-active"}>{item.label} <MobileIcon isOpen={isOpen} /> <span
           className={"desktop-icon"}><DesktopIcon /></span></button> :
-        <Link className={"menu-active"} to={item.link}>{item.label}   </Link>}
-      {item.items?.length > 0 ? < DropDrown isOpen={isOpen} dropDownItems={item.items} /> : ""}
+        <Link onClick={() => {
+          setMenuOpen && setMenuOpen(false)
+        }
+        } className={"menu-active"} to={item.link}>{item.label}   </Link>}
+      {item.items?.length > 0 ? < DropDrown isOpen={isOpen} onOpen={onOpen} dropDownItems={item.items} /> : ""}
     </MenuItem>
   )
 }

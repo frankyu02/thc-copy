@@ -38,7 +38,8 @@ export const HeaderMenu = () => {
     <HeaderMenuStyles>
       <div ref={headerRef}> {/*header height calculation */}
         <PromoBar promoText={promobarText} />
-        <Header headerRef={headerRef} toggleMenu={toggleMenu} menuOpen={menuOpen} logoText={logoText} />
+        <Header headerRef={headerRef} setMenuOpen={setMenuOpen} toggleMenu={toggleMenu} menuOpen={menuOpen}
+                logoText={logoText} />
       </div>
     </HeaderMenuStyles>
 

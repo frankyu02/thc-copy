@@ -5,10 +5,9 @@ import React, { useRef, useState } from "react"
 import { useOnClickOutside } from "../../../hooks/useOnClickOutside"
 
 
-export const NavList = () => {
+export const NavList = ({ setMenuOpen }) => {
   const ROUTES = CreateRoutes()
   const cosedState = ROUTES.map(() => false)
-  console.log(ROUTES)
   const [itemAccordionState, setItemAccordionState] = useState(cosedState)
   const onOpen = (item) => {
     return (
@@ -25,7 +24,8 @@ export const NavList = () => {
   return (
     <ul ref={headerListRef} className={"header-list"}>
       {ROUTES.map((item, i) => (
-        <NavItem onOpen={onOpen(i)} isOpen={itemAccordionState[i]} className={itemAccordionState[i] && "accordionOpen"}
+        <NavItem onOpen={onOpen(i)} isOpen={itemAccordionState[i]} setMenuOpen={setMenuOpen}
+                 className={itemAccordionState[i] && "accordionOpen"}
                  item={item}
                  key={i} />
       ))}
