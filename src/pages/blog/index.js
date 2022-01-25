@@ -1,10 +1,10 @@
 import * as React from "react";
-import Layout from "../components/layout/Layout";
+import Layout from "../../components/layout/Layout";
 import {graphql, useStaticQuery} from "gatsby";
-import {SmallHero} from "../components/global_component/small_hero/SmallHero";
-import {HeaderMenu} from "../components/header/HeaderMenu";
-import {Footer} from "../components/footer/Footer";
-import {ArticlesGrid} from '../components/blog/articles-grid/ArticlesGrid';
+import {SmallHero} from "../../components/global_component/small_hero/SmallHero";
+import {HeaderMenu} from "../../components/header/HeaderMenu";
+import {Footer} from "../../components/footer/Footer";
+import {ArticlesGrid} from '../../components/blog/articles-grid/ArticlesGrid';
 
 
 const BlogPage = () => {

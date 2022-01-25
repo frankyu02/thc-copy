@@ -6,6 +6,7 @@ import {DoubleBanner} from "../components/article/double_banner/DoubleBanner";
 import {ShopLink} from "../components/ui/shop_link/ShopLink";
 import {LargeBanner} from "../components/global_component/large_banner/LargeBanner";
 import {EducationHero} from "../components/global_component/education-hero/EducationHero";
+import BlogPost from "../templates/Blog-post";
 
 const Article = () => {
     const seo = {
@@ -17,9 +18,13 @@ const Article = () => {
     const banner = '';
 
 
+    console.log(1);
+
+
     return (
         <>
             <Layout seo={seo}>
+                <BlogPost/>
                 <HeaderMenu/>
                 <LargeBanner/>
                 <EducationHero title={headingText} data={data} banner={banner}/>

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { EducationHeroStyles } from "./EducationHero.styled";
-// import {GatsbyImage, getImage} from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 export const EducationHero = ({title, data, banner}) => {
     return (
@@ -10,9 +10,8 @@ export const EducationHero = ({title, data, banner}) => {
                 <time>{data}</time>
             </div>
             <div className="hero-img">
-                {/*<GatsbyImage image={getImage({banner}.localFile.childrenImageSharp[0].gatsbyImageData)} alt={'banner'}/>*/}
-            </div>
-           
+                <GatsbyImage image={getImage(banner)} alt={'banner'}/>
+            </div>           
         </EducationHeroStyles>
     );
 }
