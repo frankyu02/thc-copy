@@ -3,8 +3,12 @@ import {md, xs} from "../../../styles/utils/media_queries";
 
 
 export const LargeBannerStyled = styled.section` 
-    // background-color: #F0F0F0;
+    background-color: #F0F0F0;
     padding-bottom: 45px;
+    .container{
+        z-index: 1;
+        position: relative;
+    }
     .gatsby-image-wrapper {
       z-index: -1;
       position:absolute;
