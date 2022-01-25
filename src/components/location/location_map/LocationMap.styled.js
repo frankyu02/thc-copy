@@ -11,9 +11,10 @@ export const LocationMapStyle = styled.section`
       h4 {
       text-align: center;
       font-size: 24px;
+      max-width: 280px;
+      margin: 0 auto 20px;
       font-style: italic;
       font-family: 'Integral CF Bold';
-      margin-bottom: 20px;
     }
     p {
       font-size: 12px;
@@ -35,6 +36,9 @@ export const LocationMapStyle = styled.section`
     }
     ${xxs(`
         .location_map {
+            h4 {
+                max-width: 100%
+            }
             p{
             max-width: 90%;
             font-size: 14px;
@@ -74,7 +78,7 @@ export const LocationMapStyle = styled.section`
             }
             .map_info {
                 width: 50%;
-                padding: 40px 75px;
+                padding: 30px 75px;
             }
             .map_block {
                 width: 50%;
