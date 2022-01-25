@@ -6,7 +6,8 @@ export const onPostBuild = ({ reporter }) => {
 // Create blog pages dynamically
 export const createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const blogPostTemplate = path.resolve(`src/templates/Blog-post.js`)
+  //const blogPostTemplate = path.resolve(`src/templates/Blog-post.js`);
+  const blogPostTemplate = path.resolve(`src/pages/blog/[slug].js`);
   const result = await graphql(`
     query {
              allWpPost {
@@ -37,11 +38,9 @@ export const createPages = async ({ graphql, actions }) => {
   `)
   result.data.allWpPost.nodes.forEach(node => {
     createPage({
-      path: `${node.slug}`,
+      path: `/blog/${node.slug}`,
       component: blogPostTemplate,
-      context: {
-        node: node
-      }
+      context: { slug: node.slug }
     })
   })
 }
