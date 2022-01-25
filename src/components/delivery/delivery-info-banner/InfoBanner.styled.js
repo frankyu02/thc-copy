@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {sm, xs, xxs} from "../../../styles/utils/media_queries";
+import {md, sm, xs, xxs} from "../../../styles/utils/media_queries";
 
 export const InfoBannerStyled = styled.section`
   .promo-item{
@@ -7,6 +7,7 @@ export const InfoBannerStyled = styled.section`
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    min-height: 200px;
   }
   .promo-context{
     width: 60%;
@@ -16,11 +17,11 @@ export const InfoBannerStyled = styled.section`
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    // font-size: 24px;
   }
   li{
     width: 50%;
     font-family: Integral CF Bold;
+    padding: 0 10px;
   }
   ul, h3{
     letter-spacing: 0.01em;
@@ -35,11 +36,14 @@ export const InfoBannerStyled = styled.section`
     background: #612C8F;
     color: #fff;
     width: 40%;
+    font-family: 'Integral CF Bold';
+    padding: 30px 20px 20px;
   }
   .promo-price{
     display: flex;
     p{
       width: 50%;
+      font-family: 'Integral CF Bold';
     }
   }
   ${xxs(`
@@ -65,6 +69,16 @@ export const InfoBannerStyled = styled.section`
     h2{
       font-size: 60px;
       margin: 0 auto 70px;
+    }
+    .promo-context{
+      padding-left: 60px;
+      display: flex;
+      align-items: center;
+    }
+  `)}
+  ${md(`
+    .promo-context{
+      padding-left: 80px;
     }
   `)}
 `;
