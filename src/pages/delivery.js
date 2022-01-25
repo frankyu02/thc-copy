@@ -6,6 +6,7 @@ import {HeaderMenu} from "../components/header/HeaderMenu";
 import {Footer} from "../components/footer/Footer";
 import {TitleSubtext} from "../components/delivery/title_subtext/TitleSubtext";
 import {InfoBanner} from "../components/delivery/delivery-info-banner/InfoBanner";
+import {MapRegions} from "../components/delivery/map-regions/MapRegions";
 
 
 const DeliveryPage = () => {
@@ -46,6 +47,7 @@ const DeliveryPage = () => {
                 <SmallHero title={title} banner={banner}/>
                 <TitleSubtext/>
                 <InfoBanner/>
+                <MapRegions/>
                 <Footer/>
             </Layout>
         </>

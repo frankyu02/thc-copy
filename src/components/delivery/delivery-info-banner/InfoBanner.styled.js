@@ -2,10 +2,14 @@ import styled from 'styled-components';
 import {md, sm, xs, xxs} from "../../../styles/utils/media_queries";
 
 export const InfoBannerStyled = styled.section`
+  padding: 60px 15px 0;
   .promo-item{
     border: 1px solid #000;
     margin-bottom: 80px;
     min-height: 200px;
+  }
+  .promo-item:last-child{
+    margin-bottom: 0;
   }
   .promo-context{
     padding: 30px;
@@ -64,7 +68,6 @@ export const InfoBannerStyled = styled.section`
     }
   }
   ${xxs(`
-    padding: 60px 0;
     h2{
       font-size: 45px;
       margin: 0 auto 45px;
