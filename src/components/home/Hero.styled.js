@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const HeroStyled = styled.section` 
   .header {
     display: flex;
@@ -23,12 +22,18 @@ export const HeroStyled = styled.section`
   }
   .inner {
     width: 100%;
-    height: 580px;
+    height: 560px;
     overflow: hidden;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    .video{
+      height: 0;
+      width: 100%;
+      position: absolute;
+      padding-top: 56.25%;
+    }
     .caption {
         position: relative;
         z-index: 1;
@@ -43,10 +48,13 @@ export const HeroStyled = styled.section`
         
     }
     .background {
+      pointer-events: none;
+      display: inline-block;
       position: absolute;
-      height: 100%;
       top: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
     }
     .mark {
       position: absolute;
@@ -80,6 +88,11 @@ export const HeroStyled = styled.section`
         font-size: 88px;
       }
     }
+   }
+   @media (max-width: 975px) {
+     .inner{
+      max-height: 400px;
+     }
    }
    @media (max-width: 1024px) {
     .header {
@@ -116,9 +129,9 @@ export const HeroStyled = styled.section`
       }
     }
     .inner {
+      height: 300px;
       .mark {
         width: 75px;
-        bottom: 20px;
         right: 10px;
       }
       .caption {
@@ -140,4 +153,15 @@ export const HeroStyled = styled.section`
       }
     }
    }
+   @media (max-width: 500px){
+      .inner{
+        max-height: 190px;
+        .caption{
+          margin-top: 5px;
+          h3{
+            font-size: 20px;
+          }
+        }
+      }
+    }
 `;

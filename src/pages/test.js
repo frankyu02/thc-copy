@@ -1,8 +1,8 @@
 import React from "react"; 
-import ClientReview from "../components/reviews/ClientReview/ClientReview";
+import { HeroHome } from "../components/home/Hero";
 
 export default function a(){
     return(
-        <ClientReview />
+        <HeroHome />
     )
 }

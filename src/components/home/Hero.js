@@ -3,7 +3,8 @@ import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { HeroStyled } from "./Hero.styled";
 import { MainButton } from "../ui/main_button/MainButton";
-
+import ReactPlayer from "react-player/lazy";
+import vid from "../../../public/videos/THC January 2021.mp4"
 export const HeroHome = () => {
     const data = useStaticQuery(graphql`
         query {
@@ -50,7 +51,17 @@ export const HeroHome = () => {
                   <h1>{overBanner?.overBannerTitle}</h1>
               </div>
               <div className="inner">
-                  <GatsbyImage className={'background'} image={getImage(banner)} alt={bannerText}/>
+                <div className="video">
+                    <ReactPlayer
+                        className="background"
+                        url="https://www.youtube.com/watch?v=yRVdrJXCvmM"
+                        muted="true"
+                        loop="true"
+                        width="100%"
+                        height="100%"
+                        playing="true"
+                    />
+                </div>
                   <div className="caption">
                       <h3 className="title">{bannerTitle}</h3>
                       <MainButton url={bannerButton?.url} target={bannerButton?.target}>{bannerButton?.title}</MainButton>
