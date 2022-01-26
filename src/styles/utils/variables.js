@@ -9,7 +9,4 @@ export const __BREAKPOINTS = {
 
 export const __CONTAINERS = {
   xl: '1400px',
-  lg: '97%',
-  xs: '95%',
-  xxs: '92%',
 }

@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import {useCallback, useEffect, useMemo, useState} from 'react';
 
 export const useOpen = (init = false) => {
     const [isOpen, setIsOpen] = useState(init);

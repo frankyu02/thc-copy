@@ -1,9 +1,13 @@
 import * as React from "react";
+import styled from 'styled-components';
 import Layout from "../components/layout/Layout";
 import {graphql, useStaticQuery} from "gatsby";
 import {SmallHero} from "../components/global_component/small_hero/SmallHero";
 import {HeaderMenu} from "../components/header/HeaderMenu";
 import {Footer} from "../components/footer/Footer";
+import DoublePageLink from "../components/reviews/doublePageLink/doublePageLink";
+import ReviewGrid from "../components/reviews/reviewGrid/reviewGrid";
+import ClientReview from "../components/reviews/ClientReview/ClientReview";
 
 const ReviewsPage = () => {
 
@@ -34,13 +38,25 @@ const ReviewsPage = () => {
     const title = data?.allWpPage?.nodes[0]?.reviews?.reviewsBanner?.reviewsBannerTitle;
     const banner = data?.allWpPage?.nodes[0]?.reviews?.reviewsBanner?.reviewsBannerImg?.localFile?.childImageSharp?.gatsbyImageData;
 
+    const ReviewsStyles = styled.div`
+      background: var(--grey);
+      position: fixed;
+      z-index: -2;
+      width: 100vw;
+      height: 100vh;
+    `;
+
   return (
     <>
-      <Layout seo={seo}>
-          <HeaderMenu/>
-          <SmallHero title={title} banner={banner}/>
-          <Footer/>
-      </Layout>
+    <ReviewsStyles></ReviewsStyles>
+    <Layout seo={seo}>
+        <HeaderMenu/>
+        <SmallHero title={title} banner={banner}/>
+        <ReviewGrid/>
+        <ClientReview/>
+        <DoublePageLink/>
+        <Footer/>
+    </Layout>
     </>
   )
 }

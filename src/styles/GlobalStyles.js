@@ -10,7 +10,6 @@ const GlobalStyles = createGlobalStyle`
     --grey: #F0F0F0;
     --white: #FFFFFF;
     --container-xl: 1400px;
-    --container: 97%;
   }
 
   html {
@@ -38,14 +37,14 @@ const GlobalStyles = createGlobalStyle`
   }
 
   .container {
-    width: ${__CONTAINERS.xxs};
+    width: 100%;
     margin: 0 auto;
     max-width: 1400px;
   }
 
   .main_button {
     border: 1px solid black;
-    padding: 17px 0;
+    padding: 17px 15px;
     box-sizing: border-box;
     font-family: 'Integral CF Bold';
     background: white;
@@ -99,12 +98,12 @@ const GlobalStyles = createGlobalStyle`
 
   ${xxs(`
         .container {
-            width: ${__CONTAINERS.xxs}
+            width: ${__CONTAINERS.xxs};
         }
   `)}
   ${xs(`
         .container {
-            width: ${__CONTAINERS.xs}
+            width: ${__CONTAINERS.xs};
         }
   `)}
   ${lg(`

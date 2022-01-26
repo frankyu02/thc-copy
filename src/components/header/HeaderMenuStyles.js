@@ -186,9 +186,12 @@ export const HeaderMenuStyles = styled.section`
       }
     }
 
+    .cart{
+      padding: 0 2vw;
+    }
     .card-btn {
-      padding: 0 32px;
-      text-transform: uppercase
+      
+      text-transform: uppercase;
     }
 
     .search-btn {

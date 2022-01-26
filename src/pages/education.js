@@ -1,30 +1,53 @@
 import * as React from "react";
-import { HeaderMenu } from "../components/header/HeaderMenu";
-import {Footer} from '../components/footer/Footer';
 import Layout from "../components/layout/Layout";
-import {EducationHero} from "../components/global_component/education-hero/EducationHero";
+import {graphql, useStaticQuery} from "gatsby";
+import {SmallHero} from "../components/global_component/small_hero/SmallHero";
+import {HeaderMenu} from "../components/header/HeaderMenu";
+import {Footer} from "../components/footer/Footer";
+import {ThcTv} from '../components/global_component/thc-tv/ThcTv';
+import {ArticlesGrid} from '../components/education/articles-grid/ArticlesGrid';
+
 
 const EducationPage = () => {
 
-    const headingText = 'How to Judge the Quality of Cannabis';
-    const data = 'JANUARY 28, 2021';
-    const banner = '';
-
-
     const seo = {
-        title: 'Education',
+        title: 'Education Title',
         description: 'Education Description'
     }
 
+    const data = useStaticQuery(graphql`
+        query {
+            allWpPage(filter: {id: {eq: "cG9zdDoyOTI="}}){
+                nodes{
+                    education {
+                        educationBanner {
+                            educationBannerTitle
+                            educationBannerImg {
+                                localFile {
+                                    childImageSharp {
+                                    gatsbyImageData
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    `)
+    const title = data?.allWpPage?.nodes[0]?.education?.educationBanner?.educationBannerTitle;
+    const banner = data?.allWpPage?.nodes[0]?.education?.educationBanner?.educationBannerImg?.localFile?.childImageSharp?.gatsbyImageData;
     return (
         <>
             <Layout seo={seo}>
                 <HeaderMenu/>
-                <EducationHero title={headingText} data={data} banner={banner}/>
+                <SmallHero title={title} banner={banner}/>
+                <ArticlesGrid/>
+                <ThcTv/>
                 <Footer/>
             </Layout>
         </>
-    )
+    );
 }
 
-export default EducationPage
+export default EducationPage;

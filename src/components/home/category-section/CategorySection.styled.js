@@ -116,6 +116,7 @@ export const CategoryStyles = styled.section`
         }
     }
     @media (max-width: 768px){
+        padding: 0 10px;
         .category-section{
             padding: 50px 0;
             h2{

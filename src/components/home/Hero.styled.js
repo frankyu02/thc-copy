@@ -7,6 +7,7 @@ export const HeroStyled = styled.section`
     align-items: flex-end;
     justify-content: space-between;
     margin-bottom: 40px;
+
     h1 {
       margin: 0;
       line-height: 1;
@@ -22,7 +23,7 @@ export const HeroStyled = styled.section`
   }
   .inner {
     width: 100%;
-    height: 580px;
+    min-height: 580px;
     overflow: hidden;
     position: relative;
     display: flex;
@@ -53,13 +54,16 @@ export const HeroStyled = styled.section`
       right: 30px;
     }
   }
-@media (max-width: 1365px) {
+@media (max-width: 1380px) {
     .header {
+    padding: 0 15px;
       h1 {
         font-size: 110px;
       }
+      h4 {
+        font-size: 14px;
+      }
       .address_parent {
-        display: flex;
         margin-top: 20px;
       }
       h4:first-child {
@@ -67,7 +71,7 @@ export const HeroStyled = styled.section`
       }
     }
     .inner {
-        height: 530px;
+        min-height: 530px;
         .mark {
           bottom: 70px;
         }
@@ -76,7 +80,7 @@ export const HeroStyled = styled.section`
    @media (max-width: 1200px) {
     .header {
       h1 {
-        font-size: 88px;
+        font-size: 92px;
       }
     }
    }
@@ -85,7 +89,7 @@ export const HeroStyled = styled.section`
       margin-bottom: 20px;
       align-items: center;
       h1 {
-        font-size: 52px;
+        font-size: 70px;
       }
     }
     .inner {
@@ -101,9 +105,10 @@ export const HeroStyled = styled.section`
    }
    @media (max-width: 767px) {
     .header {
+    padding: 0;
       flex-direction: column-reverse;
       h1 {
-        font-size: 13vw;
+        font-size: 13.7vw;
       }
       .address_parent {
         width: 100%;
@@ -111,6 +116,7 @@ export const HeroStyled = styled.section`
         justify-content: space-between;
         h4 {
           max-width: 46%;
+          font-size: 16px;
         }
       }
     }
@@ -128,10 +134,26 @@ export const HeroStyled = styled.section`
     }
    }
    @media (max-width: 767px) {
+    .header {
+      padding: 0px 10px;
+    }
     .inner {
       .caption {
         h3 {
           font-size: 30px;
+        }
+      }
+    }
+   }
+   @media (max-width: 560px) {
+      .header {
+      h1 {
+        font-size: 13.2vw;
+      }
+      .address_parent {
+        h4 {
+          font-size: 13px;
+          margin-bottom: 0;
         }
       }
     }
