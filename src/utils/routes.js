@@ -25,11 +25,13 @@ query MyQuery($childItems: WpMenuItemToMenuItemConnectionFilterInput = {}, $imag
               }
             }
           }
+          url
         }
       }
     }
   }
 }
+
 
     `)
 
@@ -47,23 +49,23 @@ query MyQuery($childItems: WpMenuItemToMenuItemConnectionFilterInput = {}, $imag
 
       {
         label: "APPAREL",
-        link: "pageLink"
+        link: "/APPAREL"
 
       },
 
       {
         label: "Delivery",
-        link: "pageLink"
+        link: "/delivery"
 
       },
       {
         label: "Company",
-        link: "pageLink",
+
         items: FetchSubItems("Company")
       },
       {
         label: "Media",
-        link: "pageLink",
+
         items: FetchSubItems("Media")
       },
       {

@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components"
 import { lg, xs, xxs } from "./utils/media_queries"
-import { __CONTAINERS } from "./utils/variables"
+import { __BREAKPOINTS, CONTAINER_ADDITIONAL_PADDING } from "./utils/variables"
 
 
 const GlobalStyles = createGlobalStyle`
@@ -41,6 +41,8 @@ const GlobalStyles = createGlobalStyle`
     width: 100%;
     margin: 0 auto;
     max-width: 1400px;
+    padding: 0 10px;
+
   }
 
   .main_button {
@@ -101,17 +103,17 @@ const GlobalStyles = createGlobalStyle`
 
   ${xxs(`
         .container {
-            width: ${__CONTAINERS.xxs};
+            max-width: ${__BREAKPOINTS.xxs - CONTAINER_ADDITIONAL_PADDING};
         }
   `)}
   ${xs(`
         .container {
-            width: ${__CONTAINERS.xs};
+            max-width: ${__BREAKPOINTS.xs - CONTAINER_ADDITIONAL_PADDING};
         }
   `)}
   ${lg(`
         .container {
-            width: ${__CONTAINERS.lg}
+            max-width: ${__BREAKPOINTS.lg - CONTAINER_ADDITIONAL_PADDING}
         }
   `)}
 

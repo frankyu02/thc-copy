@@ -3,11 +3,11 @@ import { HeaderMenu } from "../components/header/HeaderMenu"
 import { Footer } from "../components/footer/Footer"
 import Layout from "../components/layout/Layout"
 
-const HomePage = () => {
+const Menu = () => {
 
   const seo = {
-    title: 'Home Title',
-    description: 'Home Description'
+    title: "Menu",
+    description: "shop cannabis"
   }
 
   return (
@@ -21,4 +21,4 @@ const HomePage = () => {
   )
 }
 
-export default HomePage;
+export default Menu

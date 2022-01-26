@@ -4,9 +4,7 @@ export const __BREAKPOINTS = {
   md: 1200,
   sm: 992,
   xs: 768,
-  xxs: 500,
+  xxs: 500
 }
 
-export const __CONTAINERS = {
-  xl: '1400px',
-}
+export const CONTAINER_ADDITIONAL_PADDING = 20

@@ -35,7 +35,7 @@ const MobileIcon = styled.div`
 `
 
 const DropDrown = ({ dropDownItems, isOpen, onOpen }) => {
-
+  console.log(dropDownItems)
   const oddItem = dropDownItems.length % 2 > 0
   const columnCounter = Math.round(dropDownItems.length / 2)
 
@@ -49,7 +49,7 @@ const DropDrown = ({ dropDownItems, isOpen, onOpen }) => {
 
             <Link onClick={() => {
               onOpen && onOpen(false)
-            }} className={"dropdown-item-link"} to={subItem.link || "#"}><span>
+            }} className={"dropdown-item-link"} to={subItem.url || "/"}><span>
               {subItem.label} <span
               className={"iconArrow"}> <ArrowIcon
             />  </span>
