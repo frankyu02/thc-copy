@@ -37,7 +37,9 @@ export const HeroStyled = styled.section`
           font-size: 48px;
           color: white;
           text-align: center;
-          max-width: 820px;
+          max-width: 850px;
+          padding: 0 15px;
+          box-sizing: border-box;
           margin-bottom: 70px;
         }
         
