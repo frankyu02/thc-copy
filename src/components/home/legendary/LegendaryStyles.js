@@ -5,6 +5,7 @@ export const LegendaryStyles = styled.section`
       box-sizing: border-box;
     }
     margin-top: 20px;
+    margin-bottom: 20px;
     .link {
       border: 1px solid black;
       padding: 17px 15px;

@@ -10,6 +10,7 @@ import {BlogBanner} from '../components/home/blog-banner/BlogBanner';
 import {Footer} from '../components/footer/Footer';
 import Layout from "../components/layout/Layout";
 import {ShopLink} from "../components/ui/shop_link/ShopLink";
+import {MerchCarousel} from "../components/home/merch_carousel/MerchCarousel";
 
 const HomePage = () => {
 
@@ -24,6 +25,7 @@ const HomePage = () => {
         <HeaderMenu/>
         <HeroHome/>
         <Legendary/>
+        <MerchCarousel/>
         <CategorySection/>
         <ThcTv/>
         <BlogBanner/>
