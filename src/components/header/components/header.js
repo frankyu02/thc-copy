@@ -2,15 +2,11 @@ import React, { useRef } from "react"
 import { Link } from "gatsby"
 import { Search } from "./search/search"
 import { NavList } from "./navList"
-import { useOnClickOutside } from "../../../hooks/useOnClickOutside"
 import { useOpen } from "../../../hooks/useOpen"
 import { useNoScroll } from "../../../hooks/useNoScroll"
+import { OnClickOutside } from "../../../utils/onClickOutside"
 
-const ClickOutsideChecker = ({ navRef, closeMenu, burgerRef }) => {
-  useOnClickOutside(navRef, closeMenu, burgerRef)
 
-  return <>  </>
-}
 export const Header = ({ logoText, headerRef }) => {
   const { isOpen: menuOpen, onToggle: toggleMenu, onClose: closeMenu, setIsOpen: setMenuOpen } = useOpen()
   useNoScroll(menuOpen)
@@ -36,7 +32,8 @@ export const Header = ({ logoText, headerRef }) => {
       <div className={"cart"}>
         <button type={"button"} className={"cart-btn"}>Cart <span>0</span></button>
       </div>
-      {menuOpen && <ClickOutsideChecker navRef={navRef} burgerRef={burgerRef} closeMenu={closeMenu} />}
+
+      {menuOpen && <OnClickOutside firstRef={navRef} secondRef={burgerRef} handler={closeMenu} />}
     </header>
   )
 }

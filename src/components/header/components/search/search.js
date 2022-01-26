@@ -1,7 +1,8 @@
 import React, { useRef } from "react"
 import { SearchFrameStyled, SearchStyled } from "./search.styled"
 import { useOpen } from "../../../../hooks/useOpen"
-import { useOnClickOutside } from "../../../../hooks/useOnClickOutside"
+import { OnEscape } from "../../../../utils/onEscape"
+import { OnClickOutside } from "../../../../utils/onClickOutside"
 
 
 export const Search = () => {
@@ -20,18 +21,17 @@ export const Search = () => {
         </svg>
         <span style={{ display: !isOpen ? "none" : "inline" }}>  ESC</span>
       </button>
-        {isOpen && <SearchFrame searchRef={searchRef} onClose={onClose} isOpen={isOpen} />}
+         <SearchFrame searchRef={searchRef} onClose={onClose} isOpen={isOpen} />
 
       </span>
-
+      {isOpen && <OnEscape callback={onClose} />}
     </SearchStyled>
 
   )
 }
 
 const SearchFrame = ({ isOpen, searchRef, onClose }) => {
-
-  useOnClickOutside(searchRef, onClose)
+ 
   return <SearchFrameStyled isOpen={isOpen}>
     <div className="content">
       <input type="text" className="input" placeholder={"Search"} />
@@ -42,7 +42,7 @@ const SearchFrame = ({ isOpen, searchRef, onClose }) => {
           <line x1="18.3914" y1="16.9771" x2="24.7072" y2="23.2929" stroke="black" strokeWidth="2" />
         </svg>
       </button>
-
+      {isOpen && <OnClickOutside firstRef={searchRef} handler={onClose} />}
     </div>
 
 
