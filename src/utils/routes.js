@@ -2,6 +2,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { useMemo } from "react"
 
 export const MENU_LINK = "/menu"
+export const ORDER_NOW = MENU_LINK
 export const CreateRoutes = () => {
 
   const navDropdown = useStaticQuery(graphql`

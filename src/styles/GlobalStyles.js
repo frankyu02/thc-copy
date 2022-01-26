@@ -10,6 +10,7 @@ const GlobalStyles = createGlobalStyle`
     --grey: #F0F0F0;
     --white: #FFFFFF;
     --container-xl: 1400px;
+    --fontPrimary: 'Integral CF'
   }
 
   html {
@@ -68,26 +69,28 @@ const GlobalStyles = createGlobalStyle`
 
   @media (max-width: 767px) {
     .main_button {
-          border: 1px solid black;
-          padding: 17px 0;
-          box-sizing: border-box;
-          font-family: 'Integral CF Bold';
-          background: white;
-          color: black;
-          width: 100%;
-          max-width: 330px;
-          font-style: normal;
-          text-transform: uppercase;
-          margin: 0 auto;
-          display: block;
-          text-align: center;
-          transition: 0.2s;
-        }
+      border: 1px solid black;
+      padding: 17px 0;
+      box-sizing: border-box;
+      font-family: 'Integral CF Bold';
+      background: white;
+      color: black;
+      width: 100%;
+      max-width: 330px;
+      font-style: normal;
+      text-transform: uppercase;
+      margin: 0 auto;
+      display: block;
+      text-align: center;
+      transition: 0.2s;
+    }
+
     .main_button:hover {
       font-style: italic;
       background: #612c8f;
       color: white;
     }
+
     @media (max-width: 767px) {
       .main_button {
         font-size: 18px;
@@ -111,8 +114,8 @@ const GlobalStyles = createGlobalStyle`
             width: ${__CONTAINERS.lg}
         }
   `)}
-  
-  
+
+
 
 
 

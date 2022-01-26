@@ -28,6 +28,7 @@ export const MenuItem = styled.li`
   }
 
   .menu-active {
+    font-family: var(--fontPrimary);
     transition: 0.5s;
     min-height: 80px;
     padding: 5px 20px;
@@ -40,26 +41,41 @@ export const MenuItem = styled.li`
     border: none;
     text-transform: inherit;
     font-size: inherit;
-    font-family: inherit;
     line-height: 1;
     cursor: pointer;
+    font-weight: bold;
+
+    &:hover {
+      & + .drop-down {
+
+        ${lg(`
+    max-height: 200vh;`)}
+      }
+    }
+
+    & + .drop-down :hover {
+
+      ${lg(`
+max-height: 200vh;`)}
+    }
 
     ${lg(`
-          position: relative;
-         min-height: 80px;
-          background-color:#fff;
-              &::after {
-                transition: 0.3s;
-                content: '';
-                display: block;
-                position: absolute;
-                height: 2px;
-                background-color: #000;
-                top: calc(100% - 20px);
-                left: 100%;
-                right: 100%;
-    }
-      `
+font-weight:400;
+  position: relative;
+ min-height: 80px;
+  background-color:#fff;
+      &::after {
+        transition: 0.3s;
+        content: '';
+        display: block;
+        position: absolute;
+        height: 2px;
+        background-color: #000;
+        top: calc(100% - 20px);
+        left: 100%;
+        right: 100%;
+}
+`
     )}
     &:hover {
       background-color: #d3d3d3;
@@ -79,14 +95,14 @@ export const MenuItem = styled.li`
 
 
       ${lg(`
-         min-height: 80px;
-          background-color:#fff;
-          &::after {
-          
-          left:15px;
-          right:15px;
-          }
-      `
+ min-height: 80px;
+  background-color:#fff;
+  &::after {
+  
+  left:15px;
+  right:15px;
+  }
+`
       )}
 
     }

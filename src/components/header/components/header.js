@@ -1,15 +1,25 @@
-import React from "react"
+import React, { useRef } from "react"
 import { Link } from "gatsby"
-import { Search } from "./search"
+import { Search } from "./search/search"
 import { NavList } from "./navList"
+import { useOnClickOutside } from "../../../hooks/useOnClickOutside"
+import { useOpen } from "../../../hooks/useOpen"
+import { useNoScroll } from "../../../hooks/useNoScroll"
 
+const ClickOutsideChecker = ({ navRef, closeMenu, burgerRef }) => {
+  useOnClickOutside(navRef, closeMenu, burgerRef)
 
-export const Header = ({ toggleMenu, menuOpen, logoText, headerRef, setMenuOpen }) => {
-
+  return <>  </>
+}
+export const Header = ({ logoText, headerRef }) => {
+  const { isOpen: menuOpen, onToggle: toggleMenu, onClose: closeMenu, setIsOpen: setMenuOpen } = useOpen()
+  useNoScroll(menuOpen)
   const navIndent = headerRef?.current?.offsetHeight || 105
+  const navRef = useRef()
+  const burgerRef = useRef()
   return (
     <header className={"header"}>
-      <button onClick={toggleMenu} type={"button"} className={"menu-btn " + (menuOpen ? " open" : "")}>
+      <button ref={burgerRef} onClick={toggleMenu} type={"button"} className={"menu-btn " + (menuOpen ? " open" : "")}>
         <div className={"line"}></div>
         <div className={"line"}></div>
         <div className={"line"}></div>
@@ -18,7 +28,7 @@ export const Header = ({ toggleMenu, menuOpen, logoText, headerRef, setMenuOpen 
         <Link to={"/"}>{logoText}</Link>
       </div>
 
-      <nav style={{ top: navIndent }} className={"nav " + (menuOpen ? " open" : "")}>
+      <nav ref={navRef} style={{ top: navIndent }} className={"nav " + (menuOpen ? " open" : "")}>
         <NavList setMenuOpen={setMenuOpen} />
       </nav>
 
@@ -26,6 +36,7 @@ export const Header = ({ toggleMenu, menuOpen, logoText, headerRef, setMenuOpen 
       <div className={"cart"}>
         <button type={"button"} className={"cart-btn"}>Cart <span>0</span></button>
       </div>
+      {menuOpen && <ClickOutsideChecker navRef={navRef} burgerRef={burgerRef} closeMenu={closeMenu} />}
     </header>
   )
 }

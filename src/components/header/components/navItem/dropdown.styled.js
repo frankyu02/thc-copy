@@ -15,6 +15,7 @@ export const DropDownStyled = styled.ul`
 
   ${lg(`
   position:absolute; 
+  
   transition:0.1s;
   top:100%;
   left:0;
