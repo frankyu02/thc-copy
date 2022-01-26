@@ -15,6 +15,9 @@ export const MerchCarouselStyled = styled.section`
     .merch_cart_list {
       display: flex;
     }
+  .merch_cart_list.mobile {
+    display: none;
+  }
     .to_shop {
       .main_button {
         display: none;
@@ -95,20 +98,22 @@ export const MerchCarouselStyled = styled.section`
       padding-bottom: 30px;
     }
       .merch_cart_list {
-      .card {
-        margin-bottom: 50px;
+        display: none;
       }
-         flex-wrap: wrap;
-         justify-content: space-between;
-         .gatsby-image-wrapper {
+      .merch_cart_list.mobile {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .gatsby-image-wrapper {
           width: 100%;
           &>div {
-          max-width: 100%!important;
+            max-width: 100%!important;
           }
-         }
-         .card {
-            width: 48%;
-         } 
+        }
+        .card {
+          width: 48%;
+          margin-bottom: 50px;
+        }
       }
     }
     @media (max-width: 768px){
