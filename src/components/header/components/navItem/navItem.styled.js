@@ -10,6 +10,7 @@ export const MenuItem = styled.li`
   height: auto;
 
   ${lg(`
+ 
       width:auto;
       border:none;
       `
@@ -21,8 +22,9 @@ export const MenuItem = styled.li`
   .desktop-icon {
     display: none;
     ${lg(`
-        display:  inline-block; 
+        display:  inline-flex; 
          margin-left: 10px;
+         align-items:center;
       `
     )}
   }
@@ -46,6 +48,10 @@ export const MenuItem = styled.li`
     font-weight: bold;
 
     &:hover {
+      .desktop-icon {
+        transform: rotate(180deg);
+      }
+
       & + .drop-down {
 
         ${lg(`
@@ -96,12 +102,7 @@ font-weight:400;
 
       ${lg(`
  min-height: 80px;
-  background-color:#fff;
-  &::after {
-  
-  left:15px;
-  right:15px;
-  }
+  background-color:#fff; 
 `
       )}
 

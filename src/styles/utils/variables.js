@@ -7,4 +7,3 @@ export const __BREAKPOINTS = {
   xxs: 500
 }
 
-export const CONTAINER_ADDITIONAL_PADDING = 20

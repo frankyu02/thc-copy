@@ -1,6 +1,4 @@
 import { createGlobalStyle } from "styled-components"
-import { lg, xs, xxs } from "./utils/media_queries"
-import { __BREAKPOINTS, CONTAINER_ADDITIONAL_PADDING } from "./utils/variables"
 
 
 const GlobalStyles = createGlobalStyle`
@@ -100,27 +98,6 @@ const GlobalStyles = createGlobalStyle`
       }
     }
   }
-
-  ${xxs(`
-        .container {
-            max-width: ${__BREAKPOINTS.xxs - CONTAINER_ADDITIONAL_PADDING};
-        }
-  `)}
-  ${xs(`
-        .container {
-            max-width: ${__BREAKPOINTS.xs - CONTAINER_ADDITIONAL_PADDING};
-        }
-  `)}
-  ${lg(`
-        .container {
-            max-width: ${__BREAKPOINTS.lg - CONTAINER_ADDITIONAL_PADDING}
-        }
-  `)}
-
-
-
-
-
 
 `
 

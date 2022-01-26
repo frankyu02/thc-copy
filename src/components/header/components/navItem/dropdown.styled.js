@@ -102,8 +102,6 @@ export const DropDownStyled = styled.ul`
 
     &-img {
       display: none;
-
-
       ${lg(`
       transition:0.3s;
       opacity:0;
@@ -112,8 +110,7 @@ export const DropDownStyled = styled.ul`
       left:0;
       right:0;
       bottom:0px;
-      top:0;
-    
+      top:0; 
       img {
         object-position: 0 0;
       }
@@ -136,10 +133,10 @@ export const DropDownStyled = styled.ul`
          bottom:0;
          top:0;
          z-index:4;
-        padding:20px;
+        padding:15px;
         display:flex;
         align-items:flex-end;
-        font-size:20px;
+        font-size: clamp(16px , 1.2vw , 20px);
         font-weight:600;
         justify-content:flex-start;
         text-align:left;
