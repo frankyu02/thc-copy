@@ -35,7 +35,7 @@ const MobileIcon = styled.div`
 `
 
 const DropDrown = ({ dropDownItems, isOpen, onOpen }) => {
-  console.log(dropDownItems)
+
   const oddItem = dropDownItems.length % 2 > 0
   const columnCounter = Math.round(dropDownItems.length / 2)
 

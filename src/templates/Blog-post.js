@@ -4,8 +4,7 @@ import React from "react"
 //data come from gatsby-node.esm.js
 const BlogPost = ({ pageContext }) => {
 
-  console.log(pageContext);
- 
+
   return (
     < >
       123
