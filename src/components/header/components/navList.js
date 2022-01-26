@@ -2,7 +2,6 @@ import { CreateRoutes } from "../../../utils/routes"
 import { NavItem } from "./navItem"
 import MainButton from "../../ui/main_button/MainButton"
 import React, { useRef, useState } from "react"
-import { useOnClickOutside } from "../../../hooks/useOnClickOutside"
 
 
 export const NavList = ({ setMenuOpen }) => {
@@ -20,7 +19,7 @@ export const NavList = ({ setMenuOpen }) => {
   }
 
   const headerListRef = useRef()
-  useOnClickOutside(headerListRef, () => setItemAccordionState(cosedState))
+
   return (
     <ul ref={headerListRef} className={"header-list"}>
       {ROUTES.map((item, i) => (
