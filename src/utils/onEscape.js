@@ -10,11 +10,11 @@ export const OnEscape = ({ callback }) => {
 
   }, [callback])
   useEffect(() => {
-    if (window) {
-      window.addEventListener("keydown", func)
-    }
+
+    window?.addEventListener("keydown", func)
+
     return () => {
-      window.removeEventListener("keydown", func)
+      window?.removeEventListener("keydown", func)
     }
   }, [func])
 
