@@ -25,6 +25,7 @@ export const HeroStyled = styled.section`
   }
 
   .inner {
+    padding: 10px;
     width: 100%;
     min-height: 580px;
     overflow: hidden;
