@@ -8,7 +8,7 @@ export const OnEscape = ({ callback }) => {
       callback()
     }
 
-  }, [])
+  }, [callback])
   useEffect(() => {
     if (window) {
       window.addEventListener("keydown", func)
