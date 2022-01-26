@@ -38,9 +38,9 @@ export const MerchCarousel = () => {
             }
         }
     `)
-    const width = window.innerWidth;
+    const width = window && window.innerWidth;
     const [slider, setSlider] = useState(true);
-    function sliderShow() {
+    function sliderShow(width) {
         if (width>968) {
             setSlider( true)
         }
@@ -51,7 +51,7 @@ export const MerchCarousel = () => {
     const merchCarousel = data?.allWpPage?.edges[0]?.node?.home?.merchCarousel;
     const card = data?.allWpPage?.edges[0]?.node?.home?.merchCarousel?.merchCarouselCard;
     useEffect(()=> {
-        sliderShow()
+        sliderShow(width)
     }, )
     return (
         <MerchCarouselStyled>
