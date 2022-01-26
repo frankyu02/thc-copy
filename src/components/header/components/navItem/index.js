@@ -7,6 +7,7 @@ import { DropDownStyled } from "./dropdown.styled"
 import { lg } from "../../../../styles/utils/media_queries"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { ArrowIcon } from "../../../../images/arrowIcon"
+import { __BREAKPOINTS } from "../../../../styles/utils/variables"
 
 const MobileIcon = styled.div`
   height: 28px;
@@ -34,8 +35,8 @@ const MobileIcon = styled.div`
   `)}
 `
 
-const DropDrown = ({ dropDownItems, isOpen, onOpen }) => {
-
+const DropDrown = ({ dropDownItems, isOpen: mobileIsOpen, onOpen, setMenuOpen }) => {
+  const isOpen = mobileIsOpen && window?.innerWidth < __BREAKPOINTS.lg
   const oddItem = dropDownItems.length % 2 > 0
   const columnCounter = Math.round(dropDownItems.length / 2)
 
@@ -49,10 +50,9 @@ const DropDrown = ({ dropDownItems, isOpen, onOpen }) => {
 
             <Link onClick={() => {
               onOpen && onOpen(false)
-            }} className={"dropdown-item-link"} to={subItem.link || "#"}><span>
-              {subItem.label} <span
-              className={"iconArrow"}> <ArrowIcon
-            />  </span>
+              setMenuOpen && setMenuOpen(false)
+            }} className={"dropdown-item-link"} to={subItem.url || "/"}>
+              <span>   {subItem.label} <span className={"iconArrow"}> <ArrowIcon />  </span>
             </span> </Link>
             <GatsbyImage className="dropdown-item-img"
                          image={getImage(subItem.image?.image?.localFile)}
@@ -77,7 +77,8 @@ export const NavItem = ({ item, className, onOpen, isOpen, setMenuOpen }) => {
           setMenuOpen && setMenuOpen(false)
         }
         } className={"menu-active"} to={item.link}>{item.label}   </Link>}
-      {item.items?.length > 0 ? < DropDrown isOpen={isOpen} onOpen={onOpen} dropDownItems={item.items} /> : ""}
+      {item.items?.length > 0 ?
+        < DropDrown isOpen={isOpen} setMenuOpen={setMenuOpen} onOpen={onOpen} dropDownItems={item.items} /> : ""}
     </MenuItem>
   )
 }

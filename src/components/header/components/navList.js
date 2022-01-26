@@ -1,4 +1,4 @@
-import { CreateRoutes } from "../../../utils/config"
+import { CreateRoutes } from "../../../utils/routes"
 import { NavItem } from "./navItem"
 import MainButton from "../../ui/main_button/MainButton"
 import React, { useRef, useState } from "react"

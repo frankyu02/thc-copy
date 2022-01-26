@@ -2,12 +2,15 @@ import { useEffect } from "react"
 
 
 // Hook
-export const useOnClickOutside = (ref, handler) => {
+export const useOnClickOutside = (ref, handler, secondRef = null) => {
   useEffect(
     () => {
       const listener = (event) => {
         // Do nothing if clicking ref's element or descendent elements
         if (!ref.current || ref.current.contains(event.target)) {
+          return
+        }
+        if (secondRef && secondRef.current.contains(event.target)) {
           return
         }
         handler(event)
@@ -25,7 +28,7 @@ export const useOnClickOutside = (ref, handler) => {
     // ... callback/cleanup to run every render. It's not a big deal ...
     // ... but to optimize you can wrap handler in useCallback before ...
     // ... passing it into this hook.
-    [ref, handler]
+    [ref, handler, secondRef]
   )
 }
 

@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { lg } from "../../styles/utils/media_queries"
 
-export const HeaderMenuStyles = styled.section`
+export const HeaderMenuStyled = styled.section`
   position: sticky;
   top: 0;
   z-index: 110;
@@ -170,40 +170,34 @@ export const HeaderMenuStyles = styled.section`
       a {
         padding: 0 20px;
         display: flex;
+        width: 100%;
+        height: 100%;
         align-items: center;
         justify-content: center;
       }
     }
 
-    .cart, .search {
+    .cart {
       &-btn {
-        cursor: pointer
+        cursor: pointer;
         display: block;
         height: 100%;
         background: none;
         border: none;
-        outline: none
+        outline: none;
       }
     }
 
-    .cart{
+    .cart {
       padding: 0 2vw;
     }
+
     .card-btn {
-      
+
       text-transform: uppercase;
     }
 
-    .search-btn {
-      padding: 0 26px;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 14px;
-      line-height: 100%;
-      ${lg(`
-           border-left: 1px solid #000;
-      `)}
-    }
+
   }
 
 
