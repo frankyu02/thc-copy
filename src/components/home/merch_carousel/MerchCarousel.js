@@ -48,7 +48,6 @@ export const MerchCarousel = () => {
             setSlider( false)
         }
     }
-    console.log('dfsds')
     const merchCarousel = data?.allWpPage?.edges[0]?.node?.home?.merchCarousel;
     const card = data?.allWpPage?.edges[0]?.node?.home?.merchCarousel?.merchCarouselCard;
     useEffect(()=> {
