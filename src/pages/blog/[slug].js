@@ -13,7 +13,7 @@ import { PostContentProvider } from "../../contexts/post-content";
 
 const Article = (props) => {
 
-  if (!props.pageContext.slug) return null;
+  if (!props.pageContext.slug) return null
 
   const __DATA = props?.data?.allWpPost?.edges[0].node;
   const __FORM = __DATA?.blogPost?.signUpForm;
@@ -22,14 +22,14 @@ const Article = (props) => {
     title,
     content,
     date
-  } = __DATA;
+  } = __DATA
 
   const seo = {
     title: title,
-    description: 'Article Description'
+    description: "Article Description"
   }
 
-  const banner = getImageData(__DATA.featuredImage.node);
+  const banner = getImageData(__DATA.featuredImage.node)
 
   
 
@@ -52,7 +52,6 @@ const Article = (props) => {
     </>
   )
 }
-
 
 
 export const query = graphql`
@@ -90,6 +89,6 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-export default Article;
+export default Article

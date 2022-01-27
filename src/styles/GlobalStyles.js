@@ -12,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
     --white: #FFFFFF;
     --placeholder: #808080;
     --container-xl: 1400px;
-    --container: 97%;
+    --fontPrimary: 'Integral CF'
   }
 
   html {
@@ -43,6 +43,8 @@ const GlobalStyles = createGlobalStyle`
     width: 100%;
     margin: 0 auto;
     max-width: 1400px;
+    padding: 0 10px;
+
   }
 
   .main_button {

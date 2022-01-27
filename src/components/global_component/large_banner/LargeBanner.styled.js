@@ -1,18 +1,35 @@
 import styled from 'styled-components';
-import {md, xs} from "../../../styles/utils/media_queries";
+import {xs, xxs} from "../../../styles/utils/media_queries";
 
 
 export const LargeBannerStyled = styled.section` 
+     background-color: #F0F0F0;
+    padding-bottom: 45px;
+    .container {
+      position: relative;
+      .overlay {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        background: linear-gradient(346.23deg, #612C8F 9.84%, rgba(97, 44, 143, 0) 100.31%);
+      }
+    }
+    .content_parent {
+      position: relative;
+      z-index: 2;
+    }
     .gatsby-image-wrapper {
-      z-index: -1;
       position:absolute;
       top: 0;
       left: 0;
+      z-index: 0;
       width: 100%;
       height: 100%;
     }
     .large_wrapper {
-      background: linear-gradient(346.23deg, #612C8F 9.84%, rgba(97, 44, 143, 0) 100.31%);
       position: relative;
       min-height: 511px;
       display: flex;
@@ -37,7 +54,7 @@ export const LargeBannerStyled = styled.section`
         text-transform: uppercase;
       }
     }
-    ${xs(`
+    ${xxs(`
         .large_banner {
             h2 {
                 font-size: 38px;
@@ -49,6 +66,7 @@ export const LargeBannerStyled = styled.section`
         }
     `)}
     ${xs(`
+        padding-bottom: 100px;
         .large_wrapper {
             .large_banner {
             margin-top: 40px;

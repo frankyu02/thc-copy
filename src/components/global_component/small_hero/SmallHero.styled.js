@@ -22,7 +22,7 @@ export const SmallHeroStyled = styled.section`
     h1{
         font-family: Integral CF Bold;
         font-style: italic;
-        font-size: 45px;
+        font-size: 40px;
         letter-spacing: 0.01em;
         text-transform: uppercase;
         line-height: 100%;

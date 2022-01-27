@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react"
+import React, { useEffect, useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { LegendaryStyles } from "./LegendaryStyles"
@@ -55,10 +55,10 @@ export const Legendary = () => {
   const storyLegendary = data?.wpPage?.home?.storyLegendary
   const cardsJoin = data?.wpPage?.home?.cardsJoin
   const [modal, setModal] = useState(false)
-    useEffect(() => {
-        const body = document.querySelector('body');
-        body.style.overflow = modal ? 'hidden' : 'auto';
-    }, [modal])
+  useEffect(() => {
+    const body = document.querySelector("body")
+    body.style.overflow = modal ? "hidden" : "auto"
+  }, [modal])
   return (
     <LegendaryStyles>
       <div className={"container"}>
@@ -70,10 +70,11 @@ export const Legendary = () => {
           </div>
           <div className={"legendary_text"}>
             <h2>{storyLegendary?.storyLegendaryTitle}</h2>
-              {storyLegendary?.storyLegendaryMainText?.map?.((item, key) => (
-                <p key={key}>{item?.storyLegendaryMainTextItem}</p>
-              ))}
-            <button onClick={() => setModal(true)} className="read_more">{storyLegendary?.storyLegendaryModalOpen}</button>
+            {storyLegendary?.storyLegendaryMainText?.map?.((item, key) => (
+              <p key={key}>{item?.storyLegendaryMainTextItem}</p>
+            ))}
+            <button onClick={() => setModal(true)}
+                    className="read_more">{storyLegendary?.storyLegendaryModalOpen}</button>
             <div><MainButton url={storyLegendary?.storyLegendaryButton?.url}
                              target={storyLegendary?.storyLegendaryButton?.target}>{storyLegendary?.storyLegendaryButton?.title}</MainButton>
             </div>

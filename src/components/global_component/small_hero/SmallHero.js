@@ -4,7 +4,7 @@ import {SmallHeroStyled} from "./SmallHero.styled";
 
 export const SmallHero = ({title, banner}) => {
     return (
-        <div className="container">
+        <div>
             <SmallHeroStyled>
                 <div className="hero-title">
                     <h1>{title}</h1>
