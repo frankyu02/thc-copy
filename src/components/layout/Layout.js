@@ -1,19 +1,25 @@
-import React from 'react';
-import 'normalize.css';
-import GlobalStyles from '../../styles/GlobalStyles';
-import Typography from '../../styles/Typography';
-import Seo from './Seo';
+import React from "react"
+import "normalize.css"
+import GlobalStyles from "../../styles/GlobalStyles"
+import Typography from "../../styles/Typography"
+import { HeaderMenu } from "../header/HeaderMenu"
+import { Footer } from "../footer/Footer"
 
 
-const Layout = ({children, seo}) => {
-    return(
-        <>
-            <GlobalStyles />
-            <Typography />
-            <Seo {...seo} />
+const Layout = ({ children }) => {
+  return (
+    <>
 
-            {children}
-        </>
-    )
+      <GlobalStyles />
+      <Typography />
+      <HeaderMenu />
+      <main>
+        {children}
+      </main>
+      <Footer />
+
+
+    </>
+  )
 }
-export default Layout;
+export default Layout

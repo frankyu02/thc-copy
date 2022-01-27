@@ -1,8 +1,6 @@
 import * as React from "react"
-import Layout from "../components/layout/Layout"
-import HeaderMenu from "../components/header/HeaderMenu"
-import { Footer } from "../components/footer/Footer"
 import { Link } from "gatsby"
+import Seo from "../components/layout/Seo"
 
 
 const NotFoundPage = () => {
@@ -11,8 +9,9 @@ const NotFoundPage = () => {
     description: "shop cannabis"
   }
   return (
-    <Layout seo={seo}>
-      <HeaderMenu />
+    < >
+      <Seo {...seo} />
+
       <div className="container">
         <h1>404: Not Found</h1>
         <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
@@ -20,8 +19,7 @@ const NotFoundPage = () => {
 
       </div>
 
-      <Footer />
-    </Layout>
+    </ >
   )
 
 }
