@@ -4,7 +4,8 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { HeroStyled } from "./Hero.styled";
 import { MainButton } from "../ui/main_button/MainButton";
 import ReactPlayer from "react-player/lazy";
-import vid from "../../../public/videos/THC January 2021.mp4"
+import vid from "../../../public/videos/THC January 2021.mp4";
+import img from "../../images/gatsby-astronaut.png";
 export const HeroHome = () => {
     const data = useStaticQuery(graphql`
         query {
@@ -54,12 +55,19 @@ export const HeroHome = () => {
                 <div className="video">
                     <ReactPlayer
                         className="background"
-                        url="https://www.youtube.com/watch?v=yRVdrJXCvmM"
+                        url="https://res.cloudinary.com/dnc6bhhkf/video/upload/v1643302202/THC_January_2021_qqmkkr.mp4"       
                         muted="true"
                         loop="true"
                         width="100%"
                         height="100%"
-                        playing="true"
+                        playing={true}
+                        config={{
+                            file: { 
+                              attributes: { 
+                                poster: 'poster.jpg' 
+                              } 
+                            } 
+                        }}
                     />
                 </div>
                   <div className="caption">

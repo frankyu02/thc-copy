@@ -21,6 +21,7 @@ export const HeroStyled = styled.section`
     }
   }
   .inner {
+    border: 1px solid gold;
     width: 100%;
     height: 560px;
     overflow: hidden;
@@ -29,10 +30,13 @@ export const HeroStyled = styled.section`
     justify-content: center;
     align-items: center;
     .video{
-      height: 0;
+      height: 100%;
       width: 100%;
       position: absolute;
       padding-top: 56.25%;
+      video{
+        object-fit: cover;
+      }
     }
     .caption {
         position: relative;
@@ -89,11 +93,11 @@ export const HeroStyled = styled.section`
       }
     }
    }
-   @media (max-width: 975px) {
+   /* @media (max-width: 975px) {
      .inner{
       max-height: 400px;
      }
-   }
+   } */
    @media (max-width: 1024px) {
     .header {
       margin-bottom: 20px;
@@ -129,7 +133,6 @@ export const HeroStyled = styled.section`
       }
     }
     .inner {
-      height: 300px;
       .mark {
         width: 75px;
         right: 10px;
@@ -153,15 +156,4 @@ export const HeroStyled = styled.section`
       }
     }
    }
-   @media (max-width: 500px){
-      .inner{
-        max-height: 190px;
-        .caption{
-          margin-top: 5px;
-          h3{
-            font-size: 20px;
-          }
-        }
-      }
-    }
 `;
