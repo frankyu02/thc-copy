@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react"
+import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { MerchCarouselStyled } from "./MerchCarousel.styled"
@@ -15,6 +15,11 @@ export const MerchCarousel = () => {
                             merchCarousel {
                                 merchCarouselTitle
                                 merchCarouselSubTitle
+                                merchCarouselButton {
+                                    target
+                                    title
+                                    url
+                                }
                                 merchCarouselCard {
                                     merchCarouselCardButton {
                                         target
@@ -86,7 +91,7 @@ export const MerchCarousel = () => {
                         ))}
                     </div>
                     <div className={'to_shop'}>
-                        <MainButton url={"#"} target={'_blank'}>SHOP APPAREL</MainButton>
+                        <MainButton url={"#"} target={merchCarousel?.merchCarouselButton?.title}>{merchCarousel?.merchCarouselButton?.title}</MainButton>
                     </div>
                 </div>
             </div>
