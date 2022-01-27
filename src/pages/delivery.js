@@ -9,6 +9,7 @@ import {InfoBanner} from "../components/delivery/delivery-info-banner/InfoBanner
 import {MapRegions} from "../components/delivery/map-regions/MapRegions";
 import {LargeBanner} from "../components/global_component/large_banner/LargeBanner";
 import {getImage, withArtDirection} from "gatsby-plugin-image";
+import {DeliveryLarge} from "../components/delivery/delivery_large/DeliveryLarge";
 
 
 const DeliveryPage = () => {
@@ -65,7 +66,6 @@ const DeliveryPage = () => {
 
     const title = data?.allWpPage?.nodes[0]?.delivery?.deliveryBanner?.deliveryBannerTitle;
     const banner = data?.allWpPage?.nodes[0]?.delivery?.deliveryBanner?.deliveryBannerImg?.localFile?.childImageSharp?.gatsbyImageData;
-
     const titleLargeBanner = data?.allWpPage?.nodes[0]?.delivery?.deliveryLargeOrderBanner?.deliveryLargeOrderBannerTitle;
     const textLargeBanner = data?.allWpPage?.nodes[0]?.delivery?.deliveryLargeOrderBanner?.deliveryLargeOrderBannerText;
     const butonLargeBanner = data?.allWpPage?.nodes[0]?.delivery?.deliveryLargeOrderBanner?.deliveryLargeOrderBannerButton;
@@ -83,6 +83,7 @@ const DeliveryPage = () => {
                 <HeaderMenu/>
                 <SmallHero title={title} banner={banner}/>
                 <TitleSubtext/>
+                <DeliveryLarge/>
                 <InfoBanner/>
                 <MapRegions/>
                 <LargeBanner images={images} titleLargeBanner={titleLargeBanner} textLargeBanner={textLargeBanner} butonLargeBanner={butonLargeBanner}/>
