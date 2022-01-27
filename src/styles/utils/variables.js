@@ -10,3 +10,5 @@ export const __BREAKPOINTS = {
 export const __CONTAINERS = {
   xl: '1400px',
 }
+
+export const __POSTS_CONTENT_SIZE = '71%';
