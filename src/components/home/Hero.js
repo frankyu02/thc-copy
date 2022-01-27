@@ -3,6 +3,13 @@ import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { HeroStyled } from "./Hero.styled";
 import { MainButton } from "../ui/main_button/MainButton";
+import sal from 'sal.js';
+import '../../../node_modules/sal.js/dist/sal.css';
+
+sal({
+  threshold: 1,
+  once: false,
+});
 
 export const HeroHome = () => {
     const data = useStaticQuery(graphql`
@@ -40,8 +47,8 @@ export const HeroHome = () => {
     const bannerTitle = data?.wpPage?.home?.banner?.bannerTitle;
     const bannerButton = data?.wpPage?.home?.banner?.bannerButton;
   return (
-      <HeroStyled>
-          <div className="container">
+      <HeroStyled >
+          <div className="container" data-sal="fade">
               <div className="header">
                   <div className='address_parent'>
                       <h4>{overBanner?.overBannerLocation1}</h4>

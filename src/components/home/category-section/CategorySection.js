@@ -2,6 +2,13 @@ import * as React from "react";
 import {Link, graphql, useStaticQuery} from "gatsby";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
 import { CategoryStyles } from "./CategorySection.styled";
+import sal from 'sal.js';
+import '../../../../node_modules/sal.js/dist/sal.css';
+
+sal({
+  threshold: 1,
+  once: false,
+});
 
 export const CategorySection = () => {
     const data = useStaticQuery(graphql`
@@ -36,7 +43,7 @@ export const CategorySection = () => {
     const categoriesCannabis = data?.wpPage?.home?.categoriesCannabis
     return (
         <CategoryStyles>
-            <div className="container">
+            <div className="container" data-sal="fade">
                 <div className="category-section">
                     <h2>{categoriesCannabis?.categoriesCannabisTitle}</h2>
                     <h3>{categoriesCannabis?.categoriesCannabisSubTitle}</h3>
