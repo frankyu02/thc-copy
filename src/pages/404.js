@@ -11,12 +11,10 @@ const NotFoundPage = () => {
   return (
     < >
       <Seo {...seo} />
-
       <div className="container">
         <h1>404: Not Found</h1>
         <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
         <Link style={{ color: "blue", marginBottom: "50px", display: "block" }} to={"/"}> go home </Link>
-
       </div>
 
     </ >

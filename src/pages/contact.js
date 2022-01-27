@@ -1,9 +1,7 @@
-import * as React from "react";
-import Layout from "../components/layout/Layout";
-import {graphql, useStaticQuery} from "gatsby";
-import {SmallHero} from "../components/global_component/small_hero/SmallHero";
-import {HeaderMenu} from "../components/header/HeaderMenu";
-import {Footer} from "../components/footer/Footer";
+import * as React from "react"
+import { graphql, useStaticQuery } from "gatsby"
+import { SmallHero } from "../components/global_component/small_hero/SmallHero"
+import Seo from "../components/layout/Seo"
 
 
 const ContactPage = () => {
@@ -34,13 +32,11 @@ const ContactPage = () => {
     `)
     const contactBunner = data?.allWpPage?.nodes[0]?.contactUs?.contactUsBanner;
     return (
-        <>
-            <Layout seo={seo}>
-                <HeaderMenu/>
-                <SmallHero banner={contactBunner?.contactUsBannerImg?.localFile} title={contactBunner?.contactUsBannerTitle}/>
-                <Footer/>
-            </Layout>
-        </>
+      <>
+          <Seo {...seo} />
+          <SmallHero banner={contactBunner?.contactUsBannerImg?.localFile}
+                     title={contactBunner?.contactUsBannerTitle} />
+      </>
     );
 }
 
