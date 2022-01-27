@@ -122,7 +122,7 @@ const GlobalStyles = createGlobalStyle`
         align-items: center;
         min-width: 42px;
         min-height: 42px;
-        border: 1px solid #000;
+        border: 1px solid;
         margin-right: 24px;
         font-size: 24px;
 
