@@ -6,7 +6,7 @@ import Layout from "../../components/layout/Layout";
 import { DoubleBanner } from "../../components/article/double_banner/DoubleBanner";
 import { ShopLink } from "../../components/ui/shop_link/ShopLink";
 import { EducationHero } from "../../components/global_component/education-hero/EducationHero";
-import { ContentPlace } from "../../components/ContentPlace/ContentPlace";
+import { ContentPlace } from "../../components/contentPlace/ContentPlace";
 import { getImageData } from "../../utils/get_image_data";
 import { SubscribeFormProvider } from "../../contexts/subscribe-form";
 import { PostContentProvider } from "../../contexts/post-content";
