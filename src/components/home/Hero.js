@@ -5,7 +5,6 @@ import { HeroStyled } from "./Hero.styled";
 import { MainButton } from "../ui/main_button/MainButton";
 import ReactPlayer from "react-player/lazy";
 import vid from "../../../public/videos/THC January 2021.mp4";
-import img from "../../images/gatsby-astronaut.png";
 export const HeroHome = () => {
     const data = useStaticQuery(graphql`
         query {
@@ -62,11 +61,11 @@ export const HeroHome = () => {
                         height="100%"
                         playing={true}
                         config={{
-                            file: { 
-                              attributes: { 
-                                poster: 'poster.jpg' 
-                              } 
-                            } 
+                            file: {
+                                attributes:{
+                                    poster: "https://media.wired.com/photos/59094a0ad8c8646f38eef2ae/master/pass/rainbow-sq.jpg"
+                                }
+                            }
                         }}
                     />
                 </div>

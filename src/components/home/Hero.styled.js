@@ -21,7 +21,6 @@ export const HeroStyled = styled.section`
     }
   }
   .inner {
-    border: 1px solid gold;
     width: 100%;
     height: 560px;
     overflow: hidden;
