@@ -162,9 +162,6 @@ export const LegendaryStyles = styled.section`
     }
    }
    @media (max-width: 767px) {
-  .read_more{
-    display: none;
-  }
    .link {
     font-size: 18px;
    }
