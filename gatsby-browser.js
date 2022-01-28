@@ -1,9 +1,12 @@
 import React from 'react';
 import Wrapper from './gatsby-render-layout';
+import { AgeGate } from './src/components/AgeGate/AgeGate';
 
 export function wrapPageElement({element, props}) {
-    return element;
     return (
-        <Wrapper {...props} element={element}/>
+        <>
+            <AgeGate/>
+            <Wrapper {...props} element={element}/>
+        </>
     )
 }
