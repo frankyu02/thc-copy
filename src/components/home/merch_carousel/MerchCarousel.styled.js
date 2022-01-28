@@ -26,18 +26,32 @@ export const MerchCarouselStyled = styled.section`
     .cart_image_wrapper {
       position: relative;
       margin-bottom: 10px;
+      height: 369px;
       .main_button {
       position:absolute;
       bottom: 0;
       left: 0;
       width: 100%;
+      max-width: 100%;
       background: var(--darkpurple);
       color: white;
       transition: 0.5s;
       opacity: 0;
     }
+    .cart_img {
+      height: 100%;
+    }
+    .cart_img_hover {
+      display: none;
+    }
       &:hover .main_button{
         opacity: 1;
+      }
+      &:hover .cart_img{
+        display: none;
+      }
+      &:hover .cart_img_hover{
+        display: block;
       }
     }
     h2 {
@@ -65,6 +79,9 @@ export const MerchCarouselStyled = styled.section`
       font-family: 'Integral CF';
      }
     @media (max-width: 1365px){
+        .cart_image_wrapper {
+          height: 300px;
+        }
         h2{
             font-size: 100px;
         }
@@ -78,6 +95,9 @@ export const MerchCarouselStyled = styled.section`
       }
     }
     @media (max-width: 967px){
+    .cart_image_wrapper {
+          height: 450px;
+        }
     .merch_header {
       padding-top: 40px;
       padding-bottom: 30px;
@@ -117,7 +137,9 @@ export const MerchCarouselStyled = styled.section`
       }
     }
     @media (max-width: 768px){
-    
+    .cart_image_wrapper {
+          height: 350px;
+        }
       h2{
           font-size: 60px;
       }
@@ -131,7 +153,15 @@ export const MerchCarouselStyled = styled.section`
         
       }
     }
+    @media (max-width: 640px){
+      .cart_image_wrapper {
+          height: 300px;
+        }
+    }
     @media (max-width: 480px){ 
+    .cart_image_wrapper {
+          height: 225px;
+        }
       h4 {
         font-size: 22px;
       }

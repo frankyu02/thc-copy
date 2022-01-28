@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useEffect, useRef, useState} from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { MerchCarouselStyled } from "./MerchCarousel.styled"
@@ -26,6 +26,8 @@ export const MerchCarousel = () => {
                                         title
                                         url
                                     }
+                                    merchCarouselCardPrice
+                                    merchCarouselCardTitle
                                     merchCarouselCardImg {
                                         localFile {
                                             childImageSharp {
@@ -33,8 +35,13 @@ export const MerchCarousel = () => {
                                             }
                                         }
                                     }
-                                    merchCarouselCardPrice
-                                    merchCarouselCardTitle
+                                    merchCarouselCardHoverimg {
+                                        localFile {
+                                            childImageSharp {
+                                                gatsbyImageData(quality: 100)
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -42,6 +49,7 @@ export const MerchCarousel = () => {
                 }
             }
         }
+
     `)
     const merchCarousel = data?.allWpPage?.edges[0]?.node?.home?.merchCarousel;
     const card = data?.allWpPage?.edges[0]?.node?.home?.merchCarousel?.merchCarouselCard;
@@ -62,6 +70,9 @@ export const MerchCarousel = () => {
                                     <GatsbyImage className="cart_img"
                                                  image={getImage(item?.merchCarouselCardImg?.localFile)}
                                                  alt={"banner"} />
+                                    <GatsbyImage className="cart_img_hover"
+                                                 image={item.merchCarouselCardHoverimg !== null ? getImage(item?.merchCarouselCardHoverimg?.localFile) : getImage(item?.merchCarouselCardImg?.localFile)}
+                                                 alt={"banner"} />
                                     <MainButton url={'#'}
                                                 target={item?.merchCarouselCardButton?.target}>{item?.merchCarouselCardButton?.title}</MainButton>
                                 </div>
@@ -79,6 +90,9 @@ export const MerchCarousel = () => {
                                 <div className={'cart_image_wrapper'}>
                                     <GatsbyImage className="cart_img"
                                                  image={getImage(item?.merchCarouselCardImg?.localFile)}
+                                                 alt={"banner"} />
+                                    <GatsbyImage className="cart_img_hover"
+                                                 image={item.merchCarouselCardHoverimg !== null ? getImage(item?.merchCarouselCardHoverimg?.localFile) : getImage(item?.merchCarouselCardImg?.localFile)}
                                                  alt={"banner"} />
                                     <MainButton url={'#'}
                                                 target={item?.merchCarouselCardButton?.target}>{item?.merchCarouselCardButton?.title}</MainButton>
