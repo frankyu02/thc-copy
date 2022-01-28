@@ -5,7 +5,7 @@ import { AgeGate } from './src/components/AgeGate/AgeGate';
 export function wrapPageElement({element, props}) {
     return (
         <>
-            <AgeGate/>
+            {/* <AgeGate/> */}
             <Wrapper {...props} element={element}/>
         </>
     )
