@@ -17,6 +17,14 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
+
+    {
+      resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
+      options: {
+        devMode: true
+      }
+    },
+
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
@@ -26,6 +34,7 @@ module.exports = {
         // minify: false
       }
     },
+
     {
       resolve: `gatsby-source-wordpress`,
       options: {
@@ -46,7 +55,18 @@ module.exports = {
       }
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`, `avif`],
+          placeholder: `dominantColor`,
+          quality: 90,
+          breakpoints: [750, 1366, 1920],
+          avifOptions: { quality: 80 }
+        }
+      }
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
