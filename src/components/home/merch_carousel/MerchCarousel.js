@@ -4,12 +4,9 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { MerchCarouselStyled } from "./MerchCarousel.styled"
 import { MainButton } from "../../ui/main_button/MainButton"
 import { Swiper, SwiperSlide } from 'swiper/react';
-<<<<<<< HEAD
 import { animated, useSpring } from '@react-spring/web'
 import { useInView } from 'react-intersection-observer';
-=======
 import MainButtonShop from "../../ui/main_button/MainButtonShop";
->>>>>>> origin/development
 
 export const MerchCarousel = () => {
 
