@@ -6,8 +6,11 @@ import { AgeGateStyles } from "./AgeGate.styled";
 
 
 export const AgeGate = () => {
+  const ls_access = typeof window !== 'undefined' && !!localStorage.getItem('access');
+  const ls_time = typeof window !== 'undefined' && !!localStorage.getItem('accessTime');
+
   const [age, setAge] = useState(0); 
-  const [access, setAccess] = useState(!!localStorage.getItem('access') && !!localStorage.getItem('accessTime'));
+  const [access, setAccess] = useState(ls_access && ls_time);
   const ageRef = useRef(null);
   const query = useStaticQuery(graphql`
     query AgeGate  {
