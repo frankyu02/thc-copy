@@ -37,6 +37,7 @@ export const EducationHeroStyles = styled.section`
     time{
         font-size: 18px;
         font-family: 'MADE Outer Sans Light';
+        text-transform: uppercase;
     }
     ${xxs(`
         h1{

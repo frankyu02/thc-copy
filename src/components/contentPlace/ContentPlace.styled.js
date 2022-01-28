@@ -3,10 +3,9 @@ import { sm } from "../../styles/utils/media_queries";
 import { __CONTAINERS } from "../../styles/utils/variables";
 
 export const ContentPlaceStyles = styled.div`
- 
-
   ${sm(`
-    padding: 100px 4% 100px 1%;
+    padding-top: 100px!important;
+    padding-bottom: 100px!important;
     display: flex;
     justify-content: space-between;
   `)}
