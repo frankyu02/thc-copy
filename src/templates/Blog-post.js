@@ -12,23 +12,13 @@ import { SubscribeFormProvider } from "../contexts/subscribe-form";
 import { PostContentProvider } from "../contexts/post-content";
 
 const BlogPost = (props) => {
-
-  if (!props.pageContext.slug) return null;
-
   const __DATA = props?.data?.allWpPost?.edges[0].node;
   const __FORM = __DATA?.blogPost?.signUpForm;
-
-  const {
-    title,
-    content,
-    date
-  } = __DATA
-
-  const seo = {
-    title: title,
-    description: "Article Description"
-  }
-
+  const __IS_SHARE = __DATA?.blogPost?.shareSocial;
+  
+  const { title, content, date } = __DATA; // data for hero banner
+  const providing = { title,  content, share: __IS_SHARE }; // provide data to content and sidebar
+  const seo = { title: title, description: "Article Description" };
   const banner = getImageData(__DATA.featuredImage.node);
 
   return (
@@ -38,7 +28,7 @@ const BlogPost = (props) => {
       <EducationHero title={title} data={date} banner={banner} />
 
       <SubscribeFormProvider data={__FORM}>
-        <PostContentProvider data={content}>
+        <PostContentProvider data={providing}>
           <ContentPlace/>
         </PostContentProvider>          
       </SubscribeFormProvider>
@@ -83,6 +73,7 @@ export const query = graphql`
               signUpFormPlaceholdeer
               signUpFormTitle
             }
+            shareSocial
           }
         }
       }
