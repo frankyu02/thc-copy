@@ -5,15 +5,17 @@ import Seo from "../components/layout/Seo"
 
 
 const ContactPage = () => {
-
-    const seo = {
-        title: 'Contact Title',
-        description: 'Contact Description'
-    }
     const data = useStaticQuery(graphql`
         query {
             allWpPage(filter: {id: {eq: "cG9zdDo2NzE="}}) {
                 nodes {
+                    template {
+                        seoMetaTags {
+                            seoMetaTagsDescription
+                            seoMetaTagsJsonShema
+                            seoMetaTagsTitle
+                        }
+                    }
                     contactUs {
                         contactUsBanner {
                             contactUsBannerTitle
@@ -30,6 +32,11 @@ const ContactPage = () => {
             }
         }
     `)
+    const seoData = data?.allWpPage?.nodes[0]?.template?.seoMetaTags
+    const seo = {
+        title: seoData?.seoMetaTagsTitle,
+        description: seoData?.seoMetaTagsDescription
+    }
     const contactBunner = data?.allWpPage?.nodes[0]?.contactUs?.contactUsBanner;
     return (
       <>

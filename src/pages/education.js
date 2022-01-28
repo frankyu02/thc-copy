@@ -7,16 +7,17 @@ import Seo from "../components/layout/Seo"
 
 
 const EducationPage = () => {
-
-  const seo = {
-    title: "Education Title",
-    description: "Education Description"
-  }
-
   const data = useStaticQuery(graphql`
         query {
             allWpPage(filter: {id: {eq: "cG9zdDoyOTI="}}){
                 nodes{
+                    template {
+                        seoMetaTags {
+                            seoMetaTagsDescription
+                            seoMetaTagsJsonShema
+                            seoMetaTagsTitle
+                        }
+                    }
                     education {
                         educationBanner {
                             educationBannerTitle
@@ -33,6 +34,11 @@ const EducationPage = () => {
             }
         }
     `)
+    const seoData = data?.allWpPage?.nodes[0]?.template?.seoMetaTags
+    const seo = {
+        title: seoData?.seoMetaTagsTitle,
+        description: seoData?.seoMetaTagsDescription
+    }
   const title = data?.allWpPage?.nodes[0]?.education?.educationBanner?.educationBannerTitle
   const banner = data?.allWpPage?.nodes[0]?.education?.educationBanner?.educationBannerImg?.localFile?.childImageSharp?.gatsbyImageData
   return (

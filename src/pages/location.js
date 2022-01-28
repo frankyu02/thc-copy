@@ -8,15 +8,18 @@ import { getImage, withArtDirection } from "gatsby-plugin-image"
 import Seo from "../components/layout/Seo"
 
 const Location = () => {
-  const seo = {
-    title: "Location",
-    description: "Location Description"
-  }
   const data = useStaticQuery(graphql`
         query {
             allWpPage(filter: {id: {eq: "cG9zdDo2NDM="}}) {
                 nodes {
                     title
+                    template {
+                        seoMetaTags {
+                            seoMetaTagsDescription
+                            seoMetaTagsJsonShema
+                            seoMetaTagsTitle
+                        }
+                    }
                     location {
                         locationBanner {
                             locationBannerImg {
@@ -55,6 +58,11 @@ const Location = () => {
             }
         }
     `)
+    const seoData = data?.allWpPage?.nodes[0]?.template?.seoMetaTags
+    const seo = {
+        title: seoData?.seoMetaTagsTitle,
+        description: seoData?.seoMetaTagsDescription
+    }
   const location = data?.allWpPage?.nodes[0]
   const locationImg = data?.allWpPage?.nodes[0]?.location?.locationBanner
   const locationLarge = data?.allWpPage?.nodes[0]?.location?.locationLargeOrderBanner
