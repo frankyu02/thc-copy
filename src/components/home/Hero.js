@@ -4,7 +4,6 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { HeroStyled } from "./Hero.styled";
 import { MainButton } from "../ui/main_button/MainButton";
 import ReactPlayer from "react-player/lazy";
-import vid from "../../../public/videos/THC January 2021.mp4";
 export const HeroHome = () => {
     const data = useStaticQuery(graphql`
         query {
