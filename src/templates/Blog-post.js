@@ -34,7 +34,6 @@ const BlogPost = (props) => {
   return (
     <>
       <Seo {...seo} />
-      <HeaderMenu />
       <EducationHero title={title} data={date} banner={banner} />
 
       <SubscribeFormProvider data={__FORM}>

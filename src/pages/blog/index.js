@@ -23,7 +23,7 @@ const BlogPage = () => {
                 blogBannerImg {
                   localFile {
                     childImageSharp {
-                      gatsbyImageData
+                      gatsbyImageData(quality: 100)
                     }
                   }
                 }
@@ -35,20 +35,11 @@ const BlogPage = () => {
     `)
   const title = data?.allWpPage?.nodes[0]?.blog?.blogBanner?.blogBannerTitle
   const banner = data?.allWpPage?.nodes[0]?.blog?.blogBanner?.blogBannerImg?.localFile?.childImageSharp?.gatsbyImageData
-
-  const titleArticle = "THC Percentage Isn’t Everything: The Entourage Effect"
-  const buttonArticle = "Read more"
-  const imgArticle = "/static/de678efaec14b60c18c417abc8880597/82da7/cards_join_bg_img_1.jpg"
-  const dataArticle = "APRIL 8, 2021"
-  const textArticle = "If you’re buying cannabis based solely on THC percentage, you’re missing out on some of the dankest products on the market."
   return (
     <>
       <Seo {...seo} />
       <SmallHero title={title} banner={banner} />
-      <ArticlesGrid titleArticle={titleArticle} buttonArticle={buttonArticle} imgArticle={imgArticle}
-                    dataArticle={dataArticle} textArticle={textArticle} />
-
-
+      <ArticlesGrid/>
     </>
   )
 }

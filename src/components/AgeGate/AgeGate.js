@@ -1,17 +1,15 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { getImageData } from "../../utils/get_image_data";
 import { AgeGateStyles } from "./AgeGate.styled";
 import { useNoScroll } from "../../hooks/useNoScroll";
+import { LoaderDefault } from "../Loaders/default";
 
 
-export const AgeGate = () => {
-  const ls_access = typeof window !== 'undefined' && !!localStorage.getItem('access');
-  const ls_time = typeof window !== 'undefined' && !!localStorage.getItem('accessTime');
-  
+export const AgeGate = () => { 
   const [age, setAge] = useState(0); 
-  const [access, setAccess] = useState(ls_access && ls_time);
+  const [access, setAccess] = useState(null);
   const ageRef = useRef(null);
   const query = useStaticQuery(graphql`
     query AgeGate  {
@@ -59,20 +57,30 @@ export const AgeGate = () => {
     ageGateBg, 
     ageGateLogo, 
     ageGateRepeatCheckDelay
-  } = query?.wp?.thcwebsiteGeneralOption?.ageGate?.ageGate;
+  } = query?.wp?.thcwebsiteGeneralOption?.ageGate?.ageGate;  
 
-  useNoScroll(!access);
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
 
-  if (access) {
-    const diff = parseInt( ((Date.now() - localStorage.getItem('accessTime')) / (1000 * 60 * 60 * 24)).toFixed(0) ); // get difference from now date and last age accepting
+      if (localStorage.getItem('access')) {
+        const diff = parseInt( ((Date.now() - localStorage.getItem('accessTime')) / (1000 * 60 * 60 * 24)).toFixed(0) ); // get difference from now date and last age accepting
 
-    if (diff >= ageGateRepeatCheckDelay) {
-      localStorage.removeItem('access');
-      localStorage.removeItem('accessTime');
-      localStorage.removeItem('accessAge');
-      setAccess(false);
+        if (diff >= ageGateRepeatCheckDelay) {
+          localStorage.removeItem('access');
+          localStorage.removeItem('accessTime');
+          localStorage.removeItem('accessAge');
+          setAccess(false);
+        } else {
+          setAccess(true);
+        }
+      } else {
+        setAccess(false);
+      }
+      
     }
-  }  
+  }, [access]);
+
+  useNoScroll(access === false);
 
   const accessHandler = () => {
     localStorage.setItem('access', '1');
@@ -81,12 +89,13 @@ export const AgeGate = () => {
     setAccess(true);
   }  
 
-  if (access || typeof window == 'undefined') return null;    
+  if (access === null) return <LoaderDefault/>
+  if (access) return null;    
 
   return (
     <AgeGateStyles>
       <div className="bg">
-        <GatsbyImage image={getImageData(ageGateBg)} alt="background"/>
+        <GatsbyImage image={getImageData(ageGateBg)} loading="eager" alt="background"/>
       </div>
       <div className="inner container">
         <div className="logo">
