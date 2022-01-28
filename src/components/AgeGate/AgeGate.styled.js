@@ -10,7 +10,6 @@ export const AgeGateStyles = styled.section`
   z-index: 9999;
   background: grey;
   overflow: hidden;
-  display: none;
 
 
   .bg {
