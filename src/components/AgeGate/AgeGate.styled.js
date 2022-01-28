@@ -8,9 +8,8 @@ export const AgeGateStyles = styled.section`
   top: 0;
   left: 0;
   z-index: 9999;
-  background: grey;
+  background: #a288b7;
   overflow: hidden;
-  display: none;
 
 
   .bg {
