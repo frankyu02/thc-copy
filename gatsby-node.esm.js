@@ -6,8 +6,7 @@ export const onPostBuild = ({ reporter }) => {
 // Create blog pages dynamically
 export const createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  //const blogPostTemplate = path.resolve(`src/templates/Blog-post.js`);
-  const blogPostTemplate = path.resolve(`src/pages/blog/[slug].js`);
+  const blogPostTemplate = path.resolve(`src/templates/Blog-post.js`);
   const result = await graphql(`
     query {
              allWpPost {

@@ -46,7 +46,9 @@ const GlobalStyles = createGlobalStyle`
     padding: 0 10px;
 
   }
+  
 
+  // primary button
   .main_button {
     border: 1px solid black;
     padding: 17px 0;
@@ -64,6 +66,7 @@ const GlobalStyles = createGlobalStyle`
     transition: 0.2s;
     font-size: 18px;
     max-width: calc(100% - 10px);
+    cursor: pointer;
 
     ${xs(`
       padding: 17px 15px;
@@ -76,11 +79,23 @@ const GlobalStyles = createGlobalStyle`
       border: none;
     }
 
-    &:hover {
-      font-style: italic;
-      background: #612c8f;
-      color: white;
+    &:disabled {
+      opacity: .5;
+
+      &:hover {
+        cursor: no-drop;
+      }
     }
+
+    &:not(:disabled) {
+      &:hover {
+        font-style: italic;
+        background: #612c8f;
+        color: white;
+      }
+    }
+
+    
   }  
 
 
@@ -145,9 +160,58 @@ const GlobalStyles = createGlobalStyle`
           }
         }
       }
+    }   
+  }
+
+
+  // default range
+  .range {
+    -webkit-appearance: none;
+    width: 100%;
+    background: transparent;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      border: 1px solid #000000;
+      height: 36px;
+      width: 36px;
+      border-radius: 50%;
+      background: #fff;
+      cursor: pointer;
+      margin-top: -14px; /* Chrome */
+      border: 1px solid #000;
+    }
+
+    &::-moz-range-thumb {
+      border: 1px solid #000000;
+      height: 36px;
+      width: 36px;
+      border-radius: 50%;
+      background: #fff;
+      cursor: pointer;
+      border: 1px solid #000;
     }
     
-    
+    &:focus {
+      outline: none;
+    }
+
+    &::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 6px;
+      cursor: pointer;
+      background: #fff;
+    }
+
+    &::-moz-range-track {
+      width: 100%;
+      height: 8.4px;
+      cursor: pointer;
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+      background: #3071a9;
+      border-radius: 1.3px;
+      border: 0.2px solid #010101;
+    }
   }
 `
 
