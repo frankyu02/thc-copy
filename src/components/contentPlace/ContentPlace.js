@@ -1,6 +1,6 @@
 import React from "react";
 import { Content } from './content/Content';
-import { SidebarContent } from './sidebar/sidebar';
+import { SidebarContent } from './sidebar/Sidebar';
 import { ContentPlaceStyles } from './ContentPlace.styled';
 
 export const ContentPlace = () => {

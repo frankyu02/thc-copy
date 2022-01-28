@@ -1,7 +1,5 @@
 import * as React from "react"
-import { HeaderMenu } from "../components/header/HeaderMenu"
-import { Footer } from "../components/footer/Footer"
-import Layout from "../components/layout/Layout"
+import Seo from "../components/layout/Seo"
 
 const Menu = () => {
 
@@ -12,11 +10,8 @@ const Menu = () => {
 
   return (
     <>
-      <Layout seo={seo}>
-        <HeaderMenu />
-
-        <Footer />
-      </Layout>
+      <Seo {...seo} />
+      <h1> MENU</h1>
     </>
   )
 }

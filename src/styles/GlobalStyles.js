@@ -1,6 +1,5 @@
 import { createGlobalStyle } from "styled-components"
-import { lg, sm, xs, xxs } from "./utils/media_queries"
-import { __CONTAINERS } from "./utils/variables"
+import { sm, xs } from "./utils/media_queries"
 
 
 const GlobalStyles = createGlobalStyle`
@@ -72,7 +71,6 @@ const GlobalStyles = createGlobalStyle`
       padding: 17px 15px;
       max-width: 330px;
     `)}
-
     &--purple {
       background: var(--lightpurple);
       color: #fff;
@@ -93,9 +91,7 @@ const GlobalStyles = createGlobalStyle`
         background: #612c8f;
         color: white;
       }
-    }
-
-    
+    }    
   }  
 
 
@@ -103,18 +99,29 @@ const GlobalStyles = createGlobalStyle`
   .input {
     padding: 34px;
     background: #fff;
-    border: 1px solid #000; 
+    border: 1px solid #000;
     font-size: 18px;
-    line-height: 18px;   
+    line-height: 18px;
     letter-spacing: 0.01em;
     font-family: 'Integral CF Bold';
     display: block;
     width: 100%;
 
-    &::-webkit-input-placeholder {color: var(--placeholder);}
-    &::-moz-placeholder          {color: var(--placeholder);}
-    &:-moz-placeholder           {color: var(--placeholder);}
-    &:-ms-input-placeholder      {color: var(--placeholder);}
+    &::-webkit-input-placeholder {
+      color: var(--placeholder);
+    }
+
+    &::-moz-placeholder {
+      color: var(--placeholder);
+    }
+
+    &:-moz-placeholder {
+      color: var(--placeholder);
+    }
+
+    &:-ms-input-placeholder {
+      color: var(--placeholder);
+    }
   }
 
   // default checkbox
