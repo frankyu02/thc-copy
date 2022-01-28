@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { HeaderMenu } from "../components/header/HeaderMenu";
 import { Footer } from '../components/footer/Footer';
 import Seo from "../components/layout/Seo";
 import { DoubleBanner } from "../components/article/double_banner/DoubleBanner";
@@ -24,7 +23,6 @@ const BlogPost = (props) => {
   return (
     <>
       <Seo {...seo} />
-      <HeaderMenu />
       <EducationHero title={title} data={date} banner={banner} />
 
       <SubscribeFormProvider data={__FORM}>
