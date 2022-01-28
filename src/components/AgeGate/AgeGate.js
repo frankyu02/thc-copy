@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { getImageData } from "../../utils/get_image_data";
@@ -7,12 +7,9 @@ import { useNoScroll } from "../../hooks/useNoScroll";
 import { LoaderDefault } from "../Loaders/default";
 
 
-export const AgeGate = () => {
-  const ls_access = typeof window !== 'undefined' && !!localStorage.getItem('access');
-  const ls_time = typeof window !== 'undefined' && !!localStorage.getItem('accessTime');
-  
+export const AgeGate = () => { 
   const [age, setAge] = useState(0); 
-  const [access, setAccess] = useState(ls_access && ls_time);
+  const [access, setAccess] = useState(null);
   const ageRef = useRef(null);
   const query = useStaticQuery(graphql`
     query AgeGate  {
@@ -62,18 +59,33 @@ export const AgeGate = () => {
     ageGateRepeatCheckDelay
   } = query?.wp?.thcwebsiteGeneralOption?.ageGate?.ageGate;
 
-  useNoScroll(!access);
+  
 
-  if (access) {
-    const diff = parseInt( ((Date.now() - localStorage.getItem('accessTime')) / (1000 * 60 * 60 * 24)).toFixed(0) ); // get difference from now date and last age accepting
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
 
-    if (diff >= ageGateRepeatCheckDelay) {
-      localStorage.removeItem('access');
-      localStorage.removeItem('accessTime');
-      localStorage.removeItem('accessAge');
-      setAccess(false);
+      if (localStorage.getItem('access')) {
+        const diff = parseInt( ((Date.now() - localStorage.getItem('accessTime')) / (1000 * 60 * 60 * 24)).toFixed(0) ); // get difference from now date and last age accepting
+
+        if (diff >= ageGateRepeatCheckDelay) {
+          localStorage.removeItem('access');
+          localStorage.removeItem('accessTime');
+          localStorage.removeItem('accessAge');
+          setAccess(false);
+        } else {
+          setAccess(true);
+        }
+      } else {
+        setAccess(false);
+      }
+      
     }
-  }  
+  }, [access]);
+
+  useNoScroll(!access);
+  
+
+  
 
   const accessHandler = () => {
     localStorage.setItem('access', '1');
@@ -82,7 +94,7 @@ export const AgeGate = () => {
     setAccess(true);
   }  
 
-  if (typeof window == 'undefined') return <LoaderDefault/>
+  if (access === null) return <LoaderDefault/>
   if (access) return null;    
 
   return (
