@@ -4,8 +4,18 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { SettingStyle } from "./SettingStyle";
 import { MainButton } from "../../ui/main_button/MainButton";
 import { ModalSettingSrandart } from "../../ui/modal_setting-standart/ModalSettingStandart";
+import { animated, useSpring } from '@react-spring/web'
+import { useInView } from 'react-intersection-observer';
 
 export const SettingStandart = () => {
+    const { ref, inView, entry } = useInView({
+        threshold: 0,
+    });
+    
+    const styles = useSpring({
+        opacity: inView ? 1 : 0 ,
+        x: inView ? 0 : -100
+    })
     const data = useStaticQuery(graphql`
         query {
             wpPage(uri: {eq: "/"}) {
@@ -41,7 +51,9 @@ export const SettingStandart = () => {
             <div className='container'>
                 <div className='setting_standart'>
                     <div className='settings_image'>
+                    <animated.div style={styles} ref={ref}>
                         <GatsbyImage image={getImage(news?.newsImg?.localFile?.childImageSharp?.gatsbyImageData)} alt={'banner'}/>
+                        </animated.div>
                     </div>
                     <div className='setting_text'>
                         <h3>{news?.newsTitle}</h3>

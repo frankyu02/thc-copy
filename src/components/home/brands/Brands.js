@@ -3,8 +3,18 @@ import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { BrandsStyled } from "./Brands.styled"
 import { MainButton } from "../../ui/main_button/MainButton"
+import { animated, useSpring } from '@react-spring/web'
+import { useInView } from 'react-intersection-observer';
 
 export const Brands = () => {
+  const { ref, inView, entry } = useInView({
+    threshold: 0,
+});
+
+const styles = useSpring({
+    opacity: inView ? 1 : 0 ,
+    config: { duration: 300 }
+})
   const data = useStaticQuery(graphql`
         query {
             wpPage(uri: {eq: "/"}) {
@@ -45,8 +55,9 @@ export const Brands = () => {
           <div className={"brand-grid"}>
             {brands?.brandsLogo?.map?.((item, key) => (
               <div key={key} className={"brand-item"}>
+                <animated.div style={styles} ref={ref}>
                 <GatsbyImage image={getImage(item?.brandsLogoItem?.localFile?.childrenImageSharp[0]?.gatsbyImageData)}
-                             alt={"brands"} />
+                             alt={"brands"} /> </animated.div>
               </div>
             ))}
           </div>

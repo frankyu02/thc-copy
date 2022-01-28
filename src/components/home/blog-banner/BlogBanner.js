@@ -3,8 +3,18 @@ import {Link, graphql, useStaticQuery} from "gatsby";
 import {GatsbyImage, getImage} from "gatsby-plugin-image";
 import { BlogBannerStyled } from "./BlogBanner.styled";
 import { MainButton } from "../../ui/main_button/MainButton";
+import { animated, useSpring } from '@react-spring/web'
+import { useInView } from 'react-intersection-observer';
 
 export const BlogBanner = () => {
+    const { ref, inView, entry } = useInView({
+        threshold: 0,
+    });
+    
+    const styles = useSpring({
+        opacity: inView ? 1 : 0 ,
+        x: inView ? 0 : 100
+    })
     const data = useStaticQuery(graphql`
         query {
             wpPage(uri: {eq: "/"}) {
@@ -43,7 +53,9 @@ export const BlogBanner = () => {
         <BlogBannerStyled>
             <div className="container">
                 <div className="blog-banner">
+                <animated.div style={styles} ref={ref}>
                     <h2>{thcBlog?.thcBlogTitle}</h2>
+                    </animated.div>
                     <div className="blog-wrap">
                         {thcBlog?.thcBlogCard?.map?.((item, key) => (
                             <div className="blog-item" key={key}>

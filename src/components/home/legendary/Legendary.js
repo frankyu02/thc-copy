@@ -4,8 +4,20 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { LegendaryStyles } from "./LegendaryStyles"
 import { MainButton } from "../../ui/main_button/MainButton"
 import { ModalLegendary } from "../../ui/modal_legendary/ModalLegendary"
+import { animated, useSpring } from '@react-spring/web'
+import { useInView } from 'react-intersection-observer';
 
 export const Legendary = () => {
+
+  const { ref, inView, entry } = useInView({
+    threshold: 0,
+});
+
+const styles = useSpring({
+    opacity: inView ? 1 : 0 ,
+    x: inView ? 0 : -100
+})
+
   const data = useStaticQuery(graphql`
         query {
             wpPage(uri: {eq: "/"}) {
@@ -64,9 +76,11 @@ export const Legendary = () => {
       <div className={"container"}>
         <div className={"main_legendary"}>
           <div className="legendary_image">
+          <animated.div style={styles} ref={ref}>
             <GatsbyImage className="legendary_baner"
                          image={getImage(storyLegendary?.storyLegendaryMainImg?.localFile?.childImageSharp?.gatsbyImageData)}
                          alt={storyLegendary.storyLegendaryMainImg.altText || "banner"} />
+            </animated.div>
           </div>
           <div className={"legendary_text"}>
             <h2>{storyLegendary?.storyLegendaryTitle}</h2>

@@ -2,8 +2,19 @@ import React from 'react';
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { ThcTvStyled } from "./ThcTv.styled";
+import { animated, useSpring } from '@react-spring/web'
+import { useInView } from 'react-intersection-observer';
 
 export const ThcTv = () => {
+    const { ref, inView, entry } = useInView({
+        threshold: 0,
+    });
+    
+    const styles = useSpring({
+        opacity: inView ? 1 : 0 ,
+        x: inView ? 0 : 200
+    })
+
     const data = useStaticQuery(graphql`
         query {
             wpPage(uri: {eq: "/"}) {
@@ -44,7 +55,9 @@ export const ThcTv = () => {
                         </Link>
                     </div>
                     <div className={'thc-tv-img'}>
+                    <animated.div style={styles} ref={ref}>
                         <GatsbyImage image={getImage(thcTv?.thcTvImg?.localFile?.childImageSharp?.gatsbyImageData)} alt={thcTv?.thcTvImg?.altText || 'banner'}/>
+                    </animated.div>
                     </div>
                 </div>
             </div>

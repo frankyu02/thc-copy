@@ -4,8 +4,20 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { MerchCarouselStyled } from "./MerchCarousel.styled"
 import { MainButton } from "../../ui/main_button/MainButton"
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { animated, useSpring } from '@react-spring/web'
+import { useInView } from 'react-intersection-observer';
 
 export const MerchCarousel = () => {
+
+    const { ref, inView, entry } = useInView({
+        threshold: 0,
+    });
+    
+    const styles = useSpring({
+        opacity: inView ? 1 : 0 ,
+        y: inView ? 0 : -30
+    })
+
     const data = useStaticQuery(graphql`
         query {
             allWpPage(filter: {id: {eq: "cG9zdDo3"}}) {
@@ -56,10 +68,12 @@ export const MerchCarousel = () => {
     return (
         <MerchCarouselStyled>
             <div className={'merch_header'}>
+            <animated.div style={styles} ref={ref}>
                 <div className={'container'}>
                     <h2>{merchCarousel?.merchCarouselTitle}</h2>
                     <h3>{merchCarousel?.merchCarouselSubTitle}</h3>
                 </div>
+                </animated.div>
             </div>
             <div className={'merch_parent'}>
                 <div className={'container'}>
