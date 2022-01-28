@@ -81,8 +81,11 @@ export const AgeGate = () => {
     setAccess(true);
   }  
 
+
+  console.log(access);
+
   return (
-    <AgeGateStyles style={{display: !access ? 'block' : ''}}>
+    <AgeGateStyles style={{display: !access ? 'block' : 'flex'}}>
       <div className="bg">
         <GatsbyImage image={getImageData(ageGateBg)} alt="background"/>
       </div>
