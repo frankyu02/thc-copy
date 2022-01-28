@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import { HeaderMenu } from "../components/header/HeaderMenu";
 import { Footer } from '../components/footer/Footer';
-import Layout from "../components/layout/Layout";
+import Seo from "../components/layout/Seo";
 import { DoubleBanner } from "../components/article/double_banner/DoubleBanner";
 import { ShopLink } from "../components/ui/shop_link/ShopLink";
 import { EducationHero } from "../components/global_component/education-hero/EducationHero";
@@ -32,7 +32,8 @@ const BlogPost = (props) => {
   const banner = getImageData(__DATA.featuredImage.node);
 
   return (
-    <Layout seo={seo}>
+    <>
+      <Seo {...seo} />
       <HeaderMenu />
       <EducationHero title={title} data={date} banner={banner} />
 
@@ -45,7 +46,7 @@ const BlogPost = (props) => {
       <DoubleBanner />
       <Footer />
       <ShopLink />
-    </Layout>
+    </>
   )
 }
 
