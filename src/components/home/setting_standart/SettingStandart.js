@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { SettingStyle } from "./SettingStyle";
@@ -46,6 +46,10 @@ export const SettingStandart = () => {
     `)
     const news = data?.wpPage?.home?.news;
     const [modal, setModal] = useState(false)
+    useEffect(() => {
+        const body = document.querySelector("body")
+        body.style.overflow = modal ? "hidden" : "auto"
+    }, [modal])
     return (
         <SettingStyle>
             <div className='container'>

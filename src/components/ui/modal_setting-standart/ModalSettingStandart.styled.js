@@ -72,4 +72,55 @@ export const ModalSettingSrandartStyles = styled.div`
             position: absolute;
         }
     }
+    @media (max-width: 1200px){
+      .modal_content {
+        align-items: baseline;
+        overflow: scroll;
+        padding: 80px 20px 50px;
+        .legendary-modal_context {
+          .legendary-modal_text {
+            max-height: inherit;
+            p {
+              max-width: 100%;
+            }
+          }
+          .main_button {
+            bottom: auto;
+            position: relative;
+          }
+        }
+      }
+      .legendary-modal_image {
+        display: none;
+      }
+    }
+    @media (max-width: 764px){
+      .modal_content{
+        align-items: baseline;
+        padding: 80px 20px 50px;
+        overflow: scroll;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        right: 0;
+        transform: translate(0%);
+        .main_button {
+          color: white;
+          background: var(--darkpurple);
+        }
+      }
+    }
+    @media (max-width: 500px){
+      .modal_content {
+        .legendary-modal_context {
+          .legendary-modal_text {
+            margin: 0 20px 20px;
+            p {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
 `;

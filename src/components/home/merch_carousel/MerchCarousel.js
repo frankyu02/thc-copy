@@ -1,11 +1,15 @@
-import React, {useEffect, useState} from "react"
+import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { MerchCarouselStyled } from "./MerchCarousel.styled"
 import { MainButton } from "../../ui/main_button/MainButton"
 import { Swiper, SwiperSlide } from 'swiper/react';
+<<<<<<< HEAD
 import { animated, useSpring } from '@react-spring/web'
 import { useInView } from 'react-intersection-observer';
+=======
+import MainButtonShop from "../../ui/main_button/MainButtonShop";
+>>>>>>> origin/development
 
 export const MerchCarousel = () => {
 
@@ -27,12 +31,19 @@ export const MerchCarousel = () => {
                             merchCarousel {
                                 merchCarouselTitle
                                 merchCarouselSubTitle
+                                merchCarouselButton {
+                                    target
+                                    title
+                                    url
+                                }
                                 merchCarouselCard {
                                     merchCarouselCardButton {
                                         target
                                         title
                                         url
                                     }
+                                    merchCarouselCardPrice
+                                    merchCarouselCardTitle
                                     merchCarouselCardImg {
                                         localFile {
                                             childImageSharp {
@@ -40,8 +51,13 @@ export const MerchCarousel = () => {
                                             }
                                         }
                                     }
-                                    merchCarouselCardPrice
-                                    merchCarouselCardTitle
+                                    merchCarouselCardHoverimg {
+                                        localFile {
+                                            childImageSharp {
+                                                gatsbyImageData(quality: 100)
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -49,22 +65,10 @@ export const MerchCarousel = () => {
                 }
             }
         }
+
     `)
-    const width = window && window.innerWidth;
-    const [slider, setSlider] = useState(true);
-    function sliderShow(width) {
-        if (width>968) {
-            setSlider( true)
-        }
-        else {
-            setSlider( false)
-        }
-    }
     const merchCarousel = data?.allWpPage?.edges[0]?.node?.home?.merchCarousel;
     const card = data?.allWpPage?.edges[0]?.node?.home?.merchCarousel?.merchCarouselCard;
-    useEffect(()=> {
-        sliderShow(width)
-    }, )
     return (
         <MerchCarouselStyled>
             <div className={'merch_header'}>
@@ -77,15 +81,18 @@ export const MerchCarousel = () => {
             </div>
             <div className={'merch_parent'}>
                 <div className={'container'}>
-                    {slider ? <Swiper spaceBetween={20} slidesPerView={4.2} className={"merch_cart_list"}>
+                    <Swiper spaceBetween={20} slidesPerView={4.2} className={"merch_cart_list"}>
                         {card.map((item, key) => (
                             <SwiperSlide className={'card'} key={key}>
                                 <div className={'cart_image_wrapper'}>
                                     <GatsbyImage className="cart_img"
                                                  image={getImage(item?.merchCarouselCardImg?.localFile)}
                                                  alt={"banner"} />
-                                    <MainButton url={'#'}
-                                                target={item?.merchCarouselCardButton?.target}>{item?.merchCarouselCardButton?.title}</MainButton>
+                                    <GatsbyImage className="cart_img_hover"
+                                                 image={item.merchCarouselCardHoverimg !== null ? getImage(item?.merchCarouselCardHoverimg?.localFile) : getImage(item?.merchCarouselCardImg?.localFile)}
+                                                 alt={"banner"} />
+                                    <MainButtonShop url={item?.merchCarouselCardButton?.url}
+                                                target={item?.merchCarouselCardButton?.target}>{item?.merchCarouselCardButton?.title}</MainButtonShop>
                                 </div>
                                 <div className={'cart_description'}>
                                     <h4>{item?.merchCarouselCardTitle}</h4>
@@ -93,26 +100,30 @@ export const MerchCarousel = () => {
                                 </div>
                             </SwiperSlide>
                         ))}
-                    </Swiper> : <div className={"merch_cart_list"}>
+                    </Swiper>
+                    <div className={"merch_cart_list mobile"}>
                         {card.map((item, key) => (
                             key < 6 ?
-                                <div className={'card'} key={key}>
-                                    <div className={'cart_image_wrapper'}>
-                                        <GatsbyImage className="cart_img"
-                                                     image={getImage(item?.merchCarouselCardImg?.localFile)}
-                                                     alt={"banner"} />
-                                        <MainButton url={item?.merchCarouselCardButton?.url}
-                                                    target={item?.merchCarouselCardButton?.target}>{item?.merchCarouselCardButton?.title}</MainButton>
-                                    </div>
-                                    <div className={'cart_description'}>
-                                        <h4>{item?.merchCarouselCardTitle}</h4>
-                                        <strong>{item?.merchCarouselCardPrice}</strong>
-                                    </div>
-                                </div> : null
+                            <div className={'card'} key={key}>
+                                <div className={'cart_image_wrapper'}>
+                                    <GatsbyImage className="cart_img"
+                                                 image={getImage(item?.merchCarouselCardImg?.localFile)}
+                                                 alt={"banner"} />
+                                    <GatsbyImage className="cart_img_hover"
+                                                 image={item.merchCarouselCardHoverimg !== null ? getImage(item?.merchCarouselCardHoverimg?.localFile) : getImage(item?.merchCarouselCardImg?.localFile)}
+                                                 alt={"banner"} />
+                                    <MainButtonShop url={item?.merchCarouselCardButton?.url}
+                                                target={item?.merchCarouselCardButton?.target}>{item?.merchCarouselCardButton?.title}</MainButtonShop>
+                                </div>
+                                <div className={'cart_description'}>
+                                    <h4>{item?.merchCarouselCardTitle}</h4>
+                                    <strong>{item?.merchCarouselCardPrice}</strong>
+                                </div>
+                            </div> : null
                         ))}
-                    </div>}
+                    </div>
                     <div className={'to_shop'}>
-                        <MainButton url={"#"} target={'_blank'}>SHOP APPAREL</MainButton>
+                        <MainButton url={"#"} target={merchCarousel?.merchCarouselButton?.title}>{merchCarousel?.merchCarouselButton?.title}</MainButton>
                     </div>
                 </div>
             </div>
