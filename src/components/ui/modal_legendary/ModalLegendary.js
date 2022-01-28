@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
 import { ModalLegendaryStyles } from "./ModalLegendary.styled";
 import { MainButton } from "../../ui/main_button/MainButton";
+import {OnEscape} from "../../../utils/onEscape";
+import {OnClickOutside} from "../../../utils/onClickOutside";
 
 export const ModalLegendary = ({open, close}) => {
     const data = useStaticQuery(graphql`
@@ -43,9 +45,12 @@ export const ModalLegendary = ({open, close}) => {
         }
     `)
     const storyLegendary =  data?.wpPage?.home?.storyLegendary;
+    const ref = useRef()
     return (
         <ModalLegendaryStyles className={open ? "active" : ''}>
-            <div className={'modal_content'}>
+            {open && <OnEscape callback={close}/>}
+            {open && <OnClickOutside firstRef={ref} handler={close} />}
+            <div ref={ref} className={'modal_content'}>
                 <button className={'close'} onClick={close}>
                     <StaticImage
                         src="../../../images/close.svg"
@@ -67,7 +72,7 @@ export const ModalLegendary = ({open, close}) => {
                     <div><MainButton url={storyLegendary?.storyLegendaryButton?.url} target={storyLegendary?.storyLegendaryButton?.target}>{storyLegendary?.storyLegendaryButton?.title}</MainButton></div>
                 </div>
             </div>
-            <button className={'overlay'} onClick={close}>overlay</button>
+            <button className={'overlay'}>overlay</button>
         </ModalLegendaryStyles>
     );
 };

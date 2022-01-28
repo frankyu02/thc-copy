@@ -60,6 +60,18 @@ const ReviewGridStyles = styled.div`
         background: white;
         padding-top: 110px;
         padding-bottom: 110px;
+        position: relative;
+        transition: 0.3s;
+    }
+    .logoBox {
+      transition: 0.3s;
+    }
+    .cell:hover {
+      box-shadow: 0px 0px 20px rgba(97, 44, 143, 0.3);
+      .logoBox {
+        position: relative;
+        top: -5px;
+      }
     }
 
     @media (max-width: 1100px) {

@@ -37,6 +37,7 @@ export const LinkStyles = styled.section`
       a {
         width: 75px;
         height: 75px;
+        right: 10px;
       }
   }
 `;

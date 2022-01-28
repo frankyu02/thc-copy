@@ -69,15 +69,55 @@ export const ModalLegendaryStyles = styled.div`
     .legendary-modal_text{
         margin-bottom: 50px;
     }
-
+    @media (max-width: 1200px){
+      .modal_content {
+        top: 5%;
+        padding: 50px 10px;
+      }
+      .legendary-modal_image {
+        display: none;
+      }
+      .legendary-modal_context {
+        margin: 0 auto;
+      }
+    }
     @media (max-width: 764px){
       .modal_content{
+        align-items: baseline;
+        padding: 80px 20px 50px;
+        overflow: scroll;
         height: 100%;
         width: 100%;
         left: 0;
         top: 0;
         right: 0;
         transform: translate(0%);
+        .main_button {
+          color: white;
+          background: var(--darkpurple);
+        }
+      }
+    }
+    @media (max-width: 640px){
+      .modal_content {
+        .legendary-modal_context {
+          width: 100%;
+          max-width: 100%;
+          .legendary-modal_text {
+            margin-bottom: 40px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    @media (max-width: 500px){
+      .modal_content {
+        .legendary-modal_context {
+          .legendary-modal_text {
+            font-size: 12px;
+            margin: 0 20px 40px;
+          }
+        }
       }
     }
 `;

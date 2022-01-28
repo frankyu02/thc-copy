@@ -68,11 +68,10 @@ export const Footer = () => {
                                 </svg>
                             </button>
                         </label>
-                        <label className="footer-form-checkbox" htmlFor="footerFormCheckBox">
-                            <span></span>
-                            <input type="checkbox"/>
-                            {footer?.footerEmail?.footerEmailCheckboxText}
-                        </label>
+                        <div className="field checkbox">
+                            <input type="checkbox" id="footer_form_agree" name="agree" required />
+                            <label htmlFor="footer_form_agree">{footer?.footerEmail?.footerEmailCheckboxText}</label>
+                        </div>
                     </form>
                     <div className="footer-location">
                         <div className="location">
