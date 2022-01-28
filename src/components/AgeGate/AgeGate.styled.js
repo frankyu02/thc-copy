@@ -8,22 +8,7 @@ export const AgeGateStyles = styled.section`
   top: 0;
   left: 0;
   z-index: 9999;
-  background: grey;
-  overflow: hidden;
-
-
-  .bg {
-    position: relative;
-    z-index: -1;
-    height: 100%;
-
-    [data-gatsby-image-wrapper] {
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      position: relative;
-    }
-  }  
+  background: #9882b0;
 
   .inner {
     position: absolute;

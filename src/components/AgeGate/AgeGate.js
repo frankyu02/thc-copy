@@ -99,9 +99,6 @@ export const AgeGate = () => {
 
   return (
     <AgeGateStyles>
-      <div className="bg">
-        <GatsbyImage image={getImageData(ageGateBg)} alt="background"/>
-      </div>
       <div className="inner container">
         <div className="logo">
           <GatsbyImage image={getImageData(ageGateLogo)} alt="logo"/>
