@@ -4,6 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import { getImageData } from "../../utils/get_image_data";
 import { AgeGateStyles } from "./AgeGate.styled";
 import { useNoScroll } from "../../hooks/useNoScroll";
+import { LoaderDefault } from "../Loaders/default";
 
 
 export const AgeGate = () => {
@@ -81,7 +82,8 @@ export const AgeGate = () => {
     setAccess(true);
   }  
 
-  if (access || typeof window == 'undefined') return null;    
+  if (typeof window == 'undefined') return <LoaderDefault/>
+  if (access) return null;    
 
   return (
     <AgeGateStyles>
