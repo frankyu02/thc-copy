@@ -18,6 +18,12 @@ const styles = useSpring({
     x: inView ? 0 : -100
 })
 
+const styles2 = useSpring({
+  opacity: inView ? 1 : 0 ,
+  delay: 500,
+  config: { duration: 600 }
+})
+
   const data = useStaticQuery(graphql`
         query {
             wpPage(uri: {eq: "/"}) {
@@ -99,9 +105,11 @@ const styles = useSpring({
           {cardsJoin?.map?.((item, key) => (
             <div key={key} className="legendary_item">
               <div className="overlay"></div>
+              <animated.div style={styles2} ref={ref}>
               <GatsbyImage layout={"constrained"} className="image_bg"
                            image={getImage(item?.cardsJoinBgImg?.localFile?.childrenImageSharp[0]?.gatsbyImageData)}
                            alt={"banner"} />
+                           </animated.div>
               <div className="content_parent">
                 <h3>{item?.cardsJoinTitle}</h3>
                 <p>{item?.cardsJoinSubTitle}</p>

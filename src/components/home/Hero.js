@@ -14,7 +14,19 @@ export const HeroHome = () => {
 
     const styles = useSpring({
         opacity: inView ? 1 : 0,
-        y: inView ? 0 : 24
+        delay: 500,
+        x: inView ? 0 : -50
+    })
+
+    const styles3 = useSpring({
+        opacity: inView ? 1 : 0,
+        delay: 500,
+        y: inView ? 0 : -50
+    })
+
+    const styles2 = useSpring({
+        opacity: inView ? 1 : 0,
+        x: inView ? 0 : -50
     })
 
     const data = useStaticQuery(graphql`
@@ -55,19 +67,21 @@ export const HeroHome = () => {
     return (
      <HeroStyled >
           <div className="container">
-          <animated.div style={styles} ref={ref}>
               <div className="header">
                   <div className='address_parent'>
+                  <animated.div style={styles} ref={ref}>
                       <h4>{overBanner?.overBannerLocation1}</h4>
                       <h4>{overBanner?.overBannerLocation2}</h4>
+                    </animated.div>
                   </div>
+                  <animated.div style={styles2} ref={ref}>
                   <h1>{overBanner?.overBannerTitle}</h1>
+                  </animated.div>
               </div>
-              </animated.div>
               <div className="inner">
                   <GatsbyImage className={'background'} image={getImage(banner)} alt={bannerText}/>
                   <div className="caption">
-                  <animated.div style={styles} ref={ref}>
+                  <animated.div style={styles3} ref={ref}>
                       <h3 className="title">{bannerTitle}</h3>
                       </animated.div>
                       <MainButton url={bannerButton?.url} target={bannerButton?.target}>{bannerButton?.title}</MainButton>
