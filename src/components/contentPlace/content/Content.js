@@ -5,11 +5,11 @@ import { PostContentContext } from "../../../contexts/post-content";
 
 
 export const Content = () => {
-  const __CONTENT = useContext(PostContentContext);
+  const { content } = useContext(PostContentContext);
 
   return (
     <ContentStyles className="content">
-      <div dangerouslySetInnerHTML={{ __html: __CONTENT }}/>
+      <div dangerouslySetInnerHTML={{ __html: content }}/>
       <SubscribeForm/>
     </ContentStyles>
   )

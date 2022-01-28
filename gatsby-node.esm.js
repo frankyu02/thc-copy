@@ -22,6 +22,7 @@ export const createPages = async ({ graphql, actions }) => {
           signUpFormPlaceholdeer
           signUpFormTitle
         }
+        shareSocial
       }
       content
     }
