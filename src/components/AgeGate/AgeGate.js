@@ -63,8 +63,6 @@ export const AgeGate = () => {
 
   useNoScroll(!access);
 
-  console.log(access);
-
   if (access) {
     const diff = parseInt( ((Date.now() - localStorage.getItem('accessTime')) / (1000 * 60 * 60 * 24)).toFixed(0) ); // get difference from now date and last age accepting
 
@@ -83,9 +81,7 @@ export const AgeGate = () => {
     setAccess(true);
   }  
 
-  console.log(typeof window, access);
-
-  if (access && typeof window === 'undefined') return null;    
+  if (access || typeof window == 'undefined') return null;    
 
   return (
     <AgeGateStyles>
