@@ -57,9 +57,7 @@ export const AgeGate = () => {
     ageGateBg, 
     ageGateLogo, 
     ageGateRepeatCheckDelay
-  } = query?.wp?.thcwebsiteGeneralOption?.ageGate?.ageGate;
-
-  
+  } = query?.wp?.thcwebsiteGeneralOption?.ageGate?.ageGate;  
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -82,10 +80,7 @@ export const AgeGate = () => {
     }
   }, [access]);
 
-  useNoScroll(!access);
-  
-
-  
+  useNoScroll(access === false);
 
   const accessHandler = () => {
     localStorage.setItem('access', '1');
@@ -99,6 +94,9 @@ export const AgeGate = () => {
 
   return (
     <AgeGateStyles>
+      <div className="bg">
+        <GatsbyImage image={getImageData(ageGateBg)} alt="background"/>
+      </div>
       <div className="inner container">
         <div className="logo">
           <GatsbyImage image={getImageData(ageGateLogo)} alt="logo"/>
