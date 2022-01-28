@@ -8,8 +8,8 @@ export const LargeBanner = ({images, titleLargeBanner, textLargeBanner, butonLar
     return (
         <LargeBannerStyled>
             <div className={'container'}>
-                <div className={'overlay'}></div>
                 <div className={'large_wrapper'}>
+                    <div className={'overlay'}></div>
                     <div className={'content_parent'}>
                         <div className={'large_banner'}>
                             <h2>{titleLargeBanner}</h2>

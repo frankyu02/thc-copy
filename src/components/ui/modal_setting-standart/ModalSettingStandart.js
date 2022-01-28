@@ -5,7 +5,6 @@ import { ModalSettingSrandartStyles } from "./ModalSettingStandart.styled";
 import { MainButton } from "../../ui/main_button/MainButton";
 import {OnEscape} from "../../../utils/onEscape";
 import {OnClickOutside} from "../../../utils/onClickOutside";
-import {ModalLegendaryStyles} from "../modal_legendary/ModalLegendary.styled";
 
 export const ModalSettingSrandart = ({open, close}) => {
     const data = useStaticQuery(graphql`
