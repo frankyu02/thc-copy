@@ -3,12 +3,13 @@ import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { getImageData } from "../../utils/get_image_data";
 import { AgeGateStyles } from "./AgeGate.styled";
+import { useNoScroll } from "../../hooks/useNoScroll";
 
 
 export const AgeGate = () => {
   const ls_access = typeof window !== 'undefined' && !!localStorage.getItem('access');
   const ls_time = typeof window !== 'undefined' && !!localStorage.getItem('accessTime');
-
+  
   const [age, setAge] = useState(0); 
   const [access, setAccess] = useState(ls_access && ls_time);
   const ageRef = useRef(null);
@@ -60,6 +61,8 @@ export const AgeGate = () => {
     ageGateRepeatCheckDelay
   } = query?.wp?.thcwebsiteGeneralOption?.ageGate?.ageGate;
 
+  useNoScroll(!access);
+
   if (access) {
     const diff = parseInt( ((Date.now() - localStorage.getItem('accessTime')) / (1000 * 60 * 60 * 24)).toFixed(0) ); // get difference from now date and last age accepting
 
@@ -78,37 +81,30 @@ export const AgeGate = () => {
     setAccess(true);
   }  
 
-  console.log(access);
+  if (access) return null;
 
   return (
-    <>
-      {
-        !access ?
-          <AgeGateStyles>
-            <div className="bg">
-              <GatsbyImage image={getImageData(ageGateBg)} alt="background"/>
-            </div>
-            <div className="inner container">
-              <div className="logo">
-                <GatsbyImage image={getImageData(ageGateLogo)} alt="logo"/>
-              </div>
-              <div className="subtitle">{ageGateSubTitle}</div>
-              <div className="title">{ageGateTitle}</div>
-              <div className="age">{age}</div>
-              <input type="range" ref={ageRef} name={age} min="0" max="100" value={age} className="range" onChange={e => setAge(e.target.value)} />
-              <button
-                className="main_button" 
-                disabled={age < ageGateMinAge} 
-                onClick={accessHandler}
-              >
-                {ageGateButton.title}
-              </button>
-            </div>
-          </AgeGateStyles>
-        : ""
-      }
-    </>
-    
+    <AgeGateStyles>
+      <div className="bg">
+        <GatsbyImage image={getImageData(ageGateBg)} alt="background"/>
+      </div>
+      <div className="inner container">
+        <div className="logo">
+          <GatsbyImage image={getImageData(ageGateLogo)} alt="logo"/>
+        </div>
+        <div className="subtitle">{ageGateSubTitle}</div>
+        <div className="title">{ageGateTitle}</div>
+        <div className="age">{age}</div>
+        <input type="range" ref={ageRef} name={age} min="0" max="100" value={age} className="range" onChange={e => setAge(e.target.value)} />
+        <button
+          className="main_button" 
+          disabled={age < ageGateMinAge} 
+          onClick={accessHandler}
+        >
+          {ageGateButton.title}
+        </button>
+      </div>
+    </AgeGateStyles>  
   )
 }
 

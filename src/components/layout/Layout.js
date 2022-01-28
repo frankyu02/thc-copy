@@ -12,12 +12,13 @@ const Layout = ({ children }) => {
     <>
       <GlobalStyles />
       <Typography />
-      <AgeGate/>
       <HeaderMenu />
       <main>
         {children}
       </main>
       <Footer />
+
+      <AgeGate/>
     </>
   )
 }
