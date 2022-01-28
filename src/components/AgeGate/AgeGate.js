@@ -85,7 +85,7 @@ export const AgeGate = () => {
 
   console.log(typeof window, access);
 
-  if (access || typeof window !== 'undefined') return null;    
+  if (access || typeof window === 'undefined') return null;    
 
   return (
     <AgeGateStyles>
