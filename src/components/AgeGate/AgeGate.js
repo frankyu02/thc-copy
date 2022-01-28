@@ -78,6 +78,8 @@ export const AgeGate = () => {
     setAccess(true);
   }  
 
+  console.log(access);
+
   return (
     <>
       {
@@ -103,7 +105,7 @@ export const AgeGate = () => {
               </button>
             </div>
           </AgeGateStyles>
-        : null
+        : ""
       }
     </>
     
