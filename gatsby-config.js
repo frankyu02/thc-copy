@@ -63,7 +63,7 @@ module.exports = {
           placeholder: `dominantColor`,
           quality: 85,
           breakpoints: [750, 1366, 1920],
-          avifOptions: { quality: 80 }
+          avifOptions: { quality: 85 }
         }
       }
     },
