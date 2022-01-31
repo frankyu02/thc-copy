@@ -163,6 +163,7 @@ export const HeaderMenuStyled = styled.section`
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: clamp(14px, 4vw, 28px);
 
       ${lg(`
         flex-grow: 0; 
@@ -178,6 +179,8 @@ export const HeaderMenuStyled = styled.section`
     }
 
     .cart {
+      padding: 0 2vw;
+
       &-btn {
         cursor: pointer;
         display: block;
@@ -185,16 +188,9 @@ export const HeaderMenuStyled = styled.section`
         background: none;
         border: none;
         outline: none;
+        font-size: clamp(12px, 4vw, 14px);
+        text-transform: uppercase;
       }
-    }
-
-    .cart {
-      padding: 0 2vw;
-    }
-
-    .card-btn {
-
-      text-transform: uppercase;
     }
 
 
