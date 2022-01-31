@@ -48,10 +48,8 @@ export const AgeGate = () => {
   const { ageGateRepeatCheckDelay } = query?.wp?.thcwebsiteGeneralOption?.ageGate?.ageGate
 
   if (typeof window !== "undefined") {
-    console.log(ageGateRepeatCheckDelay)
     if (localStorage.getItem("accessTime")) {
       const diff = parseInt(((Date.now() - localStorage.getItem("accessTime")) / (1000 * 60 * 60 * 24)).toFixed(0)) // get difference from now date and last age accepting
-      console.log(diff)
       if (diff >= ageGateRepeatCheckDelay) {
         localStorage.removeItem("accessTime")
       } else {

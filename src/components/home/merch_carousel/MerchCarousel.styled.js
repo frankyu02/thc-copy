@@ -45,6 +45,7 @@ export const MerchCarouselStyled = styled.section`
       }
     }
     .cart_image_wrapper {
+      border: 1px solid black;
       overflow: hidden;
       position: relative;
       margin-bottom: 10px;
@@ -60,6 +61,7 @@ export const MerchCarouselStyled = styled.section`
       `)}
       .main_button {
       position:absolute;
+      border-bottom: none;
       bottom: 0;
       left: 0;
       width: 100%;
