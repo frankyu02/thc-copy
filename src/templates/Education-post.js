@@ -9,15 +9,14 @@ import { SubscribeFormProvider } from "../contexts/subscribe-form";
 import { PostContentProvider } from "../contexts/post-content";
 import { FeaturedPosts } from "../components/global_component/FeaturedPosts/FeaturedPosts";
 
-const BlogPost = (props) => {
+
+const EducationPost = (props) => {
   
-  const __DATA = props?.data?.post?.edges[0].node;
-  const __FORM = __DATA?.blogPost?.signUpForm;
-  const __IS_SHARE = __DATA?.blogPost?.shareSocial;
+  const __DATA = props?.data?.post?.nodes[0];
   const __NEXT_POSTS = props?.data?.next?.nodes;
   
   const { title, content, date } = __DATA; // data for hero banner
-  const providing = { title,  content, share: __IS_SHARE }; // provide data to content and sidebar
+  const providing = { title, content, share: false }; // provide data to content and sidebar
   const seo = {
     title: __DATA?.seoMetaPost?.seoMetaPostTitle, 
     description: __DATA?.seoMetaPost?.seoMetaPostDescription
@@ -30,61 +29,29 @@ const BlogPost = (props) => {
       <Seo {...seo} />
       <EducationHero title={title} data={date} banner={banner} />
 
-      <SubscribeFormProvider data={__FORM}>
+      <SubscribeFormProvider data={null}>
         <PostContentProvider data={providing}>
           <ContentPlace/>
         </PostContentProvider>          
       </SubscribeFormProvider>
 
-      <FeaturedPosts path={'/blog/'} posts={filteredNextPosts} limit={2} random={true}/>
+      <FeaturedPosts path={'/education/'} posts={filteredNextPosts} limit={2} random={true}/>
       <ShopLink />
     </>
   )
 }
 
-export default BlogPost;
+export default EducationPost;
 
 export const query = graphql`
-  query postPage($slug: String, $category: String) {
+  query educationPage($slug: String) {
 
-    post: allWpPost( filter: {slug: {eq: $slug}} ) {
-      edges {
-        node {
-          id
-          content
-          title
-          date(formatString: "MMMM DD YYYY")
-          featuredImage {
-            node {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData
-                }
-              }
-            }
-          }
-          blogPost {
-            signUpForm {
-              fieldGroupName
-              showForm
-              signUpFormButton
-              signUpFormChechboxText
-              signUpFormPlaceholdeer
-              signUpFormTitle
-            }
-            shareSocial
-          }
-          seoMetaPost {
-            seoMetaPostDescription
-            seoMetaPostTitle
-          }
-        }
-      }
-    }
-
-    next: allWpPost(filter: {categories: {nodes: {elemMatch: {id: {eq: $category}}}}}) {
+    post: allWpEducation(filter: {slug: {eq: $slug}}) {
       nodes {
-        slug
+        title
+        id
+        content
+        date(formatString: "MMMM DD YYYY")
         featuredImage {
           node {
             localFile {
@@ -94,9 +61,27 @@ export const query = graphql`
             }
           }
         }
+        seoMetaPost {
+          seoMetaPostDescription
+          seoMetaPostTitle
+        }
+      }
+    }
+
+    next: allWpEducation {
+      nodes {
+        slug
         title
+        featuredImage {
+          node {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+        }
       }
     }
   }
-
 `;

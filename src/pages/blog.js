@@ -1,8 +1,8 @@
 import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { SmallHero } from "../../components/global_component/small_hero/SmallHero"
-import { ArticlesGrid } from "../../components/blog/articles-grid/ArticlesGrid"
-import Seo from "../../components/layout/Seo"
+import { SmallHero } from "../components/global_component/small_hero/SmallHero"
+import { ArticlesGrid } from "../components/blog/articles-grid/ArticlesGrid"
+import Seo from "../components/layout/Seo"
 
 
 const BlogPage = () => {

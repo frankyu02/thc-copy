@@ -106,7 +106,7 @@ export const MerchCarousel = () => {
                         ))}
                     </div>
                     <div className={'to_shop'}>
-                        <MainButton url={"#"} target={merchCarousel?.merchCarouselButton?.title}>{merchCarousel?.merchCarouselButton?.title}</MainButton>
+                        <MainButtonShop url={merchCarousel?.merchCarouselButton?.url} target={merchCarousel?.merchCarouselButton?.title}>{merchCarousel?.merchCarouselButton?.title}</MainButtonShop>
                     </div>
                 </div>
             </div>
