@@ -87,10 +87,8 @@ export const ArticlesGridStyles = styled.section`
   }
   .article-img{
     font-size: 0;
-    img{
-      object-fit: cover;
+    .gatsby-image-wrapper {
       width: 100%;
-      max-height: 300px;
     }
   }
   ${xs(`
