@@ -16,18 +16,19 @@ const BlogPost = (props) => {
   const __IS_SHARE = __DATA?.blogPost?.shareSocial;
   const __NEXT_POSTS = props?.data?.next?.nodes;
   
-  const { title: postTitle, content, date } = __DATA; // data for hero banner
-  const providing = { postTitle,  content, share: __IS_SHARE }; // provide data to content and sidebar
-  const { seoMetaPostTitle: title, seoMetaPostDescription: description } = __DATA?.seoMetaPost;
+  const { title, content, date } = __DATA; // data for hero banner
+  const providing = { title,  content, share: __IS_SHARE }; // provide data to content and sidebar
+  const seo = {
+    title: __DATA?.seoMetaPost?.seoMetaPostTitle, 
+    description: __DATA?.seoMetaPost?.seoMetaPostDescription
+  }
   const banner = getImageData(__DATA.featuredImage.node);
-
   const filteredNextPosts = __NEXT_POSTS.filter(post => post.slug !== props.pageContext.slug); // exclude current post  
-
 
   return (
     <>
-      <Seo title={title} description={description} />
-      <EducationHero title={postTitle} data={date} banner={banner} />
+      <Seo {...seo} />
+      <EducationHero title={title} data={date} banner={banner} />
 
       <SubscribeFormProvider data={__FORM}>
         <PostContentProvider data={providing}>
