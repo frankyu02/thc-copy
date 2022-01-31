@@ -78,6 +78,12 @@ export const ArticlesGridStyles = styled.section`
   }
   .content-wrap{
     border-top: 1px solid #000;
+    height: 100%;
+    p {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
   }
   .article-img{
     font-size: 0;
