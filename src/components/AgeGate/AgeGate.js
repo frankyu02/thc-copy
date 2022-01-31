@@ -58,7 +58,7 @@ export const AgeGate = () => {
         }
       }
     }
-  }, [])
+  }, [ageGateRepeatCheckDelay])
 
   return <AgeForm setAccess={setAccess} access={access} query={query} />
 }
