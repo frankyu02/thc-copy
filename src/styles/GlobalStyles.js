@@ -11,7 +11,8 @@ const GlobalStyles = createGlobalStyle`
     --white: #FFFFFF;
     --placeholder: #808080;
     --container-xl: 1400px;
-    --fontPrimary: 'Integral CF'
+    --fontPrimary: 'Integral CF';
+    --fontPrimaryBold: 'Integral CF Heavy';
   }
 
   html {

@@ -25,6 +25,11 @@ export const createPages = async ({ graphql, actions }) => {
         shareSocial
       }
       content
+      categories {
+        nodes {
+          id
+        }
+      }
     }
   }
     }
@@ -33,7 +38,10 @@ export const createPages = async ({ graphql, actions }) => {
     createPage({
       path: `/blog/${node.slug}`,
       component: blogPostTemplate,
-      context: { slug: node.slug }
+      context: { 
+        slug: node.slug,
+        category: node.categories.nodes[0].id
+      }
     })
   })
 }
