@@ -1,10 +1,8 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 import { Swiper, SwiperSlide } from "swiper/react"
 import SwiperCore, { Navigation } from "swiper"
 import "swiper/css"
-import Star from "../../../images/vector.png"
 import "swiper/css/navigation"
 import { ClientReviewStyle, Reviews, SwiperContainer } from "./ReviewStyles"
 
@@ -59,33 +57,33 @@ export default function ClientReview() {
                       key={index}
                       virtualIndex={index}>
                       <Reviews>
-                        <div className="stars">
-                          <StaticImage
-                            className="star"
-                            src={Star}
-                            alt="purple Star"
-                          />
-                          <StaticImage
-                            className="star"
-                            src={Star}
-                            alt="purple Star"
-                          />
-                          <StaticImage
-                            className="star"
-                            src={Star}
-                            alt="purple Star"
-                          />
-                          <StaticImage
-                            className="star"
-                            src={Star}
-                            alt="purple Star"
-                          />
-                          <StaticImage
-                            className="star"
-                            src={Star}
-                            alt="purple Star"
-                          />
-                        </div>
+                        {/*<div className="stars">*/}
+                        {/*  <StaticImage*/}
+                        {/*    className="star"*/}
+                        {/*    src={Star}*/}
+                        {/*    alt="purple Star"*/}
+                        {/*  />*/}
+                        {/*  <StaticImage*/}
+                        {/*    className="star"*/}
+                        {/*    src={Star}*/}
+                        {/*    alt="purple Star"*/}
+                        {/*  />*/}
+                        {/*  <StaticImage*/}
+                        {/*    className="star"*/}
+                        {/*    src={Star}*/}
+                        {/*    alt="purple Star"*/}
+                        {/*  />*/}
+                        {/*  <StaticImage*/}
+                        {/*    className="star"*/}
+                        {/*    src={Star}*/}
+                        {/*    alt="purple Star"*/}
+                        {/*  />*/}
+                        {/*  <StaticImage*/}
+                        {/*    className="star"*/}
+                        {/*    src={Star}*/}
+                        {/*    alt="purple Star"*/}
+                        {/*  />*/}
+                        {/*</div>*/}
                         <div className="review">
                           <p>{review.clientReviewsCardText}</p>
                         </div>
