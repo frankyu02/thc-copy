@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { getImageData } from "../../utils/get_image_data"
@@ -46,24 +46,27 @@ export const AgeGate = () => {
     }
   `)
   const { ageGateRepeatCheckDelay } = query?.wp?.thcwebsiteGeneralOption?.ageGate?.ageGate
-
-  if (typeof window !== "undefined") {
-    if (localStorage.getItem("accessTime")) {
-      const diff = parseInt(((Date.now() - localStorage.getItem("accessTime")) / (1000 * 60 * 60 * 24)).toFixed(0)) // get difference from now date and last age accepting
-      if (diff >= ageGateRepeatCheckDelay) {
-        localStorage.removeItem("accessTime")
-      } else {
-        return <></>
+  const [access, setAccess] = useState(false)
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (localStorage.getItem("accessTime")) {
+        const diff = parseInt(((Date.now() - localStorage.getItem("accessTime")) / (1000 * 60 * 60 * 24)).toFixed(0)) // get difference from now date and last age accepting
+        if (diff >= ageGateRepeatCheckDelay) {
+          localStorage.removeItem("accessTime")
+        } else {
+          setAccess(true)
+        }
       }
     }
-  }
-  return <AgeForm query={query} />
+  }, [ageGateRepeatCheckDelay])
+
+  return <AgeForm setAccess={setAccess} access={access} query={query} />
 }
 
 
-const AgeForm = ({ query }) => {
+const AgeForm = ({ query, access, setAccess }) => {
   const [age, setAge] = useState(0)
-  const [access, setAccess] = useState(false)
+
   const ageRef = useRef(null)
 
   const {
@@ -84,10 +87,8 @@ const AgeForm = ({ query }) => {
   useNoScroll(!access)
 
 
-  if (access) return <></>
-
   return (
-    <AgeGateStyles>
+    <AgeGateStyles access={access}>
       <div className="bg">
         <GatsbyImage image={getImageData(ageGateBg)} loading="eager" alt="background" />
       </div>
