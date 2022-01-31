@@ -46,21 +46,24 @@ export const AgeGate = () => {
     }
   `)
   const { ageGateRepeatCheckDelay } = query?.wp?.thcwebsiteGeneralOption?.ageGate?.ageGate
-  const [access, setAccess] = useState(false)
+  const [access, setAccess] = useState(true)
   useEffect(() => {
     if (typeof window !== "undefined") {
       if (localStorage.getItem("accessTime")) {
         const diff = parseInt(((Date.now() - localStorage.getItem("accessTime")) / (1000 * 60 * 60 * 24)).toFixed(0)) // get difference from now date and last age accepting
         if (diff >= ageGateRepeatCheckDelay) {
           localStorage.removeItem("accessTime")
+          setAccess(false)
         } else {
           setAccess(true)
         }
+      } else {
+        setAccess(false)
       }
     }
   }, [ageGateRepeatCheckDelay])
 
-  return <AgeForm setAccess={setAccess} access={access} query={query} />
+  return access ? <></> : <AgeForm setAccess={setAccess} access={access} query={query} />
 }
 
 
