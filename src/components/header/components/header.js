@@ -15,7 +15,8 @@ export const Header = ({ logoText, headerRef }) => {
   const burgerRef = useRef()
   return (
     <header className={"header"}>
-      <button ref={burgerRef} onClick={toggleMenu} type={"button"} className={"menu-btn " + (menuOpen ? " open" : "")}>
+      <button aria-label={"open menu "} ref={burgerRef} onClick={toggleMenu} type={"button"}
+              className={"menu-btn " + (menuOpen ? " open" : "")}>
         <div className={"line"}></div>
         <div className={"line"}></div>
         <div className={"line"}></div>
