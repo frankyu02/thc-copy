@@ -5,9 +5,6 @@ import { getImageData } from "../../../utils/get_image_data";
 import { GatsbyImage } from "gatsby-plugin-image";
 
 export const ArticlesGrid = () => {
-    
-    const button = "Read more";
-    const img = "www";
 
     const data = useStaticQuery(graphql`
       query {

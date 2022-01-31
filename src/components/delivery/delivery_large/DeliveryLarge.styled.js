@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {md, sm, xs, xxs} from "../../../styles/utils/media_queries";
+import { sm,} from "../../../styles/utils/media_queries";
 
 export const DeliveryLargeStyled = styled.section`
   .container {

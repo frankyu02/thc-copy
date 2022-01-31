@@ -57,6 +57,9 @@ export const ArticlesGridStyles = styled.section`
   
   }
   .article-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border: 1px solid #000000;
     width: 100%;
     margin-bottom: 50px;

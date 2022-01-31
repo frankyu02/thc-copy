@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { lg, md, xs, sm } from "../../../styles/utils/media_queries"
+import { md, sm } from "../../../styles/utils/media_queries"
 import { __POSTS_CONTENT_SIZE } from "../../../styles/utils/variables"
 
 export const ContentStyles = styled.main`

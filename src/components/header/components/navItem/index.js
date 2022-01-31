@@ -69,7 +69,6 @@ const DropDrown = ({ dropDownItems, isOpen: mobileIsOpen, onOpen, setMenuOpen })
 
 export const NavItem = ({ item, className, onOpen, isOpen, setMenuOpen }) => {
   const showDropdown = item.items?.length > 0
-  const itExternalLink = item.link?.includes("http")
   return (
     <MenuItem className={className}>
 

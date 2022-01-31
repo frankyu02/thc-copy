@@ -28,8 +28,7 @@ export default function ClientReview() {
              }
         }
     `)
-  const reviewdata = data?.wpPage?.reviews?.clientReviews
-  // const val = reviewdata.clientReviewsCards.length
+  const reviewdata = data?.wpPage?.reviews?.clientReviews;
   return (
     <ClientReviewStyle>
       <div className="reviewContainer">

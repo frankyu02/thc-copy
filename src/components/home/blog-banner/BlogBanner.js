@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage} from "gatsby-plugin-image";
 import { BlogBannerStyled } from "./BlogBanner.styled";
 import { MainButton } from "../../ui/main_button/MainButton";
 import { getImageData } from "../../../utils/get_image_data";
