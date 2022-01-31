@@ -6,7 +6,7 @@ import { SubscribeFormStyles } from './SubscribeForm.styled';
 export const SubscribeForm = () => {
   const __FORMDATA = useContext(SubscribeFormContext);
 
-  if (__FORMDATA.showForm !== 'show') return null;
+  if (!__FORMDATA || __FORMDATA.showForm !== 'show') return null;
 
   const {
     signUpFormTitle, 

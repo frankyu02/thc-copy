@@ -16,6 +16,11 @@ export const ArticlesGridStyles = styled.section`
   .article-buttom{
     font-family: MADE Outer Sans Light;
     font-size: 18px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+    
     svg{
       width: 16px;
       height: 16px;

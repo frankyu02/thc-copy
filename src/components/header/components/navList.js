@@ -28,7 +28,9 @@ export const NavList = ({ setMenuOpen }) => {
                  item={item}
                  key={i} />
       ))}
-      <li className={"order-button"}><MainButton> ORDER NOW</MainButton></li>
+      <li onClick={() => {
+        setMenuOpen(false)
+      }} className={"order-button"}><MainButton> ORDER NOW</MainButton></li>
     </ul>
   )
 }
