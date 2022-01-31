@@ -10,7 +10,7 @@ export const MenuItem = styled.li`
   height: auto;
 
   ${lg(`
- 
+  font-size:14px;
       width:auto;
       border:none;
       `
