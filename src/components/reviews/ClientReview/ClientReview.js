@@ -4,6 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import { Swiper, SwiperSlide } from "swiper/react"
 import SwiperCore, { Navigation } from "swiper"
 import "swiper/css"
+import Star from "../../../images/vector.png"
 import "swiper/css/navigation"
 import { ClientReviewStyle, Reviews, SwiperContainer } from "./ReviewStyles"
 
@@ -28,7 +29,7 @@ export default function ClientReview() {
              }
         }
     `)
-  const reviewdata = data?.wpPage?.reviews?.clientReviews;
+  const reviewdata = data?.wpPage?.reviews?.clientReviews
   return (
     <ClientReviewStyle>
       <div className="reviewContainer">
@@ -61,27 +62,27 @@ export default function ClientReview() {
                         <div className="stars">
                           <StaticImage
                             className="star"
-                            src="../../../images/vector.png"
+                            src={Star}
                             alt="purple Star"
                           />
                           <StaticImage
                             className="star"
-                            src="../../../images/vector.png"
+                            src={Star}
                             alt="purple Star"
                           />
                           <StaticImage
                             className="star"
-                            src="../../../images/vector.png"
+                            src={Star}
                             alt="purple Star"
                           />
                           <StaticImage
                             className="star"
-                            src="../../../images/vector.png"
+                            src={Star}
                             alt="purple Star"
                           />
                           <StaticImage
                             className="star"
-                            src="../../../images/vector.png"
+                            src={Star}
                             alt="purple Star"
                           />
                         </div>

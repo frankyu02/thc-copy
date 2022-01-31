@@ -5,9 +5,10 @@ import styled from "styled-components"
 import { DropDownStyled } from "./dropdown.styled"
 import { lg } from "../../../../styles/utils/media_queries"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { ArrowIcon } from "../../../../images/arrowIcon"
+
 import { __BREAKPOINTS } from "../../../../styles/utils/variables"
 import { UniversalLink } from "../../../../utils/universalLink"
+import ArrowIcon from "../../../../images/arrowIcon.svg"
 
 const MobileIcon = styled.div`
   height: 28px;
@@ -39,11 +40,10 @@ const DropDrown = ({ dropDownItems, isOpen: mobileIsOpen, onOpen, setMenuOpen })
   const isOpen = mobileIsOpen && window?.innerWidth < __BREAKPOINTS.lg
   const oddItem = dropDownItems.length % 2 > 0
   const columnCounter = Math.round(dropDownItems.length / 2)
-
+ 
   return (
     <DropDownStyled columnCounter={columnCounter} isOpen={isOpen}
                     className={"drop-down " + (oddItem ? "odd" : " even ")}>
-
       {
         dropDownItems.map((subItem, i) => {
           return (
@@ -53,7 +53,8 @@ const DropDrown = ({ dropDownItems, isOpen: mobileIsOpen, onOpen, setMenuOpen })
                 onOpen && onOpen(false)
                 setMenuOpen && setMenuOpen(false)
               }} className={"dropdown-item-link"} to={subItem.url || "/"}>
-              <span>   {subItem.label} <span className={"iconArrow"}> <ArrowIcon />  </span>
+              <span>   {subItem.label} <span className={"iconArrow"}>       <img src={ArrowIcon}
+                                                                                 alt="Arrow Icon" />  </span>
             </span> </UniversalLink>
               <GatsbyImage className="dropdown-item-img"
                            image={getImage(subItem.image?.image?.localFile)}
