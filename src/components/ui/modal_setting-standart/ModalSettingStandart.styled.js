@@ -75,7 +75,7 @@ export const ModalSettingSrandartStyles = styled.div`
     @media (max-width: 1200px){
       .modal_content {
         align-items: baseline;
-        overflow: scroll;
+        overflow: auto;
         padding: 80px 20px 50px;
         .legendary-modal_context {
           .legendary-modal_text {
@@ -98,7 +98,7 @@ export const ModalSettingSrandartStyles = styled.div`
       .modal_content{
         align-items: baseline;
         padding: 80px 20px 50px;
-        overflow: scroll;
+        overflow: auto;
         height: 100%;
         width: 100%;
         left: 0;

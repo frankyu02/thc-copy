@@ -7,15 +7,17 @@ import Seo from "../../components/layout/Seo"
 
 const BlogPage = () => {
 
-  const seo = {
-    title: "Blog Title",
-    description: "Blog Description"
-  }
-
   const data = useStaticQuery(graphql`
       query {
         allWpPage(filter: {id: {eq: "cG9zdDozNDA="}}) {
           nodes {
+            template {
+              seoMetaTags {
+                seoMetaTagsDescription
+                seoMetaTagsJsonShema
+                seoMetaTagsTitle
+              }
+            }
             blog {
               blogBanner {
                 fieldGroupName
@@ -33,6 +35,12 @@ const BlogPage = () => {
         } 
       }
     `)
+  const seoData = data?.allWpPage?.nodes[0]?.template?.seoMetaTags;
+  const seo = {
+    title: seoData?.seoMetaTagsTitle,
+    description: seoData?.seoMetaTagsDescription
+  }
+  console.log(seoData)
   const title = data?.allWpPage?.nodes[0]?.blog?.blogBanner?.blogBannerTitle
   const banner = data?.allWpPage?.nodes[0]?.blog?.blogBanner?.blogBannerImg?.localFile?.childImageSharp?.gatsbyImageData
   return (

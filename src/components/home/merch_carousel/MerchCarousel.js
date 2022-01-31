@@ -2,7 +2,6 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { MerchCarouselStyled } from "./MerchCarousel.styled"
-import { MainButton } from "../../ui/main_button/MainButton"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import MainButtonShop from "../../ui/main_button/MainButtonShop";
 
