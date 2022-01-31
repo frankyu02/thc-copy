@@ -40,7 +40,6 @@ const BlogPage = () => {
     title: seoData?.seoMetaTagsTitle,
     description: seoData?.seoMetaTagsDescription
   }
-  console.log(seoData)
   const title = data?.allWpPage?.nodes[0]?.blog?.blogBanner?.blogBannerTitle
   const banner = data?.allWpPage?.nodes[0]?.blog?.blogBanner?.blogBannerImg?.localFile?.childImageSharp?.gatsbyImageData
   return (
