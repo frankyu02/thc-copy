@@ -2,6 +2,9 @@ import styled from "styled-components"
 import { sm } from "../../styles/utils/media_queries"
 
 export const AgeGateStyles = styled.section`
+  transition: 0.1s;
+  opacity: ${({ access }) => access ? 0 : 1};
+  pointer-events: ${({ access }) => access ? "none" : "all"};
   right: 0;
   bottom: 0;
   position: fixed;
