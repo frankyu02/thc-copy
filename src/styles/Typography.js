@@ -1,54 +1,64 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components"
 
 
 const Typography = createGlobalStyle`
-    html {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        -webkit-font-smoothing: antialiased;
-    }
-    p, li {
-        letter-spacing: 0.5px;
-        font-family: 'MADE Outer Sans Light';
-    }
-    h1,h2,h3,h4,h5,h6 {
-        font-family: 'Integral CF';
-        margin: 0;
-    }
-    h1{
-    }
-    h2{
-    }
-    h3{
-    }
-    a{
-        color: inherit;
-        text-decoration: none;
-        &:hover{
-        color: inherift;
-        }
-        &:visited{
-        color: inherift;
-        }
-        &:active{
-        color: inherift;
-        }
-    }
-    mark, .mark {
-        padding: 0 2px 2px 2px;
-        margin: 0;
-        display: inline;
-        line-height: 1;
+  html {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  p, li {
+    letter-spacing: 0.5px;
+    font-family: 'MADE Outer Sans Light';
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fontPrimary);
+    margin: 0;
+  }
+
+  h1 {
+  }
+
+  h2 {
+  }
+
+  h3 {
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      color: inherift;
     }
 
-    .center {
-        text-align: center;
+    &:visited {
+      color: inherift;
     }
 
-    nav{
+    &:active {
+      color: inherift;
     }
+  }
 
-    ul, li{
-    }
-`;
+  mark, .mark {
+    padding: 0 2px 2px 2px;
+    margin: 0;
+    display: inline;
+    line-height: 1;
+  }
 
-export default Typography;
+  .center {
+    text-align: center;
+  }
+
+  nav {
+  }
+
+  ul, li {
+  }
+`
+
+export default Typography

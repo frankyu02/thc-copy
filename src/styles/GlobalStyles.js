@@ -11,16 +11,19 @@ const GlobalStyles = createGlobalStyle`
     --white: #FFFFFF;
     --placeholder: #808080;
     --container-xl: 1400px;
-    --fontPrimary: 'Integral CF';
-    --fontPrimaryBold: 'Integral CF Heavy';
+    --fontPrimary: 'Integral CF', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    --fontPrimaryBold: 'Integral CF', 'ARIAL BLACK', Heavy -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   }
 
   html {
+    word-break: break-word;
     font-size: 10px;
     background-color: var(--white);
   }
 
   body {
+    margin: 0;
+    padding: 0;
     font-size: 2rem;
     scrollbar-width: thin;
     scrollbar-color: #612C8F #EEEEEF;
@@ -46,7 +49,19 @@ const GlobalStyles = createGlobalStyle`
     padding: 0 10px;
 
   }
-  
+
+  #gatsby-focus-wrapper {
+    min-height: 100vh;
+    flex-direction: column;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  main {
+    flex-grow: 2;
+    overflow-x: hidden;
+  }
 
   // primary button
   .main_button {
@@ -92,8 +107,8 @@ const GlobalStyles = createGlobalStyle`
         background: #612c8f;
         color: white;
       }
-    }    
-  }  
+    }
+  }
 
 
   // default input
@@ -168,7 +183,7 @@ const GlobalStyles = createGlobalStyle`
           }
         }
       }
-    }   
+    }
   }
 
 
@@ -199,7 +214,7 @@ const GlobalStyles = createGlobalStyle`
       cursor: pointer;
       border: 1px solid #000;
     }
-    
+
     &:focus {
       outline: none;
     }
@@ -223,4 +238,4 @@ const GlobalStyles = createGlobalStyle`
   }
 `
 
-export default GlobalStyles;
+export default GlobalStyles

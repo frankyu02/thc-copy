@@ -37,7 +37,7 @@ export const HeroStyled = styled.section`
     .caption {
       position: relative;
       z-index: 1;
-      font-style: italic;
+      font-weight: 400;
 
       h3 {
         font-size: 48px;
