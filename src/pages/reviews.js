@@ -9,14 +9,17 @@ import Seo from "../components/layout/Seo"
 
 const ReviewsPage = () => {
 
-  const seo = {
-    title: "Reviews Title",
-    description: "Reviews Description"
-  }
   const data = useStaticQuery(graphql`
         query {
             allWpPage(filter: {id: {eq: "cG9zdDoyMTE="}}) {
                 nodes {
+                    template {
+                        seoMetaTags {
+                            seoMetaTagsDescription
+                            seoMetaTagsJsonShema
+                            seoMetaTagsTitle
+                        }
+                    }
                   reviews {
                     reviewsBanner {
                       reviewsBannerTitle
@@ -33,6 +36,11 @@ const ReviewsPage = () => {
             }
         }
     `)
+    const seoData = data?.allWpPage?.nodes[0]?.template?.seoMetaTags
+    const seo = {
+        title: seoData?.seoMetaTagsTitle,
+        description: seoData?.seoMetaTagsDescription
+    }
   const title = data?.allWpPage?.nodes[0]?.reviews?.reviewsBanner?.reviewsBannerTitle
   const banner = data?.allWpPage?.nodes[0]?.reviews?.reviewsBanner?.reviewsBannerImg?.localFile?.childImageSharp?.gatsbyImageData
 

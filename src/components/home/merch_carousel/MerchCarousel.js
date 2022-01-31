@@ -1,9 +1,10 @@
-import React, {useEffect, useRef, useState} from "react"
+import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { MerchCarouselStyled } from "./MerchCarousel.styled"
 import { MainButton } from "../../ui/main_button/MainButton"
 import { Swiper, SwiperSlide } from 'swiper/react';
+import MainButtonShop from "../../ui/main_button/MainButtonShop";
 
 export const MerchCarousel = () => {
     const data = useStaticQuery(graphql`
@@ -73,8 +74,8 @@ export const MerchCarousel = () => {
                                     <GatsbyImage className="cart_img_hover"
                                                  image={item.merchCarouselCardHoverimg !== null ? getImage(item?.merchCarouselCardHoverimg?.localFile) : getImage(item?.merchCarouselCardImg?.localFile)}
                                                  alt={"banner"} />
-                                    <MainButton url={'#'}
-                                                target={item?.merchCarouselCardButton?.target}>{item?.merchCarouselCardButton?.title}</MainButton>
+                                    <MainButtonShop url={item?.merchCarouselCardButton?.url}
+                                                target={item?.merchCarouselCardButton?.target}>{item?.merchCarouselCardButton?.title}</MainButtonShop>
                                 </div>
                                 <div className={'cart_description'}>
                                     <h4>{item?.merchCarouselCardTitle}</h4>
@@ -94,8 +95,8 @@ export const MerchCarousel = () => {
                                     <GatsbyImage className="cart_img_hover"
                                                  image={item.merchCarouselCardHoverimg !== null ? getImage(item?.merchCarouselCardHoverimg?.localFile) : getImage(item?.merchCarouselCardImg?.localFile)}
                                                  alt={"banner"} />
-                                    <MainButton url={'#'}
-                                                target={item?.merchCarouselCardButton?.target}>{item?.merchCarouselCardButton?.title}</MainButton>
+                                    <MainButtonShop url={item?.merchCarouselCardButton?.url}
+                                                target={item?.merchCarouselCardButton?.target}>{item?.merchCarouselCardButton?.title}</MainButtonShop>
                                 </div>
                                 <div className={'cart_description'}>
                                     <h4>{item?.merchCarouselCardTitle}</h4>

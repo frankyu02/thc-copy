@@ -5,16 +5,17 @@ import { TitleSubtext } from "../components/faq/title_subtext/TitleSubtext"
 import Seo from "../components/layout/Seo"
 
 const FaqPage = () => {
-
-  const seo = {
-    title: 'Faq Title',
-    description: 'Faq Description'
-  }
-
   const data = useStaticQuery(graphql`
         query {
             allWpPage(filter: {id: {eq: "cG9zdDoyNjY="}}) {
                 nodes {
+                    template {
+                        seoMetaTags {
+                            seoMetaTagsDescription
+                            seoMetaTagsJsonShema
+                            seoMetaTagsTitle
+                        }
+                    }
                   faq {
                     faqBanner {
                       faqBannerTitle
@@ -31,6 +32,11 @@ const FaqPage = () => {
             }
         }
     `)
+    const seoData = data?.allWpPage?.nodes[0]?.template?.seoMetaTags
+    const seo = {
+        title: seoData?.seoMetaTagsTitle,
+        description: seoData?.seoMetaTagsDescription
+    }
   const title = data?.allWpPage?.nodes[0]?.faq?.faqBanner?.faqBannerTitle;
   const banner = data?.allWpPage?.nodes[0]?.faq?.faqBanner?.faqBannerImg?.localFile?.childImageSharp?.gatsbyImageData;
   return (

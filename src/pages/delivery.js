@@ -12,15 +12,17 @@ import Seo from "../components/layout/Seo"
 
 const DeliveryPage = () => {
 
-  const seo = {
-    title: "Delivery Title",
-    description: "Delivery Description"
-  }
-
   const data = useStaticQuery(graphql`
         query {
           allWpPage(filter: {id: {eq: "cG9zdDo0MjE="}}) {
             nodes {
+              template {
+                seoMetaTags {
+                  seoMetaTagsDescription
+                  seoMetaTagsJsonShema
+                  seoMetaTagsTitle
+                }
+              }
               delivery {
                 deliveryBanner {
                   deliveryBannerTitle
@@ -61,7 +63,11 @@ const DeliveryPage = () => {
         }
         
     `)
-
+  const seoData = data?.allWpPage?.nodes[0]?.template?.seoMetaTags
+  const seo = {
+    title: seoData?.seoMetaTagsTitle,
+    description: seoData?.seoMetaTagsDescription
+  }
   const title = data?.allWpPage?.nodes[0]?.delivery?.deliveryBanner?.deliveryBannerTitle
   const banner = data?.allWpPage?.nodes[0]?.delivery?.deliveryBanner?.deliveryBannerImg?.localFile?.childImageSharp?.gatsbyImageData
   const titleLargeBanner = data?.allWpPage?.nodes[0]?.delivery?.deliveryLargeOrderBanner?.deliveryLargeOrderBannerTitle

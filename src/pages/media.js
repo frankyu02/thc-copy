@@ -6,16 +6,18 @@ import { getImage, withArtDirection } from "gatsby-plugin-image"
 import Seo from "../components/layout/Seo"
 
 const ReviewsPage = () => {
-
-  const seo = {
-    title: 'Media Title',
-    description: 'Media Description'
-  }
   const data = useStaticQuery(graphql`
         query {
             allWpPage(filter: {id: {eq: "cG9zdDo3MzI="}}) {
                 edges {
                     node {
+                        template {
+                            seoMetaTags {
+                                seoMetaTagsDescription
+                                seoMetaTagsJsonShema
+                                seoMetaTagsTitle
+                            }
+                        }
                         social {
                             socialBanner {
                                 socialBannerTitile
@@ -56,6 +58,11 @@ const ReviewsPage = () => {
             }
         }
     `)
+    const seoData = data?.allWpPage?.edges[0]?.node?.template?.seoMetaTags
+    const seo = {
+        title: seoData?.seoMetaTagsTitle,
+        description: seoData?.seoMetaTagsDescription
+    }
   const smallBanner = data?.allWpPage?.edges[0]?.node?.social?.socialBanner;
   const largeBanner = data?.allWpPage?.edges[0]?.node?.social?.socialLargeOrderBanner;
   const images = withArtDirection(getImage(largeBanner?.socialLargeOrderBannerImgMobile?.localFile), [

@@ -17,7 +17,7 @@ const HomePage = () => {
     description: "Home Description"
   }
 
-  return < >
+  return <>
     <Seo {...seo} />
     <HeroHome />
     <Legendary />
@@ -28,7 +28,7 @@ const HomePage = () => {
     <SettingStandart />
     <Brands />
     <ShopLink />
-  </ >
+  </>
 
 }
 
