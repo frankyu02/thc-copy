@@ -9,7 +9,7 @@ justify-content: center;
 align-items: center;
     p{
         font-family: "Integral CF";
-        font-size: ${props => props.fontsize};
+        font-size: ${props => props.fontsize || "100%"};
         font-style: italic;
         color: #612C8F;
     }
