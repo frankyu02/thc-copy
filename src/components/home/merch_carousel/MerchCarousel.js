@@ -1,9 +1,43 @@
-import React from "react"
+import React, { Suspense, useCallback, useEffect, useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { MerchCarouselStyled } from "./MerchCarousel.styled"
-import { Swiper, SwiperSlide } from "swiper/react"
 import MainButtonShop from "../../ui/main_button/MainButtonShop"
+import { __BREAKPOINTS } from "../../../styles/utils/variables"
+
+import Mobile from "./mobile"
+
+export const MerchCarouselLazy = ({ card }) => {
+  const Desktop = React.lazy(() => import("./desktop"))
+  const [isMobile, setIsMobile] = useState(true)
+  const resize = useCallback(() => {
+    if (window?.innerWidth >= __BREAKPOINTS.sm) {
+      setIsMobile(false)
+    }
+    if (window?.innerWidth < __BREAKPOINTS.sm) {
+      setIsMobile(true)
+    }
+
+  }, [])
+  useEffect(() => {
+
+    if (window?.innerWidth >= __BREAKPOINTS.sm) {
+      setIsMobile(false)
+    }
+    window?.addEventListener("resize", resize)
+    return (() => {
+      window?.removeEventListener("resize", resize)
+    })
+  }, [])
+  return (
+    <>
+      {isMobile ? <Mobile card={card} /> :
+        <Suspense fallback={<div>loading...</div>}> <Desktop card={card} /> </Suspense>}
+    </>
+
+  )
+
+}
+
 
 export const MerchCarousel = () => {
   const data = useStaticQuery(graphql`
@@ -64,47 +98,7 @@ export const MerchCarousel = () => {
       </div>
       <div className={"merch_parent"}>
         <div className={"container"}>
-          <Swiper spaceBetween={20} slidesPerView={4.2} className={"merch_cart_list"}>
-            {card.map((item, key) => (
-              <SwiperSlide className={"card"} key={key}>
-                <div className={"cart_image_wrapper"}>
-                  <GatsbyImage className="cart_img"
-                               image={getImage(item?.merchCarouselCardImg?.localFile)}
-                               alt={"banner"} />
-                  <GatsbyImage className="cart_img_hover"
-                               image={item.merchCarouselCardHoverimg !== null ? getImage(item?.merchCarouselCardHoverimg?.localFile) : getImage(item?.merchCarouselCardImg?.localFile)}
-                               alt={"banner"} />
-                  <MainButtonShop url={item?.merchCarouselCardButton?.url}
-                                  target={item?.merchCarouselCardButton?.target}>{item?.merchCarouselCardButton?.title}</MainButtonShop>
-                </div>
-                <div className={"cart_description"}>
-                  <h4>{item?.merchCarouselCardTitle}</h4>
-                  <strong>{item?.merchCarouselCardPrice}</strong>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          <div className={"merch_cart_list mobile"}>
-            {card.map((item, key) => (
-              key < 6 ?
-                <div className={"card"} key={key}>
-                  <div className={"cart_image_wrapper"}>
-                    <GatsbyImage className="cart_img"
-                                 image={getImage(item?.merchCarouselCardImg?.localFile)}
-                                 alt={"banner"} />
-                    <GatsbyImage className="cart_img_hover"
-                                 image={item.merchCarouselCardHoverimg !== null ? getImage(item?.merchCarouselCardHoverimg?.localFile) : getImage(item?.merchCarouselCardImg?.localFile)}
-                                 alt={"banner"} />
-                    <MainButtonShop url={item?.merchCarouselCardButton?.url}
-                                    target={item?.merchCarouselCardButton?.target}>{item?.merchCarouselCardButton?.title}</MainButtonShop>
-                  </div>
-                  <div className={"cart_description"}>
-                    <h4>{item?.merchCarouselCardTitle}</h4>
-                    <strong>{item?.merchCarouselCardPrice}</strong>
-                  </div>
-                </div> : null
-            ))}
-          </div>
+          <MerchCarouselLazy card={card} />
           <div className={"to_shop"}>
             <MainButtonShop url={merchCarousel?.merchCarouselButton?.url}
                             target={merchCarousel?.merchCarouselButton?.title}>{merchCarousel?.merchCarouselButton?.title}</MainButtonShop>
@@ -114,3 +108,5 @@ export const MerchCarousel = () => {
     </MerchCarouselStyled>
   )
 }
+
+
