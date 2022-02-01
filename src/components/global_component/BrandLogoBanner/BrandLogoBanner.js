@@ -10,7 +10,6 @@ const Wrapper = styled.div`
     }
 `;
 export default function BrandLogoBanner({ brand }){
-    console.log(brand);
     return(
         <>
             {brand.image ? 
