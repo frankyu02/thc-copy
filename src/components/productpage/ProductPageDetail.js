@@ -53,8 +53,6 @@ const Wrapper = styled.div`
             margin-left: 8%;
         }
         .price{
-            border: 1px solid purple;
-            width: 20%;
             margin-left: 8%;
             flex-direction: column;
             p{
