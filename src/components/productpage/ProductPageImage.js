@@ -4,7 +4,7 @@ import styled from "styled-components";
 import BrandLogoBanner from "../global_component/BrandLogoBanner/BrandLogoBanner";
 const Wrapper = styled.div`
     border: 1px solid black;
-    width: min(454px, 70%);
+    width: min(454px, 80%);
     height: 501px;
     position: relative;
     img{

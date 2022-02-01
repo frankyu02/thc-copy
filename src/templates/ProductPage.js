@@ -10,9 +10,10 @@ const Wrapper = styled.div`
     background-color: #F0F0F0;
     display: flex;
     .left{
-        border: 1px solid green;
         width: 50%;
-        height: 100%;
+        height: auto;
+        margin-top: 78px;
+        margin-left: 8%;
     }
     .right{
         border: 1px solid red;
