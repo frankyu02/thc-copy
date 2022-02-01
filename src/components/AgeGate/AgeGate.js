@@ -21,7 +21,7 @@ export const AgeGate = () => {
               ageGateLogo {
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(quality:50 )
                   }
                 }
               }
@@ -33,7 +33,7 @@ export const AgeGate = () => {
               ageGateBg {
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(quality:50 )
                   }
                 }
               }

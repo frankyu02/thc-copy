@@ -61,9 +61,9 @@ module.exports = {
         defaults: {
           formats: [`auto`, `webp`, `avif`],
           placeholder: `dominantColor`,
-          quality: 85,
+          quality: 80,
           breakpoints: [760, 1366, 1920],
-          avifOptions: { quality: 85 }
+          avifOptions: { quality: 75 }
         }
       }
     },

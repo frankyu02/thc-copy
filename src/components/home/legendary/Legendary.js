@@ -27,7 +27,9 @@ export const Legendary = () => {
                         storyLegendaryMainImg {
                             localFile {
                                 childImageSharp {
-                                    gatsbyImageData(quality: 100)
+                                    gatsbyImageData(
+                                    quality:60   
+                                    )
                                 }
                             }
                             altText
@@ -44,7 +46,7 @@ export const Legendary = () => {
                         cardsJoinBgImg {
                             localFile {
                                 childrenImageSharp {
-                                    gatsbyImageData(quality: 100)
+                                    gatsbyImageData(quality:60)
                                 }
                             }
                         }
@@ -62,7 +64,7 @@ export const Legendary = () => {
       <div className={"container"}>
         <div className={"main_legendary"}>
           <div className="legendary_image">
-            <GatsbyImage className="legendary_baner"
+            <GatsbyImage className="legendary_baner" objectFit={"cover"}
                          image={getImage(storyLegendary?.storyLegendaryMainImg?.localFile?.childImageSharp?.gatsbyImageData)}
                          alt={storyLegendary.storyLegendaryMainImg.altText || "banner"} />
           </div>

@@ -1,7 +1,6 @@
 import styled from "styled-components"
 import img from "../../../images/Group585.png"
 
-
 export const ClientReviewStyle = styled.div`
   border-top: 1px solid black;
   overflow: hidden;
