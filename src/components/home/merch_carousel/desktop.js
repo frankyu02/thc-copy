@@ -1,7 +1,7 @@
 import React from "react"
 
 
-export const HugoTest = () => {
+const MerchCarouselDesktop = () => {
   const text = []
   for (let i = 0; i < 99999; i++) {
     text.push(<p>{i}+text </p>)
@@ -15,3 +15,5 @@ export const HugoTest = () => {
 
   )
 }
+
+export default MerchCarouselDesktop
