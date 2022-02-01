@@ -1,7 +1,7 @@
 import * as React from "react"
 import Seo from "../components/layout/Seo"
 import { graphql, useStaticQuery } from "gatsby"
-import { MerchCarousel } from "../components/home/merch_carousel/MerchCarousel"
+import { MerchCarouselLazy } from "../components/home/merch_carousel/MerchCarousel.lazyloader"
 
 const HomePage = () => {
   const data = useStaticQuery(graphql`
@@ -30,7 +30,7 @@ const HomePage = () => {
     <Seo {...seo} />
     {/*<HeroHome />*/}
     {/*<Legendary />*/}
-    <MerchCarousel />
+    <MerchCarouselLazy />
     {/*<CategorySection />*/}
     {/*<ThcTv />*/}
     {/*<BlogBanner />*/}
