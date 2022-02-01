@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import ProductPageAbout from "../components/productpage/ProductPageAbout";
+import ProductPageDetail from "../components/productpage/ProductPageDetail";
 import ProductPageImage from "../components/productpage/ProductPageImage";
 
 const Wrapper = styled.div`
@@ -18,7 +19,7 @@ const Wrapper = styled.div`
     .right{
         border: 1px solid red;
         width: 50%;
-        height: 100%;
+        height: auto;
     }
 `;
 export default function ProductPage({ product }){
@@ -30,7 +31,15 @@ export default function ProductPage({ product }){
                     <ProductPageImage imgurl={product.image} name={product.name} brand={product.brand}/>
                     <ProductPageAbout description={product.description}/>
                 </div>
-                <div className="right"></div>
+                <div className="right">
+                    <ProductPageDetail 
+                        brand={product.brand}
+                        name={product.name}
+                        cbd={product.potencyCbd}
+                        thc={product.potencyThc}
+                        strainType={product.strainType}
+                        variants={product.variants}/>
+                </div>
             </Wrapper>
         </div>
     )

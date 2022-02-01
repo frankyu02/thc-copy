@@ -35,7 +35,7 @@ export default function a(){
                   ],
                   "id": "600f405cb376440003557fd9",
                   "image": "https://images.dutchie.com/f2b3551105cfcd8e9d0c2345e728917a",
-                  "name": "Color Cannabis - Pedro's Sweet Sativa Sativa - 3.5g",
+                  "name": "Blackberry Gelato",
                   "posId": "8cc735e4-67f8-4472-b562-21fb1b241f24",
                   "potencyCbd": {
                     "formatted": "0.09%",

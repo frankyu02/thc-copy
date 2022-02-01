@@ -24,7 +24,6 @@ const Wrapper = styled.div`
     }
 `;
 export default function ProductPageImage({ imgurl, name, brand }){
-    console.log(name);
     return(
         <Wrapper>
             <div className="brandLogo">
