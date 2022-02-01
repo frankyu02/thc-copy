@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import ProductPageAbout from "../components/productpage/ProductPageAbout";
 import ProductPageImage from "../components/productpage/ProductPageImage";
 
 const Wrapper = styled.div`
@@ -20,12 +21,13 @@ const Wrapper = styled.div`
     }
 `;
 export default function ProductPage({ product }){
-    // console.log(product);
+     console.log(product);
     return(
         <div className="container">
             <Wrapper>
                 <div className="left">
                     <ProductPageImage imgurl={product.image} name={product.name} brand={product.brand}/>
+                    <ProductPageAbout description={product.description}/>
                 </div>
                 <div className="right"></div>
             </Wrapper>
