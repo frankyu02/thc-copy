@@ -1,9 +1,9 @@
 import { useEffect } from "react"
 
 export const useNoScroll = (state) => {
-
+   
   useEffect(() => {
-    if (document?.body && state === true) {
+    if (document?.body && (state === true)) {
       document.body.style.overflow = "hidden"
     }
     return (() => {

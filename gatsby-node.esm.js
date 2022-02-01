@@ -5,35 +5,53 @@ export const onPostBuild = ({ reporter }) => {
 }
 // Create blog pages dynamically
 export const createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
   const blogPostTemplate = path.resolve(`src/templates/Blog-post.js`);
-  const result = await graphql(`
+  const educationsPostTemplate = path.resolve(`src/templates/Education-post.js`);
+
+  const queryPosts = await graphql(`
     query {
-             allWpPost {
-    nodes {
-      slug
-      blogPost {
-        linkName
-        signUpForm {
-          fieldGroupName
-          showForm
-          signUpFormButton
-          signUpFormChechboxText
-          signUpFormPlaceholdeer
-          signUpFormTitle
+      allWpPost {
+        nodes {
+          slug
+          categories {
+            nodes {
+              id
+            }
+          }
         }
-        shareSocial
       }
-      content
-    }
-  }
     }
   `)
-  result.data.allWpPost.nodes.forEach(node => {
+
+  const queryEducations = await graphql(`
+    query {
+      allWpEducation {
+        nodes {
+          slug
+        }
+      }
+    }
+  `)
+
+  queryPosts.data.allWpPost.nodes.forEach(node => {
     createPage({
       path: `/blog/${node.slug}`,
       component: blogPostTemplate,
-      context: { slug: node.slug }
+      context: { 
+        slug: node.slug,
+        category: node.categories.nodes[0].id
+      }
     })
-  })
+  });
+
+  queryEducations.data.allWpEducation.nodes.forEach(node => {
+    createPage({
+      path: `/education/${node.slug}`,
+      component: educationsPostTemplate,
+      context: { 
+        slug: node.slug,
+      }
+    })
+  });
 }

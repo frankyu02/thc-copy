@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { LegendaryStyles } from "./LegendaryStyles"
 import { MainButton } from "../../ui/main_button/MainButton"
 import { ModalLegendary } from "../../ui/modal_legendary/ModalLegendary"
+import { useNoScroll } from "../../../hooks/useNoScroll"
 
 export const Legendary = () => {
   const data = useStaticQuery(graphql`
@@ -55,10 +56,7 @@ export const Legendary = () => {
   const storyLegendary = data?.wpPage?.home?.storyLegendary
   const cardsJoin = data?.wpPage?.home?.cardsJoin
   const [modal, setModal] = useState(false)
-  useEffect(() => {
-    const body = document.querySelector("body")
-    body.style.overflow = modal ? "hidden" : "auto"
-  }, [modal])
+  useNoScroll(modal)
   return (
     <LegendaryStyles>
       <div className={"container"}>

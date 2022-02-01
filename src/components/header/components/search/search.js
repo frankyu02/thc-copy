@@ -12,7 +12,9 @@ export const Search = () => {
   return (
     <SearchStyled>
       <span ref={searchRef}>
-            <button onClick={onToggle} type={"button"} className={"search-btn " + (isOpen ? " hide-border" : "")}>
+     
+            <button onClick={onToggle} aria-label={"open search "} type={"button"}
+                    className={"search-btn " + (isOpen ? " hide-border" : "")}>
 
         <svg style={{ display: isOpen ? "none" : "inline" }} width="26" height="24" viewBox="0 0 26 24" fill="none"
              xmlns="http://www.w3.org/2000/svg">
@@ -31,7 +33,7 @@ export const Search = () => {
 }
 
 const SearchFrame = ({ isOpen, searchRef, onClose }) => {
- 
+
   return <SearchFrameStyled isOpen={isOpen}>
     <div className="content">
       <input type="text" className="input" placeholder={"Search"} />
