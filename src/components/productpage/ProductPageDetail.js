@@ -13,6 +13,7 @@ const Wrapper = styled.div`
     .title{
         margin-top: 30px;
         h2{
+            text-transform: uppercase;
             font-family: "Neumatic Compressed Bold";
             font-weight: bolder;
             font-size: 90px;
@@ -39,8 +40,7 @@ const Wrapper = styled.div`
         }
     }
     .details{
-        border: 1px solid black;
-        height: 20%;
+        height: 10%;
         display: flex;
         margin-top: 30px;
         .weight{
@@ -49,7 +49,7 @@ const Wrapper = styled.div`
         }
         .quantity{
             border: 1px solid green;
-            width: 20%;
+            width: 25%;
             margin-left: 8%;
         }
         .price{
