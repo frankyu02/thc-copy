@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import ProductPageImage from "../components/productpage/ProductPageImage";
 
 const Wrapper = styled.div`
     border: 1px solid black;
@@ -18,11 +19,14 @@ const Wrapper = styled.div`
         height: 100%;
     }
 `;
-export default function ProducePage({ product }){
+export default function ProductPage({ product }){
+    // console.log(product);
     return(
         <div className="container">
             <Wrapper>
-                <div className="left"></div>
+                <div className="left">
+                    <ProductPageImage imgurl={product.image} name={product.name} brand={product.brand}/>
+                </div>
                 <div className="right"></div>
             </Wrapper>
         </div>
