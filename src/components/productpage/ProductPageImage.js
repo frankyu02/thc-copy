@@ -7,9 +7,11 @@ const Wrapper = styled.div`
     width: min(454px, 80%);
     height: 501px;
     position: relative;
+    background-color: white;
     img{
+        margin-top: 10%;
         width: 100%;
-        height: 100%;
+        height: auto;
     }
     .brandLogo{
         position: absolute;
