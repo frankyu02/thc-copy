@@ -3,6 +3,7 @@ import TypeBanner from "../components/global_component/StrainTypeBanner/TypeBann
 import ClientReview from "../components/reviews/ClientReview/ClientReview";
 import styled from "styled-components";
 import BrandLogoBanner from "../components/global_component/BrandLogoBanner/BrandLogoBanner";
+import ProducePage from "../templates/ProductPage";
 const Wrapper = styled.div`
 
 width: 190px;
@@ -1043,8 +1044,6 @@ export default function a(){
       }
       const product=info.data.dutchieplus.menu;
     return(
-        <Wrapper>
-            <BrandLogoBanner brand={product.products[0].brand}/>
-        </Wrapper>
+        <ProducePage product={product.products[0]}/>
     )
 }
