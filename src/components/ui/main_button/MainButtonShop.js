@@ -3,7 +3,7 @@ import { ORDER_NOW } from "../../../utils/routes"
 
 export const MainButtonShop = ({ children, url, target }) => {
     return (
-        <a href={url || ORDER_NOW} rel="nofollow" className="main_button" target={target}>{children}</a>
+        <a href={url || ORDER_NOW} rel="noopener" className="main_button" target={target}>{children}</a>
     )
 }
 

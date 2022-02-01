@@ -1,9 +1,12 @@
-import styled from 'styled-components';
-import { sm } from '../../styles/utils/media_queries';
+import styled from "styled-components"
+import { sm } from "../../styles/utils/media_queries"
 
 export const AgeGateStyles = styled.section`
-  width: 100vw;
-  height: 100vh;
+  transition: 0.1s;
+  opacity: ${({ access }) => access ? 0 : 1};
+  pointer-events: ${({ access }) => access ? "none" : "all"};
+  right: 0;
+  bottom: 0;
   position: fixed;
   top: 0;
   left: 0;
@@ -23,7 +26,7 @@ export const AgeGateStyles = styled.section`
       z-index: -1;
       position: relative;
     }
-  }  
+  }
 
   .inner {
     position: absolute;
@@ -38,7 +41,7 @@ export const AgeGateStyles = styled.section`
     padding-bottom: 40px;
     max-height: 100vh;
     overflow: auto;
-    
+
     &::-webkit-scrollbar {
       width: 0;
     }
@@ -50,7 +53,7 @@ export const AgeGateStyles = styled.section`
 
   .title {
     font-size: 52px;
-    line-height: 62px; 
+    line-height: 62px;
     margin-top: 43px;
 
     ${sm(`
@@ -63,8 +66,8 @@ export const AgeGateStyles = styled.section`
   .age {
     margin: 43px 0;
     font-size: 72px;
-    line-height: 86px;    
-    
+    line-height: 86px;
+
     ${sm(`
       font-size: 72px;
       line-height: 86px; 
@@ -76,7 +79,7 @@ export const AgeGateStyles = styled.section`
 
   .subtitle {
     font-size: 18px;
-    line-height: 22px;     
+    line-height: 22px;
   }
 
   .main_button {
@@ -96,4 +99,4 @@ export const AgeGateStyles = styled.section`
     `)}
   }
 
-`;
+`

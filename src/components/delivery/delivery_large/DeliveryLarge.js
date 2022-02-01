@@ -43,7 +43,6 @@ export const DeliveryLarge = () => {
             image: getImage(delivery.deliveryDescriptionBg?.localFile),
         },
     ])
-    console.log(delivery)
     return (
         <DeliveryLargeStyled>
             <div className={'container'}>

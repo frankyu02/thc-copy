@@ -85,7 +85,7 @@ export const ModalLegendaryStyles = styled.div`
       .modal_content{
         align-items: baseline;
         padding: 80px 20px 50px;
-        overflow: scroll;
+        overflow: auto;
         height: 100%;
         width: 100%;
         left: 0;

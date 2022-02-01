@@ -17,13 +17,13 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
-
-    {
-      resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
-      options: {
-        devMode: true
-      }
-    },
+    //
+    // {
+    //   resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
+    //   options: {
+    //     devMode: false
+    //   }
+    // },
 
     {
       resolve: `gatsby-plugin-styled-components`,
@@ -61,9 +61,9 @@ module.exports = {
         defaults: {
           formats: [`auto`, `webp`, `avif`],
           placeholder: `dominantColor`,
-          quality: 90,
-          breakpoints: [750, 1366, 1920],
-          avifOptions: { quality: 80 }
+          quality: 85,
+          breakpoints: [760, 1366, 1920],
+          avifOptions: { quality: 85 }
         }
       }
     },

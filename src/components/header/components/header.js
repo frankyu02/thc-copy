@@ -3,19 +3,20 @@ import { Link } from "gatsby"
 import { Search } from "./search/search"
 import { NavList } from "./navList"
 import { useOpen } from "../../../hooks/useOpen"
-import { useNoScroll } from "../../../hooks/useNoScroll"
 import { OnClickOutside } from "../../../utils/onClickOutside"
+import { NoScroll } from "../../../utils/noScroll"
 
 
 export const Header = ({ logoText, headerRef }) => {
   const { isOpen: menuOpen, onToggle: toggleMenu, onClose: closeMenu, setIsOpen: setMenuOpen } = useOpen()
-  useNoScroll(menuOpen)
+
   const navIndent = headerRef?.current?.offsetHeight || 105
   const navRef = useRef()
   const burgerRef = useRef()
   return (
     <header className={"header"}>
-      <button ref={burgerRef} onClick={toggleMenu} type={"button"} className={"menu-btn " + (menuOpen ? " open" : "")}>
+      <button aria-label={"open menu "} ref={burgerRef} onClick={toggleMenu} type={"button"}
+              className={"menu-btn " + (menuOpen ? " open" : "")}>
         <div className={"line"}></div>
         <div className={"line"}></div>
         <div className={"line"}></div>
@@ -34,6 +35,7 @@ export const Header = ({ logoText, headerRef }) => {
       </div>
 
       {menuOpen && <OnClickOutside firstRef={navRef} secondRef={burgerRef} handler={closeMenu} />}
+      {menuOpen && <NoScroll />}
     </header>
   )
 }
