@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import TypeBanner from "../global_component/StrainTypeBanner/TypeBanner";
+import QuantitySelector from "./ProductPageQuantitySelector";
 
 const Wrapper = styled.div`
     border: 1px solid black;
@@ -48,8 +49,7 @@ const Wrapper = styled.div`
             width: 20%;
         }
         .quantity{
-            border: 1px solid green;
-            width: 25%;
+            width: 20%;
             margin-left: 8%;
         }
         .price{
@@ -100,9 +100,11 @@ export default function ProductPageDetail({ brand, name, cbd, thc, strainType, v
             </div>
             <div className="details" >
                 <div className="weight"></div>
-                <div className="quantity"></div>
+                <div className="quantity">
+                    <QuantitySelector quantity={quantity} setQuantity={setQuantity} />
+                </div>
                 <div className="price">
-                    <p className="subtitle">price</p>
+                    <p className="subtitle">PRICE</p>
                     <p className="total">${total}</p>
                 </div>
             </div>
