@@ -4,7 +4,7 @@ import ProductPageAbout from "../components/productpage/ProductPageAbout";
 import ProductPageDetail from "../components/productpage/ProductPageDetail";
 import ProductPageImage from "../components/productpage/ProductPageImage";
 import ProductProfile from "../components/productpage/ProductProfile";
-
+import { __BREAKPOINTS } from "../styles/utils/variables";
 const Wrapper = styled.div`
     border: 1px solid black;
     width: 100%;
@@ -25,9 +25,25 @@ const Wrapper = styled.div`
         margin-left: 8%;
         display: flex;
     }
+    @media (max-width: ${__BREAKPOINTS.sm}px){
+        height: 100%;
+        .top{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            flex-direction: column;
+        }
+        .bottom{
+            border: 1px solid red;
+            width: 100%;
+            height: auto;
+            flex-direction: column-reverse;
+            margin: 0;
+        }
+    }
 `;
 export default function ProductPage({ product }){
-     console.log(product);
+     console.log(__BREAKPOINTS.sm);
     return(
         <div className="container">
             <Wrapper>

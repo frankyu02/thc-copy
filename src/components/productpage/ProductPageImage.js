@@ -1,6 +1,7 @@
 import React from "react";
 import Img from "react-cool-img";
 import styled from "styled-components";
+import { __BREAKPOINTS } from "../../styles/utils/variables";
 import BrandLogoBanner from "../global_component/BrandLogoBanner/BrandLogoBanner";
 const Wrapper = styled.div`
     border: 1px solid black;
@@ -23,6 +24,11 @@ const Wrapper = styled.div`
             font-size: 11px;
             font-weight: bold;
         }
+    }
+    @media (max-width: ${__BREAKPOINTS.sm}px){
+        width: auto;
+        height: auto;
+        margin: 10px;
     }
 `;
 export default function ProductPageImage({ imgurl, name, brand }){

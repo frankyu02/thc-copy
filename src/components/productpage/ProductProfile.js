@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { __BREAKPOINTS } from "../../styles/utils/variables";
 import ProfileItem from "./ProfileItem";
 
 const Wrapper = styled.div`
@@ -7,6 +8,15 @@ const Wrapper = styled.div`
     height: auto;
     margin-left: 10%;
     margin-top: 40px;
+    @media (max-width: ${__BREAKPOINTS.sm}px){
+        
+        height: 300px;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        margin-top: 85px;
+        padding: 0 13px;
+    }
 `;
 const EffectContainer = styled.div`
     width: 100%;
@@ -25,6 +35,25 @@ const EffectContainer = styled.div`
         margin-left: 30%;
         position: absolute;
         left: 18%;
+    }
+    @media (max-width: ${__BREAKPOINTS.sm}px){
+        height: 25%;
+        .title{
+            font-size: 15px;
+        }
+        .content{
+            font-size: 15px;
+            left: 30%;
+        }
+    }
+    @media (max-width: ${__BREAKPOINTS.xxs}px){
+        height: 34%;
+    }
+    @media (max-width: 300px){
+        height: 35%;
+        .content{
+            left: 26%;
+        }
     }
 `;
 export default function ProductProfile({ brand, thc, cbd, category, effect }){

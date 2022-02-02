@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { __BREAKPOINTS } from "../../styles/utils/variables";
 import TypeBanner from "../global_component/StrainTypeBanner/TypeBanner";
 import ProductCartButton from "./ProductCartButton";
 import QuantitySelector from "./ProductPageQuantitySelector";
@@ -59,10 +60,10 @@ const Wrapper = styled.div`
         }
         .quantity{
             width: 20%;
-            margin-left: 8%;
+            margin-left: 10%;
         }
         .price{
-            margin-left: 8%;
+            margin-left: 10%;
             flex-direction: column;
             p{
                 margin: 0;
@@ -79,10 +80,57 @@ const Wrapper = styled.div`
             }
         }
     }
+    @media (max-width: ${__BREAKPOINTS.sm}px){
+        border: 1px solid black;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0 13px;
+        .strandType{
+            visibility: hidden;
+        }
+        .lowerStrand{
+            display: inline-block;
+        }
+        .title{
+            margin: 5px;
+            h2{
+                font-size: 60px;
+            }
+        }
+        .dosage{
+         margin-top: 0;
+         margin-top: 20px;   
+         padding: 0;
+         p{
+             font-size: 16px;
+         }
+        }
+        .details{
+            .weight{
+                width: 50%;
+            }
+            .quantity{
+                width: 40%;
+            }
+            .price{
+                width: 100%;
+                margin: 0;
+                margin-top: 25px;
+                .subtitle{
+                    font-size: 14px;
+                }
+                .total{
+                    margin: 0;
+                    font-size: 30px;
+                }
+            }
+        }
+    }
 `;
 
 export default function ProductPageDetail({ brand, name, cbd, thc, strainType, variants, cart }){
-    var show = (cbd?.formatted != null) || (thc?.formatted != null);
+    var show = (cbd?.formatted !== "") || (thc?.formatted !== "");
     const [index, setIndex] = useState(0);
     const [quantity, setQuantity] = useState(1);
     var total = 0;

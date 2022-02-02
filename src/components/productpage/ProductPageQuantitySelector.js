@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { FiPlus, FiMinus } from "react-icons/fi";
+import { __BREAKPOINTS } from "../../styles/utils/variables";
 const Wrapper = styled.div`
-   
     width: 100%;
     height: 100%;
     p{
@@ -27,7 +27,7 @@ const Wrapper = styled.div`
             border: 1px solid #612C8F;
             background: white;
             .icon{
-            color: #612C8F;
+                color: #612C8F;
             }
             &:hover{
                 cursor: pointer;
@@ -43,6 +43,34 @@ const Wrapper = styled.div`
             margin-top: 3px;
             font-size: 16px;
             font-family: "Integral CF Heavy";
+        }
+    }
+    @media (max-width: ${__BREAKPOINTS.sm}px){
+        padding: 0 30%;
+        .selector{
+            button{
+                width: 44px;
+                height: 44px;
+            }
+            p{
+                margin-top: 15px;
+                font-size: 18px;
+            }
+        }
+    }
+    @media (max-width: ${__BREAKPOINTS.xs}px){
+        padding: 0 20%;
+    }
+    @media (max-width: ${__BREAKPOINTS.xxs}px){
+        padding: 0;
+        .selector{
+            button{
+            height: 30px;
+            width: 30px;
+            }
+            p{
+                margin-top: 5px;
+            }
         }
     }
 `;

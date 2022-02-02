@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { __BREAKPOINTS } from "../../styles/utils/variables";
 
 const CartButton = styled.button`
     width: 99%;
@@ -14,6 +15,13 @@ const CartButton = styled.button`
     font-size: 18px;
     &:hover{
         cursor: pointer;
+    }
+    @media (max-width: ${__BREAKPOINTS.sm}px){
+        width: 95%;
+        height: 59px;
+        margin: 0;
+        margin-top: 26px;
+        position: static;
     }
 `;
 
