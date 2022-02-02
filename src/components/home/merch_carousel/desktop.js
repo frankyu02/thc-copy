@@ -4,8 +4,8 @@ import MainButtonShop from "../../ui/main_button/MainButtonShop"
 import { Swiper, SwiperSlide } from "swiper/react"
 import swiperCss from "!raw-loader!swiper/css"
 
-const Desktop = ({ card }) => {
 
+const Desktop = ({ card }) => {
 
   return (
     <>
