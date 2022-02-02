@@ -43,7 +43,7 @@ export const ModalSettingSrandart = ({ open, close }) => {
   const Html = () => <>
     {open && <OnEscape callback={close} />}
     {open && <OnClickOutside firstRef={ref} handler={close} />}
-    <div ref={ref} className={"modal_content"}>
+    <div ref={ref} className={"modal-content"}>
       <button className={"close"} onClick={close}>
         <StaticImage
           src="../../../images/close.svg"
@@ -52,19 +52,30 @@ export const ModalSettingSrandart = ({ open, close }) => {
           layout="fixed"
         />
       </button>
-      <div className={"legendary-modal_context"}>
-        <div className="legendary-modal_text">
-          {news?.newsModalText?.map?.((item, key) => (
-            <p key={key}>{item?.newsModalTextParagraph}</p>
-          ))}
+      <div className={" modal-context"}>
+        <div className=" modal-text">
+          <div className="left">
+            {news?.newsModalText?.map?.((item, key) => (
+
+              key < 4 && <p key={key}>{item?.newsModalTextParagraph}</p>
+            ))}
+          </div>
+          <div className="right">
+            {news?.newsModalText?.map?.((item, key) => (
+              key > 3 && <p key={key}>{item?.newsModalTextParagraph}</p>
+            ))}
+            <div className=" modal-image">
+              <GatsbyImage objectFit={"contain"}
+                           image={getImage(news?.newsModalImg?.localFile?.childImageSharp?.gatsbyImageData)}
+                           alt={news.newsModalImg.altText || "modal-img"} />
+            </div>
+          </div>
+
         </div>
         <MainButton url={news?.newsButton?.url}
                     target={news?.newsButton?.target}>{news?.newsButton?.title}</MainButton>
       </div>
-      <div className="legendary-modal_image">
-        <GatsbyImage image={getImage(news?.newsModalImg?.localFile?.childImageSharp?.gatsbyImageData)}
-                     alt={news.newsModalImg.altText || "modal-img"} />
-      </div>
+
     </div>
     <button className={"overlay"} onClick={close}>overlay</button>
   </>

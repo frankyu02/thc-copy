@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { lg } from "../../../styles/utils/media_queries"
 
 export const ModalLegendaryStyles = styled.div`
   display: none;
@@ -8,15 +9,20 @@ export const ModalLegendaryStyles = styled.div`
     position: fixed;
     left: 50%;
     padding: 100px 0;
-    transform: translate(-50%, 50%);
+    transform: translate(-50%, -50%);
+    ${lg(`
+    margin-top:90px;
+    `)}
     top: 50%;
     align-items: center;
     background: white;
     justify-content: space-between;
     max-width: 1080px;
+    max-height: 90vh;
     width: 100%;
     border: 1px solid #000000;
     z-index: 201;
+
   }
 
   .close {
@@ -70,6 +76,8 @@ export const ModalLegendaryStyles = styled.div`
     width: 70%;
     max-width: 600px;
     box-sizing: border-box;
+    max-height: 80vh;
+    overflow: auto;
 
     .main_button {
       margin: 0;
@@ -82,7 +90,7 @@ export const ModalLegendaryStyles = styled.div`
 
   @media (max-width: 1200px) {
     .modal_content {
-      top: 5%;
+
       padding: 50px 10px;
     }
 
@@ -99,12 +107,6 @@ export const ModalLegendaryStyles = styled.div`
       align-items: baseline;
       padding: 80px 20px 50px;
       overflow: auto;
-      height: 100%;
-      width: 100%;
-      left: 0;
-      top: 0;
-      right: 0;
-      transform: translate(0%);
 
       .main_button {
         color: white;
