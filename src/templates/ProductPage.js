@@ -10,16 +10,19 @@ const Wrapper = styled.div`
     height: 1090px;
     background-color: #F0F0F0;
     display: flex;
-    .left{
-        width: 50%;
-        height: auto;
+    flex-direction: column;
+    .top{
+        width: auto;
+        height: 60%;
         margin-top: 78px;
         margin-left: 8%;
+        display: flex;
     }
-    .right{
+    .bottom{
         border: 1px solid red;
-        width: 50%;
-        height: auto;
+        width: auto;
+        height: 40%;
+        margin-left: 8%;
     }
 `;
 export default function ProductPage({ product }){
@@ -27,11 +30,8 @@ export default function ProductPage({ product }){
     return(
         <div className="container">
             <Wrapper>
-                <div className="left">
+                <div className="top">
                     <ProductPageImage imgurl={product.image} name={product.name} brand={product.brand}/>
-                    <ProductPageAbout description={product.description}/>
-                </div>
-                <div className="right">
                     <ProductPageDetail 
                         brand={product.brand}
                         name={product.name}
@@ -39,6 +39,9 @@ export default function ProductPage({ product }){
                         thc={product.potencyThc}
                         strainType={product.strainType}
                         variants={product.variants}/>
+                </div>
+                <div className="bottom">
+                    <ProductPageAbout description={product.description}/>
                 </div>
             </Wrapper>
         </div>

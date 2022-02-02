@@ -6,21 +6,24 @@ import QuantitySelector from "./ProductPageQuantitySelector";
 const Wrapper = styled.div`
     border: 1px solid black;
     width: 500px;
-    height: 60%;
+    height: 100%;
+    margin-left: 10%;
+    position: relative;
     .strandType{
         width: 37%;
         height: 57px;
+        position: absolute;
+        top: -10px;
     }
     .title{
-        margin-top: 30px;
+        margin-top: 80px;
         h2{
             text-transform: uppercase;
             font-family: "Neumatic Compressed Bold";
             font-weight: bolder;
-            font-size: 90px;
+            font-size: 70px;
         }
         p{
-            margin: 0;
             font-size: 16px;
             font-family: "Integral CF Bold";
             color: #797979;

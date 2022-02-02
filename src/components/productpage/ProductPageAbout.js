@@ -4,7 +4,6 @@ import styled from "styled-components";
 const Wrapper = styled.div`
     width: min(548px, 70%);
     height: 400px;
-    margin-top: 60px;
     .title{ 
         h2{
             font-size: 50px;
@@ -16,6 +15,7 @@ const Wrapper = styled.div`
     .content{
         padding-top: 20px;
         height: auto;
+        max-width: min(454px, 80%);
         p{
             font-size: 18px;
             font-family: "MADE Outer Sans";
