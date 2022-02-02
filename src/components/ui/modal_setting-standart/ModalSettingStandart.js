@@ -40,34 +40,37 @@ export const ModalSettingSrandart = ({ open, close }) => {
     `)
   const news = data?.wpPage?.home?.news
   const ref = useRef()
-  return (
-    <ModalSettingSrandartStyles className={open ? "active" : ""}>
-      {open && <OnEscape callback={close} />}
-      {open && <OnClickOutside firstRef={ref} handler={close} />}
-      <div ref={ref} className={"modal_content"}>
-        <button className={"close"} onClick={close}>
-          <StaticImage
-            src="../../../images/close.svg"
-            alt="close"
-            placeholder="blurred"
-            layout="fixed"
-          />
-        </button>
-        <div className={"legendary-modal_context"}>
-          <div className="legendary-modal_text">
-            {news?.newsModalText?.map?.((item, key) => (
-              <p key={key}>{item?.newsModalTextParagraph}</p>
-            ))}
-          </div>
-          <MainButton url={news?.newsButton?.url}
-                      target={news?.newsButton?.target}>{news?.newsButton?.title}</MainButton>
+  const Html = () => <>
+    {open && <OnEscape callback={close} />}
+    {open && <OnClickOutside firstRef={ref} handler={close} />}
+    <div ref={ref} className={"modal_content"}>
+      <button className={"close"} onClick={close}>
+        <StaticImage
+          src="../../../images/close.svg"
+          alt="close"
+          placeholder="blurred"
+          layout="fixed"
+        />
+      </button>
+      <div className={"legendary-modal_context"}>
+        <div className="legendary-modal_text">
+          {news?.newsModalText?.map?.((item, key) => (
+            <p key={key}>{item?.newsModalTextParagraph}</p>
+          ))}
         </div>
-        <div className="legendary-modal_image">
-          <GatsbyImage image={getImage(news?.newsModalImg?.localFile?.childImageSharp?.gatsbyImageData)}
-                       alt={news.newsModalImg.altText || "modal-img"} />
-        </div>
+        <MainButton url={news?.newsButton?.url}
+                    target={news?.newsButton?.target}>{news?.newsButton?.title}</MainButton>
       </div>
-      <button className={"overlay"} onClick={close}>overlay</button>
-    </ModalSettingSrandartStyles>
+      <div className="legendary-modal_image">
+        <GatsbyImage image={getImage(news?.newsModalImg?.localFile?.childImageSharp?.gatsbyImageData)}
+                     alt={news.newsModalImg.altText || "modal-img"} />
+      </div>
+    </div>
+    <button className={"overlay"} onClick={close}>overlay</button>
+  </>
+  return (
+    open ? <ModalSettingSrandartStyles className={open ? "active" : ""}>
+      <Html />
+    </ModalSettingSrandartStyles> : <div className={"loading"}><Html /></div>
   )
 }

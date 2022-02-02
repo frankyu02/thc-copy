@@ -3,18 +3,9 @@ import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { MainButton } from "../../ui/main_button/MainButton"
 import { ModalLegendary } from "../../ui/modal_legendary/ModalLegendary"
-import { useNoScroll } from "../../../hooks/useNoScroll"
-import Styled from "./styleLazyloading"
+import { LegendaryStyles } from "./LegendaryStyles"
 
 export const Legendary = ({ lazyLoading }) => {
-  return (
-    lazyLoading ? <Styled> <NoStyles /> </Styled> : <section className={"loading"}>
-      <NoStyles />
-    </section>
-  )
-}
-
-const NoStyles = () => {
 
   const data = useStaticQuery(graphql`
         query {
@@ -67,47 +58,53 @@ const NoStyles = () => {
   const storyLegendary = data?.wpPage?.home?.storyLegendary
   const cardsJoin = data?.wpPage?.home?.cardsJoin
   const [modal, setModal] = useState(false)
-  useNoScroll(modal)
 
-  return (
-    <>
-      <div className={"container"}>
-        <div className={"main_legendary"}>
-          <div className="legendary_image">
-            <GatsbyImage className="legendary_baner" objectFit={"cover"}
-                         image={getImage(storyLegendary?.storyLegendaryMainImg?.localFile?.childImageSharp?.gatsbyImageData)}
-                         alt={storyLegendary.storyLegendaryMainImg.altText || "banner"} />
-          </div>
-          <div className={"legendary_text"}>
-            <h2>{storyLegendary?.storyLegendaryTitle}</h2>
-            {storyLegendary?.storyLegendaryMainText?.map?.((item, key) => (
-              <p key={key}>{item?.storyLegendaryMainTextItem}</p>
-            ))}
-            <button onClick={() => setModal(true)}
-                    className="read_more">{storyLegendary?.storyLegendaryModalOpen}</button>
-            <div><MainButton url={storyLegendary?.storyLegendaryButton?.url}
-                             target={storyLegendary?.storyLegendaryButton?.target}>{storyLegendary?.storyLegendaryButton?.title}</MainButton>
+  const Html = () => {
+    return (
+      <>
+        <div className={"container"}>
+          <div className={"main_legendary"}>
+            <div className="legendary_image">
+              <GatsbyImage className="legendary_baner" objectFit={"cover"}
+                           image={getImage(storyLegendary?.storyLegendaryMainImg?.localFile?.childImageSharp?.gatsbyImageData)}
+                           alt={storyLegendary.storyLegendaryMainImg.altText || "banner"} />
             </div>
-          </div>
-        </div>
-        <ModalLegendary open={modal} close={() => setModal(false)} />
-        <div className={"legendary_parent"}>
-          {cardsJoin?.map?.((item, key) => (
-            <div key={key} className="legendary_item">
-              <div className="overlay"></div>
-              <GatsbyImage layout={"constrained"} className="image_bg"
-                           image={getImage(item?.cardsJoinBgImg?.localFile?.childrenImageSharp[0]?.gatsbyImageData)}
-                           alt={"banner"} />
-              <div className="content_parent">
-                <h3>{item?.cardsJoinTitle}</h3>
-                <p>{item?.cardsJoinSubTitle}</p>
-                <MainButton url={item?.cardsJoinButton?.url}
-                            target={item?.cardsJoinButton?.target}>{item?.cardsJoinButton?.title}</MainButton>
+            <div className={"legendary_text"}>
+              <h2>{storyLegendary?.storyLegendaryTitle}</h2>
+              {storyLegendary?.storyLegendaryMainText?.map?.((item, key) => (
+                <p key={key}>{item?.storyLegendaryMainTextItem}</p>
+              ))}
+              <button onClick={() => setModal(true)}
+                      className="read_more">{storyLegendary?.storyLegendaryModalOpen}</button>
+              <div><MainButton url={storyLegendary?.storyLegendaryButton?.url}
+                               target={storyLegendary?.storyLegendaryButton?.target}>{storyLegendary?.storyLegendaryButton?.title}</MainButton>
               </div>
             </div>
-          ))}
+          </div>
+          <ModalLegendary open={modal} close={() => setModal(false)} />
+          <div className={"legendary_parent"}>
+            {cardsJoin?.map?.((item, key) => (
+              <div key={key} className="legendary_item">
+                <div className="overlay"></div>
+                <GatsbyImage layout={"constrained"} className="image_bg"
+                             image={getImage(item?.cardsJoinBgImg?.localFile?.childrenImageSharp[0]?.gatsbyImageData)}
+                             alt={"banner"} />
+                <div className="content_parent">
+                  <h3>{item?.cardsJoinTitle}</h3>
+                  <p>{item?.cardsJoinSubTitle}</p>
+                  <MainButton url={item?.cardsJoinButton?.url}
+                              target={item?.cardsJoinButton?.target}>{item?.cardsJoinButton?.title}</MainButton>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </>
+      </>
+    )
+  }
+  return (
+    lazyLoading ? <LegendaryStyles> <Html /> </LegendaryStyles> : <section className={"loading"}>
+      <Html />
+    </section>
   )
 }

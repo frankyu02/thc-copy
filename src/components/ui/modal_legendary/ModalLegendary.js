@@ -5,6 +5,7 @@ import { ModalLegendaryStyles } from "./ModalLegendary.styled"
 import { MainButton } from "../../ui/main_button/MainButton"
 import { OnEscape } from "../../../utils/onEscape"
 import { OnClickOutside } from "../../../utils/onClickOutside"
+import { NoScroll } from "../../../utils/noScroll"
 
 
 export const ModalLegendary = ({ open, close }) => {
@@ -83,9 +84,12 @@ export const ModalLegendary = ({ open, close }) => {
   return (
     <>
       {open ? <ModalLegendaryStyles className={open ? "active" : ""}>
+        <NoScroll />
         <Modal />
       </ModalLegendaryStyles> : <div className={"loading"}><Modal /></div>
       }
     </>
   )
 }
+
+

@@ -16,7 +16,6 @@ export const MerchCarouselLazy = ({ card }) => {
     if (window?.innerWidth < __BREAKPOINTS.sm) {
       setIsMobile(true)
     }
-
   }, [])
   useEffect(() => {
 
