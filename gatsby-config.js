@@ -61,11 +61,11 @@ module.exports = {
       resolve: `gatsby-plugin-sharp`,
       options: {
         defaults: {
-          formats: [`auto`, `webp`, `avif`],
+          formats: [`auto`, `webp`],
           placeholder: `dominantColor`,
           quality: 80,
-          breakpoints: [760, 1366, 1920],
-          avifOptions: { quality: 75 }
+          breakpoints: [780, 1920]
+       
         }
       }
     },

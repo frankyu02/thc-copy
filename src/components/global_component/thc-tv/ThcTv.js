@@ -24,7 +24,7 @@ const Html = () => {
                         thcTvImg {
                             localFile {
                                 childImageSharp {
-                                    gatsbyImageData(quality: 100)
+                                    gatsbyImageData 
                                 }
                             }
                         }

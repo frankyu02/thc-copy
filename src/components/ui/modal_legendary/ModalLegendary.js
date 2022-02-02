@@ -27,7 +27,7 @@ export const ModalLegendary = ({ open, close }) => {
                         storyLegendaryModalImg1{
                             localFile {
                                 childImageSharp {
-                                    gatsbyImageData(quality: 100)
+                                    gatsbyImageData 
                                 }
                             }
                             altText
@@ -35,7 +35,7 @@ export const ModalLegendary = ({ open, close }) => {
                         storyLegendaryModalImg2{
                             localFile {
                                 childImageSharp {
-                                    gatsbyImageData(quality: 100)
+                                    gatsbyImageData 
                                 }
                             }
                             altText
@@ -84,7 +84,7 @@ export const ModalLegendary = ({ open, close }) => {
     <>
       {open ? <ModalLegendaryStyles className={open ? "active" : ""}>
         <Modal />
-      </ModalLegendaryStyles> : <div className={'loading'}><Modal /></div>
+      </ModalLegendaryStyles> : <div className={"loading"}><Modal /></div>
       }
     </>
   )

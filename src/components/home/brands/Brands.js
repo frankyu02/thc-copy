@@ -20,7 +20,7 @@ export const Brands = ({ lazyLoading }) => {
                       altText
                       localFile {
                         childrenImageSharp {
-                          gatsbyImageData(quality: 100)
+                          gatsbyImageData 
                         }
                       }
                       link

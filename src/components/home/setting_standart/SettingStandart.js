@@ -25,7 +25,7 @@ export const SettingStandart = ({ lazyLoading }) => {
                         newsImg {
                             localFile {
                                 childImageSharp {
-                                    gatsbyImageData(quality: 100)
+                                    gatsbyImageData 
                                 }
                             }
                         }

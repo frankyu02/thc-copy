@@ -71,14 +71,14 @@ const Html = () => {
                                     merchCarouselCardImg {
                                         localFile {
                                             childImageSharp {
-                                                gatsbyImageData(quality: 100)
+                                                gatsbyImageData 
                                             }
                                         }
                                     }
                                     merchCarouselCardHoverimg {
                                         localFile {
                                             childImageSharp {
-                                                gatsbyImageData(quality: 100)
+                                                gatsbyImageData 
                                             }
                                         }
                                     }

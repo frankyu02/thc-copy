@@ -18,7 +18,7 @@ export const HeroHome = () => {
                         bannerBg {
                             localFile {
                                 childImageSharp {
-                                    gatsbyImageData(quality: 100)
+                                    gatsbyImageData 
                                 }
                             }
                             altText
