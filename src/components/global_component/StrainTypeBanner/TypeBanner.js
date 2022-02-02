@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 const Wrapper = styled.div`
-border: 1px solid green;
+border: 1px solid #612C8F;
 width: 100%;
 height: 100%;
 display: flex;
