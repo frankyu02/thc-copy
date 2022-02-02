@@ -15,6 +15,11 @@ const Wrapper = styled.div`
         position: absolute;
         top: -10px;
     }
+    .lowerStrand{
+        width: 116px;
+        height: 35px;
+        display: none;
+    }
     .title{
         margin-top: 80px;
         h2{
@@ -96,6 +101,9 @@ export default function ProductPageDetail({ brand, name, cbd, thc, strainType, v
             <div className="title">
                 <h2>{name}</h2>
                 <p>By {brand.name}</p>
+            </div>
+            <div className="lowerStrand">
+                <TypeBanner text={strainType} size="14px" />
             </div>
             <div className="dosage" >
                 <p>THC: {thc.formatted} &nbsp;&nbsp;|&nbsp;&nbsp; CBD: {cbd.formatted}</p>

@@ -20,7 +20,6 @@ const Wrapper = styled.div`
         display: flex;
     }
     .bottom{
-        border: 1px solid red;
         width: auto;
         height: 40%;
         margin-left: 8%;
