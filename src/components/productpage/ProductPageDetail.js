@@ -81,7 +81,6 @@ const Wrapper = styled.div`
         }
     }
     @media (max-width: ${__BREAKPOINTS.sm}px){
-        border: 1px solid black;
         width: 100%;
         height: auto;
         margin: 0;

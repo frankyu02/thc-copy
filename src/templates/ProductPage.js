@@ -34,7 +34,7 @@ const Wrapper = styled.div`
             flex-direction: column;
         }
         .bottom{
-            border: 1px solid red;
+        
             width: 100%;
             height: auto;
             flex-direction: column-reverse;

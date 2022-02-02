@@ -10,12 +10,24 @@ const Content = styled.div`
     .title{
         font-size: 18px;
         font-family: "Integral CF Bold";
+        margin-bottom: 0;
+    }
+    .filler{
+        border: 1px solid black;
+        font-size: 18px;
+        font-family: "Integral CF";
+        color: #797979;
+        width: 52%;
+        visibility: hidden; 
+        margin-bottom: 0;
+        margin-bottom: 20px;
     }
     .content{
         font-size: 18px;
         font-family: "Integral CF";
         color: #797979;
         margin-left: 30%;
+        margin-bottom: 0;
         position: absolute;
         left: 18%;
     }
@@ -23,14 +35,21 @@ const Content = styled.div`
         .title{
             font-size: 15px;
         }
+        .filler{
+            font-size: 15px;
+            width: 40%;
+        }
         .content{
             font-size: 15px;
             left: 30%;
         }
     }
     @media (max-width: 300px){
+        .filler{
+            width: 45%;
+        }
         .content{
-            left: 26%;
+            left: 25%;
         }
     }
 `;
@@ -38,6 +57,7 @@ export default function ProfileItem({ title, content, optional }){
     return(
         <Content>
                 <p className="title"> {title}</p>
+                <p className="filler">{content}</p>
                 <p className="content">{content}{optional}</p>
         </Content>
     )
