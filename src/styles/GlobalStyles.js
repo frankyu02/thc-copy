@@ -50,6 +50,7 @@ const GlobalStyles = createGlobalStyle`
 
   }
 
+
   #gatsby-focus-wrapper {
     min-height: 100vh;
     flex-direction: column;
@@ -61,6 +62,10 @@ const GlobalStyles = createGlobalStyle`
   main {
     flex-grow: 2;
     overflow-x: hidden;
+  }
+
+  footer {
+    content-visibility: auto;
   }
 
   // primary button

@@ -37,6 +37,7 @@ const HomePage = () => {
   }
   const [lazyLoading, setLazyLoading] = useState(false)
   //styles lazy loading
+
   useEffect(() => {
     if (window?.innerWidth > __BREAKPOINTS.md) {
       setLazyLoading && setLazyLoading(true)
@@ -44,7 +45,7 @@ const HomePage = () => {
       if (window) {
         setTimeout(() => {
           setLazyLoading && setLazyLoading(true)
-        }, 500)
+        }, 1500)
       }
     }
   }, [])
