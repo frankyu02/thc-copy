@@ -1,12 +1,21 @@
 import React, { useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { LegendaryStyles } from "./LegendaryStyles"
 import { MainButton } from "../../ui/main_button/MainButton"
 import { ModalLegendary } from "../../ui/modal_legendary/ModalLegendary"
 import { useNoScroll } from "../../../hooks/useNoScroll"
+import Styled from "./styleLazyloading"
 
-export const Legendary = () => {
+export const Legendary = ({ lazyLoading }) => {
+  return (
+    lazyLoading ? <Styled> <NoStyles /> </Styled> : <section className={"loading"}>
+      <NoStyles />
+    </section>
+  )
+}
+
+const NoStyles = () => {
+
   const data = useStaticQuery(graphql`
         query {
             wpPage(uri: {eq: "/"}) {
@@ -59,8 +68,9 @@ export const Legendary = () => {
   const cardsJoin = data?.wpPage?.home?.cardsJoin
   const [modal, setModal] = useState(false)
   useNoScroll(modal)
+
   return (
-    <LegendaryStyles>
+    <>
       <div className={"container"}>
         <div className={"main_legendary"}>
           <div className="legendary_image">
@@ -98,6 +108,6 @@ export const Legendary = () => {
           ))}
         </div>
       </div>
-    </LegendaryStyles>
+    </>
   )
 }

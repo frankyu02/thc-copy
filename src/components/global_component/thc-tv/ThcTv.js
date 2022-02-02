@@ -4,7 +4,16 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { ThcTvStyled } from "./ThcTv.styled"
 import { UniversalLink } from "../../../utils/universalLink"
 
-export const ThcTv = () => {
+export const ThcTv = ({ lazyLoading }) => {
+
+  return (
+    lazyLoading ? <ThcTvStyled>
+      <Html />
+    </ThcTvStyled> : <section className={"loading "}><Html /></section>
+  )
+
+}
+const Html = () => {
   const data = useStaticQuery(graphql`
         query {
             wpPage(uri: {eq: "/"}) {
@@ -56,5 +65,4 @@ export const ThcTv = () => {
     </ThcTvStyled>
   )
 }
-
 export default ThcTv

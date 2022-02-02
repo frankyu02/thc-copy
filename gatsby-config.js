@@ -32,6 +32,7 @@ module.exports = {
         // ssr: false
         // displayName: false,
         // minify: false
+        disableVendorPrefixes: true
       }
     },
 
@@ -47,6 +48,7 @@ module.exports = {
         }
       }
     },
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {

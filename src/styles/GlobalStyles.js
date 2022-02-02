@@ -186,6 +186,9 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
+  .loading {
+    display: none;
+  }
 
   // default range
   .range {
