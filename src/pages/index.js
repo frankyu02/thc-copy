@@ -9,6 +9,7 @@ import { BlogBanner } from "../components/home/blog-banner/BlogBanner"
 import Seo from "../components/layout/Seo"
 import { ShopLink } from "../components/ui/shop_link/ShopLink"
 import { graphql, useStaticQuery } from "gatsby"
+import { MerchCarousel } from "../components/home/merch_carousel/MerchCarousel"
 
 const HomePage = () => {
   const data = useStaticQuery(graphql`
@@ -37,7 +38,7 @@ const HomePage = () => {
     <Seo {...seo} />
     <HeroHome />
     <Legendary />
-    {/*<MerchCarousel />*/}
+    <MerchCarousel />
     <CategorySection />
     <ThcTv />
     <BlogBanner />
