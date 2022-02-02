@@ -3,6 +3,7 @@ import styled from "styled-components";
 import ProductPageAbout from "../components/productpage/ProductPageAbout";
 import ProductPageDetail from "../components/productpage/ProductPageDetail";
 import ProductPageImage from "../components/productpage/ProductPageImage";
+import ProductProfile from "../components/productpage/ProductProfile";
 
 const Wrapper = styled.div`
     border: 1px solid black;
@@ -23,6 +24,7 @@ const Wrapper = styled.div`
         width: auto;
         height: 40%;
         margin-left: 8%;
+        display: flex;
     }
 `;
 export default function ProductPage({ product }){
@@ -42,6 +44,7 @@ export default function ProductPage({ product }){
                 </div>
                 <div className="bottom">
                     <ProductPageAbout description={product.description}/>
+                    <ProductProfile brand={product.brand} thc={product.potencyThc} cbd={product.potencyCbd} category={product.category} effect={product.effects}/>
                 </div>
             </Wrapper>
         </div>

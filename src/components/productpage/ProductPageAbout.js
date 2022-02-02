@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-    width: min(548px, 70%);
+    width: min(454px, 80%);
     height: 400px;
     .title{ 
         h2{

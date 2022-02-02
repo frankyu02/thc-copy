@@ -46,6 +46,7 @@ const Wrapper = styled.div`
     .details{
         height: 10%;
         display: flex;
+        flex-wrap: wrap;
         margin-top: 30px;
         .weight{
             border: 1px solid red;
