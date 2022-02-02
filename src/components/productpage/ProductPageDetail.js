@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import TypeBanner from "../global_component/StrainTypeBanner/TypeBanner";
+import ProductCartButton from "./ProductCartButton";
 import QuantitySelector from "./ProductPageQuantitySelector";
 
 const Wrapper = styled.div`
-    border: 1px solid black;
     width: 500px;
     height: 100%;
     margin-left: 10%;
@@ -109,6 +109,7 @@ export default function ProductPageDetail({ brand, name, cbd, thc, strainType, v
                     <p className="total">${total}</p>
                 </div>
             </div>
+            <ProductCartButton />
         </Wrapper>
     )
 }
