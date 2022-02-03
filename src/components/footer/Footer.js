@@ -77,7 +77,7 @@ export const Footer = () => {
             <label className="footer-form__email" htmlFor="footerFormEmail">
               <input id="footerFormEmail" type="email"
                      placeholder={footer?.footerEmail?.footerEmailPlaceholder} />
-              <button type="submit">
+              <button aria-label={"subscribe on updates"} type="submit">
                 <svg width="36" height="32" viewBox="0 0 36 32" fill="none"
                      xmlns="http://www.w3.org/2000/svg">
                   <path

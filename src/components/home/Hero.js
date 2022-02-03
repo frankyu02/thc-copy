@@ -44,15 +44,15 @@ export const HeroHome = () => {
       <div className="container">
         <div className="header">
           <div className="address_parent">
-            <h4>{overBanner?.overBannerLocation1}</h4>
-            <h4>{overBanner?.overBannerLocation2}</h4>
+            <p className={"street"}>{overBanner?.overBannerLocation1}</p>
+            <p className={"street"}>{overBanner?.overBannerLocation2}</p>
           </div>
           <h1>{overBanner?.overBannerTitle}</h1>
         </div>
         <div className="inner">
           <GatsbyImage className={"background"} image={getImage(banner)} alt={bannerText} />
           <div className="caption">
-            <h3 dangerouslySetInnerHTML={{ __html: bannerTitle }} className="title" />
+            <h2 dangerouslySetInnerHTML={{ __html: bannerTitle }} className="title" />
             <MainButton url={bannerButton?.url}
                         target={bannerButton?.target}>{bannerButton?.title}</MainButton>
           </div>

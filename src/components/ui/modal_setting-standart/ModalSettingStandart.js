@@ -44,7 +44,7 @@ export const ModalSettingSrandart = ({ open, close }) => {
     {open && <OnEscape callback={close} />}
     {open && <OnClickOutside firstRef={ref} handler={close} />}
     <div ref={ref} className={"modal-content"}>
-      <button className={"close"} onClick={close}>
+      <button aria-label={"close"} className={"close"} onClick={close}>
         <StaticImage
           src="../../../images/close.svg"
           alt="close"
@@ -77,7 +77,7 @@ export const ModalSettingSrandart = ({ open, close }) => {
       </div>
 
     </div>
-    <button className={"overlay"} onClick={close}>overlay</button>
+    <button className={"overlay"} aria-label={"close"} onClick={close}>overlay</button>
   </>
   return (
     open ? <ModalSettingSrandartStyles className={open ? "active" : ""}>

@@ -47,8 +47,8 @@ export const BlogBanner = ({ lazyLoading }) => {
             <div className="blog-item" key={slug}>
               <GatsbyImage image={getImageData(featuredImage.node)} alt={title} />
               <h3>{title}</h3>
-              <Link to={"/blog/" + slug}>
-                Read more
+              <Link aria-label={"open blog article "} to={"/blog/" + slug}>
+                Read <span className={"hide-text"}>  about {title}</span> more
                 <svg width="16" height="16" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" clipRule="evenodd"
                         d="M0 0H22V22H20V3.41421L1.56425 21.85L0.150036 20.4358L18.5858 2H0V0Z" fill="#fff" />

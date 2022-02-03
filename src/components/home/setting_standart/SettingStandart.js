@@ -48,7 +48,8 @@ export const SettingStandart = ({ lazyLoading }) => {
         {news?.newsText?.map?.((item, key) => (
           <p key={key}>{item?.newsTextParagraph}</p>
         ))}
-        <button onClick={() => setModal(true)} className="read_more">{news?.newsOpenModal}</button>
+        <button aria-label={"open modal"} onClick={() => setModal(true)}
+                className="read_more">{news?.newsOpenModal}</button>
         <MainButton url={news?.newsButton?.url}
                     target={news?.newsButton?.target}>{news?.newsButton?.title}</MainButton>
       </div>

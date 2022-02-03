@@ -52,7 +52,7 @@ export const ModalLegendary = ({ open, close }) => {
     {open && <OnEscape callback={close} />}
     {open && <OnClickOutside firstRef={ref} handler={close} />}
     <div ref={ref} className={"modal_content"}>
-      <button className={"close"} onClick={close}>
+      <button aria-label={"close modal"} className={"close"} onClick={close}>
         <StaticImage
           src="../../../images/close.svg"
           alt="close"
@@ -79,7 +79,7 @@ export const ModalLegendary = ({ open, close }) => {
         </div>
       </div>
     </div>
-    <button className={"overlay"}>overlay</button>
+    <button aria-label={"close modal"} className={"overlay"}>overlay</button>
   </>
   return (
     <>
