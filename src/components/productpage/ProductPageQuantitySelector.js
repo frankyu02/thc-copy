@@ -16,7 +16,7 @@ const Wrapper = styled.div`
     .selector{
         margin-top: 10px;
         display: flex;
-        justify-content: space-between;
+        
         overflow: visible;
         button{
             display: flex;
@@ -41,6 +41,8 @@ const Wrapper = styled.div`
         }
         p{
             margin-top: 3px;
+            margin-left: 15px;
+            margin-right: 15px;
             font-size: 16px;
             font-family: "Integral CF Heavy";
         }

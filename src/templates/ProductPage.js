@@ -8,10 +8,11 @@ import { __BREAKPOINTS } from "../styles/utils/variables";
 const Wrapper = styled.div`
     border: 1px solid black;
     width: 100%;
-    height: 1090px;
+    height: 1182px;
     background-color: #F0F0F0;
     display: flex;
     flex-direction: column;
+    padding-bottom: 92px;
     .top{
         width: auto;
         height: 60%;
@@ -34,7 +35,6 @@ const Wrapper = styled.div`
             flex-direction: column;
         }
         .bottom{
-        
             width: 100%;
             height: auto;
             flex-direction: column-reverse;

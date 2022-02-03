@@ -25,6 +25,14 @@ const Wrapper = styled.div`
             font-weight: bold;
         }
     }
+    @media (max-width: ${__BREAKPOINTS.md}px){
+        width: 454px;
+        height: 500px;
+        .img{
+            width: 454px;
+            height: auto;
+        }
+    }
     @media (max-width: ${__BREAKPOINTS.sm}px){
         width: auto;
         height: auto;

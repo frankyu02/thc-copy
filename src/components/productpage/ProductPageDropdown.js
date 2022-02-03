@@ -57,6 +57,10 @@ const selectStyle = {
         fontFamily: 'Integral CF Bold',
         borderRadius: '0',
         border: '1px solid black',
+        boxShadow: state.isFocused ? 0 : 0,
+        '&:hover': {
+            border: state.isFocused ? '1px solid black' : '1px solid black'
+         }
     }),
     option: (provided, state) => ({
         ...provided,
@@ -84,9 +88,12 @@ const selectStyle = {
         fontSize: '14px',
         color: '#612C8F',
     }),
-    dropdownIndicator: (provided) => ({
+    dropdownIndicator: (provided, state) => ({
         ...provided,
         color: '#612C8F',
+        '&:hover': {
+            color: state.isFocused ? '#612C8F' : '#612C8F'
+         }
     }),
     indicatorSeparator: (provided) => ({
         ...provided,

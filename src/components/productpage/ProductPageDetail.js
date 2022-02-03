@@ -7,7 +7,7 @@ import ProductDropdown from "./ProductPageDropdown";
 import QuantitySelector from "./ProductPageQuantitySelector";
 
 const Wrapper = styled.div`
-    width: 500px;
+    width: 50%;
     height: 100%;
     margin-left: 10%;
     position: relative;
@@ -29,6 +29,7 @@ const Wrapper = styled.div`
             font-family: "Neumatic Compressed Bold";
             font-weight: bolder;
             font-size: 70px;
+            
         }
         p{
             margin: 0;
@@ -44,6 +45,7 @@ const Wrapper = styled.div`
         margin-top: 30px;
         padding: 10px 0;
         visibility: ${props => props.a ? 'visible' : 'hidden'};
+        width: 90%;
         p{
             font-family: "MADE Outer Sans";
             font-weight: bold;
@@ -57,7 +59,7 @@ const Wrapper = styled.div`
         flex-wrap: wrap;
         margin-top: 30px;
         .weight{
-            width: 20%;
+            width: 25%;
         }
         .quantity{
             width: 20%;
