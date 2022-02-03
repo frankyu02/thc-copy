@@ -156,7 +156,9 @@ export default function ProductPageDetail({ brand, name, cbd, thc, strainType, v
                 <p>THC: {thc.formatted} &nbsp;&nbsp;|&nbsp;&nbsp; CBD: {cbd.formatted}</p>
             </div>
             <div className="details" >
-                <div className="weight"></div>
+                <div className="weight">
+                    <ProductPageDropdown val={variants[index].option} setIndex={setIndex} variant={variants} />
+                </div>
                 <div className="quantity">
                     <QuantitySelector quantity={quantity} setQuantity={setQuantity} />
                 </div>

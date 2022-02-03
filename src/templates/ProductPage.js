@@ -43,7 +43,6 @@ const Wrapper = styled.div`
     }
 `;
 export default function ProductPage({ product }){
-     console.log(__BREAKPOINTS.sm);
     return(
         <div className="container">
             <Wrapper>

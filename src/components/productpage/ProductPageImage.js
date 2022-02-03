@@ -17,7 +17,7 @@ const Wrapper = styled.div`
     .brandLogo{
         position: absolute;
         width: 99px;
-        height: 22px;
+        height: auto;
         top: 10px;
         left: 20px;
         p{
