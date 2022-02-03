@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { __BREAKPOINTS } from "../../styles/utils/variables";
 import TypeBanner from "../global_component/StrainTypeBanner/TypeBanner";
 import ProductCartButton from "./ProductCartButton";
+import ProductDropdown from "./ProductPageDropdown";
 import QuantitySelector from "./ProductPageQuantitySelector";
 
 const Wrapper = styled.div`
@@ -30,6 +31,7 @@ const Wrapper = styled.div`
             font-size: 70px;
         }
         p{
+            margin: 0;
             font-size: 16px;
             font-family: "Integral CF Bold";
             color: #797979;
@@ -55,7 +57,6 @@ const Wrapper = styled.div`
         flex-wrap: wrap;
         margin-top: 30px;
         .weight{
-            border: 1px solid red;
             width: 20%;
         }
         .quantity{
@@ -157,7 +158,7 @@ export default function ProductPageDetail({ brand, name, cbd, thc, strainType, v
             </div>
             <div className="details" >
                 <div className="weight">
-                    
+                    <ProductDropdown index={index} setIndex={setIndex} variant={variants} />
                 </div>
                 <div className="quantity">
                     <QuantitySelector quantity={quantity} setQuantity={setQuantity} />

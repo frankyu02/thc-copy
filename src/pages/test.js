@@ -63,6 +63,13 @@ export default function a(){
                       "priceRec": 26.85,
                       "quantity": 7,
                       "specialPriceRec": null
+                    },
+                    {
+                      "id": "600f405cb376440003557fd10~3.5g",
+                      "option": "5g",
+                      "priceRec": 30,
+                      "quantity": 7,
+                      "specialPriceRec": null
                     }
                   ]
                 },
