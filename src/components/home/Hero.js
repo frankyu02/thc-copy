@@ -20,6 +20,7 @@ export const HeroHome = () => {
                                 childImageSharp {
                                     gatsbyImageData(quality: 100)
                                 }
+                                url
                             }
                             altText
                         }
@@ -36,6 +37,7 @@ export const HeroHome = () => {
     `)
     const overBanner = data?.wpPage?.home?.overBanner;
     const banner = data?.wpPage?.home?.banner?.bannerBg?.localFile?.childImageSharp?.gatsbyImageData;
+    const bannerURL = data?.wpPage?.home?.banner?.bannerBg?.localFile?.url;
     const bannerText = data?.wpPage?.home?.banner?.bannerBg?.altText;
     const bannerTitle = data?.wpPage?.home?.banner?.bannerTitle;
     const bannerButton = data?.wpPage?.home?.banner?.bannerButton;
@@ -53,7 +55,7 @@ export const HeroHome = () => {
                 <div className="video">
                     <ReactPlayer
                         className="background"
-                        url="https://res.cloudinary.com/dnc6bhhkf/video/upload/v1643302202/THC_January_2021_qqmkkr.mp4"       
+                        url="https://res.cloudinary.com/dnc6bhhkf/video/upload/v1643302202/THC_January_2021_qqmkkr.mp4" 
                         muted="true"
                         loop="true"
                         width="100%"
@@ -62,7 +64,7 @@ export const HeroHome = () => {
                         config={{
                             file: {
                                 attributes:{
-                                    poster: "https://media.wired.com/photos/59094a0ad8c8646f38eef2ae/master/pass/rainbow-sq.jpg"
+                                    poster: bannerURL
                                 }
                             }
                         }}
