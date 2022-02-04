@@ -14,7 +14,7 @@ export default function BrandLogoBanner({ brand }){
         <>
             {brand.image ? 
                 <Wrapper>
-                    <Img src={brand.image} alt={brand.name} />
+                    <Img src={brand.imageUrl} alt={brand.name} />
                 </Wrapper>
             :
                 <Wrapper>

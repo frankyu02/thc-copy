@@ -11,31 +11,35 @@ import { ShopLink } from "../components/ui/shop_link/ShopLink"
 import { graphql, useStaticQuery } from "gatsby"
 import { MerchCarousel } from "../components/home/merch_carousel/MerchCarousel"
 
-const HomePage = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      allWpPage(filter: {id: {eq: "cG9zdDo3"}}) {
-        nodes {
-          template {
-            seoMetaTags {
-              seoMetaTagsDescription
-              seoMetaTagsJsonShema
-              seoMetaTagsTitle
-            }
-          }
-        }
-      }
-    }
-  `)
+import MenuGrid from "../components/menu/menuHub";
+import products from "../components/menu/dutchie-dumby-data.json"
 
-  const seoData = data?.allWpPage?.nodes[0]?.template?.seoMetaTags
-  const seo = {
-    title: seoData?.seoMetaTagsTitle,
-    description: seoData?.seoMetaTagsDescription
-  }
+const HomePage = () => {
+  // const data = useStaticQuery(graphql`
+  //   query {
+  //     allWpPage(filter: {id: {eq: "cG9zdDo3"}}) {
+  //       nodes {
+  //         template {
+  //           seoMetaTags {
+  //             seoMetaTagsDescription
+  //             seoMetaTagsJsonShema
+  //             seoMetaTagsTitle
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
+
+  // const seoData = data?.allWpPage?.nodes[0]?.template?.seoMetaTags
+  // const seo = {
+  //   title: seoData?.seoMetaTagsTitle,
+  //   description: seoData?.seoMetaTagsDescription
+  // }
 
   return <>
-    <Seo {...seo} />
+  <MenuGrid products={products.data.dutchieplus.menu.products}/>
+    {/* <Seo {...seo} />
     <HeroHome />
     <Legendary />
     <MerchCarousel />
@@ -44,7 +48,7 @@ const HomePage = () => {
     <BlogBanner />
     <SettingStandart />
     <Brands />
-    <ShopLink />
+    <ShopLink /> */}
   </>
 
 }
