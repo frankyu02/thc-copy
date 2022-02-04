@@ -12,6 +12,7 @@ export const HeroStyled = styled.section`
       margin: 0;
       line-height: 1;
       font-size: 160px;
+      overflow: hidden;
 
     }
 
@@ -24,6 +25,7 @@ export const HeroStyled = styled.section`
       font-size: 16px;
       font-weight: 700;
       font-family: var(--fontPrimaryBold);
+      font-family: "Integral CF";
       max-width: 180px;
     }
 

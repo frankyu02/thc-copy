@@ -3,13 +3,11 @@ import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { HeroStyled } from "./Hero.styled";
 import { MainButton } from "../ui/main_button/MainButton";
-<<<<<<< HEAD
-import { animated, useSpring } from '@react-spring/web'
+import { animated, useSpring} from '@react-spring/web'
 import { useInView } from 'react-intersection-observer';
 
-=======
 import ReactPlayer from "react-player/lazy";
->>>>>>> development
+
 export const HeroHome = () => {
 
     const { ref, inView, entry } = useInView({
@@ -17,21 +15,42 @@ export const HeroHome = () => {
     });
 
     const styles = useSpring({
-        opacity: inView ? 1 : 0,
-        delay: 500,
-        x: inView ? 0 : -50
+        from: {
+            opacity: 0,
+            x: -700
+        },
+        to: {
+            opacity: inView ? 1 : 0,
+            x: inView ? 0 : -700,
+            
+        },
+        delay: 100,
+        config:{ mass: 5, tension: 2000, friction: 200 }
+    })
+    const styles2b = useSpring({
+        from: {
+            opacity: 0,
+            x: 700
+        },
+        to: {
+            opacity: inView ? 1 : 0,
+            x: inView ? 0 : 700,
+        },
+        config:{ mass: 5, tension: 2000, friction: 200 }
     })
 
-    const styles3 = useSpring({
-        opacity: inView ? 1 : 0,
-        delay: 500,
-        y: inView ? 0 : -50
+    const styles3 = useSpring( {
+        from: {
+            opacity: 0,
+            y: 250
+        },
+        to: {
+            opacity: inView ? 1 : 0,
+            y: inView ? 0 : 250,
+        },
+        config:{ mass: 2, tension: 2000, friction: 200 }
     })
-
-    const styles2 = useSpring({
-        opacity: inView ? 1 : 0,
-        x: inView ? 0 : -50
-    })
+    
 
     const data = useStaticQuery(graphql`
         query {
@@ -80,8 +99,8 @@ export const HeroHome = () => {
                     <p className={"street"}>{overBanner?.overBannerLocation2}</p>
                  </animated.div>
                   </div>
-                  <animated.div style={styles2} ref={ref}>
-                  <h1>{overBanner?.overBannerTitle}</h1>
+                  <animated.div style={styles2b} ref={ref}>
+                    <span><h1>{overBanner?.overBannerTitle}</h1></span>
                   </animated.div>
               </div>
               <div className="inner">
@@ -104,9 +123,13 @@ export const HeroHome = () => {
                     />
                 </div>
                 <div className="caption">
-                    <h2 dangerouslySetInnerHTML={{ __html: bannerTitle }} className="title" />
+                    
+                        <h2 dangerouslySetInnerHTML={{ __html: bannerTitle }} className="title" />
+                    
+                    <animated.div style={styles3} ref={ref}>
                     <MainButton url={bannerButton?.url}
                         target={bannerButton?.target}>{bannerButton?.title}</MainButton>
+                    </animated.div>
                 </div>
               </div>
           </div>
