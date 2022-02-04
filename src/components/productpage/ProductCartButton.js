@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { __BREAKPOINTS } from "../../styles/utils/variables";
 
 const CartButton = styled.button`
-    width: 90%;
+    width: 99%;
     height: 59px;
     margin-left: 1%;
     position: absolute;

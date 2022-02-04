@@ -17,28 +17,45 @@ const Wrapper = styled.div`
         width: auto;
         height: 60%;
         margin-top: 78px;
-        margin-left: 8%;
+        padding-left: 8%;
+        padding-right: 8%;
         display: flex;
     }
     .bottom{
         width: auto;
         height: 40%;
-        margin-left: 8%;
+        padding-left: 8%;
+        padding-right: 8%;
         display: flex;
+    }
+    @media (max-width: ${__BREAKPOINTS.md}px){
+        .top{
+            padding-left: 5%;
+            padding-right: 5%;
+        }
+        .bottom{
+            padding-left: 5%;
+            padding-right: 5%;
+        }
     }
     @media (max-width: ${__BREAKPOINTS.sm}px){
         height: 100%;
+        padding-bottom: 0;
         .top{
             width: 100%;
             height: 100%;
             margin: 0;
             flex-direction: column;
+            padding-left: 1px;
+            padding-right: 1px;
         }
         .bottom{
             width: 100%;
             height: auto;
             flex-direction: column-reverse;
             margin: 0;
+            padding-left: 10px;
+            padding-right: 10px;
         }
     }
 `;

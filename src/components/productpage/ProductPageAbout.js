@@ -3,7 +3,8 @@ import styled from "styled-components";
 import { __BREAKPOINTS } from "../../styles/utils/variables";
 
 const Wrapper = styled.div`
-    width: min(454px, 80%);
+    min-width: 454px;
+    max-width: 454px;
     height: 400px;
     .title{ 
         h2{
@@ -16,14 +17,24 @@ const Wrapper = styled.div`
     .content{
         padding-top: 20px;
         height: auto;
-        max-width: min(454px, 80%);
         p{
             font-size: 18px;
-            font-family: "MADE Outer Sans";
+            font-family: "MADE Outer Sans Light";
             font-weight: bold;
         }
     }
+    @media (max-width: ${__BREAKPOINTS.md}px){
+        min-width: 400px;
+        max-width: 400px;
+        height: 400px;
+        .img{
+            width: 454px;
+            height: auto;
+        }
+    }
     @media (max-width: ${__BREAKPOINTS.sm}px){
+        min-width: 0;
+        max-width: none;
         padding: 0 13px;
         width: 100%;
         height: 100%;

@@ -51,11 +51,13 @@ const Wrapper = styled.div`
         padding: 0 30%;
         .selector{
             button{
-                width: 44px;
-                height: 44px;
+                min-width: 44px;
+                min-height: 44px;
             }
             p{
-                margin-top: 15px;
+                text-align: center;
+                margin-top: 10px;
+                min-width: 32px;
                 font-size: 18px;
             }
         }
@@ -66,12 +68,9 @@ const Wrapper = styled.div`
     @media (max-width: ${__BREAKPOINTS.xxs}px){
         padding: 0;
         .selector{
-            button{
-            height: 30px;
-            width: 30px;
-            }
             p{
-                margin-top: 5px;
+                margin-left: 1px;
+                margin-right: 1px;
             }
         }
     }

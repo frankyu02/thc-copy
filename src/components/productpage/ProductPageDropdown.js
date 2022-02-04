@@ -18,7 +18,7 @@ const Wrapper = styled.div`
         height: 40px;
         display: flex;
         padding-left: 11px;
-        margin-top: 3px;
+        margin-top: 10px;
         align-items: center;
         background: white;
         font-size: 14px;
@@ -50,7 +50,7 @@ const selectStyle = {
         ...provided,
         width: '100%',
         height: '40px',
-        marginTop: '3px',
+        marginTop: '10px',
         background: 'white',
         color: '#612C8F',
         fontSize: '14px',
@@ -64,10 +64,10 @@ const selectStyle = {
     }),
     option: (provided, state) => ({
         ...provided,
-        color: '#612C8F',
+        color: state.isSelected ? 'white' : '#612C8F',
         display: 'flex',
         alignItems: 'center',
-        background: 'white',
+        background: state.isSelected ? '#612C8F' : 'white',
         fontFamily: 'Integral CF Bold',
         fontSize: '14px',
         paddingLeft: '11px',
@@ -76,6 +76,7 @@ const selectStyle = {
     menu: (provided, state) => ({
         ...provided,
         margin: '0',
+        padding: '0',
         borderRadius: '0',
         width: '100%',
         background: 'white',

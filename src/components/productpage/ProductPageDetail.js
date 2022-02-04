@@ -7,7 +7,6 @@ import ProductDropdown from "./ProductPageDropdown";
 import QuantitySelector from "./ProductPageQuantitySelector";
 
 const Wrapper = styled.div`
-    width: 50%;
     height: 100%;
     margin-left: 10%;
     position: relative;
@@ -34,7 +33,7 @@ const Wrapper = styled.div`
         p{
             margin: 0;
             font-size: 16px;
-            font-family: "Integral CF Bold";
+            font-family: "Integral CF";
             color: #797979;
         }
     }
@@ -45,9 +44,9 @@ const Wrapper = styled.div`
         margin-top: 30px;
         padding: 10px 0;
         visibility: ${props => props.a ? 'visible' : 'hidden'};
-        width: 90%;
+        
         p{
-            font-family: "MADE Outer Sans";
+            font-family: "MADE Outer Sans Light";
             font-weight: bold;
             color: #797979;
             font-size: 24px;
@@ -110,10 +109,10 @@ const Wrapper = styled.div`
         }
         .details{
             .weight{
-                width: 50%;
+                width: 45%;
             }
             .quantity{
-                width: 40%;
+                width: 45%;
             }
             .price{
                 width: 100%;
