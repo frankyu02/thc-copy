@@ -8,7 +8,7 @@ import { animated, useSpring } from '@react-spring/web';
 
 const MenuCard = ({ product }) => {
     const [index, setIndex] = useState(0);
-    // const [{ y, opacity }, set] = useSpring(() => ({ y: 100, opacity: 0 }));
+    const [styles, set] = useSpring(() => ({ y: 20, opacity: 0 }));
 
     function detailDisplay (product) {
         if (typeof product.potencyThc === 'undefined' && typeof product.potencyCbd === 'undefined') {
@@ -50,6 +50,9 @@ const MenuCard = ({ product }) => {
             if (product.name.length > 50) {
                 result = `${product.name.substring(0,46)}...`;
             }
+            else {
+                result = product.name;
+            }
         }
         return result;
     }
@@ -57,17 +60,15 @@ const MenuCard = ({ product }) => {
     return (
         <MenuCardStyles>
             <div className="card">
-                <div className="imgDiv">
+                <div className="imgDiv" 
+                    onMouseEnter={() => set({ y: 0, opacity: 1 })}
+                    onMouseLeave={() => set({ y: 20, opacity: 0 })}>
                     <div className="brand"><BrandLogoBanner brand={product.brand}/></div>
                     <div className="strain"><TypeBanner text={product.strainType} size={"14px"}/></div>
-                    <div className="image"><Img src={product.image} alt={product.name}/></div>
-                    <div className="cartBanner">
-                        {/* <button 
-                            className="button" 
-                            onMouseEnter={() => set({ y: 0, opacity: 1 })}
-                            onMouseLeave={() => set({ y: 100, opacity: 0 })}
-                        >ADD TO CART</button> */}
-                    </div>
+                    <div className="image"><Img className="realImage" src={product.image} alt={product.name}/></div>
+                    <animated.div className="cartBanner" style={styles}>
+                        <button><p className="buttonText">ADD TO CART</p></button>
+                    </animated.div>
                 </div>
                 <div className="detail">
                     <p>{detailDisplay(product)}</p>
@@ -77,6 +78,7 @@ const MenuCard = ({ product }) => {
                 </div>
                 <div className="price">
                     <h5>{product.variants[index].specialPriceRec === null ? `$${product.variants[index].priceRec}` : `$${product.variants[index].specialPriceRec}`}</h5>
+                    <h5 className="slash"> &nbsp;/&nbsp; </h5>
                     <Dropdown index={index} setIndex={setIndex} variant={product.variants}/>
                 </div>
             </div>

@@ -14,6 +14,7 @@ const MenuGridStyles = styled.div`
             grid-template-columns: repeat(3, 1fr);
             grid-auto-rows: 1fr;
             width: 100%;
+            background: #F0F0F0;
             .cell {
                 box-sizing: border-box;
                 border: 1px solid black;
