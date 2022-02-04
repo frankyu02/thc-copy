@@ -12,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
     --placeholder: #808080;
     --container-xl: 1400px;
     --fontPrimary: 'Integral CF', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    --fontPrimaryBold: 'Integral CF', 'ARIAL BLACK', Heavy -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    --fontPrimaryBold: 'Integral CF Bold', 'ARIAL BLACK', Heavy -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   }
 
   html {
@@ -50,6 +50,7 @@ const GlobalStyles = createGlobalStyle`
 
   }
 
+
   #gatsby-focus-wrapper {
     min-height: 100vh;
     flex-direction: column;
@@ -58,9 +59,21 @@ const GlobalStyles = createGlobalStyle`
     justify-content: flex-start;
   }
 
+  .hide {
+    display: none;
+  }
+
+  .hide-text {
+    font-size: 0;
+  }
+
   main {
     flex-grow: 2;
     overflow-x: hidden;
+  }
+
+  footer {
+    content-visibility: auto;
   }
 
   // primary button
@@ -186,6 +199,9 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
+  .loading {
+    display: none;
+  }
 
   // default range
   .range {

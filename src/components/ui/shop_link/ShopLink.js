@@ -25,7 +25,7 @@ export const ShopLink = () => {
   const shopLogo = data?.wp?.thcwebsiteGeneralOption?.shoplink?.shopLogo
   return (
     <LinkStyles>
-      <UniversalLink area-label={"link to menu"} to={MENU_LINK}>
+      <UniversalLink aria-label={"link to menu"} to={MENU_LINK}>
         <img className={"link"} src={shopLogo?.localFile?.publicURL} alt="link to menu" />
       </UniversalLink>
     </LinkStyles>

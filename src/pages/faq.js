@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { SmallHero } from "../components/global_component/small_hero/SmallHero"
 import { TitleSubtext } from "../components/faq/title_subtext/TitleSubtext"
 import Seo from "../components/layout/Seo"
+import FAQComponent from "../components/faq/FAQ_component/FaqComponent"
 
 const FaqPage = () => {
   const data = useStaticQuery(graphql`
@@ -44,6 +45,7 @@ const FaqPage = () => {
       <Seo {...seo} />
       <SmallHero title={title} banner={banner} />
       <TitleSubtext />
+      <FAQComponent />
     </>
   );
 }

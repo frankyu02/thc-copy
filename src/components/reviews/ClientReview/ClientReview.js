@@ -2,13 +2,14 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { Swiper, SwiperSlide } from "swiper/react"
 import SwiperCore, { Navigation } from "swiper"
-import "swiper/css"
-import "swiper/css/navigation"
+
+import swiperCss from "!raw-loader!swiper/css"
+import swiperNavCss from "!raw-loader!swiper/css/navigation"
 import { ClientReviewStyle, Reviews, SwiperContainer } from "./ReviewStyles"
 
 SwiperCore.use([Navigation])
 
-export default function ClientReview() {
+export const ClientReview = () => {
 
   const data = useStaticQuery(graphql`
         query{
@@ -30,6 +31,9 @@ export default function ClientReview() {
   const reviewdata = data?.wpPage?.reviews?.clientReviews
   return (
     <ClientReviewStyle>
+
+      <style>{swiperCss} {swiperNavCss}</style>
+
       <div className="reviewContainer">
         <div className="title">
           <h2>{reviewdata.clientReviewsTitle}</h2>

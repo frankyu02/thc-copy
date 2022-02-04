@@ -24,7 +24,7 @@ const ReviewsPage = () => {
                                 socialBannerImg {
                                     localFile {
                                         childImageSharp {
-                                            gatsbyImageData(quality: 100)
+                                            gatsbyImageData 
                                         }
                                     }
                                 }
@@ -35,14 +35,14 @@ const ReviewsPage = () => {
                                 socialLargeOrderBannerImg {
                                     localFile {
                                         childImageSharp {
-                                            gatsbyImageData(quality: 100)
+                                            gatsbyImageData 
                                         }
                                     }
                                 }
                                 socialLargeOrderBannerImgMobile {
                                     localFile {
                                         childImageSharp {
-                                            gatsbyImageData(quality: 100)
+                                            gatsbyImageData 
                                         }
                                     }
                                 }
@@ -58,18 +58,18 @@ const ReviewsPage = () => {
             }
         }
     `)
-    const seoData = data?.allWpPage?.edges[0]?.node?.template?.seoMetaTags
-    const seo = {
-        title: seoData?.seoMetaTagsTitle,
-        description: seoData?.seoMetaTagsDescription
-    }
-  const smallBanner = data?.allWpPage?.edges[0]?.node?.social?.socialBanner;
-  const largeBanner = data?.allWpPage?.edges[0]?.node?.social?.socialLargeOrderBanner;
+  const seoData = data?.allWpPage?.edges[0]?.node?.template?.seoMetaTags
+  const seo = {
+    title: seoData?.seoMetaTagsTitle,
+    description: seoData?.seoMetaTagsDescription
+  }
+  const smallBanner = data?.allWpPage?.edges[0]?.node?.social?.socialBanner
+  const largeBanner = data?.allWpPage?.edges[0]?.node?.social?.socialLargeOrderBanner
   const images = withArtDirection(getImage(largeBanner?.socialLargeOrderBannerImgMobile?.localFile), [
     {
       media: "(min-width: 768px)",
-      image: getImage(largeBanner?.socialLargeOrderBannerImg?.localFile),
-    },
+      image: getImage(largeBanner?.socialLargeOrderBannerImg?.localFile)
+    }
   ])
   return (
     <>
@@ -85,4 +85,4 @@ const ReviewsPage = () => {
   )
 }
 
-export default ReviewsPage;
+export default ReviewsPage

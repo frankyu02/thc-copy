@@ -1,43 +1,52 @@
-import styled from 'styled-components';
-import {md, sm, xs, xxs} from "../../../styles/utils/media_queries";
+import styled from "styled-components"
+import { md, sm, xs, xxs } from "../../../styles/utils/media_queries"
 
 export const InfoBannerStyled = styled.section`
   padding: 60px 15px 0;
-  .promo-item{
+
+  .promo-item {
     border: 1px solid #000;
     margin-bottom: 80px;
     min-height: 200px;
   }
-  .promo-item:last-child{
+
+  .promo-item:last-child {
     margin-bottom: 0;
   }
-  .promo-context{
+
+  .promo-context {
     padding: 30px;
     text-align: center;
   }
-  ul{
+
+  ul {
     padding: 0;
     list-style: none;
   }
-  li{
+
+  li {
     font-family: Integral CF Bold;
     padding: 0 10px;
   }
-  ul, h3{
+
+  ul, h3 {
     letter-spacing: 0.01em;
     text-transform: uppercase;
     font-style: italic;
   }
-  h3{
+
+  h3 {
     font-size: 30px;
     font-family: 'Integral CF';
   }
-  .promo-info{
+
+  .promo-info {
     background: #612C8F;
     color: #fff;
     font-family: 'Integral CF Bold';
     padding: 30px 20px 20px;
-    .btn{
+
+    .btn {
       text-align: center;
       background: #fff;
       color: #000;
@@ -46,27 +55,44 @@ export const InfoBannerStyled = styled.section`
       font-size: 18px;
     }
   }
-  .promo-price{
+
+  .promo-price {
     display: flex;
     margin-bottom: 30px;
-    h4{
-      font-size: 20px;
+    gap: 10px;
+
+    ${xxs(`gap:20px  `)}
+    h4 {
+      font-size: 16px;
+
+
+      span {
+        font-size: 20px;
+        ${xxs(`font-size:36px`)}
+      }
+
       font-style: italic;
       line-height: 1;
-      padding-left: 20px;
       max-width: 300px;
     }
-    p{
+
+    p {
+      flex-shrink: 0;
       width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-family: 'Integral CF';
       text-align: right;
-      font-size: 40px;
+      font-size: 32px;
+      ${xxs(`font-size:40px ;  width:50%`)}
       line-height: 1;
       margin: 0;
       font-style: italic;
       line-height: 80%;
     }
   }
+
   ${xxs(`
     h2{
       font-size: 45px;
@@ -142,7 +168,7 @@ export const InfoBannerStyled = styled.section`
     .promo-price{
       margin-bottom: 30px;
       h4{
-        font-size: 30px;
+        font-size: 28px;
         padding-left: 20px;
       }
       p{
@@ -151,4 +177,4 @@ export const InfoBannerStyled = styled.section`
       }
     }
   `)}
-`;
+`

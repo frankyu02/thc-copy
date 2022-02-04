@@ -4,7 +4,7 @@ import styled from "styled-components"
 export const HeroStyled = styled.section`
   .header {
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: space-between;
     margin-bottom: 40px;
 
@@ -12,17 +12,26 @@ export const HeroStyled = styled.section`
       margin: 0;
       line-height: 1;
       font-size: 160px;
+
     }
 
-    h4 {
+    .address_parent {
+      margin-top: 40px;
+    }
+
+    .street {
+      margin-top: 0;
       font-size: 16px;
+      font-weight: 700;
+      font-family: var(--fontPrimaryBold);
       max-width: 180px;
     }
 
-    h4:first-child {
+    .street:first-child {
       margin-bottom: 30px;
     }
   }
+
 
   .inner {
     padding: 10px;
@@ -33,13 +42,21 @@ export const HeroStyled = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-
+    .video{
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      padding-top: 56.25%;
+      video{
+        object-fit: cover;
+      }
+    }
     .caption {
       position: relative;
       z-index: 1;
       font-weight: 400;
 
-      h3 {
+      .title {
         font-size: 48px;
         color: white;
         text-align: center;
@@ -52,10 +69,13 @@ export const HeroStyled = styled.section`
     }
 
     .background {
+      pointer-events: none;
+      display: inline-block;
       position: absolute;
-      height: 100%;
       top: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
     }
 
     .mark {
@@ -72,7 +92,7 @@ export const HeroStyled = styled.section`
         font-size: 110px;
       }
 
-      h4 {
+      .street {
         font-size: 14px;
       }
 
@@ -80,7 +100,7 @@ export const HeroStyled = styled.section`
         margin-top: 20px;
       }
 
-      h4:first-child {
+      .street:first-child {
         margin-bottom: 10px;
       }
     }
@@ -92,18 +112,16 @@ export const HeroStyled = styled.section`
         bottom: 70px;
       }
     }
-  }
-  @media (max-width: 1200px) {
-    .header {
-      h1 {
-        font-size: 92px;
-      }
-    }
-  }
-  @media (max-width: 1024px) {
+   }
+   /* @media (max-width: 975px) {
+     .inner{
+      max-height: 400px;
+     }
+   } */
+   @media (max-width: 1024px) {
     .header {
       margin-bottom: 20px;
-      align-items: center;
+
 
       h1 {
         font-size: 70px;
@@ -116,7 +134,7 @@ export const HeroStyled = styled.section`
       }
 
       .caption {
-        h3 {
+        .title {
           font-size: 40px;
         }
       }
@@ -136,7 +154,7 @@ export const HeroStyled = styled.section`
         display: flex;
         justify-content: space-between;
 
-        h4 {
+        .street {
           max-width: 46%;
           font-size: 16px;
         }
@@ -146,12 +164,11 @@ export const HeroStyled = styled.section`
     .inner {
       .mark {
         width: 75px;
-        bottom: 20px;
         right: 10px;
       }
 
       .caption {
-        h3 {
+        .title {
           font-size: 36px;
         }
       }
@@ -161,7 +178,7 @@ export const HeroStyled = styled.section`
 
     .inner {
       .caption {
-        h3 {
+        .title {
           font-size: 30px;
         }
       }
@@ -174,7 +191,7 @@ export const HeroStyled = styled.section`
       }
 
       .address_parent {
-        h4 {
+        .street {
           font-size: 13px;
           margin-bottom: 0;
         }
