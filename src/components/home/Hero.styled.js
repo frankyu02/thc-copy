@@ -17,13 +17,15 @@ export const HeroStyled = styled.section`
 
     .address_parent {
       margin-top: 40px;
+      font-family: 'Integral CF Bold';
+      text-transform: uppercase;
     }
 
     .street {
       margin-top: 0;
       font-size: 16px;
       font-weight: 700;
-      font-family: var(--fontPrimaryBold);
+      /* font-family: var(--fontPrimaryBold); */
       max-width: 180px;
     }
 
