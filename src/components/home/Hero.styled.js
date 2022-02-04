@@ -13,7 +13,6 @@ export const HeroStyled = styled.section`
       line-height: 1;
       font-size: 160px;
       overflow: hidden;
-
     }
 
     .address_parent {
