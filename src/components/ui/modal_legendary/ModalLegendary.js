@@ -1,13 +1,15 @@
-import React, {useRef} from 'react';
-import { useStaticQuery, graphql } from "gatsby";
-import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image";
-import { ModalLegendaryStyles } from "./ModalLegendary.styled";
-import { MainButton } from "../../ui/main_button/MainButton";
-import {OnEscape} from "../../../utils/onEscape";
-import {OnClickOutside} from "../../../utils/onClickOutside";
+import React, { useRef } from "react"
+import { graphql, useStaticQuery } from "gatsby"
+import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
+import { ModalLegendaryStyles } from "./ModalLegendary.styled"
+import { MainButton } from "../../ui/main_button/MainButton"
+import { OnEscape } from "../../../utils/onEscape"
+import { OnClickOutside } from "../../../utils/onClickOutside"
+import { NoScroll } from "../../../utils/noScroll"
 
-export const ModalLegendary = ({open, close}) => {
-    const data = useStaticQuery(graphql`
+
+export const ModalLegendary = ({ open, close }) => {
+  const data = useStaticQuery(graphql`
         query {
             wpPage(uri: {eq: "/"}) {
                 home {
@@ -26,7 +28,7 @@ export const ModalLegendary = ({open, close}) => {
                         storyLegendaryModalImg1{
                             localFile {
                                 childImageSharp {
-                                    gatsbyImageData(quality: 100)
+                                    gatsbyImageData 
                                 }
                             }
                             altText
@@ -34,7 +36,7 @@ export const ModalLegendary = ({open, close}) => {
                         storyLegendaryModalImg2{
                             localFile {
                                 childImageSharp {
-                                    gatsbyImageData(quality: 100)
+                                    gatsbyImageData 
                                 }
                             }
                             altText
@@ -44,35 +46,50 @@ export const ModalLegendary = ({open, close}) => {
             }
         }
     `)
-    const storyLegendary =  data?.wpPage?.home?.storyLegendary;
-    const ref = useRef()
-    return (
-        <ModalLegendaryStyles className={open ? "active" : ''}>
-            {open && <OnEscape callback={close}/>}
-            {open && <OnClickOutside firstRef={ref} handler={close} />}
-            <div ref={ref} className={'modal_content'}>
-                <button className={'close'} onClick={close}>
-                    <StaticImage
-                        src="../../../images/close.svg"
-                        alt="close"
-                        placeholder="blurred"
-                        layout="fixed"
-                    />
-                </button>
-                <div className='legendary-modal_image'>
-                    <GatsbyImage className='top_baner' image={getImage(storyLegendary?.storyLegendaryModalImg1?.localFile?.childImageSharp?.gatsbyImageData)} alt={storyLegendary?.storyLegendaryModalImg1?.altText || 'banner'}/>
-                    <GatsbyImage className='bottom_baner' image={getImage(storyLegendary?.storyLegendaryModalImg2?.localFile?.childImageSharp?.gatsbyImageData)} alt={storyLegendary?.storyLegendaryModalImg2?.altText || 'banner'}/>
-                </div>
-                <div className={'legendary-modal_context'}>
-                    <div className="legendary-modal_text">
-                        {storyLegendary?.storyLegendaryModalText?.map?.((item, key) => (
-                            <p key={key}>{item?.storyLegendaryModalTextItem}</p>
-                        ))}
-                    </div>
-                    <div><MainButton url={storyLegendary?.storyLegendaryButton?.url} target={storyLegendary?.storyLegendaryButton?.target}>{storyLegendary?.storyLegendaryButton?.title}</MainButton></div>
-                </div>
-            </div>
-            <button className={'overlay'}>overlay</button>
-        </ModalLegendaryStyles>
-    );
-};
+  const storyLegendary = data?.wpPage?.home?.storyLegendary
+  const ref = useRef()
+  const Modal = () => <>
+    {open && <OnEscape callback={close} />}
+    {open && <OnClickOutside firstRef={ref} handler={close} />}
+    <div ref={ref} className={"modal_content"}>
+      <button aria-label={"close modal"} className={"close"} onClick={close}>
+        <StaticImage
+          src="../../../images/close.svg"
+          alt="close"
+          placeholder="blurred"
+          layout="fixed"
+        />
+      </button>
+      <div className="legendary-modal_image">
+        <GatsbyImage className="top_baner"
+                     image={getImage(storyLegendary?.storyLegendaryModalImg1?.localFile?.childImageSharp?.gatsbyImageData)}
+                     alt={storyLegendary?.storyLegendaryModalImg1?.altText || "banner"} />
+        <GatsbyImage className="bottom_baner"
+                     image={getImage(storyLegendary?.storyLegendaryModalImg2?.localFile?.childImageSharp?.gatsbyImageData)}
+                     alt={storyLegendary?.storyLegendaryModalImg2?.altText || "banner"} />
+      </div>
+      <div className={"legendary-modal_context"}>
+        <div className="legendary-modal_text">
+          {storyLegendary?.storyLegendaryModalText?.map?.((item, key) => (
+            <p key={key}>{item?.storyLegendaryModalTextItem}</p>
+          ))}
+        </div>
+        <div><MainButton url={storyLegendary?.storyLegendaryButton?.url}
+                         target={storyLegendary?.storyLegendaryButton?.target}>{storyLegendary?.storyLegendaryButton?.title}</MainButton>
+        </div>
+      </div>
+    </div>
+    <button aria-label={"close modal"} className={"overlay"}>overlay</button>
+  </>
+  return (
+    <>
+      {open ? <ModalLegendaryStyles className={open ? "active" : ""}>
+        <NoScroll />
+        <Modal />
+      </ModalLegendaryStyles> : <div className={"loading"}><Modal /></div>
+      }
+    </>
+  )
+}
+
+

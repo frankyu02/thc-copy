@@ -40,14 +40,14 @@ const DeliveryPage = () => {
                   deliveryLargeOrderBannerImgMobile {
                     localFile {
                       childImageSharp {
-                        gatsbyImageData(quality: 100)
+                        gatsbyImageData 
                       }
                     }
                   }
                   deliveryLargeOrderBannerImg {
                     localFile {
                       childImageSharp {
-                        gatsbyImageData(quality: 100)
+                        gatsbyImageData 
                       }
                     }
                   }

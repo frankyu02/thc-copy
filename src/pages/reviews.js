@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { SmallHero } from "../components/global_component/small_hero/SmallHero"
 import DoublePageLink from "../components/reviews/doublePageLink/doublePageLink"
 import ReviewGrid from "../components/reviews/reviewGrid/reviewGrid"
-import ClientReview from "../components/reviews/ClientReview/ClientReview"
+import { ClientReview } from "../components/reviews/ClientReview/ClientReview"
 import Seo from "../components/layout/Seo"
 
 const ReviewsPage = () => {
@@ -36,11 +36,11 @@ const ReviewsPage = () => {
             }
         }
     `)
-    const seoData = data?.allWpPage?.nodes[0]?.template?.seoMetaTags
-    const seo = {
-        title: seoData?.seoMetaTagsTitle,
-        description: seoData?.seoMetaTagsDescription
-    }
+  const seoData = data?.allWpPage?.nodes[0]?.template?.seoMetaTags
+  const seo = {
+    title: seoData?.seoMetaTagsTitle,
+    description: seoData?.seoMetaTagsDescription
+  }
   const title = data?.allWpPage?.nodes[0]?.reviews?.reviewsBanner?.reviewsBannerTitle
   const banner = data?.allWpPage?.nodes[0]?.reviews?.reviewsBanner?.reviewsBannerImg?.localFile?.childImageSharp?.gatsbyImageData
 

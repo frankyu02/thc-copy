@@ -17,13 +17,13 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
-
-    {
-      resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
-      options: {
-        devMode: true
-      }
-    },
+    //
+    // {
+    //   resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
+    //   options: {
+    //     devMode: false
+    //   }
+    // },
 
     {
       resolve: `gatsby-plugin-styled-components`,
@@ -32,6 +32,7 @@ module.exports = {
         // ssr: false
         // displayName: false,
         // minify: false
+        disableVendorPrefixes: true
       }
     },
 
@@ -47,6 +48,7 @@ module.exports = {
         }
       }
     },
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -59,11 +61,11 @@ module.exports = {
       resolve: `gatsby-plugin-sharp`,
       options: {
         defaults: {
-          formats: [`auto`, `webp`, `avif`],
+          formats: [`auto`, `webp`],
           placeholder: `dominantColor`,
-          quality: 90,
-          breakpoints: [750, 1366, 1920],
-          avifOptions: { quality: 80 }
+          quality: 80,
+          breakpoints: [780, 1920]
+       
         }
       }
     },

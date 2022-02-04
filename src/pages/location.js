@@ -25,7 +25,7 @@ const Location = () => {
                             locationBannerImg {
                                 localFile {
                                     childImageSharp {
-                                        gatsbyImageData(quality: 100)
+                                        gatsbyImageData 
                                     }
                                 }
                             }
@@ -41,14 +41,14 @@ const Location = () => {
                             locationLargeOrderBannerImg {
                                 localFile {
                                     childImageSharp {
-                                        gatsbyImageData(quality: 100)
+                                        gatsbyImageData 
                                     }
                                 }
                             }
                             locationLargeOrderBannerImgMobile {
                                 localFile {
                                     childImageSharp {
-                                        gatsbyImageData(quality: 100)
+                                        gatsbyImageData 
                                     }
                                 }
                             }
@@ -58,11 +58,11 @@ const Location = () => {
             }
         }
     `)
-    const seoData = data?.allWpPage?.nodes[0]?.template?.seoMetaTags
-    const seo = {
-        title: seoData?.seoMetaTagsTitle,
-        description: seoData?.seoMetaTagsDescription
-    }
+  const seoData = data?.allWpPage?.nodes[0]?.template?.seoMetaTags
+  const seo = {
+    title: seoData?.seoMetaTagsTitle,
+    description: seoData?.seoMetaTagsDescription
+  }
   const location = data?.allWpPage?.nodes[0]
   const locationImg = data?.allWpPage?.nodes[0]?.location?.locationBanner
   const locationLarge = data?.allWpPage?.nodes[0]?.location?.locationLargeOrderBanner

@@ -57,6 +57,9 @@ export const ArticlesGridStyles = styled.section`
   
   }
   .article-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border: 1px solid #000000;
     width: 100%;
     margin-bottom: 50px;
@@ -75,13 +78,17 @@ export const ArticlesGridStyles = styled.section`
   }
   .content-wrap{
     border-top: 1px solid #000;
+    height: 100%;
+    p {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
   }
   .article-img{
     font-size: 0;
-    img{
-      object-fit: cover;
+    .gatsby-image-wrapper {
       width: 100%;
-      max-height: 300px;
     }
   }
   ${xs(`

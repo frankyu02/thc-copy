@@ -20,7 +20,7 @@ query MyQuery($childItems: WpMenuItemToMenuItemConnectionFilterInput = {}, $imag
               altText
               localFile {
                 childImageSharp {
-                  gatsbyImageData
+                  gatsbyImageData(quality: 99)
                 }
               }
             }
@@ -49,7 +49,7 @@ query MyQuery($childItems: WpMenuItemToMenuItemConnectionFilterInput = {}, $imag
 
       {
         label: "APPAREL",
-        link: "/APPAREL"
+        link: "https://thccanada.myshopify.com/collections/all"
 
       },
 
@@ -70,7 +70,7 @@ query MyQuery($childItems: WpMenuItemToMenuItemConnectionFilterInput = {}, $imag
       },
       {
         label: "CONTACT US",
-        link: "pageLink"
+        link: "/contact"
 
       }
     ]

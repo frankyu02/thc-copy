@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 
 export const LinkStyles = styled.section` 
+
   a {
     position: fixed;
     width: 150px;
@@ -10,15 +11,15 @@ export const LinkStyles = styled.section`
     bottom: 60px;
     z-index: 100;
     overflow: hidden;
-    img{
+    .gatsby-img{
     width: 100%;
     object-fit: cover;
     height: 100%;
-        animation: spin 15s linear 0s infinite;
+    animation: spin 15s linear 0s infinite;
     }
   }
   a: hover{
-      img{
+      .gatsby-img{
         animation-play-state: paused;
       }
   }
