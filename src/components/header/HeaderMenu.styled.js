@@ -1,8 +1,13 @@
 import styled from "styled-components"
 import { lg } from "../../styles/utils/media_queries"
 
-export const HeaderMenuStyles = styled.section`
+export const HeaderMenuStyled = styled.section`
+  position: sticky;
+  top: 0;
+  z-index: 110;
+
   .header {
+    background-color: #fff;
     display: flex;
     border-bottom: 1px solid #000;
     font-family: 'Integral CF';
@@ -12,7 +17,6 @@ export const HeaderMenuStyles = styled.section`
       ${lg(`
       min-height: 80px;
       `)}
-
       display: flex;
       align-item: center;
       border-right: 1px solid #000;
@@ -50,14 +54,9 @@ export const HeaderMenuStyles = styled.section`
       }
 
       ${lg(`
-    display:none
+            display:none
       `)}
       &.open {
-        & .line {
-
-
-        }
-
         & .line:nth-child(1) {
           margin: 0 0 -2px 0;
 
@@ -76,20 +75,53 @@ export const HeaderMenuStyles = styled.section`
       }
     }
 
+    .order-button {
+      flex-grow: 1;
+      width: 100%;
+      justify-content: center;
+      align-items: flex-end;
+      display: flex;
+      margin-bottom: 30px;
+      padding: 10px;
+
+      .main_button {
+        background-color: var(--darkpurple);
+        color: white;
+      }
+
+      ${lg(`
+          display:none
+          `)}
+    }
 
     nav {
-      transition: .5s;
+      transition: .6s;
       flex: 1;
       position: fixed;
       left: -100%;
+      right: -100%;
       bottom: 0;
-      top: 110px;
+      overflow: auto;
+      top: 105px;
       z-index: 11;
       background-color: #fff;
       width: 100%;
-
-      max-width: 400px;
       opacity: 0;
+
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #eae8e8;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--darkpurple);
+        border-radius: 8px;
+        border: 1px solid #e3ded3;
+      }
+
       ${lg(`
            opacity: 1;
             position:static; 
@@ -99,24 +131,25 @@ export const HeaderMenuStyles = styled.section`
       justify-content: center;
 
       &.open {
-        padding: 30px;
+        transition: .3s;
+        right: 0;
         left: 0;
         opacity: 1;
 
       }
     }
 
-    .headerList {
+    .header-list {
       height: 100%;
       margin: 0;
       padding: 0;
+      display: flex;
       flex-direction: column;
       justify-content: left;
       text-align: left;
       ${lg(`
       list-style: none;
-      flex-direction:row;
-      display: flex;
+      flex-direction:row; 
       flex-wrap: wrap;
       align-items: center;
        text-align:center;
@@ -130,6 +163,7 @@ export const HeaderMenuStyles = styled.section`
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: clamp(14px, 4vw, 28px);
 
       ${lg(`
         flex-grow: 0; 
@@ -137,40 +171,29 @@ export const HeaderMenuStyles = styled.section`
       a {
         padding: 0 20px;
         display: flex;
+        width: 100%;
+        height: 100%;
         align-items: center;
         justify-content: center;
       }
     }
 
-    .cart, .search {
+    .cart {
+      padding: 0 2vw;
+
       &-btn {
-        cursor: pointer
+        cursor: pointer;
         display: block;
         height: 100%;
         background: none;
         border: none;
-        outline: none
+        outline: none;
+        font-size: clamp(12px, 4vw, 14px);
+        text-transform: uppercase;
       }
     }
 
-    .cart{
-      padding: 0 2vw;
-    }
-    .card-btn {
-      
-      text-transform: uppercase;
-    }
 
-    .search-btn {
-      padding: 0 26px;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 14px;
-      line-height: 100%;
-      ${lg(`
-           border-left: 1px solid #000;
-      `)}
-    }
   }
 
 

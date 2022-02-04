@@ -4,7 +4,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { BrandsStyled } from "./Brands.styled"
 import { MainButton } from "../../ui/main_button/MainButton"
 
-export const Brands = () => {
+export const Brands = ({ lazyLoading }) => {
   const data = useStaticQuery(graphql`
         query {
             wpPage(uri: {eq: "/"}) {
@@ -20,7 +20,7 @@ export const Brands = () => {
                       altText
                       localFile {
                         childrenImageSharp {
-                          gatsbyImageData(quality: 100)
+                          gatsbyImageData 
                         }
                       }
                       link
@@ -33,28 +33,30 @@ export const Brands = () => {
             }
           }
     `)
-  const brands = data?.wpPage?.home?.brands;
-  return (
-    <BrandsStyled>
-      <div className="container">
-        <div className={"brand-section"}>
-          <div className={"brand-title"}>
-            <h2>{brands?.brandsTitle}</h2>
-            <h3>{brands?.brandsSubTitle}</h3>
-          </div>
-          <div className={"brand-grid"}>
-            {brands?.brandsLogo?.map?.((item, key) => (
-              <div key={key} className={"brand-item"}>
-                <GatsbyImage image={getImage(item?.brandsLogoItem?.localFile?.childrenImageSharp[0]?.gatsbyImageData)}
-                             alt={"brands"} />
-              </div>
-            ))}
-          </div>
-          <MainButton url={brands?.brandsButton?.url}
-                      target={brands?.brandsButton?.target}>{brands?.brandsButton?.title}</MainButton>
-        </div>
+  const brands = data?.wpPage?.home?.brands
+  const Html = () => <div className="container">
+    <div className={"brand-section"}>
+      <div className={"brand-title"}>
+        <h2>{brands?.brandsTitle}</h2>
+        <h3>{brands?.brandsSubTitle}</h3>
       </div>
-    </BrandsStyled>
+      <div className={"brand-grid"}>
+        {brands?.brandsLogo?.map?.((item, key) => (
+          <div key={key} className={"brand-item"}>
+            <GatsbyImage image={getImage(item?.brandsLogoItem?.localFile?.childrenImageSharp[0]?.gatsbyImageData)}
+                         alt={"brands"} />
+          </div>
+        ))}
+      </div>
+      <MainButton url={brands?.brandsButton?.url}
+                  target={brands?.brandsButton?.target}>{brands?.brandsButton?.title}</MainButton>
+    </div>
+  </div>
+
+  return (
+    lazyLoading ? <BrandsStyled>
+      <Html />
+    </BrandsStyled> : <section className={"loading"}><Html /></section>
   )
 }
 

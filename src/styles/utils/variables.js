@@ -4,12 +4,11 @@ export const __BREAKPOINTS = {
   md: 1200,
   sm: 992,
   xs: 768,
-  xxs: 500,
+  xxs: 500
 }
 
 export const __CONTAINERS = {
   xl: '1400px',
-  lg: '97%',
-  xs: '95%',
-  xxs: '92%',
 }
+
+export const __POSTS_CONTENT_SIZE = '71%';

@@ -17,6 +17,14 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
+    //
+    // {
+    //   resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
+    //   options: {
+    //     devMode: false
+    //   }
+    // },
+
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
@@ -24,8 +32,10 @@ module.exports = {
         // ssr: false
         // displayName: false,
         // minify: false
+        disableVendorPrefixes: true
       }
     },
+
     {
       resolve: `gatsby-source-wordpress`,
       options: {
@@ -38,6 +48,7 @@ module.exports = {
         }
       }
     },
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -46,7 +57,18 @@ module.exports = {
       }
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`],
+          placeholder: `dominantColor`,
+          quality: 80,
+          breakpoints: [780, 1920]
+       
+        }
+      }
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -58,7 +80,7 @@ module.exports = {
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png` // This path is relative to the root of the site.
+        icon: `src/favicon/android-icon-192x192.png` // This path is relative to the root of the site.
       }
     },
     {

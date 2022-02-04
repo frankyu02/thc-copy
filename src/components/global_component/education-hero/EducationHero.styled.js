@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import {sm, xs, xxs} from "../../../styles/utils/media_queries";
 
-
-
 export const EducationHeroStyles = styled.section` 
     color: #fff;
     .hero-title{
@@ -13,7 +11,12 @@ export const EducationHeroStyles = styled.section`
     }
     .hero-img{
         background: linear-gradient(178.71deg, #612C8F 1.42%, rgba(97, 44, 143, 0) 102.89%);
-        img{
+        .gatsby-image-wrapper{
+          z-index: -1;
+          width: 100%;
+          height: 100%;
+        }
+        /* img{
             width: 100%;
             max-height: 350px;
             object-fit: cover;
@@ -21,7 +24,7 @@ export const EducationHeroStyles = styled.section`
             display: block;
             z-index: -1;
             position: relative;
-        }
+        } */
     }
     h1{
         font-family: Neumatic Compressed Bold;
@@ -34,6 +37,7 @@ export const EducationHeroStyles = styled.section`
     time{
         font-size: 18px;
         font-family: 'MADE Outer Sans Light';
+        text-transform: uppercase;
     }
     ${xxs(`
         h1{
