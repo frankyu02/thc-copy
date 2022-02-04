@@ -1,7 +1,4 @@
 import React, { useCallback, useRef, useState } from "react";
-import styled from "styled-components";
-import { CgClose } from "react-icons/cg";
-import ReactMarkdown from 'react-markdown'; 
 import { Answer, ArrowIcon, ArrowWrap, CloseArrow, FaqWrap, Text } from "./FAQStyles";
 
 const FAQItem = ({ data: { question }}) => {

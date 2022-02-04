@@ -42,7 +42,15 @@ export const HeroStyled = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-
+    .video{
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      padding-top: 56.25%;
+      video{
+        object-fit: cover;
+      }
+    }
     .caption {
       position: relative;
       z-index: 1;
@@ -61,10 +69,13 @@ export const HeroStyled = styled.section`
     }
 
     .background {
+      pointer-events: none;
+      display: inline-block;
       position: absolute;
-      height: 100%;
       top: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
     }
 
     .mark {
@@ -101,15 +112,13 @@ export const HeroStyled = styled.section`
         bottom: 70px;
       }
     }
-  }
-  @media (max-width: 1200px) {
-    .header {
-      h1 {
-        font-size: 92px;
-      }
-    }
-  }
-  @media (max-width: 1024px) {
+   }
+   /* @media (max-width: 975px) {
+     .inner{
+      max-height: 400px;
+     }
+   } */
+   @media (max-width: 1024px) {
     .header {
       margin-bottom: 20px;
 
@@ -155,7 +164,6 @@ export const HeroStyled = styled.section`
     .inner {
       .mark {
         width: 75px;
-        bottom: 20px;
         right: 10px;
       }
 
