@@ -27,7 +27,7 @@ export const MapRegions = () => {
                     deliveryLocationMapImg{
                       localFile {
                         childrenImageSharp {
-                            gatsbyImageData 
+                            gatsbyImageData(quality: 100) 
                         }
                       }
                     }
