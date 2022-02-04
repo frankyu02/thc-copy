@@ -59,7 +59,6 @@ const HomePage = () => {
     <BlogBanner lazyLoading={lazyLoading} />
     <SettingStandart lazyLoading={lazyLoading} />
     <Brands lazyLoading={lazyLoading} />
-    <ShopLink />
   </>
 
 }

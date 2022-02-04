@@ -12,7 +12,7 @@ export const HeroStyled = styled.section`
       margin: 0;
       line-height: 1;
       font-size: 160px;
-
+      overflow: hidden;
     }
 
     .address_parent {
@@ -25,7 +25,8 @@ export const HeroStyled = styled.section`
       margin-top: 0;
       font-size: 16px;
       font-weight: 700;
-      /* font-family: var(--fontPrimaryBold); */
+      font-family: var(--fontPrimaryBold);
+      font-family: "Integral CF";
       max-width: 180px;
     }
 

@@ -20,7 +20,7 @@ query MyQuery($childItems: WpMenuItemToMenuItemConnectionFilterInput = {}, $imag
               altText
               localFile {
                 childImageSharp {
-                  gatsbyImageData
+                  gatsbyImageData(quality: 99)
                 }
               }
             }

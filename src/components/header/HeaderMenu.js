@@ -5,7 +5,6 @@ import { HeaderMenuStyled } from "./HeaderMenu.styled"
 import { PromoBar } from "./components/promobar"
 import { Header } from "./components/header"
 
-
 export const HeaderMenu = () => {
   const data = useStaticQuery(graphql`
         query { 

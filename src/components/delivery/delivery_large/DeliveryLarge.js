@@ -14,7 +14,7 @@ export const DeliveryLarge = () => {
                             deliveryDescriptionBg {
                                 localFile {
                                     childImageSharp {
-                                        gatsbyImageData 
+                                        gatsbyImageData(quality: 99) 
                                     }
                                 }
                             }
