@@ -13,10 +13,14 @@ export const ClientReviewStyle = styled.div`
     border-left: 1px solid black;
     overflow: visible;
     padding-left: 1vw;
-    padding-right: 1vw;
     padding-bottom: 10vh;
     position: relative;
     background: white;
+    .review-container{
+        margin-right: 0px;
+        margin-left: calc(calc(100vw - 1400px)/2);
+        outline: 1px solid red;
+    }
     .title{
         h2{
             font-family: "Neumatic Compressed Bold";

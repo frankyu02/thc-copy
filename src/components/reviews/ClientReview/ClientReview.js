@@ -31,8 +31,9 @@ export default function ClientReview(){
     `)
     const reviewdata = data?.wpPage?.reviews?.clientReviews;
     return(
-        <div className="container">
+        
             <ClientReviewStyle>
+                <div className="review-container">
                 <div className="title">
                     <h2>{reviewdata.clientReviewsTitle}</h2>
                 </div>
@@ -104,7 +105,8 @@ export default function ClientReview(){
                         }
                     </Swiper>
                 </SwiperContainer>
+                </div>
             </ClientReviewStyle>
-        </div>
+        
     );
 }
