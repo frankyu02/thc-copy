@@ -15,15 +15,16 @@ const MenuCardStyles = styled.div`
         width: auto;
         justify-content: center;
         background: white;
+        border: 1px solid black;
         .image {
             position: absolute;
-            margin-top: 80px;
-            margin-bottom: 62px;
+            top: 90px;
+            bottom: 60px;
             width: auto;
             height: auto;
             .realImage {
-                width: 250px;
-                height: 100%;
+                width: 228px;
+                height: auto;
             }
         }
         .brand {
@@ -47,19 +48,12 @@ const MenuCardStyles = styled.div`
             flex-wrap: nowrap;
             justify-content: center;
             align-items: center;
-            bottom: 0px;
             width: 100%;
-            height: 15%;
-            button {
-                background: #612C8F;
-                border: none;
-                .buttonText {
-                    font-family: 'Integral CF';
-                    font-size: 18px;
-                    font-style: italic;
-                    color: white;
-                }
-            }
+            bottom: 0px;
+            font-family: 'Integral CF';
+            font-size: 18px;
+            font-style: italic;
+            color: white;  
         }
     }
     .detail {
@@ -74,6 +68,7 @@ const MenuCardStyles = styled.div`
     .title {
         margin-top: 10px;
         margin-left: 30px;
+        margin-right: 100px;
         h4 {
             color: black;
             font-family: 'Neumatic Compressed Bold';
@@ -88,10 +83,73 @@ const MenuCardStyles = styled.div`
         h5 {
             color: black;
             font-size: 17px;
-            font-family: 'Integral CF';
+            font-family: 'Integral CF Bold';
         }
-        .slash{
-            color: #612C8F;
+    }
+    .cartBannerBottom {
+        display: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .card {
+        .imgDiv {
+            margin: 20px 20px 0px 20px;
+        }
+        .title {
+            margin-right: 60px;
+        }
+    }
+}
+
+@media (max-width: 780px) {
+    .card {
+        .imgDiv {
+            margin: 0;
+            border: none;
+            border-bottom: 1px solid black;
+            .cartBanner {
+                display: none;
+            }
+        }
+        .cartBannerBottom {
+            display: flex;
+            background: #612C8F;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            bottom: 0px;
+            height: 60px;
+            margin-top: 25px;
+            font-family: 'Integral CF';
+            font-size: 18px;
+            font-style: italic;
+            color: white;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .card {
+        .detail {
+            margin-left: 20px;
+        }
+        .title {
+            margin-left: 20px;
+        }
+        .price {
+            margin-left: 20px;
+        }
+        .cartBannerBottom {
+            margin-top: 25px;
+        }
+    }
+}
+
+@media (max-width: 350px) {
+    .card {
+        .title {
+            margin-right: 20px;
         }
     }
 }

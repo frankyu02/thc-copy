@@ -5,53 +5,70 @@ import styled from "styled-components";
 const selectStyle = {
     control: (provided, state) => ({
         ...provided,
-        width: '100%',
-        height: '40px',
-        marginTop: '3px',
-        background: 'white',
+        display: 'flex',
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
         color: '#612C8F',
-        fontSize: '14px',
-        fontFamily: 'Integral CF Bold',
-        borderRadius: '0',
-        border: '1px solid black',
+        fontSize: '17px',
+        fontFamily: 'Integral CF',
+        border: 'none',
+        padding: '0',
+        background: 'transparent',
     }),
     option: (provided, state) => ({
         ...provided,
-        color: '#612C8F',
+        color: 'white',
         display: 'flex',
         alignItems: 'center',
-        background: 'white',
-        fontFamily: 'Integral CF Bold',
-        fontSize: '14px',
-        paddingLeft: '11px',
+        background: '#858787',
+        fontFamily: 'Integral CF',
+        fontSize: '17px',
+        paddingLeft: '8px',
         margin: '0',
     }),
     menu: (provided, state) => ({
         ...provided,
         margin: '0',
-        borderRadius: '0',
-        width: '100%',
-        background: 'white',
-        color: '#612C8F',
-        fontFamily: 'Integral CF Bold',
+        padding: '0',
+        background: '#858787',
+        minWidth: '57px',
     }),
     singleValue: (provided) => ({
         ...provided,
-        fontFamily: 'Integral CF Bold',
-        fontSize: '14px',
+        fontFamily: 'Integral CF',
+        fontSize: '17px',
         color: '#612C8F',
+        margin: '0',
     }),
     dropdownIndicator: (provided) => ({
         ...provided,
         color: '#612C8F',
+        alignItems: 'flex-start',
+        padding: '0',
+        paddingTop: '2px',
     }),
     indicatorSeparator: (provided) => ({
         ...provided,
         display: 'none',
     }),
+    indicatorsContainer: (provided) => ({
+        ...provided,
+        padding: '0',
+        alignItems: 'flex-start',
+    }),
+    valueContainer: (provided) => ({
+        ...provided,
+        padding: '0',
+    }),
 }
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+    .val {
+        color: #612C8F;
+        font-size: 17px;
+        font-family: 'Integral CF';
+    }
+`
 
 const Dropdown = ({index, setIndex, variant}) => {
     const varList = variant.map((variant, index) => ({label: variant.option, value: index})) 
@@ -60,17 +77,23 @@ const Dropdown = ({index, setIndex, variant}) => {
         setIndex(e.value);
     }
     if(variant?.length === 0){
-        return (<Wrapper></Wrapper>)
+        return (<></>)
     }
     else if(variant?.length === 1){
-        return(
-            <Wrapper>
-                <div className="val">{variant[0].option}</div>
-            </Wrapper>
-        )
+        if (variant[0].option !== "N/A") {
+            return(
+                <Wrapper>
+                    <div className="val">&nbsp;/&nbsp;{variant[0].option}</div>
+                </Wrapper>
+            )
+        }
+        return (<></>)
     } else{
         return(
-            <Wrapper>
+            <>  
+                <Wrapper>
+                    <div className="val">&nbsp;/&nbsp;</div>
+                </Wrapper>
                 <Select
                     onChange={changeIndex}
                     value={varList[index]}
@@ -80,7 +103,7 @@ const Dropdown = ({index, setIndex, variant}) => {
                     isSearchable={false}
                     classNamePrefix="react-select"
                     />
-            </Wrapper>
+            </>
         )
     }
 }
