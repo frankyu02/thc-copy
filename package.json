@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Blackhawk Digital",
   "dependencies": {
+    "@react-spring/web": "^9.4.2",
     "babel-plugin-styled-components": "^2.0.2",
     "esm": "^3.2.25",
     "gatsby": "^4.4.0",
@@ -28,6 +29,9 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1",
     "react-select": "^5.2.2",
+    "react-intersection-observer": "^8.33.1",
+    "react-markdown": "^8.0.0",
+    "react-player": "^2.9.0",
     "styled-components": "^5.3.3",
     "swiper": "^7.4.1"
   },

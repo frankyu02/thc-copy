@@ -16,7 +16,6 @@ export const MerchCarouselLazy = ({ card }) => {
     if (window?.innerWidth < __BREAKPOINTS.sm) {
       setIsMobile(true)
     }
-
   }, [])
   useEffect(() => {
 
@@ -39,7 +38,13 @@ export const MerchCarouselLazy = ({ card }) => {
 }
 
 
-export const MerchCarousel = () => {
+export const MerchCarousel = ({ lazyLoading }) => {
+  return (
+    lazyLoading ? <MerchCarouselStyled> <Html /> </MerchCarouselStyled> :
+      <section className="loading"><Html /></section>
+  )
+}
+const Html = () => {
   const data = useStaticQuery(graphql`
         query {
             allWpPage(filter: {id: {eq: "cG9zdDo3"}}) {
@@ -65,14 +70,14 @@ export const MerchCarousel = () => {
                                     merchCarouselCardImg {
                                         localFile {
                                             childImageSharp {
-                                                gatsbyImageData(quality: 100)
+                                                gatsbyImageData 
                                             }
                                         }
                                     }
                                     merchCarouselCardHoverimg {
                                         localFile {
                                             childImageSharp {
-                                                gatsbyImageData(quality: 100)
+                                                gatsbyImageData 
                                             }
                                         }
                                     }
@@ -87,9 +92,8 @@ export const MerchCarousel = () => {
     `)
   const merchCarousel = data?.allWpPage?.edges[0]?.node?.home?.merchCarousel
   const card = data?.allWpPage?.edges[0]?.node?.home?.merchCarousel?.merchCarouselCard
-
   return (
-    <MerchCarouselStyled>
+    <>
       <div className={"merch_header"}>
         <div className={"container"}>
           <h2>{merchCarousel?.merchCarouselTitle}</h2>
@@ -105,8 +109,6 @@ export const MerchCarousel = () => {
           </div>
         </div>
       </div>
-    </MerchCarouselStyled>
+    </ >
   )
 }
-
-

@@ -20,6 +20,12 @@ export const AgeGateStyles = styled.section`
     z-index: -1;
     height: 100%;
 
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     [data-gatsby-image-wrapper] {
       width: 100%;
       height: 100%;

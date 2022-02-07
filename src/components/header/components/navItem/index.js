@@ -40,7 +40,7 @@ const DropDrown = ({ dropDownItems, isOpen: mobileIsOpen, onOpen, setMenuOpen })
   const isOpen = mobileIsOpen && window?.innerWidth < __BREAKPOINTS.lg
   const oddItem = dropDownItems.length % 2 > 0
   const columnCounter = Math.round(dropDownItems.length / 2)
- 
+
   return (
     <DropDownStyled columnCounter={columnCounter} isOpen={isOpen}
                     className={"drop-down " + (oddItem ? "odd" : " even ")}>
@@ -74,7 +74,8 @@ export const NavItem = ({ item, className, onOpen, isOpen, setMenuOpen }) => {
     <MenuItem className={className}>
 
       {showDropdown ?
-        <button onClick={onOpen} className={"menu-active"}>{item.label} <MobileIcon isOpen={isOpen} /> <span
+        <button aria-label={"open dropdown "} onClick={onOpen} className={"menu-active"}>{item.label} <MobileIcon
+          isOpen={isOpen} /> <span
           className={"desktop-icon"}><DesktopIcon /></span></button> :
         < UniversalLink onClick={() => {
           setMenuOpen && setMenuOpen(false)
