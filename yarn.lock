@@ -9688,6 +9688,11 @@
     "minimist" "^1.2.0"
     "strip-json-comments" "~2.0.1"
 
+"react-cool-img@^1.2.12":
+  "integrity" "sha512-HambbjVszVVCNAEps+wReo9znzhgpq/72DCRvz4ahKkubEUV/ij0WH3RCQ37rcAPezhchpH75VutDE/ENgWegA=="
+  "resolved" "https://registry.npmjs.org/react-cool-img/-/react-cool-img-1.2.12.tgz"
+  "version" "1.2.12"
+
 "react-dev-utils@^11.0.4":
   "integrity" "sha512-dx0LvIGHcOPtKbeiSUM4jqpBl3TcY7CDjZdfOIcKeznE7BWr9dg0iPG90G5yfVQ+p/rGNMXdbfStvzQZEVEi4A=="
   "resolved" "https://registry.npmjs.org/react-dev-utils/-/react-dev-utils-11.0.4.tgz"
@@ -9718,7 +9723,7 @@
     "strip-ansi" "6.0.0"
     "text-table" "0.2.0"
 
-"react-dom@^17.0.1":
+"react-dom@^17.0.1", "react-dom@>= 16.8.0":
   "integrity" "sha512-6eV150oJZ9U2t9svnsspTMrWNyHc6chX0KzDeAOXftRa8bNeOKTTfCJ7KorIwenkHd2xqVTBTCZd79yk/lx/Ug=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-17.0.1.tgz"
   "version" "17.0.1"
@@ -9808,7 +9813,7 @@
   "resolved" "https://registry.npmjs.org/react-side-effect/-/react-side-effect-2.1.1.tgz"
   "version" "2.1.1"
 
-"react@*", "react@^17.0.1", "react@>=16", "react@>=16.6.0":
+"react@*", "react@^17.0.1", "react@>= 16.8.0", "react@>=16", "react@>=16.6.0":
   "integrity" "sha512-lG9c9UuMHdcAexXtigOZLX8exLWkW0Ku29qPRU8uhF2R9BN96dLCt0psvzPLlHc5OWkgymP3qwTRgbnw5BKx3w=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.1.tgz"
   "version" "17.0.1"
