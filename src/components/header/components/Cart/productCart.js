@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import styled from "styled-components";
 import { __BREAKPOINTS } from "../../../../styles/utils/variables";
+import CartButton from "./CartButton";
 import CartItem from "./ProductCartItem";
 import CartTotal from "./TotalPriceInfo";
 
@@ -23,7 +24,10 @@ const Background = styled.div`
     cursor: pointer; 
     position: absolute;
     @media (max-width: ${__BREAKPOINTS.lg}px){
-        width: 30%;
+        width: 20%;
+    }
+    @media (min-width: ${__BREAKPOINTS.xl}px){
+        width: 50%;
     }
 `;
 const CartContent = styled.div`
@@ -43,15 +47,31 @@ const CartContent = styled.div`
         font-style: italic;
     }
     .content{
-        border: 1px solid black;
         margin-top: 32px;
         width: 90%;
         overflow-x: hidden;
         overflow-y: auto;
         height: 65%;
     }
+    .close{
+        margin: 0;
+        margin-top: 29px;
+        margin-left: 50px;
+        width: calc(90% - 50px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        font-family: "Integral CF Bold";
+        cursor: pointer;
+        font-style: italic;
+        text-decoration: underline;
+    }
     @media (max-width: ${__BREAKPOINTS.lg}px){
-        width: 70%;
+        width: 80%;
+    }
+    @media (min-width: ${__BREAKPOINTS.xl}px){
+        width: 50%;
     }
 `;
 export default function ProductCart({ closed, setClosed, cart, deleteFunc, addFunc, subFunc }){
@@ -60,6 +80,16 @@ export default function ProductCart({ closed, setClosed, cart, deleteFunc, addFu
             return !c;
         });
     }, [setClosed]);
+    let subtotal = 0.00;
+    let discount = 0.00;
+    let taxes = 0.00;
+    let total = 0.00;
+    if(cart.priceSummary){
+        subtotal = cart.priceSummary.subtotal / 100;
+        discount = cart.priceSummary.discounts / 100;
+        taxes = cart.priceSummary.taxes / 100;
+        total = cart.priceSummary.total / 100;
+    }
     return(
         <Wrapper closed={closed}>
             <Background onClick={closePage} />
@@ -71,8 +101,10 @@ export default function ProductCart({ closed, setClosed, cart, deleteFunc, addFu
                             <CartItem key={index} item={item} />
                         )
                     })}
-                    <CartTotal />
+                    <CartTotal subtotal={subtotal} discount={discount} tax={taxes} total={total}/>
                 </div> 
+                <CartButton redirect={cart.redirectUrl}/>
+                <p className="close" onClick={closePage}>CONTINUE SHOPPING</p>
             </CartContent>
         </Wrapper>
     )

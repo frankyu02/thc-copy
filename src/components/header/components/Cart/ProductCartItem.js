@@ -6,12 +6,13 @@ import { __BREAKPOINTS } from "../../../../styles/utils/variables";
 import CartQuantity from "./CartQuantity";
 import ItemPrice from "./ItemPrice";
 const ItemWrapper=styled.div`
-    width: auto;
+    max-width: 100%;
     height: 110px;
     position: relative;
     display: flex;
     padding: 0;
     align-items: center;
+    justify-content: flex-start;
     button{
         background: transparent;
         border: none;
@@ -19,6 +20,7 @@ const ItemWrapper=styled.div`
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
+        color: #612C8F;
     }
     img{
         border: 1px solid black;
@@ -30,15 +32,10 @@ const ItemWrapper=styled.div`
         margin-left: 19px;
         font-family: "Neumatic Compressed Bold";
         font-size: 40px;
-        min-width: 260px;
-        max-width: 260px;
+        min-width: 200px;
+        max-width: 200px;
     }
-    @media (max-width: ${__BREAKPOINTS.lg}px){
-        p{
-            min-width: 190px;
-            max-width: 190px;
-        }
-    }
+    
 `;
 
 export default function CartItem({ item, del, add, sub }){
@@ -48,7 +45,7 @@ export default function CartItem({ item, del, add, sub }){
             <Img src={item.product.image} alt={item.product.name} />
             <p>{item.product.name}</p>
             <CartQuantity add={add} sub={sub} quantity={item.quantity}/>
-            <ItemPrice variants={item.product.variants} option={item.option} />
+            <ItemPrice variants={item.product.variants} option={item.option} quantity={item.quantity}/>
         </ItemWrapper>
     )
 }

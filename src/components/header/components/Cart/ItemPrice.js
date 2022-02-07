@@ -21,14 +21,13 @@ const PriceWrapper = styled.div`
     }
 `;
 
-export default function ItemPrice({ variants, option }){
+export default function ItemPrice({ variants, option, quantity }){
     let price = 0;
     for(let i = 0; i < variants.length; i++){
         if(variants[i].option === option){
-            price = variants[i].priceRec;
+            price = (variants[i].priceRec * quantity).toFixed(2);
         }
     }
-    console.log(price);
     return(
         <PriceWrapper>
             <p className="subtitle"> PRICE</p>
