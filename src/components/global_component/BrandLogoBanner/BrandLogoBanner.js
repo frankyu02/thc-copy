@@ -8,6 +8,9 @@ const Wrapper = styled.div`
         height: 100%;
         width: auto;
     }
+    p{
+        font-family: "Integral CF Heavy";
+    }
 `;
 export default function BrandLogoBanner({ brand }){
     return(
