@@ -2,13 +2,16 @@ import React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import MainButtonShop from "../../ui/main_button/MainButtonShop"
 import { Swiper, SwiperSlide } from "swiper/react"
+import swiperCss from "!raw-loader!swiper/css"
 
 
 const Desktop = ({ card }) => {
 
-
   return (
     <>
+      <style>
+        {swiperCss}
+      </style>
       <Swiper loop={true} spaceBetween={20} slidesPerView={4.2} className={"merch_cart_list"}>
         {card?.map((item, key) => (
           <SwiperSlide className={"card"} key={key}>

@@ -32,6 +32,7 @@ module.exports = {
         // ssr: false
         // displayName: false,
         // minify: false
+        disableVendorPrefixes: true
       }
     },
 
@@ -47,6 +48,7 @@ module.exports = {
         }
       }
     },
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -59,11 +61,11 @@ module.exports = {
       resolve: `gatsby-plugin-sharp`,
       options: {
         defaults: {
-          formats: [`auto`, `webp`, `avif`],
+          formats: [`auto`, `webp`],
           placeholder: `dominantColor`,
-          quality: 85,
-          breakpoints: [760, 1366, 1920],
-          avifOptions: { quality: 85 }
+          quality: 80,
+          breakpoints: [780, 1920]
+       
         }
       }
     },

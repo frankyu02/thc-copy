@@ -25,7 +25,7 @@ const BlogPage = () => {
                 blogBannerImg {
                   localFile {
                     childImageSharp {
-                      gatsbyImageData(quality: 100)
+                      gatsbyImageData 
                     }
                   }
                 }
@@ -35,7 +35,7 @@ const BlogPage = () => {
         } 
       }
     `)
-  const seoData = data?.allWpPage?.nodes[0]?.template?.seoMetaTags;
+  const seoData = data?.allWpPage?.nodes[0]?.template?.seoMetaTags
   const seo = {
     title: seoData?.seoMetaTagsTitle,
     description: seoData?.seoMetaTagsDescription
@@ -46,7 +46,7 @@ const BlogPage = () => {
     <>
       <Seo {...seo} />
       <SmallHero title={title} banner={banner} />
-      <ArticlesGrid/>
+      <ArticlesGrid />
     </>
   )
 }

@@ -21,7 +21,7 @@ export const AgeGate = () => {
               ageGateLogo {
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(quality:50 )
                   }
                 }
               }
@@ -33,7 +33,7 @@ export const AgeGate = () => {
               ageGateBg {
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(quality:50 )
                   }
                 }
               }
@@ -88,12 +88,18 @@ const AgeForm = ({ query, access, setAccess }) => {
   }
 
   useNoScroll(!access)
-
+  const bgc = ageGateBg?.localFile?.childImageSharp?.gatsbyImageData?.backgroundColor
+  const img = ageGateBg?.localFile?.childImageSharp?.gatsbyImageData?.images
 
   return (
     <AgeGateStyles access={access}>
-      <div className="bg">
-        <GatsbyImage image={getImageData(ageGateBg)} loading="eager" alt="background" />
+      <div style={{ backgroundColor: bgc }} className="bg">
+        {/*<GatsbyImage image={getImageData(ageGateBg)} loading="eager" alt="background" />*/}
+        <picture>
+          <source type={img?.sources[0]?.type} srcset={img?.sources[0]?.srcSet} />
+          <img src={img.fallback.src} alt="background" />
+        </picture>
+
       </div>
       <div className="inner container">
         <div className="logo">

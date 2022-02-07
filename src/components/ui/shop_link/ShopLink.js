@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { LinkStyles } from "./ShopLinkStyle"
 import { MENU_LINK } from "../../../utils/routes"
 import { UniversalLink } from "../../../utils/universalLink"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 export const ShopLink = () => {
   const data = useStaticQuery(graphql`
@@ -13,20 +14,23 @@ export const ShopLink = () => {
                         fieldGroupName
                         shopLink
                         shopLogo {
-                            localFile {
-                                publicURL
+                          slug
+                          localFile {
+                            childImageSharp {
+                              gatsbyImageData
                             }
+                          }
                         }
                     }
                 }
             }
         }
     `)
-  const shopLogo = data?.wp?.thcwebsiteGeneralOption?.shoplink?.shopLogo
+  const shopLogo = data?.wp?.thcwebsiteGeneralOption?.shoplink?.shopLogo?.localFile?.childImageSharp?.gatsbyImageData;
   return (
     <LinkStyles>
-      <UniversalLink area-label={"link to menu"} to={MENU_LINK}>
-        <img className={"link"} src={shopLogo?.localFile?.publicURL} alt="link to menu" />
+      <UniversalLink aria-label={"link to menu"} to={MENU_LINK}>
+        <GatsbyImage image={shopLogo} imgClassName="gatsby-img"/>
       </UniversalLink>
     </LinkStyles>
   )

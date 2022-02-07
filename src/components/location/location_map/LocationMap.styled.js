@@ -1,40 +1,71 @@
-import styled from 'styled-components';
-import {md, lg, xs, xxs} from "../../../styles/utils/media_queries";
+import styled from "styled-components"
+import { lg, md, xs, xxs } from "../../../styles/utils/media_queries"
 
 
+export const LocationMapStyle = styled.section`
+  padding: 30px 0 80px;
+  background: rgb(240, 240, 240);
 
-export const LocationMapStyle = styled.section` 
-    padding: 30px 0 80px;
-    background: rgb(240,240,240);
-    .location_map {
+  .location_map {
     background: white;
-      h4 {
+    border: solid black 1px;
+
+    h4 {
       text-align: center;
       font-size: 24px;
       max-width: 280px;
-      margin: 0 auto 20px;
+      font-weight: 700;
       font-style: italic;
-      font-family: 'Integral CF Bold';
+      margin: 0 auto;
+      font-family: var(--fontPrimaryBold);
     }
+
+    .map_heading_item {
+      display: block;
+      margin: 0 auto 20px;
+    }
+
     p {
       font-size: 12px;
       max-width: 240px;
       margin: 60px auto;
       font-weight: bold;
     }
+
     .main_button {
       max-width: 100%;
       color: white;
       background: var(--darkpurple);
     }
+
     .map_info {
       padding-top: 50px;
     }
+
+    .map_block {
+      max-width: 480px;
+      margin: 0 auto;
+      outline: solid black 1px;
+
+      ${xs(`
+         width: 50%;
+      flex-shrink: 0;
+  
+      `)}
+      a {
+        height: 100%;
+        display: block;
+      }
+    }
+
     .gatsby-image-wrapper {
       width: 100%;
+      height: 100%;
     }
-    }
-    ${xxs(`
+  }
+
+
+  ${xxs(`
         .location_map {
             h4 {
                 max-width: 100%
@@ -45,14 +76,14 @@ export const LocationMapStyle = styled.section`
         }
         }
     `)}
-    ${xs(`
+  ${xs(`
         padding: 50px 0 80px;
         .location_map {
             display: flex;
-            align-items: center;
+            align-items: stretch;
             .map_info {
                 padding: 20px;
-            }
+            } 
             .main_button {
               color: black;
               background: transparent;
@@ -65,7 +96,7 @@ export const LocationMapStyle = styled.section`
             }
         }
   `)}
-    ${md(`
+  ${md(`
         padding: 100px 0 100px;
         .location_map {
             h4 {
@@ -91,7 +122,7 @@ export const LocationMapStyle = styled.section`
             }
         }
   `)}
-    ${lg(`
+  ${lg(`
         .location_map {
             .map_info {
                 width: 50%;
@@ -99,4 +130,4 @@ export const LocationMapStyle = styled.section`
             }
         }
   `)}
-`;
+`
