@@ -14,6 +14,7 @@ const CartItemWrapper = styled.div`
         font-size: 14px;
         font-family: "Integral CF";
         color: #797979;
+        margin: 0;
     }
     .selector{
         margin-top: 20px;
@@ -55,10 +56,23 @@ const CartItemWrapper = styled.div`
         margin-left: 0;
         width: 100px;
         .selector{
-            justify-content: none;
+            justify-content: flex-start;
             .quantity{
                 min-width: 0;
                 max-width: none;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+        }
+    }
+    @media (max-width:${__BREAKPOINTS.xxs}px){
+        margin: 0;
+        margin-left: 18px;
+        width: 45%;
+        margin-top: 40px;
+        .selector{
+            .quantity{
+                width: auto;
             }
         }
     }

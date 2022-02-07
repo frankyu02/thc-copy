@@ -35,7 +35,32 @@ const ItemWrapper=styled.div`
         min-width: 200px;
         max-width: 200px;
     }
-    
+    @media (max-width:${__BREAKPOINTS.xxs}px){
+        flex-wrap: wrap;
+        height: auto;
+        padding-bottom: 25px;
+        margin-top: 25px;
+        button{
+            position: static;
+            transform: none;
+        }
+        img{
+            margin: 0;
+            margin-left: 10px;
+        }
+        p{
+            min-width: none;
+            max-width: none;
+            width: 50%;
+            margin: 0;
+            margin-left: 15%;
+        }
+        }
+        @media(max-width: 350px){
+            p{
+                margin-left: 15px;
+            }
+        }
 `;
 
 export default function CartItem({ item, del, add, sub }){

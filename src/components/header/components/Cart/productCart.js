@@ -29,6 +29,9 @@ const Background = styled.div`
     @media (min-width: ${__BREAKPOINTS.xl}px){
         width: 50%;
     }
+    @media (max-width: ${__BREAKPOINTS.xxs}px){
+        width: 0%;
+    }
 `;
 const CartContent = styled.div`
     width: 60%;
@@ -72,6 +75,20 @@ const CartContent = styled.div`
     }
     @media (min-width: ${__BREAKPOINTS.xl}px){
         width: 50%;
+    }
+    @media (max-width: ${__BREAKPOINTS.xxs}px){
+        width: 100%;
+        padding-top: 20px;
+        padding-left: 0px;
+        h2{
+            margin: 0;
+            margin-left: 20px;
+            font-style: normal;
+        }
+        .content{
+            width: 100%;
+            margin: 0;
+        }
     }
 `;
 export default function ProductCart({ closed, setClosed, cart, deleteFunc, addFunc, subFunc }){

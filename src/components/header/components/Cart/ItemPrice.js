@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { __BREAKPOINTS } from "../../../../styles/utils/variables";
 
 const PriceWrapper = styled.div`
     margin-bottom: 30px;
@@ -14,11 +15,21 @@ const PriceWrapper = styled.div`
         margin: 0;
     }
     .price{
-        font-family: "Integral CF";
+        font-family: "Integral CF Bold";
         font-size: 30px;
         margin-top: 22px;
         margin-bottom: 5px;
     }
+    @media (max-width:${__BREAKPOINTS.xxs}px){
+        width: 40%;
+        margin-bottom: 0;
+        margin-top: 40px;
+        margin-left: 0;
+        .price{
+            margin-bottom: 0;
+        }
+    }
+
 `;
 
 export default function ItemPrice({ variants, option, quantity }){

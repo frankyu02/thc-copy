@@ -63,6 +63,17 @@ const TotalPriceWrapper = styled.div`
             }
         }
     }
+    @media (max-width: ${__BREAKPOINTS.xxs}px){
+        margin-left: 18px;
+        margin-right: 4px;
+        margin-top: 0;
+        width: calc(100% - 22px);
+        .priceBreakdown{
+            p{
+                font-size: 20px;
+            }
+        }
+    }
 `;
 
 export default function CartTotal({ subtotal, tax, discount, total}){
