@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import styled from "styled-components";
 import { __BREAKPOINTS } from "../../../../styles/utils/variables";
+import { NoScroll } from "../../../../utils/noScroll";
 import CartButton from "./CartButton";
 import CartItem from "./ProductCartItem";
 import CartTotal from "./TotalPriceInfo";
@@ -110,6 +111,7 @@ export default function ProductCart({ closed, setClosed, cart, deleteFunc, addFu
     }
     return(
         <Wrapper closed={closed}>
+            { !closed && <NoScroll />}
             <Background onClick={closePage} />
             <CartContent>
                 <h2>CART ({cart.items.length})</h2>
