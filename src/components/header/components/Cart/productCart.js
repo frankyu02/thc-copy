@@ -6,7 +6,7 @@ import CartItem from "./ProductCartItem";
 import CartTotal from "./TotalPriceInfo";
 
 const Wrapper = styled.div`
-    width: ${props => props.closed ? '0' : '99vw'};
+    width: ${props => props.closed ? '0' : '99.1vw'};
     transition: 0.2s;
     height: calc(100vh - 124px);
     overflow: hidden;
@@ -22,7 +22,6 @@ const Background = styled.div`
     width: 40%;
     height: 100%;
     background: rgba(0,0,0,0.5);
-    cursor: pointer; 
     position: absolute;
     @media (max-width: ${__BREAKPOINTS.lg}px){
         width: 20%;
