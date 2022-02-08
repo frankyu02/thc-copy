@@ -8,12 +8,8 @@ import { useState } from "react"
 import ProductCart from "./components/Cart/productCart"
 import { FilledCart } from "./components/Cart/dummydata"
 
-<<<<<<< HEAD
-export const HeaderMenu = () => {
-=======
 
 export const HeaderMenu = ({ cart }) => {
->>>>>>> feature/ProductCart
   const data = useStaticQuery(graphql`
         query { 
          site {
