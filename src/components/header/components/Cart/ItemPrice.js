@@ -22,14 +22,15 @@ const PriceWrapper = styled.div`
     }
     @media (max-width:${__BREAKPOINTS.xxs}px){
         width: 40%;
-        margin-bottom: 0;
+        margin: 0;
         margin-top: 40px;
-        margin-left: 0;
         .price{
             margin-bottom: 0;
         }
     }
-
+    @media(max-width: 350px){
+        margin-left: -10px;
+    }
 `;
 
 export default function ItemPrice({ variants, option, quantity }){

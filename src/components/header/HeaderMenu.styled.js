@@ -199,13 +199,26 @@ export const HeaderMenuStyled = styled.section`
         position: absolute;
         background: white;
         top: 0;
-        left: 0;
         top: 50%;
+        left: 0;
+        right: 0;
         margin-top: -14px;
-        left: 50%;
-        margin-left: -10%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
         font-size: 25px;
         color: #612C8F;
+      }
+      .blocker{
+        z-index: 500;
+        width: 100%;
+        height: 10px;
+        position: absolute;
+        bottom: 0;
+        bottom: -5px;
+        left: 0;
+        background: white;
+        visibility: ${props => props.cartState ? 'hidden' : `visible`};
       }
     }
 

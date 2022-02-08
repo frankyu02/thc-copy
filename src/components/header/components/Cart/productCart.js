@@ -6,11 +6,12 @@ import CartItem from "./ProductCartItem";
 import CartTotal from "./TotalPriceInfo";
 
 const Wrapper = styled.div`
-    width: ${props => props.closed ? '0' : '100vw'};
+    width: ${props => props.closed ? '0' : '99vw'};
     transition: 0.2s;
     height: calc(100vh - 124px);
     overflow: hidden;
     border: 1px solid black;
+    border-right: none;
     position: absolute;
     z-index: 200;
     @media (max-width: ${__BREAKPOINTS.lg}px){
@@ -43,6 +44,7 @@ const CartContent = styled.div`
     border-left: 1px solid black;
     padding-top: 33px;
     padding-left: 73.06px;
+    position: relative;
     h2{
         margin-left: 30px;
         font-size: 36px;

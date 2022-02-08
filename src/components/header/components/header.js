@@ -39,6 +39,7 @@ export const Header = ({ logoText, headerRef, cartState, setCartState, itemLengt
       <div className={"cart"}> 
         <button type={"button"} className={"cart-btn"} onClick={openCart}>Cart <span>{itemLength}</span></button>
         <button type={"button"} className={"close-btn"} onClick={openCart}><CgClose /> </button>
+        <div className="blocker"></div>
       </div>
       {menuOpen && <OnClickOutside firstRef={navRef} secondRef={burgerRef} handler={closeMenu} />}
       {menuOpen && <NoScroll />}
