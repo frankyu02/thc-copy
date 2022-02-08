@@ -8,7 +8,7 @@ import { NoScroll } from "../../../utils/noScroll"
 import ProductCart from "./Cart/productCart"
 import { CgClose } from "react-icons/cg";
 
-export const Header = ({ logoText, headerRef, cartState, setCartState, itemLength }) => {
+export const Header = ({ logoText, headerRef, cartState, setCartState, Quantity }) => {
   const { isOpen: menuOpen, onToggle: toggleMenu, onClose: closeMenu, setIsOpen: setMenuOpen } = useOpen()
 
   const navIndent = headerRef?.current?.offsetHeight || 105
@@ -37,7 +37,7 @@ export const Header = ({ logoText, headerRef, cartState, setCartState, itemLengt
 
       <Search />
       <div className={"cart"}> 
-        <button type={"button"} className={"cart-btn"} onClick={openCart}>Cart <span>{itemLength}</span></button>
+        <button type={"button"} className={"cart-btn"} onClick={openCart}>Cart <span>{Quantity}</span></button>
         <button type={"button"} className={"close-btn"} onClick={openCart}><CgClose /> </button>
         <div className="blocker"></div>
       </div>

@@ -32,6 +32,10 @@ export const HeaderMenu = ({ cart }) => {
   const promobarText = data?.wp?.acfOptionsHeaderOptions?.preHeader?.promobarText
   const headerRef = useRef()
   const [closed, setClosed] = useState(true);
+  var Quanttotal = 0;
+    for(var i = 0; i < FilledCart.items.length; i++){
+        Quanttotal += FilledCart.items[i].quantity;
+    }
   return (
     <HeaderMenuStyled cartState={closed}>
       <div ref={headerRef}> {/*header height calculation */}
@@ -40,7 +44,7 @@ export const HeaderMenu = ({ cart }) => {
                 logoText={logoText}
                 cartState={closed}
                 setCartState={setClosed}
-                itemLength={FilledCart.items.length}
+                Quantity={Quanttotal}
                  />
         <ProductCart closed={closed} setClosed={setClosed} cart={FilledCart} />
       </div>

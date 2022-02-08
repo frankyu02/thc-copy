@@ -107,6 +107,10 @@ const CartContent = styled.div`
     }
 `;
 export default function ProductCart({ closed, setClosed, cart, deleteFunc, addFunc, subFunc }){
+    var Quanttotal = 0;
+    for(var i = 0; i < cart.items.length; i++){
+        Quanttotal += cart.items[i].quantity;
+    }
     const closePage = useCallback(() => {
         setClosed((c) => {
             return !c;
@@ -127,7 +131,7 @@ export default function ProductCart({ closed, setClosed, cart, deleteFunc, addFu
             { !closed && <NoScroll />}
             <Background onClick={closePage} />
             <CartContent>
-                <h2>CART ({cart.items.length})</h2>
+                <h2>CART ({Quanttotal})</h2>
                 <div className="content">
                     {cart.items.map((item, index) => {
                         return(
