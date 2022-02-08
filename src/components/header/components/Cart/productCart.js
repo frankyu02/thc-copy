@@ -56,6 +56,19 @@ const CartContent = styled.div`
         width: 90%;
         overflow-x: hidden;
         overflow-y: auto;
+        scrollbar-width: thin;          /* "auto" or "thin" */
+        scrollbar-color: var(--darkpurple) var(--lightpurple);   /* scroll thumb and track */ 
+        &::-webkit-scrollbar {
+            width: 12px;               /* width of the entire scrollbar */
+        }
+
+        &::-webkit-scrollbar-track {
+            background: var(--lightpurple);        /* color of the tracking area */
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--darkpurple);    /* color of the scroll thumb */
+        }
         height: 65%;
     }
     .close{
