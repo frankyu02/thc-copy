@@ -4,6 +4,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { MainButton } from "../../ui/main_button/MainButton"
 import { ModalLegendary } from "../../ui/modal_legendary/ModalLegendary"
 import { LegendaryStyles } from "./LegendaryStyles"
+import { Fade, AttentionSeeker, Zoom } from "react-awesome-reveal"
 
 export const Legendary = ({ lazyLoading }) => {
 
@@ -64,21 +65,26 @@ export const Legendary = ({ lazyLoading }) => {
       <>
         <div className={"container"}>
           <div className={"main_legendary"}>
+            <Fade duration={1800}>
+            <div>
             <div className="legendary_image">
               <GatsbyImage className="legendary_baner" objectFit={"cover"}
                            image={getImage(storyLegendary?.storyLegendaryMainImg?.localFile?.childImageSharp?.gatsbyImageData)}
                            alt={storyLegendary.storyLegendaryMainImg.altText || "banner"} />
             </div>
+            </div>
+            </Fade>
             <div className={"legendary_text"}>
-              <h2>{storyLegendary?.storyLegendaryTitle}</h2>
+              <AttentionSeeker effect="headShake"><div><h2>{storyLegendary?.storyLegendaryTitle}</h2></div></AttentionSeeker>
               {storyLegendary?.storyLegendaryMainText?.map?.((item, key) => (
                 <p key={key}>{item?.storyLegendaryMainTextItem}</p>
               ))}
               <button onClick={() => setModal(true)}
                       className="read_more">{storyLegendary?.storyLegendaryModalOpen}</button>
+              <Zoom duration={600}>
               <div><MainButton url={storyLegendary?.storyLegendaryButton?.url}
                                target={storyLegendary?.storyLegendaryButton?.target}>{storyLegendary?.storyLegendaryButton?.title}</MainButton>
-              </div>
+              </div></Zoom> 
             </div>
           </div>
           <ModalLegendary open={modal} close={() => setModal(false)} />
@@ -86,11 +92,11 @@ export const Legendary = ({ lazyLoading }) => {
             {cardsJoin?.map?.((item, key) => (
               <div key={key} className="legendary_item">
                 <div className="overlay"></div>
-                <GatsbyImage layout={"constrained"} className="image_bg"
+                <Fade><div><GatsbyImage layout={"constrained"} className="image_bg"
                              image={getImage(item?.cardsJoinBgImg?.localFile?.childrenImageSharp[0]?.gatsbyImageData)}
-                             alt={"banner"} />
+                             alt={"banner"} /></div></Fade>
                 <div className="content_parent">
-                  <h3>{item?.cardsJoinTitle}</h3>
+                  <Fade direction="down"><div><h3>{item?.cardsJoinTitle}</h3></div></Fade>
                   <p>{item?.cardsJoinSubTitle}</p>
                   <MainButton url={item?.cardsJoinButton?.url}
                               target={item?.cardsJoinButton?.target}>{item?.cardsJoinButton?.title}</MainButton>
