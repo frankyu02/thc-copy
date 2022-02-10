@@ -1,6 +1,7 @@
 import * as React from "react";
 import { graphql, useStaticQuery} from "gatsby";
 import { TitleSubtextStyled } from "./TitleSubtext.styled";
+import { JackInTheBox } from "react-awesome-reveal";
 
 export const TitleSubtext = () => {
     const data = useStaticQuery(graphql`
@@ -22,7 +23,9 @@ export const TitleSubtext = () => {
     return (
         <TitleSubtextStyled>
             <div className="container">
+                <JackInTheBox>
                 <h2>{title}</h2>
+                </JackInTheBox>
                 <div className="content">
                     <p dangerouslySetInnerHTML={{ __html: text }}/>
                 </div>

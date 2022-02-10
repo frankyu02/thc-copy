@@ -2,6 +2,7 @@ import * as React from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { MapRegionsStyled } from "./MapRegions.styled"
+import { Slide } from "react-awesome-reveal"
 
 export const MapRegions = () => {
   const data = useStaticQuery(graphql`
@@ -53,8 +54,10 @@ export const MapRegions = () => {
   return (
     <MapRegionsStyled>
       <div className="container">
+        <Slide direction="left">
         <h2>{title}</h2>
         <h3>{subtitle}</h3>
+        </Slide>
         <div className="map">
           <div className="map-img">
             <Link to={maplink?.url || "#"} target={maplink?.target}>
