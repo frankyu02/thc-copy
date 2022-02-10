@@ -1,8 +1,8 @@
 import React from "react";
-import ContactForm from "../components/ContactPage/ContactForm";
+import ContactMap from "../components/ContactPage/ContactMap/ContactMap";
 
 export default function test(){
     return(
-        <ContactForm />
+        <ContactMap />
     )
 }
