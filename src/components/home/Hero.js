@@ -63,7 +63,8 @@ export const HeroHome = () => {
                 </Fade>
             </div>
             <div className="inner">
-              <div className="video">
+            <GatsbyImage className={"background"} image={getImage(banner)} alt={bannerText} />
+              {/* <div className="video">
                   <ReactPlayer
                       className="background"
                       url="https://res.cloudinary.com/dnc6bhhkf/video/upload/v1643302202/THC_January_2021_qqmkkr.mp4" 
@@ -80,7 +81,7 @@ export const HeroHome = () => {
                           }
                       }}
                   />
-              </div>
+              </div> */}
               <div className="caption">
                     <h2 dangerouslySetInnerHTML={{ __html: bannerTitle }} className="title" />
                 <Fade direction="down">
