@@ -19,15 +19,15 @@ export const HeroHome = () => {
                         overBannerTitle
                     }
                     banner {
-                        # bannerBg {
-                        #     localFile {
-                        #         childImageSharp {
-                        #             gatsbyImageData(quality: 100)
-                        #         }
-                        #         url
-                        #     }
-                        #     altText
-                        # }
+                        bannerBg {
+                            localFile {
+                                # childImageSharp {
+                                #     gatsbyImageData(quality: 100)
+                                # }
+                                url
+                            }
+                            # altText
+                        }
                         bannerTitle
                         bannerButton {
                             target
@@ -73,13 +73,13 @@ export const HeroHome = () => {
                       width="100%"
                       height="100%"
                       playing={true}
-                      config={{
-                          file: {
-                              attributes:{
-                                  poster: bannerURL
-                              }
-                          }
-                      }}
+                    //   config={{
+                    //       file: {
+                    //           attributes:{
+                    //               poster: bannerURL
+                    //           }
+                    //       }
+                    //   }}
                   />
               </div>
               <div className="caption">
