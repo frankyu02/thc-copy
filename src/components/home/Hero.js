@@ -19,15 +19,15 @@ export const HeroHome = () => {
                         overBannerTitle
                     }
                     banner {
-                        bannerBg {
-                            localFile {
-                                # childImageSharp {
-                                #     gatsbyImageData(quality: 100)
-                                # }
-                                url
-                            }
-                            # altText
-                        }
+                        # bannerBg {
+                        #     # localFile {
+                        #     #     # childImageSharp {
+                        #     #     #     gatsbyImageData(quality: 100)
+                        #     #     # }
+                        #     #     url
+                        #     # }
+                        #     # altText
+                        # }
                         bannerTitle
                         bannerButton {
                             target
@@ -41,7 +41,7 @@ export const HeroHome = () => {
     `)
     const overBanner = data?.wpPage?.home?.overBanner;
     // const banner = data?.wpPage?.home?.banner?.bannerBg?.localFile?.childImageSharp?.gatsbyImageData;
-    const bannerURL = data?.wpPage?.home?.banner?.bannerBg?.localFile?.url;
+    // const bannerURL = data?.wpPage?.home?.banner?.bannerBg?.localFile?.url;
     // const bannerText = data?.wpPage?.home?.banner?.bannerBg?.altText;
     const bannerTitle = data?.wpPage?.home?.banner?.bannerTitle;
     const bannerButton = data?.wpPage?.home?.banner?.bannerButton;
@@ -76,7 +76,7 @@ export const HeroHome = () => {
                       config={{
                           file: {
                               attributes:{
-                                  poster: bannerURL
+                                  poster: "https://res.cloudinary.com/dnc6bhhkf/image/upload/v1644592111/store-hero_tc6pjs.png"
                               }
                           }
                       }}
