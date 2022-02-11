@@ -73,13 +73,13 @@ export const HeroHome = () => {
                       width="100%"
                       height="100%"
                       playing={true}
-                    //   config={{
-                    //       file: {
-                    //           attributes:{
-                    //               poster: bannerURL
-                    //           }
-                    //       }
-                    //   }}
+                      config={{
+                          file: {
+                              attributes:{
+                                  poster: bannerURL
+                              }
+                          }
+                      }}
                   />
               </div>
               <div className="caption">
