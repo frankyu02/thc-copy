@@ -73,13 +73,13 @@ export const HeroHome = () => {
                       width="100%"
                       height="100%"
                       playing={true}
-                      config={{
-                          file: {
-                              attributes:{
-                                  poster: "https://res.cloudinary.com/dnc6bhhkf/image/upload/v1644592111/store-hero_tc6pjs.png"
-                              }
-                          }
-                      }}
+                    //   config={{
+                    //       file: {
+                    //           attributes:{
+                    //               poster: "https://res.cloudinary.com/dnc6bhhkf/image/upload/v1644592111/store-hero_tc6pjs.png"
+                    //           }
+                    //       }
+                    //   }}
                   />
               </div>
               <div className="caption">
