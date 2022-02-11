@@ -19,15 +19,15 @@ export const HeroHome = () => {
                         overBannerTitle
                     }
                     banner {
-                        bannerBg {
-                            localFile {
-                                childImageSharp {
-                                    gatsbyImageData(quality: 100)
-                                }
-                                url
-                            }
-                            altText
-                        }
+                        # bannerBg {
+                        #     localFile {
+                        #         childImageSharp {
+                        #             gatsbyImageData(quality: 100)
+                        #         }
+                        #         url
+                        #     }
+                        #     altText
+                        # }
                         bannerTitle
                         bannerButton {
                             target
@@ -40,9 +40,9 @@ export const HeroHome = () => {
         }
     `)
     const overBanner = data?.wpPage?.home?.overBanner;
-    const banner = data?.wpPage?.home?.banner?.bannerBg?.localFile?.childImageSharp?.gatsbyImageData;
+    // const banner = data?.wpPage?.home?.banner?.bannerBg?.localFile?.childImageSharp?.gatsbyImageData;
     const bannerURL = data?.wpPage?.home?.banner?.bannerBg?.localFile?.url;
-    const bannerText = data?.wpPage?.home?.banner?.bannerBg?.altText;
+    // const bannerText = data?.wpPage?.home?.banner?.bannerBg?.altText;
     const bannerTitle = data?.wpPage?.home?.banner?.bannerTitle;
     const bannerButton = data?.wpPage?.home?.banner?.bannerButton;
 
@@ -63,8 +63,8 @@ export const HeroHome = () => {
                 </Fade>
             </div>
             <div className="inner">
-            <GatsbyImage className={"background"} image={getImage(banner)} alt={bannerText} />
-              {/* <div className="video">
+            {/* <GatsbyImage className={"background"} image={getImage(banner)} alt={bannerText} /> */}
+              <div className="video">
                   <ReactPlayer
                       className="background"
                       url="https://res.cloudinary.com/dnc6bhhkf/video/upload/v1643302202/THC_January_2021_qqmkkr.mp4" 
@@ -81,7 +81,7 @@ export const HeroHome = () => {
                           }
                       }}
                   />
-              </div> */}
+              </div>
               <div className="caption">
                     <h2 dangerouslySetInnerHTML={{ __html: bannerTitle }} className="title" />
                 <Fade direction="down">
