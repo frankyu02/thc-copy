@@ -43,6 +43,13 @@ export const HeroStyled = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
+    .poster{
+      height: 100%;
+      width: 100%;
+      z-index: 1;
+      visibility: visible;
+      position: absolute;
+    }
     .video{
       height: 100%;
       width: 100%;
