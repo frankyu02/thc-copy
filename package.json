@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Blackhawk Digital",
   "dependencies": {
+    "axios": "^0.26.0",
     "babel-plugin-styled-components": "^2.0.2",
     "esm": "^3.2.25",
     "gatsby": "^4.4.0",
