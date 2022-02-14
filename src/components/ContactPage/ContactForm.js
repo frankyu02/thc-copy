@@ -50,7 +50,7 @@ export default function ContactForm(){
     };
     return(
             <FormWrapper>
-                <Fade cascade direction="right">
+                <Fade cascade direction="up">
                     <h2>GET IN TOUCH</h2>
                     <p>Send us a message or leave us your email to become a THC member. <br /> <br />
                     Stay in the know with the latest THC news, newest collections, deals and special offers for you.</p>

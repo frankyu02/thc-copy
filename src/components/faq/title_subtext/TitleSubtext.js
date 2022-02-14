@@ -1,7 +1,7 @@
 import * as React from "react";
 import { graphql, useStaticQuery} from "gatsby";
 import { TitleSubtextStyled } from "./TitleSubtext.styled";
-import { Slide } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 export const TitleSubtext = () => {
     const data = useStaticQuery(graphql`
         query {
@@ -25,14 +25,14 @@ export const TitleSubtext = () => {
     return (
         <TitleSubtextStyled>
             <div className="container">
-                <Slide cascade direction="right">
+                <Fade cascade direction="up">
                     <h2>{title}</h2>
                     <div className="content">
                         {text?.map?.((item, key) => (
                             <p key={key}>{item?.faqAccordionTextItem}</p>
                         ))}
                     </div>
-                </Slide>
+                </Fade>
             </div>
         </TitleSubtextStyled>
     );
