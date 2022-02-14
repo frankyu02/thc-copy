@@ -60,12 +60,14 @@ export const ArticlesGridStyles = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 1px solid #000000;
+    /* border: 1px solid #000000; */
     width: 100%;
     margin-bottom: 50px;
   }
   .article-content{
-    border-top: 1px solid #000;
+    /* border-top: 1px solid #000; */
+    border-left: 1px solid black;
+    border-right: 1px solid black;
     display: flex;
     width: 100%;
     flex-wrap: wrap;
@@ -77,7 +79,8 @@ export const ArticlesGridStyles = styled.section`
     font-size: 12px;
   }
   .content-wrap{
-    border-top: 1px solid #000;
+    /* border-top: 1px solid #000; */
+    border: 1px solid black;
     height: 100%;
     p {
       height: 100%;

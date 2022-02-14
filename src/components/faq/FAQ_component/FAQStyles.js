@@ -16,19 +16,21 @@ padding-bottom: 100px;
 `;
 const Wrapper = styled.div`
     z-index: 5;
-    border: 1px solid black;
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
     display: flex;
     flex-direction: column;
-    background: white;
+    background: transparent;
 `;
 const FaqWrap = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 30px 0 30px 10%;
-    border-bottom: 1px solid black;
+    border: 1px solid black;
+    border-bottom: 0.5px solid black;
+    border-top: 0.5px solid black;
+    background: white;
     .content{
         h4{
             width: 75%;
@@ -44,6 +46,7 @@ const FaqWrap = styled.div`
             h4{
                 width: 70%;
                 font-size: min(20px, 5vw);
+            }
         }
     }
 `;

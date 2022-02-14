@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import FAQItem from "./FAQItems";
 import { TrueBackground,Background, Wrapper } from "./FAQStyles";
-
+import { Fade } from "react-awesome-reveal";
 export default function FAQComponent(){
     const data = useStaticQuery(graphql`
         query{
@@ -28,7 +28,9 @@ export default function FAQComponent(){
             <Wrapper>
                 {faqData?.faqAccordionItem.map((question, index) => {
                     return(
-                        <FAQItem key={index} data={{question}} />
+                        <Fade direction="right">
+                            <FAQItem key={index} data={{question}} />
+                        </Fade>
                     )
                 })}
             </Wrapper>
