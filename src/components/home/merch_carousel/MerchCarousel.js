@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { MerchCarouselStyled } from "./MerchCarousel.styled"
 import MainButtonShop from "../../ui/main_button/MainButtonShop"
 import { __BREAKPOINTS } from "../../../styles/utils/variables"
+import { Slide } from "react-awesome-reveal"
 
 import Mobile from "./mobile"
 
@@ -95,10 +96,12 @@ const Html = () => {
   return (
     <>
       <div className={"merch_header"}>
+        <Slide direction="right"><div>
         <div className={"container"}>
           <h2>{merchCarousel?.merchCarouselTitle}</h2>
           <h3>{merchCarousel?.merchCarouselSubTitle}</h3>
         </div>
+        </div></Slide>
       </div>
       <div className={"merch_parent"}>
         <div className={"container"}>

@@ -3,6 +3,7 @@ import { Link, graphql, useStaticQuery } from 'gatsby';
 import DoublePageLinkStyles from './doublePageLink.styled';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { Fade } from 'react-awesome-reveal';
 
 const DoublePageLink = () => {
     const data = useStaticQuery(graphql`
@@ -40,7 +41,9 @@ const DoublePageLink = () => {
                             />
                             <div className='content'>
                                 <div className="title">
+                                    <Fade>
                                     <h3>{recommendation[0]?.recommendationTitle}</h3>
+                                    </Fade>
                                 </div>
                                 <div className="link">
                                     <Link to={recommendation[0]?.recommendationButtonLink || '#'}>{recommendation[0]?.recommendationButtonName} <FiArrowUpRight/></Link>
@@ -54,7 +57,9 @@ const DoublePageLink = () => {
                             />
                             <div className='content'>
                                 <div className="title">
+                                    <Fade>
                                     <h3>{recommendation[1]?.recommendationTitle}</h3>
+                                    </Fade>
                                 </div>
                                 <div className="link">
                                     <Link to={recommendation[1]?.recommendationButtonLink || '#'}>{recommendation[1]?.recommendationButtonName} <FiArrowUpRight/></Link>

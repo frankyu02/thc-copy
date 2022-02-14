@@ -4,6 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import { BlogBannerStyled } from "./BlogBanner.styled"
 import { MainButton } from "../../ui/main_button/MainButton"
 import { getImageData } from "../../../utils/get_image_data"
+import { Fade } from "react-awesome-reveal"
 
 export const BlogBanner = ({ lazyLoading }) => {
   const data = useStaticQuery(graphql`
@@ -40,13 +41,19 @@ export const BlogBanner = ({ lazyLoading }) => {
   const __POSTS = data?.allWpPost?.nodes
   const Html = () => <div className="container">
     <div className="blog-banner">
+      <Fade direction="right">
       <h2>{__HEADING}</h2>
+      </Fade>
       <div className="blog-wrap">
         {__POSTS.map(({ featuredImage, slug, title }) => {
           return (
             <div className="blog-item" key={slug}>
+              <Fade>
               <GatsbyImage image={getImageData(featuredImage.node)} alt={title} />
+              </Fade>
+              <Fade>
               <h3>{title}</h3>
+              </Fade>
               <Link aria-label={"open blog article "} to={"/blog/" + slug}>
                 Read <span className={"hide-text"}>  about {title}</span> more
                 <svg width="16" height="16" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -58,9 +65,11 @@ export const BlogBanner = ({ lazyLoading }) => {
           )
         })}
       </div>
+      <Fade direction="up">
       <div className="button">
         <MainButton url="/blog/">{__MORE_BTN}</MainButton>
       </div>
+      </Fade>
     </div>
   </div>
   return (
