@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { Fade } from "react-awesome-reveal";
 import { __BREAKPOINTS } from "../../styles/utils/variables";
 import { Contact, FormWrapper } from "./ContactFormStyles";
 
@@ -49,9 +50,12 @@ export default function ContactForm(){
     };
     return(
             <FormWrapper>
-                <h2>GET IN TOUCH</h2>
-                <p>Send us a message or leave us your email to become a THC member. <br /> <br />
-                Stay in the know with the latest THC news, newest collections, deals and special offers for you.</p>
+                <Fade cascade direction="right">
+                    <h2>GET IN TOUCH</h2>
+                    <p>Send us a message or leave us your email to become a THC member. <br /> <br />
+                    Stay in the know with the latest THC news, newest collections, deals and special offers for you.</p>
+                </Fade>
+                <Fade>
                 <Contact>
                     <form onSubmit={handleOnSubmit}>
                         <div className="group">
@@ -82,6 +86,7 @@ export default function ContactForm(){
                         )}
                     </form>
                 </Contact>
+                </Fade>
             </FormWrapper>
     )
 }
