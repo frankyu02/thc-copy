@@ -47,7 +47,8 @@ export const HeroHome = () => {
     const bannerButton = data?.wpPage?.home?.banner?.bannerButton;
 
     const removePoster = () =>{
-        document.getElementsByClassName("poster")[0].style.visibility = 'hidden';
+        document.getElementsByClassName("poster")[0].style.display = 'none';
+        document.getElementsByClassName("background")[0].style.display = 'block';
     }
 
     return (

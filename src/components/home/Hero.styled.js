@@ -78,7 +78,7 @@ export const HeroStyled = styled.section`
 
     .background {
       pointer-events: none;
-      display: inline-block;
+      display: none;
       position: absolute;
       top: 0;
       left: 0;
