@@ -56,36 +56,36 @@ export default function ContactForm(){
                     Stay in the know with the latest THC news, newest collections, deals and special offers for you.</p>
                 </Fade>
                 <Fade>
-                <Contact>
-                    <form onSubmit={handleOnSubmit}>
-                        <div className="group">
-                            <p>FIRST NAME *</p>
-                            <input type="text" name="FIRST NAME" id="Firstname" className="form-control" aria-describedby="NameInput" placeholder="FIRST NAME" required="required" onChange={handleFirst}/>
-                        </div>
-                        <div className="group">
-                            <p>LAST NAME *</p>
-                            <input type="text" name="Last NAME" id="Lastname" className="form-control" aria-describedby="NameInput" placeholder="LAST NAME" required="required" onChange={handleLast}/>
-                        </div>
-                        <div className="group">
-                            <p>EMAIL *</p>
-                            <input type="email" name="Email" id="email" className="form-control" aria-describedby="Email" placeholder="your email" required="required" onChange={handleEmail}/>
-                        </div>
-                        <div className="group">
-                            <p>Message</p>
-                            <textarea type="textarea" name="message" id="message" className="form-control" aria-describedby="message" placeholder="your MESSAGE"/>
-                        </div>
-                        <div className="form-end">
-                            <button type="submit" className="form-button-submit"  disabled={serverState.submitting || enable}>
-                                SUBMIT
-                            </button>
-                        </div>
-                        {serverState.status && (
-                            <p className={!serverState.status.ok ? "errorMsg" : ""}>
-                            {serverState.status.msg}
-                            </p>
-                        )}
-                    </form>
-                </Contact>
+                    <Contact>
+                        <form onSubmit={handleOnSubmit}>
+                            <div className="group">
+                                <p>FIRST NAME *</p>
+                                <input type="text" name="FIRST NAME" id="Firstname" className="form-control" aria-describedby="NameInput" placeholder="FIRST NAME" required="required" onChange={handleFirst}/>
+                            </div>
+                            <div className="group">
+                                <p>LAST NAME *</p>
+                                <input type="text" name="Last NAME" id="Lastname" className="form-control" aria-describedby="NameInput" placeholder="LAST NAME" required="required" onChange={handleLast}/>
+                            </div>
+                            <div className="group">
+                                <p>EMAIL *</p>
+                                <input type="email" name="Email" id="email" className="form-control" aria-describedby="Email" placeholder="your email" required="required" onChange={handleEmail}/>
+                            </div>
+                            <div className="group">
+                                <p>Message</p>
+                                <textarea type="textarea" name="message" id="message" className="form-control" aria-describedby="message" placeholder="your MESSAGE"/>
+                            </div>
+                            <div className="form-end">
+                                <button type="submit" className="form-button-submit"  disabled={serverState.submitting || enable}>
+                                    SUBMIT
+                                </button>
+                            </div>
+                            {serverState.status && (
+                                <p className={!serverState.status.ok ? "errorMsg" : ""}>
+                                {serverState.status.msg}
+                                </p>
+                            )}
+                        </form>
+                    </Contact>
                 </Fade>
             </FormWrapper>
     )
