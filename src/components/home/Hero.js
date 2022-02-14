@@ -24,7 +24,7 @@ export const HeroHome = () => {
                                 childImageSharp {
                                     gatsbyImageData(quality: 100)
                                 }
-                                url
+                                # url
                             }
                             altText
                         }
