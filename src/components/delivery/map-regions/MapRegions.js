@@ -2,7 +2,7 @@ import * as React from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { MapRegionsStyled } from "./MapRegions.styled"
-import { Slide } from "react-awesome-reveal"
+import { Fade } from "react-awesome-reveal"
 
 export const MapRegions = () => {
   const data = useStaticQuery(graphql`
@@ -54,10 +54,10 @@ export const MapRegions = () => {
   return (
     <MapRegionsStyled>
       <div className="container">
-        <Slide direction="left">
+        <Fade direction="left" cascade damping={0.25}>
         <h2>{title}</h2>
         <h3>{subtitle}</h3>
-        </Slide>
+        </Fade>
         <div className="map">
           <div className="map-img">
             <Link to={maplink?.url || "#"} target={maplink?.target}>
@@ -72,7 +72,9 @@ export const MapRegions = () => {
                 <li key={key}>{item?.deliveryLocationListItem}</li>
               ))}
             </ul>
+            <Fade direction="up"><div>
             <Link to={button?.url || "#"} className="btn" target={button?.target}>{button?.title}</Link>
+            </div></Fade>
           </div>
         </div>
       </div>

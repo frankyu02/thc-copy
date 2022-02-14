@@ -5,7 +5,7 @@ import { SettingStyle } from "./SettingStyle"
 import { MainButton } from "../../ui/main_button/MainButton"
 import { ModalSettingSrandart } from "../../ui/modal_setting-standart/ModalSettingStandart"
 import { useNoScroll } from "../../../hooks/useNoScroll"
-import { Fade, AttentionSeeker } from "react-awesome-reveal"
+import { Fade } from "react-awesome-reveal"
 
 export const SettingStandart = ({ lazyLoading }) => {
   const data = useStaticQuery(graphql`
@@ -47,15 +47,15 @@ export const SettingStandart = ({ lazyLoading }) => {
         </div></Fade>
       </div>
       <div className="setting_text">
-        <AttentionSeeker effect="headShake">
+        <Fade direction="right">
         <h3>{news?.newsTitle}</h3>
-        </AttentionSeeker>
+        </Fade>
         {news?.newsText?.map?.((item, key) => (
           <p key={key}>{item?.newsTextParagraph}</p>
         ))}
         <button aria-label={"open modal"} onClick={() => setModal(true)}
                 className="read_more">{news?.newsOpenModal}</button>
-        <Fade direction="right" duration={600}><div>
+        <Fade direction="up"><div>
         <MainButton url={news?.newsButton?.url}
                     target={news?.newsButton?.target}>{news?.newsButton?.title}</MainButton>
         </div></Fade>

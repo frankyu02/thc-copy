@@ -3,7 +3,6 @@ import { graphql, useStaticQuery } from "gatsby"
 import { DeliveryLargeStyled } from "./DeliveryLarge.styled"
 import { GatsbyImage, getImage, withArtDirection } from "gatsby-plugin-image"
 import MainButton from "../../ui/main_button/MainButton"
-import { Fade } from "react-awesome-reveal"
 
 export const DeliveryLarge = () => {
   const data = useStaticQuery(graphql`
@@ -52,9 +51,7 @@ export const DeliveryLarge = () => {
                        image={getImage(images)}
                        alt={"banner"} />
         </div>
-        <Fade><div>
         <MainButton>{delivery?.deliveryDescriptionButton?.title}</MainButton>
-        </div></Fade>
       </div>
     </DeliveryLargeStyled>
   )

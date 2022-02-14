@@ -36,7 +36,7 @@ const ReviewGrid = () => {
     <div className="container">
       <ReviewGridStyles>
         <div className="container">
-          <Fade><div>
+          <Fade direction="left"><div>
           <div className="header">{cardsCompanyTitle}</div>
           </div></Fade>
           <div className="grid">

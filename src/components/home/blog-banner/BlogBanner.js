@@ -48,10 +48,8 @@ export const BlogBanner = ({ lazyLoading }) => {
         {__POSTS.map(({ featuredImage, slug, title }) => {
           return (
             <div className="blog-item" key={slug}>
-              <Fade>
               <GatsbyImage image={getImageData(featuredImage.node)} alt={title} />
-              </Fade>
-              <Fade>
+              <Fade direction="down" damping={0.25}>
               <h3>{title}</h3>
               </Fade>
               <Link aria-label={"open blog article "} to={"/blog/" + slug}>
