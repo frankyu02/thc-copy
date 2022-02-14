@@ -41,7 +41,6 @@ export const HeroHome = () => {
     `)
     const overBanner = data?.wpPage?.home?.overBanner;
     const banner = data?.wpPage?.home?.banner?.bannerBg?.localFile?.childImageSharp?.gatsbyImageData;
-    // const bannerURL = data?.wpPage?.home?.banner?.bannerBg?.localFile?.url;
     const bannerText = data?.wpPage?.home?.banner?.bannerBg?.altText;
     const bannerTitle = data?.wpPage?.home?.banner?.bannerTitle;
     const bannerButton = data?.wpPage?.home?.banner?.bannerButton;
@@ -78,13 +77,6 @@ export const HeroHome = () => {
                         width="100%"
                         height="100%"
                         playing={true}
-                        //   config={{
-                        //       file: {
-                        //           attributes:{
-                        //               poster: "https://res.cloudinary.com/dnc6bhhkf/image/upload/v1644592111/store-hero_tc6pjs.png"
-                        //           }
-                        //       }
-                        //   }}
                         onReady={removePoster}
                     />
                 </div>
