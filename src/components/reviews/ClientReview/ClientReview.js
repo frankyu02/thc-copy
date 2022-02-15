@@ -6,6 +6,7 @@ import SwiperCore, { Navigation } from "swiper"
 import swiperCss from "!raw-loader!swiper/css"
 import swiperNavCss from "!raw-loader!swiper/css/navigation"
 import { ClientReviewStyle, Reviews, SwiperContainer } from "./ReviewStyles"
+import { Slide } from "react-awesome-reveal" 
 
 SwiperCore.use([Navigation])
 
@@ -36,10 +37,14 @@ export const ClientReview = () => {
 
       <div className="reviewContainer">
         <div className="title">
+          <Slide direction="left">
           <h2>{reviewdata.clientReviewsTitle}</h2>
+          </Slide>
         </div>
         <div className="subtitle">
+        <Slide direction="left">
           <h3>{reviewdata.clientReviewsSubTitle}</h3>
+          </Slide>
         </div>
         <SwiperContainer>
           <Swiper

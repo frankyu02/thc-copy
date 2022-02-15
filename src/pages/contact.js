@@ -2,6 +2,7 @@ import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { SmallHero } from "../components/global_component/small_hero/SmallHero"
 import Seo from "../components/layout/Seo"
+import ContactForm from "../components/ContactPage/ContactForm"
 
 
 const ContactPage = () => {
@@ -40,9 +41,10 @@ const ContactPage = () => {
     const contactBunner = data?.allWpPage?.nodes[0]?.contactUs?.contactUsBanner;
     return (
       <>
-          <Seo {...seo} />
-          <SmallHero banner={contactBunner?.contactUsBannerImg?.localFile}
+        <Seo {...seo} />
+        <SmallHero banner={contactBunner?.contactUsBannerImg?.localFile}
                      title={contactBunner?.contactUsBannerTitle} />
+        <ContactForm />
       </>
     );
 }

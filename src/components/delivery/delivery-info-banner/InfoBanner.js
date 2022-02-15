@@ -1,6 +1,7 @@
 import * as React from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { InfoBannerStyled } from "./InfoBanner.styled"
+import { Fade } from "react-awesome-reveal"
 
 export const InfoBanner = () => {
   const data = useStaticQuery(graphql`
@@ -34,10 +35,14 @@ export const InfoBanner = () => {
         {promotion?.map?.((item, key) => (
           <div key={key} className={"promo-item"}>
             <div className="promo-context">
+              <Fade direction="left">
               <h3>{item?.deliveryPromotionTitle}</h3>
+              </Fade>
               <ul>
                 {item?.deliveryPromotionList?.map?.((i, key) => (
+                  <Fade direction="left">
                   <li key={key}>{i.deliveryPromotionListItem}</li>
+                  </Fade>
                 ))}
               </ul>
             </div>

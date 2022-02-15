@@ -3,48 +3,11 @@ import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { HeroStyled } from "./Hero.styled";
 import { MainButton } from "../ui/main_button/MainButton";
-import { animated, useSpring } from '@react-spring/web'
-import { useInView } from 'react-intersection-observer';
+import { Fade } from "react-awesome-reveal";
 
 import ReactPlayer from "react-player/lazy";
 
 export const HeroHome = () => {
-
-    const { ref, inView, entry } = useInView({
-        threshold: 0,
-    });
-
-    const styles = useSpring({
-        from: {
-            opacity: 0,
-            x: -700
-        },
-        to: {
-            opacity: inView ? 1 : 0,
-            x: inView ? 0 : -700,
-        },
-        delay: 100,
-        config:{ mass: 5, tension: 2000, friction: 200 }
-    })
-
-    const styles3 = useSpring({
-        opacity: inView ? 1 : 0,
-        delay: 500,
-        y: inView ? 0 : -50
-    })
-
-    const styles2 = useSpring({
-        from: {
-            opacity: 0,
-            x: 700
-        },
-        to: {
-            opacity: inView ? 1 : 0,
-            x: inView ? 0 : 700,
-        },
-        config:{ mass: 5, tension: 2000, friction: 200 }
-    })
-
     
     const data = useStaticQuery(graphql`
         query {
@@ -61,7 +24,7 @@ export const HeroHome = () => {
                                 childImageSharp {
                                     gatsbyImageData(quality: 100)
                                 }
-                                url
+                                # url
                             }
                             altText
                         }
@@ -78,53 +41,55 @@ export const HeroHome = () => {
     `)
     const overBanner = data?.wpPage?.home?.overBanner;
     const banner = data?.wpPage?.home?.banner?.bannerBg?.localFile?.childImageSharp?.gatsbyImageData;
-    const bannerURL = data?.wpPage?.home?.banner?.bannerBg?.localFile?.url;
     const bannerText = data?.wpPage?.home?.banner?.bannerBg?.altText;
     const bannerTitle = data?.wpPage?.home?.banner?.bannerTitle;
     const bannerButton = data?.wpPage?.home?.banner?.bannerButton;
+
+    const removePoster = () =>{
+        document.getElementsByClassName("poster")[0].style.display = 'none';
+        document.getElementsByClassName("background")[0].style.display = 'block';
+    }
 
     return (
         <HeroStyled >
         <div className="container">
             <div className="header">
                 <div className='address_parent'>
-                <animated.div style={styles} ref={ref}>
-                  <p className={"street"}>{overBanner?.overBannerLocation1}</p>
-                  <p className={"street"}>{overBanner?.overBannerLocation2}</p>
-               </animated.div>
+                <Fade direction="left">
+                    <div>
+                        <p className={"street"}>{overBanner?.overBannerLocation1}</p>
+                        <p className={"street"}>{overBanner?.overBannerLocation2}</p>
+                    </div>
+                </Fade>
                 </div>
-                <animated.div style={styles2} ref={ref}>
-                  <span><h1>{overBanner?.overBannerTitle}</h1></span>
-                </animated.div>
+                <Fade direction="right">
+                    <span><h1>{overBanner?.overBannerTitle}</h1></span>
+                </Fade>
             </div>
             <div className="inner">
-              <div className="video">
-                  <ReactPlayer
-                      className="background"
-                      url="https://res.cloudinary.com/dnc6bhhkf/video/upload/v1643302202/THC_January_2021_qqmkkr.mp4" 
-                      muted="true"
-                      loop="true"
-                      width="100%"
-                      height="100%"
-                      playing={true}
-                      config={{
-                          file: {
-                              attributes:{
-                                  poster: bannerURL
-                              }
-                          }
-                      }}
-                  />
-              </div>
-              <div className="caption">
-                  
-                      <h2 dangerouslySetInnerHTML={{ __html: bannerTitle }} className="title" />
-                  
-                  <animated.div style={styles3} ref={ref}>
-                  <MainButton url={bannerButton?.url}
-                      target={bannerButton?.target}>{bannerButton?.title}</MainButton>
-                  </animated.div>
-              </div>
+                <GatsbyImage className="poster" image={getImage(banner)} alt={bannerText} />
+                <div className="video">
+                    <ReactPlayer
+                        className="background"
+                        url="https://res.cloudinary.com/dnc6bhhkf/video/upload/v1643302202/THC_January_2021_qqmkkr.mp4" 
+                        muted="true"
+                        loop="true"
+                        width="100%"
+                        height="100%"
+                        playing={true}
+                        onReady={removePoster}
+                    />
+                </div>
+                <div className="caption">
+                        <h2 dangerouslySetInnerHTML={{ __html: bannerTitle }} className="title" />
+                    <Fade direction="down">
+                        <div>
+                        <MainButton url={bannerButton?.url}
+                            target={bannerButton?.target}>{bannerButton?.title}
+                        </MainButton>
+                        </div>
+                    </Fade>
+                </div>
             </div>
         </div>
     </HeroStyled>
