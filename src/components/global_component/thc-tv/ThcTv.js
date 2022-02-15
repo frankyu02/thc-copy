@@ -3,7 +3,8 @@ import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { ThcTvStyled } from "./ThcTv.styled"
 import { UniversalLink } from "../../../utils/universalLink"
-import { Fade } from "react-awesome-reveal"
+import Reveal, { Fade } from "react-awesome-reveal"
+import { keyframes } from "@emotion/react";
 
 export const ThcTv = ({ lazyLoading }) => {
 
@@ -40,6 +41,19 @@ const Html = () => {
         }
     `)
   const thcTv = data?.wpPage?.home?.thcTv
+  
+  const animeStyles = keyframes`
+    from {
+      opacity: 0;
+      transform: translate3d(0, -200px, 0);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  `;
+
   return (
     <ThcTvStyled>
       <div className={"thctv-block"}>
@@ -52,7 +66,7 @@ const Html = () => {
               explore everything from product ordering to facility tours to events and more. Follow Snack Bundles,
               Campaign Colin, Nick The Quick and team through their daily adventures.</p>
             <p>The channel currently has four shows: THC TV, Dank TV, Certified Dank and CMPND Vlogs. </p>
-            <Fade><div>
+            <Fade direction="up"><div>
             <UniversalLink to={thcTv?.thcTvButton?.url || "#"} className="btn btn--white"
                            target={thcTv?.thcTvButton?.target}>{thcTv?.thcTvButton?.title}
               <svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -62,10 +76,10 @@ const Html = () => {
             </div></Fade>
           </div>
           <div className={"thc-tv-img"}>
-            <Fade direction="down"><div>
+            <Reveal keyframes={animeStyles}><div>
             <GatsbyImage image={getImage(thcTv?.thcTvImg?.localFile?.childImageSharp?.gatsbyImageData)}
                          alt={thcTv?.thcTvImg?.altText || "banner"} />
-            </div></Fade>
+            </div></Reveal>
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { MainButton } from "../../ui/main_button/MainButton"
 import { ModalLegendary } from "../../ui/modal_legendary/ModalLegendary"
 import { LegendaryStyles } from "./LegendaryStyles"
-import { Fade, AttentionSeeker, Zoom } from "react-awesome-reveal"
+import { Fade } from "react-awesome-reveal"
 
 export const Legendary = ({ lazyLoading }) => {
 
@@ -75,16 +75,16 @@ export const Legendary = ({ lazyLoading }) => {
             </div>
             </Fade>
             <div className={"legendary_text"}>
-              <AttentionSeeker effect="headShake"><div><h2>{storyLegendary?.storyLegendaryTitle}</h2></div></AttentionSeeker>
+              <Fade direction="down"><div><h2>{storyLegendary?.storyLegendaryTitle}</h2></div></Fade>
               {storyLegendary?.storyLegendaryMainText?.map?.((item, key) => (
                 <p key={key}>{item?.storyLegendaryMainTextItem}</p>
               ))}
               <button onClick={() => setModal(true)}
                       className="read_more">{storyLegendary?.storyLegendaryModalOpen}</button>
-              <Zoom duration={600}>
+              <Fade direction="up">
               <div><MainButton url={storyLegendary?.storyLegendaryButton?.url}
                                target={storyLegendary?.storyLegendaryButton?.target}>{storyLegendary?.storyLegendaryButton?.title}</MainButton>
-              </div></Zoom> 
+              </div></Fade> 
             </div>
           </div>
           <ModalLegendary open={modal} close={() => setModal(false)} />
@@ -98,8 +98,10 @@ export const Legendary = ({ lazyLoading }) => {
                 <div className="content_parent">
                   <Fade direction="down"><div><h3>{item?.cardsJoinTitle}</h3></div></Fade>
                   <p>{item?.cardsJoinSubTitle}</p>
+                  <Fade direction="up"><div>
                   <MainButton url={item?.cardsJoinButton?.url}
                               target={item?.cardsJoinButton?.target}>{item?.cardsJoinButton?.title}</MainButton>
+                              </div></Fade>
                 </div>
               </div>
             ))}

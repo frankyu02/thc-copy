@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { BrandsStyled } from "./Brands.styled"
 import { MainButton } from "../../ui/main_button/MainButton"
-import { Slide, Fade } from "react-awesome-reveal"
+import { Fade } from "react-awesome-reveal"
 
 export const Brands = ({ lazyLoading }) => {
   const data = useStaticQuery(graphql`
@@ -38,10 +38,10 @@ export const Brands = ({ lazyLoading }) => {
   const Html = () => <div className="container">
     <div className={"brand-section"}>
       <div className={"brand-title"}>
-        <Slide direction="left">
+        <Fade direction="left" cascade damping={0.4}>
         <h2>{brands?.brandsTitle}</h2>
         <h3>{brands?.brandsSubTitle}</h3>
-        </Slide>
+        </Fade>
       </div>
       <div className={"brand-grid"}>
         {brands?.brandsLogo?.map?.((item, key) => (
@@ -53,7 +53,7 @@ export const Brands = ({ lazyLoading }) => {
           </div>
         ))}
       </div>
-      <Fade direction="down"><div>
+      <Fade direction="up"><div>
       <MainButton url={brands?.brandsButton?.url}
                   target={brands?.brandsButton?.target}>{brands?.brandsButton?.title}</MainButton>
       </div></Fade>

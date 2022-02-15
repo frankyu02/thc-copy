@@ -81,8 +81,10 @@ export const HeroHome = () => {
                     />
                 </div>
                 <div className="caption">
+                    <Fade direction="down"><div>
                         <h2 dangerouslySetInnerHTML={{ __html: bannerTitle }} className="title" />
-                    <Fade direction="down">
+                    </div></Fade>
+                    <Fade direction="up">
                         <div>
                         <MainButton url={bannerButton?.url}
                             target={bannerButton?.target}>{bannerButton?.title}

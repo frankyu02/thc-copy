@@ -2,7 +2,6 @@ import React from 'react';
 import { LargeBannerStyled } from "./LargeBanner.styled";
 import MainButton from "../../ui/main_button/MainButton";
 import {GatsbyImage} from "gatsby-plugin-image";
-import { Fade } from 'react-awesome-reveal';
 
 export const LargeBanner = ({images, titleLargeBanner, textLargeBanner, butonLargeBanner}) => {
 
@@ -13,12 +12,16 @@ export const LargeBanner = ({images, titleLargeBanner, textLargeBanner, butonLar
                     <div className={'overlay'}></div>
                     <div className={'content_parent'}>
                         <div className={'large_banner'}>
-                            <Fade cascade>
-                            <h2>{titleLargeBanner}</h2>
-                            <p>{textLargeBanner}</p>
+                            <Fade cascade direction='up'>
+                                <h2>{titleLargeBanner}</h2>
+                                <p>{textLargeBanner}</p>
                             </Fade>
                         </div>
-                        <MainButton url={butonLargeBanner?.url} target={butonLargeBanner?.target}>{butonLargeBanner?.title}</MainButton>
+                        <Fade direction='up'delay={1000}>
+                            <div>
+                            <MainButton url={butonLargeBanner?.url} target={butonLargeBanner?.target}>{butonLargeBanner?.title}</MainButton>
+                            </div>
+                        </Fade>
                     </div>
                     <GatsbyImage image={images} alt={'banner'}/>
                 </div>

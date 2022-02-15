@@ -41,7 +41,7 @@ const DoublePageLink = () => {
                             />
                             <div className='content'>
                                 <div className="title">
-                                    <Fade>
+                                    <Fade direction='down'>
                                     <h3>{recommendation[0]?.recommendationTitle}</h3>
                                     </Fade>
                                 </div>
@@ -57,7 +57,7 @@ const DoublePageLink = () => {
                             />
                             <div className='content'>
                                 <div className="title">
-                                    <Fade>
+                                    <Fade direction='down'>
                                     <h3>{recommendation[1]?.recommendationTitle}</h3>
                                     </Fade>
                                 </div>
