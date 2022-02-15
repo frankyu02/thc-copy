@@ -2,6 +2,7 @@ import React from "react"
 import ReviewGridStyles from "./reviewGrid.styled"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { Fade } from "react-awesome-reveal"
 
 const ReviewGrid = () => {
 
@@ -35,17 +36,21 @@ const ReviewGrid = () => {
     <div className="container">
       <ReviewGridStyles>
         <div className="container">
+          <Fade direction="left"><div>
           <div className="header">{cardsCompanyTitle}</div>
+          </div></Fade>
           <div className="grid">
             {cardsCompanyItem?.map?.((item, key) => (
               <div key={key} className="cell">
                 <a href={link} rel="noreferrer" target="_blank" className="logoBox">
+                  <Fade><div>
                   <GatsbyImage
                     layout={"constrained"}
                     className="logo"
                     image={getImage(item?.cardsCompanyItemLogo?.localFile?.childImageSharp?.gatsbyImageData)}
                     alt={item?.cardsCompanyItemLogo?.altText}
                   />
+                  </div></Fade>
                 </a>
               </div>
             ))}

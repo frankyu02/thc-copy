@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { MerchCarouselStyled } from "./MerchCarousel.styled"
 import MainButtonShop from "../../ui/main_button/MainButtonShop"
 import { __BREAKPOINTS } from "../../../styles/utils/variables"
+import { Fade } from "react-awesome-reveal"
 
 import Mobile from "./mobile"
 
@@ -96,8 +97,10 @@ const Html = () => {
     <>
       <div className={"merch_header"}>
         <div className={"container"}>
+        <Fade direction="left" cascade damping={0.25}>
           <h2>{merchCarousel?.merchCarouselTitle}</h2>
           <h3>{merchCarousel?.merchCarouselSubTitle}</h3>
+        </Fade>
         </div>
       </div>
       <div className={"merch_parent"}>

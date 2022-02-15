@@ -3,6 +3,7 @@ import { graphql, Link, useStaticQuery } from "gatsby"
 import { ArticlesGridStyles } from "./ArticlesGrid.styled"
 import { getImageData } from "../../../utils/get_image_data"
 import { GatsbyImage } from "gatsby-plugin-image"
+import { Fade } from "react-awesome-reveal"
 
 export const ArticlesGrid = () => {
 
@@ -40,9 +41,13 @@ export const ArticlesGrid = () => {
               return (
                 <div className="article-item" key={item?.node?.id}>
                   <div className="article-img">
+                    <Fade><div>
                     <GatsbyImage image={getImageData(item?.node?.featuredImage.node)} alt={item?.node?.title} />
+                    </div></Fade>
                   </div>
+                  <Fade direction="down">
                   <h3>{item?.node?.title}</h3>
+                  </Fade>
                   <Link aria-label={"open article page"} to={item?.node?.slug}
                         className="article-buttom article-buttom-desktop">
                     <span className={"hide"}> open article page and </span> <span> Read more  </span>

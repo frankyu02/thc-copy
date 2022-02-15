@@ -3,6 +3,8 @@ import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { ThcTvStyled } from "./ThcTv.styled"
 import { UniversalLink } from "../../../utils/universalLink"
+import Reveal, { Fade } from "react-awesome-reveal"
+import { keyframes } from "@emotion/react";
 
 export const ThcTv = ({ lazyLoading }) => {
 
@@ -39,26 +41,45 @@ const Html = () => {
         }
     `)
   const thcTv = data?.wpPage?.home?.thcTv
+  
+  const animeStyles = keyframes`
+    from {
+      opacity: 0;
+      transform: translate3d(0, -200px, 0);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  `;
+
   return (
     <ThcTvStyled>
       <div className={"thctv-block"}>
         <div className={"container"}>
           <div className={"thc-tv-text"}>
+            <Fade direction="left">
             <h2>THC TV</h2>
+            </Fade>
             <p>THC TV offers YouTube viewers an inside look into the most legendary cannabis store in Canada. We'll
               explore everything from product ordering to facility tours to events and more. Follow Snack Bundles,
               Campaign Colin, Nick The Quick and team through their daily adventures.</p>
             <p>The channel currently has four shows: THC TV, Dank TV, Certified Dank and CMPND Vlogs. </p>
+            <Fade direction="up"><div>
             <UniversalLink to={thcTv?.thcTvButton?.url || "#"} className="btn btn--white"
                            target={thcTv?.thcTvButton?.target}>{thcTv?.thcTvButton?.title}
               <svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0 16V2.22222V0L13 8L0 16Z" fill="black" />
               </svg>
             </UniversalLink>
+            </div></Fade>
           </div>
           <div className={"thc-tv-img"}>
+            <Reveal keyframes={animeStyles}><div>
             <GatsbyImage image={getImage(thcTv?.thcTvImg?.localFile?.childImageSharp?.gatsbyImageData)}
                          alt={thcTv?.thcTvImg?.altText || "banner"} />
+            </div></Reveal>
           </div>
         </div>
       </div>

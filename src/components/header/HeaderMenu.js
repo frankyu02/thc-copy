@@ -4,8 +4,12 @@ import { graphql, useStaticQuery } from "gatsby"
 import { HeaderMenuStyled } from "./HeaderMenu.styled"
 import { PromoBar } from "./components/promobar"
 import { Header } from "./components/header"
+import { useState } from "react"
+import ProductCart from "./components/Cart/productCart"
+import { FilledCart } from "./components/Cart/dummydata"
 
-export const HeaderMenu = () => {
+
+export const HeaderMenu = ({ cart }) => {
   const data = useStaticQuery(graphql`
         query { 
          site {
@@ -24,17 +28,25 @@ export const HeaderMenu = () => {
         }
     `)
 
-
   const logoText = data?.site?.siteMetadata?.title
   const promobarText = data?.wp?.acfOptionsHeaderOptions?.preHeader?.promobarText
   const headerRef = useRef()
-
+  const [closed, setClosed] = useState(true);
+  var Quanttotal = 0;
+    for(var i = 0; i < FilledCart.items.length; i++){
+        Quanttotal += FilledCart.items[i].quantity;
+    }
   return (
-    <HeaderMenuStyled>
+    <HeaderMenuStyled cartState={closed}>
       <div ref={headerRef}> {/*header height calculation */}
         <PromoBar promoText={promobarText} />
         <Header headerRef={headerRef}
-                logoText={logoText} />
+                logoText={logoText}
+                cartState={closed}
+                setCartState={setClosed}
+                Quantity={Quanttotal}
+                 />
+        <ProductCart closed={closed} setClosed={setClosed} cart={FilledCart} />
       </div>
 
     </HeaderMenuStyled>
