@@ -6,8 +6,6 @@ import { PromoBar } from "./components/promobar"
 import { Header } from "./components/header"
 import { useState } from "react"
 import ProductCart from "./components/Cart/productCart"
-import { FilledCart } from "./components/Cart/dummydata"
-
 
 export const HeaderMenu = ({ cart }) => {
   const data = useStaticQuery(graphql`
@@ -33,8 +31,8 @@ export const HeaderMenu = ({ cart }) => {
   const headerRef = useRef()
   const [closed, setClosed] = useState(true);
   var Quanttotal = 0;
-    for(var i = 0; i < FilledCart.items.length; i++){
-        Quanttotal += FilledCart.items[i].quantity;
+    for(var i = 0; i < cart.items.length; i++){
+        Quanttotal += cart.items[i].quantity;
     }
   return (
     <HeaderMenuStyled cartState={closed}>
@@ -46,7 +44,7 @@ export const HeaderMenu = ({ cart }) => {
                 setCartState={setClosed}
                 Quantity={Quanttotal}
                  />
-        <ProductCart closed={closed} setClosed={setClosed} cart={FilledCart} />
+        <ProductCart closed={closed} setClosed={setClosed} cart={cart} />
       </div>
 
     </HeaderMenuStyled>
