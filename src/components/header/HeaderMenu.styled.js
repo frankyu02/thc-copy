@@ -9,9 +9,7 @@ export const HeaderMenuStyled = styled.section`
   .header {
     background-color: #fff;
     display: flex;
-    border-bottom: 1px solid #000;
     font-family: 'Integral CF';
-
     & > div {
       min-height: 60px;
       ${lg(`
@@ -180,7 +178,7 @@ export const HeaderMenuStyled = styled.section`
 
     .cart {
       padding: 0 2vw;
-
+      position: relative;
       &-btn {
         cursor: pointer;
         display: block;
@@ -190,6 +188,37 @@ export const HeaderMenuStyled = styled.section`
         outline: none;
         font-size: clamp(12px, 4vw, 14px);
         text-transform: uppercase;
+      }
+      .cart-btn{
+        visibility: ${props => props.cartState ? 'visible' : `hidden`};
+      }
+      .close-btn{
+        cursor: pointer;
+        border: none;
+        visibility: ${props => props.cartState ? 'hidden' : `visible`};
+        position: absolute;
+        background: white;
+        top: 0;
+        top: 50%;
+        left: 0;
+        right: 0;
+        margin-top: -14px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        font-size: 25px;
+        color: #612C8F;
+      }
+      .blocker{
+        z-index: 500;
+        width: 100%;
+        height: 10px;
+        position: absolute;
+        bottom: 0;
+        bottom: -5px;
+        left: 0;
+        background: white;
+        visibility: ${props => props.cartState ? 'hidden' : `visible`};
       }
     }
 

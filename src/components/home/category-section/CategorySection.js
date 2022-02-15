@@ -3,6 +3,7 @@ import { useMemo } from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { CategoryStyles } from "./CategorySection.styled"
+import { Fade } from "react-awesome-reveal"
 
 const Html = () => {
   const data = useStaticQuery(graphql`
@@ -39,18 +40,23 @@ const Html = () => {
     () => {
       return <div className="container">
         <div className="category-section">
-          <h2>{categoriesCannabis?.categoriesCannabisTitle}</h2>
-          <h3>{categoriesCannabis?.categoriesCannabisSubTitle}</h3>
+          <Fade cascade direction="left" damping={0.25}>
+            <h2>{categoriesCannabis?.categoriesCannabisTitle}</h2>
+            <h3>{categoriesCannabis?.categoriesCannabisSubTitle}</h3>
+          </Fade>
           <div className="category">
             {categoriesCannabis?.categoriesCannabisItem?.map?.((item, key) => (
               <Link to={item?.categoriesCannabisItemLink || "#"} key={key}>
                 <GatsbyImage
                   image={getImage(item?.categoriesCannabisItemImg?.localFile?.childrenImageSharp[0]?.gatsbyImageData)}
                   alt={"category"} />
+                  <Fade>
                 <h4>{item?.categoriesCannabisItemName}</h4>
+                </Fade>
               </Link>
             ))}
           </div>
+          <Fade direction="up"><div>
           <div className="button">
             <Link to={categoriesCannabis?.categoriesCannabisButton?.url || "#"} className="btn"
                   target={categoriesCannabis?.categoriesCannabisButton?.target}>{categoriesCannabis?.categoriesCannabisButton?.title}
@@ -62,6 +68,7 @@ const Html = () => {
               </svg>
             </Link>
           </div>
+          </div></Fade>
         </div>
       </div>
     }, []
