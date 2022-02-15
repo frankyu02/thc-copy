@@ -7,6 +7,7 @@ import { AiOutlinePhone } from "react-icons/ai";
 import { GoMail } from "react-icons/go";
 import { IoCalendarNumberOutline } from "react-icons/io5";
 import { __BREAKPOINTS } from "../../../styles/utils/variables";
+import { Fade } from "react-awesome-reveal";
 const Wrapper=styled.div`
     margin: 100px 0;
     width: 100%;
@@ -211,46 +212,50 @@ export default function ContactMap(){
                 </div>
                 <div className="content">
                     <div className="text">
-                        <div className="address">
-                            <p className="icon"><VscGlobe /></p>
-                            <div className="addresstxt">
-                                {text[0].contactUsLocationInfoText.map((text, index) => {
-                                    return(
-                                        <p key={index}>{text.contactUsLocationInfoTextItem}<br /></p>
-                                    )
+                        <Fade cascade direction="up">
+                            <div className="address">
+                                <p className="icon"><VscGlobe /></p>
+                                <div className="addresstxt">
+                                    {text[0].contactUsLocationInfoText.map((text, index) => {
+                                        return(
+                                            <p key={index}>{text.contactUsLocationInfoTextItem}<br /></p>
+                                        )
+                                    })}
+                                </div>
+                            </div>
+                            <div className="phone">
+                                <p className="icon"><AiOutlinePhone /></p>
+                                {text[1].contactUsLocationInfoText.map((text, index) => {
+                                        return(
+                                            <p  className="number" key={index}>{text.contactUsLocationInfoTextItem}<br /></p>
+                                        )
                                 })}
                             </div>
-                        </div>
-                        <div className="phone">
-                            <p className="icon"><AiOutlinePhone /></p>
-                            {text[1].contactUsLocationInfoText.map((text, index) => {
-                                    return(
-                                        <p  className="number" key={index}>{text.contactUsLocationInfoTextItem}<br /></p>
-                                    )
-                            })}
-                        </div>
-                        <div className="mail">
-                            <p className="icon"><GoMail /></p>
-                            {text[2].contactUsLocationInfoText.map((text, index) => {
-                                    return(
-                                        <p  className="email" key={index}>{text.contactUsLocationInfoTextItem}<br /></p>
-                                    )
-                            })}
-                        </div>
-                        <div className="schedule">
-                            <p className="icon"><IoCalendarNumberOutline /></p>
-                            <div className="datetxt">
-                            {text[3].contactUsLocationInfoText.map((text, index) => {
-                                    return(
-                                        <p  className="date" key={index}>{text.contactUsLocationInfoTextItem} <br /></p>
-                                    )
-                            })}
+                            <div className="mail">
+                                <p className="icon"><GoMail /></p>
+                                {text[2].contactUsLocationInfoText.map((text, index) => {
+                                        return(
+                                            <p  className="email" key={index}>{text.contactUsLocationInfoTextItem}<br /></p>
+                                        )
+                                })}
                             </div>
+                            <div className="schedule">
+                                <p className="icon"><IoCalendarNumberOutline /></p>
+                                <div className="datetxt">
+                                {text[3].contactUsLocationInfoText.map((text, index) => {
+                                        return(
+                                            <p  className="date" key={index}>{text.contactUsLocationInfoTextItem} <br /></p>
+                                        )
+                                })}
+                                </div>
+                            </div>
+                        </Fade>
+                    </div>
+                    <Fade delay={2000} direction="up">
+                        <div className="btn">
+                            <a href={buttontxt.url} target={buttontxt.target}>{buttontxt.title}</a>
                         </div>
-                    </div>
-                    <div className="btn">
-                        <a href={buttontxt.url} target={buttontxt.target}>{buttontxt.title}</a>
-                    </div>
+                    </Fade>
                 </div>
             </Wrapper>
         </div>
