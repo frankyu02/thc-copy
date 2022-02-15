@@ -4,11 +4,9 @@ import BrandLogoBanner from "../../global_component/BrandLogoBanner/BrandLogoBan
 import TypeBanner from "../../global_component/StrainTypeBanner/TypeBanner";
 import Img from "react-cool-img";
 import Dropdown from "./menuDropdown";
-import { animated, useSpring } from '@react-spring/web';
 
 const MenuCard = ({ product, addToCart }) => {
     const [index, setIndex] = useState(0);
-    const [styles, set] = useSpring(() => ({ height: 0, opacity: 0 }));
 
     function detailDisplay (product) {
         if (typeof product.potencyThc === 'undefined' && typeof product.potencyCbd === 'undefined') {
@@ -62,14 +60,13 @@ const MenuCard = ({ product, addToCart }) => {
             <div className="card">
                 <a href={`/product/`+product.slug}>
                     <div className="imgDiv" 
-                        onMouseEnter={() => set({ height: 60, opacity: 1 })}
-                        onMouseLeave={() => set({ height: 0, opacity: 0 })}>
+                        >
                         <div className="brand"><BrandLogoBanner brand={product.brand}/></div>
                         <div className="strain"><TypeBanner text={product.strainType} size={"14px"}/></div>
                         <div className="image"><Img className="realImage" src={product.image} alt={product.name}/></div>
-                        <animated.div className="cartBanner" style={styles} onClick={addToCart}>
+                        <div className="cartBanner" onClick={addToCart}>
                             ADD TO CART
-                        </animated.div>
+                        </div>
                     </div>
                 </a>
                 <div className="detail">
