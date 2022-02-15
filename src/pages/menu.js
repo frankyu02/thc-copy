@@ -1,7 +1,7 @@
 import * as React from "react"
 import Seo from "../components/layout/Seo"
 import MenuGrid from "../components/menu/menuHub"
-
+import products from "../components/menu/dutchie-dumby-data.json"
 const Menu = () => {
 
   const seo = {
@@ -12,7 +12,7 @@ const Menu = () => {
   return (
     <>
       <Seo {...seo} />
-      <MenuGrid />
+      <MenuGrid products={products.data.dutchieplus.menu.products}/>
     </>
   )
 }

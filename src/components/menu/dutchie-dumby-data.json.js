@@ -50,6 +50,13 @@ const products = {
                 "priceRec": 26.85,
                 "quantity": 7,
                 "specialPriceRec": null
+              },
+              {
+                "id": "600f405cb376440003557fd8~5g",
+                "option": "5g",
+                "priceRec": 30.00,
+                "quantity": 7,
+                "specialPriceRec": null
               }
             ]
           },
