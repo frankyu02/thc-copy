@@ -54,6 +54,7 @@ const MenuCardStyles = styled.div`
             font-size: 18px;
             font-style: italic;
             color: white;  
+            transition: opacity 0.5s, height 0.5s;
         }
     }
     .detail {

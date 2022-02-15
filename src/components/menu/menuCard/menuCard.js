@@ -7,6 +7,10 @@ import Dropdown from "./menuDropdown";
 
 const MenuCard = ({ product, addToCart }) => {
     const [index, setIndex] = useState(0);
+    const [styles, setStyles] = useState({
+        opacity: 0,
+        height: 0
+    });
 
     function detailDisplay (product) {
         if (typeof product.potencyThc === 'undefined' && typeof product.potencyCbd === 'undefined') {
@@ -59,12 +63,14 @@ const MenuCard = ({ product, addToCart }) => {
         <MenuCardStyles>
             <div className="card">
                 <a href={`/product/`+product.slug}>
-                    <div className="imgDiv" 
+                    <div className="imgDiv"
+                        onMouseEnter={()=>{setStyles({opacity: 1, height: 60})}} 
+                        onMouseLeave={()=>{setStyles({opacity: 0, height: 0})}}
                         >
                         <div className="brand"><BrandLogoBanner brand={product.brand}/></div>
                         <div className="strain"><TypeBanner text={product.strainType} size={"14px"}/></div>
                         <div className="image"><Img className="realImage" src={product.image} alt={product.name}/></div>
-                        <div className="cartBanner" onClick={addToCart}>
+                        <div className="cartBanner" onClick={addToCart} style={{opacity: styles.opacity, height: styles.height}}>
                             ADD TO CART
                         </div>
                     </div>
