@@ -1,5 +1,6 @@
 import * as React from "react"
 import Seo from "../components/layout/Seo"
+import MenuGrid from "../components/menu/menuHub"
 
 const Menu = () => {
 
@@ -11,7 +12,7 @@ const Menu = () => {
   return (
     <>
       <Seo {...seo} />
-      <h1> MENU</h1>
+      <MenuGrid />
     </>
   )
 }
