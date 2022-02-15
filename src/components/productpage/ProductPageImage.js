@@ -11,7 +11,8 @@ const Wrapper = styled.div`
     position: relative;
     background-color: white;
     img{
-        margin-top: 10%;
+        position: absolute;
+        bottom: 0;
         width: 100%;
         height: auto;
     }
@@ -36,6 +37,9 @@ const Wrapper = styled.div`
         }
     }
     @media (max-width: ${__BREAKPOINTS.sm}px){
+        img{
+            position: static;
+        }
         min-width: 0;
         max-width: none;
         width: auto;

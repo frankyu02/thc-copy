@@ -7,9 +7,10 @@ import ProductDropdown from "./ProductPageDropdown";
 import QuantitySelector from "./ProductPageQuantitySelector";
 
 const Wrapper = styled.div`
-    height: 100%;
+    height: auto;
     margin-left: 10%;
     position: relative;
+    width: 80%;
     .strandType{
         width: 37%;
         height: 57px;

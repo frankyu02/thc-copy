@@ -7,7 +7,7 @@ const CartButton = styled.button`
     height: 59px;
     margin-left: 1%;
     position: absolute;
-    bottom: 20px;
+    margin-top: 25px;
     background: #612C8F;
     color: white;
     font-family: "Integral CF Bold";
