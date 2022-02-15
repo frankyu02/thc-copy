@@ -84,7 +84,7 @@ const MenuCard = ({ product, addToCart }) => {
                     </a>
                 </div>
                 <div className="price">
-                    <h5>{product.variants[index].specialPriceRec === null ? `$ ${product.variants[index].priceRec}` : `$ ${product.variants[index].specialPriceRec}`}</h5>
+                    <h5>{product.variants[index].specialPriceRec === null ? `$ ${product.variants[index].priceRec.toFixed(2)}` : `$ ${product.variants[index].specialPriceRec.toFixed(2)}`}</h5>
                     <Dropdown index={index} setIndex={setIndex} variant={product.variants}/>
                 </div>
                 <div className="cartBannerBottom" onClick={addToCart}>

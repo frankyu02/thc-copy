@@ -31,7 +31,7 @@ const selectStyle = {
         margin: '0',
         padding: '0',
         background: '#858787',
-        minWidth: '57px',
+        minWidth: '62px',
     }),
     singleValue: (provided) => ({
         ...provided,
