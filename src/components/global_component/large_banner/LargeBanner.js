@@ -2,11 +2,7 @@ import React from 'react';
 import { LargeBannerStyled } from "./LargeBanner.styled";
 import MainButton from "../../ui/main_button/MainButton";
 import {GatsbyImage} from "gatsby-plugin-image";
-<<<<<<< HEAD
 import {Fade} from "react-awesome-reveal"
-=======
-import { Fade } from 'react-awesome-reveal';
->>>>>>> 8123df305a4db98fc11496f21b6091ff02f96bc0
 
 export const LargeBanner = ({images, titleLargeBanner, textLargeBanner, butonLargeBanner}) => {
 
