@@ -6,11 +6,8 @@ export default function menu(){
     return(
         <>
         <h1>menu.js page</h1>
-        <Router>
-            <Routes>
-                <Route path="/menu" element={<MenuHubApollo />}></Route>
-            </Routes>
-        </Router>
+        <MenuHubApollo />
+
         </>
     )
 }
