@@ -33,7 +33,7 @@ const TestButtons = styled.div`
     }
 `;
 
-export default function MenuHubApollo({history}){
+export default function MenuHubApollo(){
     const [category, setCategory] = useQueryParam('category', StringParam);
     const [count, setCount] = useState(0);
 
@@ -41,8 +41,6 @@ export default function MenuHubApollo({history}){
         //when category changes, increase count
         setCount(count+1);
     },[category])
-
-    const [, forceUpdate] = useReducer((x) => x + 1, 0);
     
     return(
         <Wrapper>
