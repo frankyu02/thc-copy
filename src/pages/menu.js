@@ -1,20 +1,13 @@
-import * as React from "react"
-import Seo from "../components/layout/Seo"
-import MenuGrid from "../components/menu/menuHub"
-import products from "../components/menu/dutchie-dumby-data.json"
-const Menu = () => {
+import React, {useEffect, useReducer} from 'react';
+import { QueryParamProvider } from 'use-query-params'
+import MenuHubApollo from '../components/menu/MenuHubApollo';
+import history from '../utils/history';
 
-  const seo = {
-    title: "Menu",
-    description: "shop cannabis"
-  }
-
-  return (
-    <>
-      <Seo {...seo} />
-      <MenuGrid products={products.data.dutchieplus.menu.products}/>
-    </>
-  )
+export default function menu(){
+   
+    return(
+        <QueryParamProvider history={history}>
+            <MenuHubApollo history={history}/>
+        </QueryParamProvider>
+    )
 }
-
-export default Menu
