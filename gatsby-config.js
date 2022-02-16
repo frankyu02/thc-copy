@@ -15,6 +15,7 @@ module.exports = {
     siteUrl: SITE_URL
   },
   plugins: [
+    "gatsby-plugin-use-query-params",
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     //

@@ -40,15 +40,7 @@ export default function MenuHubApollo({history}){
         setCount(count+1);
     },[category])
 
-    const [, forceUpdate] = useReducer((x) => x + 1, 0);
-    useEffect(() => {
-        // listen for changes to the URL and force the app to re-render
-        if (typeof window!=="undefined"){
-            history.listen(() => {
-                forceUpdate();
-            });
-        }
-    }, [])
+    
     return(
         <Wrapper>
             <TestingDisplay>

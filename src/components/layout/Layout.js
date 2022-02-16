@@ -7,6 +7,7 @@ import { Footer } from "../footer/Footer"
 import { AgeGate } from "../AgeGate/AgeGate";
 import { ShopLink } from "../ui/shop_link/ShopLink"
 import { FilledCart } from "../header/components/Cart/dummydata"
+import {globalHistory, Location} from '@reach/router'
 
 const Layout = ({ children }) => {
   return (
