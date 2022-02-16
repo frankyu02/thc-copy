@@ -1,12 +1,13 @@
 import React, {useEffect, useState, useReducer} from 'react';
 import styled from 'styled-components';
 import { useQueryParam, StringParam } from 'use-query-params'
+import { navigate } from 'gatsby';
 
 
 const Wrapper = styled.div`
     width: 100vw;
-    height: 100vh;
-    background: '#d3fff2';
+    height: 30vh;
+    background: #d3fff2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,9 +15,10 @@ const Wrapper = styled.div`
 
 const TestingDisplay = styled.div`
     margin: 5px;
-    border: 3px solid '#3caff6';
+    border: 3px solid #3caff6;
     padding: 10px;
     border-radius: 5px;
+    width: 200px;
 `;
 
 const TestButtons = styled.div`
@@ -40,6 +42,7 @@ export default function MenuHubApollo({history}){
         setCount(count+1);
     },[category])
 
+    const [, forceUpdate] = useReducer((x) => x + 1, 0);
     
     return(
         <Wrapper>
@@ -49,6 +52,7 @@ export default function MenuHubApollo({history}){
                 count: {count}
             </TestingDisplay>
             <TestButtons>
+                <h3>setCategory() - native method</h3>
                 <button onClick={()=>{setCategory('EDIBLES');console.log("[DCV1: QUERY PARAM DEBUG] category:", category)}}>
                     Change category to EDIBLES
                 </button>
@@ -56,6 +60,18 @@ export default function MenuHubApollo({history}){
                     Change category to FLOWER
                 </button>
                 <button onClick={()=>{setCategory('PRE_ROLLS');console.log("[DCV1: QUERY PARAM DEBUG] category:", category)}}>
+                    Change category to PRE_ROLLS
+                </button>
+            </TestButtons>
+            <TestButtons>
+                <h3>navigate() - work around method</h3>
+                <button onClick={()=>{navigate('?category=EDIBLES');console.log("[DCV1: QUERY PARAM DEBUG] category:", category)}}>
+                    Change category to EDIBLES
+                </button>
+                <button onClick={()=>{navigate('?category=FLOWER');console.log("[DCV1: QUERY PARAM DEBUG] category:", category)}}>
+                    Change category to FLOWER
+                </button>
+                <button onClick={()=>{navigate('?category=PRE_ROLLS');console.log("[DCV1: QUERY PARAM DEBUG] category:", category)}}>
                     Change category to PRE_ROLLS
                 </button>
             </TestButtons>
