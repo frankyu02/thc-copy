@@ -4,6 +4,7 @@ import { useQueryParam, StringParam, ArrayParam } from 'use-query-params'
 import { navigate } from 'gatsby';
 import { setCategory, setSubcategory, setEffects } from '../../utils/menu/setFilters';
 import { useLocation } from '@reach/router';
+import { useApollo } from '../../apollo/apollo';
 
 const Wrapper = styled.div`
     width: 100vw;
@@ -49,7 +50,6 @@ export default function MenuHubApollo(){
         setCount(count+1);
         console.log("[DCV1: QUERY PARAM DEBUG]: effects: ", effects)
     },[category, effects])
-    
     return(
         <Wrapper>
             <TestingDisplay>
