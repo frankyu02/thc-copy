@@ -25,7 +25,17 @@ module.exports = {
     //     devMode: false
     //   }
     // },
-
+    {
+      resolve:'gatsby-source-graphql',
+      options: {
+          typeName: "DutchiePlus",
+          fieldName: "dutchieplus",
+          url: process.env.DUTCHIE_API_URL,
+          headers: {
+              Authorization: process.env.DUTCHIE_API_KEY
+          }
+      }
+    },
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
