@@ -51,7 +51,6 @@ export default function MenuHubApollo(){
     const [effects, setEffectsQuery] = useQueryParam('effects', ArrayParam);
     const [count, setCount] = useState(0);
     const location = useLocation();
-    const apolloClient = useApollo();
 
     const testQuery = gql`
         query Retailers{

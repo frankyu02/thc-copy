@@ -7,6 +7,13 @@ const {
   SITE_URL
 } = process.env
 
+const apolloConfig = {
+  uri: process.env.DUTCHIE_API_URL,
+  headers: {
+    Authorization: `Bearer ${process.env.DUTCHIE_API_KEY}`
+  }
+}
+
 module.exports = {
   siteMetadata: {
     title: `THC`,
@@ -15,6 +22,10 @@ module.exports = {
     siteUrl: SITE_URL
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-apollo`,
+      options: apolloConfig
+    },
     "gatsby-plugin-use-query-params",
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,

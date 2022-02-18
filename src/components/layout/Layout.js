@@ -10,23 +10,19 @@ import { FilledCart } from "../header/components/Cart/dummydata"
 import {globalHistory, Location} from '@reach/router'
 
 //Apollo
-import { useApollo, createApolloClient } from "../../apollo/apollo";
-import { ApolloProvider } from "@apollo/client"
+
 
 const Layout = ({ children }) => {
-  const apolloClient = useApollo();
   return (
     <>
       <GlobalStyles />
       <Typography />
       <AgeGate/>
-      <ApolloProvider client={apolloClient}>
         <HeaderMenu cart={FilledCart}/>
         <ShopLink/>
         <main>
           {children}
         </main>
-      </ApolloProvider>
       <Footer />      
     </>
   )
