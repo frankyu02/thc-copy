@@ -1,0 +1,36 @@
+fragment MenuProduct on Product {
+  brand {
+    name
+  }
+  category
+  description
+  id
+  image
+  name
+  potencyCbd {
+    formatted
+  }
+  potencyThc {
+    formatted
+  }
+  strainType
+  variants {
+    option
+    priceMed
+    priceRec
+    specialPriceMed
+    specialPriceRec
+  }
+}
+
+query HomePageMenu($category: Category, $retailerId: ID!) {
+  menu(
+    reatilerId: $retailerId
+    filter: { category: $category }
+    pagination: { limit: 6, offset: 0 }
+  ) {
+    products {
+      ...MenuProduct
+    }
+  }
+}

@@ -1,0 +1,19 @@
+query fetchProduct($id: ID!, $retailerId: ID!) {
+  product(id: $id, retailerId: $retailerId) {
+    name
+    brand {
+      name
+    }
+    category
+    description
+    strainType
+    variants {
+      id
+      option
+      priceMed
+      priceRec
+      specialPriceMed
+      specialPriceRec
+    }
+  }
+}

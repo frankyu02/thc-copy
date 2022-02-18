@@ -7,7 +7,7 @@ import {
 
 let apolloClient;
 
-function createApolloClient() {
+export function createApolloClient() {
     return new ApolloClient({
         ssrMode: (typeof window === "undefined"),
         link: new HttpLink({

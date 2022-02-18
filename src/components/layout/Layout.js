@@ -10,7 +10,7 @@ import { FilledCart } from "../header/components/Cart/dummydata"
 import {globalHistory, Location} from '@reach/router'
 
 //Apollo
-import { useApollo } from "../../apollo/apollo";
+import { useApollo, createApolloClient } from "../../apollo/apollo";
 import { ApolloProvider } from "@apollo/client"
 
 const Layout = ({ children }) => {

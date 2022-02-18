@@ -18,6 +18,7 @@ module.exports = {
     "gatsby-plugin-use-query-params",
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
+    `gatsby-plugin-graphql-loader`,
     //
     // {
     //   resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
@@ -76,7 +77,6 @@ module.exports = {
           placeholder: `dominantColor`,
           quality: 80,
           breakpoints: [780, 1920]
-       
         }
       }
     },
