@@ -12,6 +12,9 @@ import  MENU_QUERY  from '../../apollo/queries/menu.graphql'
 import  RETAILERS_QUERY from '../../apollo/queries/retailerlist.graphql'
 import gql from 'graphql-tag'
 
+//Helpers
+import { createVariablesObj } from '../../utils/menu/queryUtils';
+
 const Wrapper = styled.div`
     width: 100vw;
     height: 30vh;
@@ -49,52 +52,30 @@ export default function MenuHubApollo(){
     const [category, setCategoryQuery] = useQueryParam('category', StringParam);
     const [subcategory, setSubategoryQuery] = useQueryParam('subcategory', StringParam);
     const [effects, setEffectsQuery] = useQueryParam('effects', ArrayParam);
+    const [menuVariables, setMenuVariables] = useState({});
     const [count, setCount] = useState(0);
     const location = useLocation();
-
-    const testQuery = gql`
-        query Retailers{
-            retailers {
-                id
-            }
-        }
-    `;
-
+    
     useEffect(()=>{
         //when category changes, increase count
         setCount(count+1);
         console.log("[DCV1: QUERY PARAM DEBUG]: effects: ", effects)
-        
-        // apolloClient.query({
-        //     query: MENU_QUERY,
-        //     variables: {
-        //         category: category,
-        //         subcategory: subcategory,
-        //         retailerId: '4c9422c5-d248-415b-8a88-0a75822c50e6'
-        //     }
-        // })
 
-        // apolloClient.query({
-        //     query: MENU_QUERY,
-        //     variables: {
-        //         retailerId: '4c9422c5-d248-415b-8a88-0a75822c50e6'
-        //     }
-        // })
+        //Re-Query with new variables
+        setMenuVariables(createVariablesObj({
+            retailerId: '4c9422c5-d248-415b-8a88-0a75822c50e6',
+            category: category,
+            subcategory: subcategory,
+            effects: effects
+        }));
+        refetch(menuVariables)
 
-        // apolloClient.query({
-        //     query: RETAILERS_QUERY
-        // })
-        // useQuery(RETAILERS_QUERY)
     },[category, subcategory, effects])
 
-    useQuery(RETAILERS_QUERY)
-    const {loading, error, data} = useQuery(MENU_QUERY, {
-        variables: { category: "FLOWER", 
-                    subcategory: "DEFAULT", 
-                    retailerId: '4c9422c5-d248-415b-8a88-0a75822c50e6' }})
-    console.log("[DCV1: APOLLO DEBUG]: menu data", data)
-    const {tloading, terror, tdata} = useQuery(testQuery);
-    console.log("[DCV1: APOLLO DEBUG]: test query data", tdata);
+    //Queries
+    const {loading, error, data, refetch} = useQuery(MENU_QUERY, {
+        variables: menuVariables})
+    
     return(
         <Wrapper>
             <TestingDisplay>

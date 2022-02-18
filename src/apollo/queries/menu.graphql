@@ -1,4 +1,4 @@
-# import MenuProduct from '../fragments/menu-product.graphql'
+#import '../fragments/menu-product.graphql'
 
 query Menu($category: Category, $subcategory: Subcategory, $retailerId: ID!) {
   menu(
