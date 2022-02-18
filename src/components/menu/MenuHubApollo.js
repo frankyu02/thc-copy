@@ -1,9 +1,6 @@
 import React, {useEffect, useState, useReducer} from 'react';
 import styled from 'styled-components';
-import { useQueryParam, StringParam, ArrayParam } from 'use-query-params'
-import { navigate } from 'gatsby';
-import { setCategory, setSubcategory, setEffects } from '../../utils/menu/setFilters';
-import { useLocation } from '@reach/router';
+import MenuGrid from './menuHub';
 
 //Apollo
 import { useApollo } from '../../apollo/apollo';
@@ -14,14 +11,23 @@ import gql from 'graphql-tag'
 
 //Helpers
 import { createVariablesObj } from '../../utils/menu/queryUtils';
+import { useQueryParam, StringParam, ArrayParam } from 'use-query-params'
+import { navigate } from 'gatsby';
+import { setCategory, setSubcategory, setEffects } from '../../utils/menu/setFilters';
+import { useLocation } from '@reach/router';
+
+const LayoutWrapper = styled.div`
+    display: flex;
+`;
 
 const Wrapper = styled.div`
-    width: 100vw;
-    height: 30vh;
+    width: 20vw;
+    min-height: 100vh;
     background: #d3fff2;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    flex-direction: column;
 
     h3{
         font-size: 16px;
@@ -55,11 +61,14 @@ export default function MenuHubApollo(){
     const [menuVariables, setMenuVariables] = useState({});
     const [count, setCount] = useState(0);
     const location = useLocation();
+
+    //Queries
+    const {loading, error, data, refetch} = useQuery(MENU_QUERY, {
+        variables: menuVariables, fetchPolicy: "network-only" })
     
     useEffect(()=>{
         //when category changes, increase count
         setCount(count+1);
-        console.log("[DCV1: QUERY PARAM DEBUG]: effects: ", effects)
 
         //Re-Query with new variables
         setMenuVariables(createVariablesObj({
@@ -68,15 +77,12 @@ export default function MenuHubApollo(){
             subcategory: subcategory,
             effects: effects
         }));
-        refetch(menuVariables)
-
+        //refetch(menuVariables)
+        console.log("[DCV1: QUERY PARAM DEBUG]: menuData: ", data)
     },[category, subcategory, effects])
-
-    //Queries
-    const {loading, error, data, refetch} = useQuery(MENU_QUERY, {
-        variables: menuVariables})
     
     return(
+        <LayoutWrapper>
         <Wrapper>
             <TestingDisplay>
                 category: {category}
@@ -146,5 +152,17 @@ export default function MenuHubApollo(){
                 </button>
             </TestButtons>
         </Wrapper>
+
+        { (data && !loading) ?
+            <MenuGrid products={data?.menu?.products} />
+            :
+            (
+                (loading) ?
+                <>loading...MenuHubApollo</>
+                :
+                <>error...MenuHubApollo</>
+            )
+        }
+        </LayoutWrapper>
     )
 }

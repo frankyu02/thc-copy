@@ -8,7 +8,7 @@ const MenuGridStyles = styled.div`
     display: flex;
     justify-content: flex-end;
     .wrapper {
-        width: 80%;
+        width: 80vw;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -76,25 +76,29 @@ const MenuGridStyles = styled.div`
 `
 
 const MenuGrid = ({ products, addToCart }) => {
-    const NOP = products.length;
-
-    return (
-        <MenuGridStyles>
-            <div className="container">
-                <div className="wrapper">
-                    <div className="grid">
-                        {products.map((item, i) => {
-                            return (
-                            <div className="cell" key={i}>
-                                <MenuCard product={item} addToCart={addToCart}/>
-                            </div> 
-                        )})}
+    
+    if (products){
+        const NOP = products.length;
+        return (
+            <MenuGridStyles>
+                <div className="container">
+                    <div className="wrapper">
+                        <div className="grid">
+                            {products.map((item, i) => {
+                                return (
+                                <div className="cell" key={i}>
+                                    <MenuCard product={item} addToCart={addToCart}/>
+                                </div> 
+                            )})}
+                        </div>
+                        <PaginationBar numberOfProducts={NOP} productsPerPage={9}/>
                     </div>
-                    <PaginationBar numberOfProducts={NOP} productsPerPage={9}/>
                 </div>
-            </div>
-        </MenuGridStyles>
-    )
+            </MenuGridStyles>
+        )
+    } else {
+        return (<>loading...</>)
+    }
 }
 
 export default MenuGrid;
