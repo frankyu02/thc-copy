@@ -1,9 +1,18 @@
 #import '../fragments/menu-product.graphql'
 
-query Menu($category: Category, $subcategory: Subcategory, $retailerId: ID!) {
+query Menu(
+  $category: Category
+  $subcategory: Subcategory
+  $retailerId: ID!
+  $potencyThc: PotencyRange
+) {
   menu(
     retailerId: $retailerId
-    filter: { category: $category, subcategory: $subcategory }
+    filter: {
+      category: $category
+      subcategory: $subcategory
+      potencyThc: $potencyThc
+    }
     pagination: { limit: 12, offset: 0 }
   ) {
     products {

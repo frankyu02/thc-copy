@@ -3,6 +3,8 @@ import { navigate } from 'gatsby';
 import { useLocation } from '@reach/router';
 import queryString from 'query-string'
 
+
+//~Bread n Butta~ Functions
 const setFilterReplace = (filter, value, location) => {
     if (location?.search){
         const parsedSearch = queryString.parse(location.search);
@@ -16,15 +18,7 @@ const setFilterReplace = (filter, value, location) => {
     }
 }
 
-const setCategory = (value, location) => {
-    setFilterReplace('category', value, location)
-}
-
-const setSubcategory = (value, location) => {
-    setFilterReplace('subcategory', value, location)
-}
-
-const setEffects = (arr, value, location, remove=false) => {
+const multiValueFilterReplace = (arr, value, location, remove) => {
     if (remove){
         if(arr){
             arr.splice(arr.indexOf(value), 1);
@@ -41,4 +35,50 @@ const setEffects = (arr, value, location, remove=false) => {
     }
 }
 
-export {setCategory, setSubcategory, setEffects}
+//Formatting Functions
+const rangeValueFormatter = (min, max, unit) => {
+    var value = {
+        min: min,
+        max: max,
+        unit: String(unit)
+    }
+    return JSON.stringify(value);
+}
+
+//Filter Set Functions
+///Single Value Filters
+const setCategory = (value, location) => {
+    setFilterReplace('category', value, location)
+}
+
+const setSubcategory = (value, location) => {
+    setFilterReplace('subcategory', value, location)
+}
+
+const setBrand = (value, location) => {
+    setFilterReplace('brand', value, location)
+}
+
+const setTHC = (minvalue, maxvalue, unit, location) => {
+    const value = rangeValueFormatter(minvalue, maxvalue, unit);
+    setFilterReplace('thc', value, location)
+}
+
+const setCBD = (minvalue, maxvalue, unit, location) => {
+    const value = rangeValueFormatter(minvalue, maxvalue, unit);
+    setFilterReplace('cbd', value, location)
+}
+
+const setStrainType = (value, location) => {
+    setFilterReplace('strain', value, location)
+}
+///Multi Value Filters
+const setWeight = (arr, value, location, remove=false) => {
+    multiValueFilterReplace(arr, value, location, remove);
+}
+
+const setEffects = (arr, value, location, remove=false) => {
+    multiValueFilterReplace(arr, value, location, remove);
+}
+
+export {setCategory, setSubcategory, setEffects, setTHC}

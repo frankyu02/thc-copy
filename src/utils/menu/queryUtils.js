@@ -15,6 +15,9 @@ const createVariablesObj =
     if (effects){
         variables["effects"] = effects
     }
+    if (potencyThc){
+        variables["potencyThc"] = potencyThc
+    }
 
     return variables;
 }

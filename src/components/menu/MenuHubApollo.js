@@ -10,10 +10,14 @@ import  RETAILERS_QUERY from '../../apollo/queries/retailerlist.graphql'
 import gql from 'graphql-tag'
 
 //Helpers
+import queryString from 'query-string'
 import { createVariablesObj } from '../../utils/menu/queryUtils';
-import { useQueryParam, StringParam, ArrayParam } from 'use-query-params'
+import { useQueryParam, StringParam, ArrayParam, ObjectParam, JsonParam } from 'use-query-params'
 import { navigate } from 'gatsby';
-import { setCategory, setSubcategory, setEffects } from '../../utils/menu/setFilters';
+import { setCategory, 
+    setSubcategory, 
+    setTHC, 
+    setEffects } from '../../utils/menu/setFilters';
 import { useLocation } from '@reach/router';
 
 const LayoutWrapper = styled.div`
@@ -55,31 +59,43 @@ const TestButtons = styled.div`
 `;
 
 export default function MenuHubApollo(){
+    //Single Value Filters
     const [category, setCategoryQuery] = useQueryParam('category', StringParam);
     const [subcategory, setSubategoryQuery] = useQueryParam('subcategory', StringParam);
+    const [thc, setThcQuery] = useQueryParam('thc', JsonParam)
+
+    //Multi Value Filters
     const [effects, setEffectsQuery] = useQueryParam('effects', ArrayParam);
+
+    //Others States n Variables
     const [menuVariables, setMenuVariables] = useState({});
-    const [count, setCount] = useState(0);
     const location = useLocation();
 
-    //Queries
+     //Queries
     const {loading, error, data, refetch} = useQuery(MENU_QUERY, {
         variables: menuVariables, fetchPolicy: "network-only" })
+
+    //Debugging Stuff
+    const [count, setCount] = useState(0);
+    
     
     useEffect(()=>{
         //when category changes, increase count
         setCount(count+1);
 
+        console.log("useEffect(), thc-->", thc)
+        console.log("useEffect(), thc-->", queryString.parse(thc))
+        
         //Re-Query with new variables
         setMenuVariables(createVariablesObj({
             retailerId: '4c9422c5-d248-415b-8a88-0a75822c50e6',
             category: category,
             subcategory: subcategory,
-            effects: effects
+            effects: effects,
+            potencyThc: thc
         }));
-        //refetch(menuVariables)
-        console.log("[DCV1: QUERY PARAM DEBUG]: menuData: ", data)
-    },[category, subcategory, effects])
+        
+    },[category, subcategory, effects, thc])
     
     return(
         <LayoutWrapper>
@@ -105,17 +121,17 @@ export default function MenuHubApollo(){
                 <button onClick={()=>{setCategory('PRE_ROLLS', location)}}>
                     Change category to PRE_ROLLS
                 </button>
+                <button onClick={()=>{setCategory('', location)}}>
+                    Change category to null
+                </button>
             </TestButtons>
             <TestButtons>
-                <h3>navigate() - stripped down method</h3>
-                <button onClick={()=>{navigate('?category=EDIBLES')}}>
-                    Change category to EDIBLES
+                <h3>setTHC() - my method</h3>
+                <button onClick={()=>{setTHC(1.5, 20, "PERCENTAGE",location)}}>
+                    Change THC to 1.5 - 20 %
                 </button>
-                <button onClick={()=>{navigate('?category=FLOWER')}}>
-                    Change category to FLOWER
-                </button>
-                <button onClick={()=>{navigate('?category=PRE_ROLLS')}}>
-                    Change category to PRE_ROLLS
+                <button onClick={()=>{setTHC(0, 0, "",location)}}>
+                    Change category to null
                 </button>
             </TestButtons>
             <TestButtons>
