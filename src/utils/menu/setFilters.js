@@ -18,19 +18,28 @@ const setFilterReplace = (filter, value, location) => {
     }
 }
 
-const multiValueFilterReplace = (arr, value, location, remove) => {
+const removeFilter = (filter, location) => {
+    if (location?.search){
+        const parsedSearch = queryString.parse(location.search);
+        delete parsedSearch[filter];
+        const newNav = queryString.stringify(parsedSearch);
+        navigate("?"+newNav);
+    }
+}
+
+const multiValueFilterReplace = (filter, arr, value, location, remove) => {
     if (remove){
         if(arr){
             arr.splice(arr.indexOf(value), 1);
-            setFilterReplace('effects', arr, location)
+            setFilterReplace(filter, arr, location)
         }
     }else{
         if(arr){
             arr.push(value);
             const arrNoDups = [...new Set(arr)] 
-            setFilterReplace('effects', arrNoDups, location)
+            setFilterReplace(filter, arrNoDups, location)
         } else{
-            setFilterReplace('effects', [value], location)
+            setFilterReplace(filter, [value], location)
         }
     }
 }
@@ -42,6 +51,8 @@ const rangeValueFormatter = (min, max, unit) => {
         max: max,
         unit: String(unit)
     }
+    console.log("rangerFormtter -> ", value)
+    console.log("rangerFormtter -> str", JSON.stringify(value))
     return JSON.stringify(value);
 }
 
@@ -59,13 +70,21 @@ const setBrand = (value, location) => {
     setFilterReplace('brand', value, location)
 }
 
-const setTHC = (minvalue, maxvalue, unit, location) => {
-    const value = rangeValueFormatter(minvalue, maxvalue, unit);
+const setTHC = ({min, max, unit, clear, location}) => {
+    if (clear){
+        removeFilter("thc", location)
+        return;
+    }
+    const value = rangeValueFormatter(min, max, unit);
     setFilterReplace('thc', value, location)
 }
 
-const setCBD = (minvalue, maxvalue, unit, location) => {
-    const value = rangeValueFormatter(minvalue, maxvalue, unit);
+const setCBD = ({min, max, unit, clear, location}) => {
+    if (clear){
+        removeFilter("thc", location)
+        return;
+    }
+    const value = rangeValueFormatter(min, max, unit);
     setFilterReplace('cbd', value, location)
 }
 
@@ -74,11 +93,11 @@ const setStrainType = (value, location) => {
 }
 ///Multi Value Filters
 const setWeight = (arr, value, location, remove=false) => {
-    multiValueFilterReplace(arr, value, location, remove);
+    multiValueFilterReplace('weights', arr, value, location, remove);
 }
 
 const setEffects = (arr, value, location, remove=false) => {
-    multiValueFilterReplace(arr, value, location, remove);
+    multiValueFilterReplace('effects', arr, value, location, remove);
 }
 
 export {setCategory, setSubcategory, setEffects, setTHC}

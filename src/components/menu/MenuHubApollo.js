@@ -127,10 +127,10 @@ export default function MenuHubApollo(){
             </TestButtons>
             <TestButtons>
                 <h3>setTHC() - my method</h3>
-                <button onClick={()=>{setTHC(1.5, 20, "PERCENTAGE",location)}}>
+                <button onClick={()=>{setTHC({min:1.5, max:20, unit:"PERCENTAGE", location:location})}}>
                     Change THC to 1.5 - 20 %
                 </button>
-                <button onClick={()=>{setTHC(0, 0, "",location)}}>
+                <button onClick={()=>{setTHC({min:0, max:100, unit:"", clear:true, location:location})}}>
                     Change category to null
                 </button>
             </TestButtons>
