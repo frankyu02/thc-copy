@@ -33,7 +33,6 @@
     "normalize.css": "^8.0.1",
     "prop-types": "^15.8.0",
     "query-string": "^7.1.1",
-    "rc-pagination": "^3.1.15",
     "react": "^17.0.1",
     "react-awesome-reveal": "^3.8.1",
     "react-cool-img": "^1.2.12",

@@ -91,7 +91,7 @@ const MenuGrid = ({ products, addToCart }) => {
                                 </div> 
                             )})}
                         </div>
-                        <PaginationBar numberOfProducts={NOP} productsPerPage={9}/>
+                        <PaginationBar numberOfProducts={36} productsPerPage={12}/>
                     </div>
                 </div>
             </MenuGridStyles>
