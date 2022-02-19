@@ -67,6 +67,10 @@ export default function MenuHubApollo(){
     //Multi Value Filters
     const [effects, setEffectsQuery] = useQueryParam('effects', ArrayParam);
 
+    //Pagination States
+    const [pageLimit, setPageLimit] = useState(12);
+    const [pageOffset, setPageOffset] = useState(0);
+
     //Others States n Variables
     const [menuVariables, setMenuVariables] = useState({});
     const location = useLocation();
@@ -83,8 +87,7 @@ export default function MenuHubApollo(){
         //when category changes, increase count
         setCount(count+1);
 
-        console.log("useEffect(), thc-->", thc)
-        console.log("useEffect(), thc-->", queryString.parse(thc))
+        console.log("----useEffect hit!----")
         
         //Re-Query with new variables
         setMenuVariables(createVariablesObj({
@@ -92,10 +95,15 @@ export default function MenuHubApollo(){
             category: category,
             subcategory: subcategory,
             effects: effects,
-            potencyThc: thc
+            potencyThc: thc,
+            limit: pageLimit,
+            offset: pageOffset
         }));
+
+        console.log("----useEffect offset->", pageOffset)
+        console.log("----useEffect menuVariables->", menuVariables)
         
-    },[category, subcategory, effects, thc])
+    },[category, subcategory, effects, thc, pageOffset])
     
     return(
         <LayoutWrapper>
@@ -170,7 +178,7 @@ export default function MenuHubApollo(){
         </Wrapper>
 
         { (data && !loading) ?
-            <MenuGrid products={data?.menu?.products} />
+            <MenuGrid setPageOffset={setPageOffset} products={data?.menu?.products} />
             :
             (
                 (loading) ?

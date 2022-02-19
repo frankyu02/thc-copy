@@ -5,6 +5,8 @@ query Menu(
   $subcategory: Subcategory
   $retailerId: ID!
   $potencyThc: PotencyRange
+  $limit: Int!
+  $offset: Int!
 ) {
   menu(
     retailerId: $retailerId
@@ -13,7 +15,7 @@ query Menu(
       subcategory: $subcategory
       potencyThc: $potencyThc
     }
-    pagination: { limit: 12, offset: 0 }
+    pagination: { limit: $limit, offset: $offset }
   ) {
     products {
       ...MenuProduct

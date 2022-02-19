@@ -14,6 +14,11 @@ const MoveButton = styled.div`
     margin-top: 10px;
     padding: 0px;
     color: black;
+
+    &:hover{
+        cursor: pointer;
+        color: var(--lightpurple);
+    }
 `;
 
 const PageButton = styled.div`
@@ -30,6 +35,13 @@ const PageButton = styled.div`
     font-family: "Integral CF";
     font-size: 15px;
     color: black;
+
+    &:hover{
+        cursor: pointer;
+        color: white;
+        background: var(--lightpurple);
+        border: 1px solid var(--lightpurple);
+    }
 `;
 
 const PageButtonsWrapper = styled.div`
@@ -38,7 +50,7 @@ const PageButtonsWrapper = styled.div`
     align-items: center;
 `;
 
-const PaginationBar = ({goToPage, numberOfProducts, productsPerPage=12}) => {
+const PaginationBar = ({setPageOffset, numberOfProducts, productsPerPage}) => {
     const totalPages = Math.ceil(numberOfProducts / productsPerPage)
 
     return (
@@ -52,8 +64,11 @@ const PaginationBar = ({goToPage, numberOfProducts, productsPerPage=12}) => {
             <PageButtonsWrapper>
                 {
                     [...Array(totalPages)].map((e, i) => (
-                        <PageButton onClick={() => {
+                        <PageButton key={i} onClick={() => {
+                            const offset = i*productsPerPage;
                             console.log("goToPage("+(i+1)+")")
+                            console.log("setPageOffset("+(offset)+")")
+                            setPageOffset(offset)
                         }}>
                             {i+1}
                         </PageButton>

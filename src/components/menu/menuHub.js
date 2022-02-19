@@ -75,7 +75,7 @@ const MenuGridStyles = styled.div`
 }
 `
 
-const MenuGrid = ({ products, addToCart }) => {
+const MenuGrid = ({setPageOffset, products, addToCart }) => {
     
     if (products){
         const NOP = products.length;
@@ -91,7 +91,7 @@ const MenuGrid = ({ products, addToCart }) => {
                                 </div> 
                             )})}
                         </div>
-                        <PaginationBar numberOfProducts={36} productsPerPage={12}/>
+                        <PaginationBar setPageOffset={setPageOffset} numberOfProducts={36} productsPerPage={12}/>
                     </div>
                 </div>
             </MenuGridStyles>
