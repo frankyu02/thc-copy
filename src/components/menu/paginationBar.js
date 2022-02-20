@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import {MdArrowBackIos, MdArrowForwardIos} from 'react-icons/md'
+import { setPageNumber } from "../../utils/menu/setFilters";
 
 const Wrapper = styled.div`
     margin-top: 30px;
@@ -50,7 +51,7 @@ const PageButtonsWrapper = styled.div`
     align-items: center;
 `;
 
-const PaginationBar = ({setPageOffset, numberOfProducts, productsPerPage}) => {
+const PaginationBar = ({setPageOffset, numberOfProducts, productsPerPage, location}) => {
     const totalPages = Math.ceil(numberOfProducts / productsPerPage)
 
     return (
@@ -65,10 +66,8 @@ const PaginationBar = ({setPageOffset, numberOfProducts, productsPerPage}) => {
                 {
                     [...Array(totalPages)].map((e, i) => (
                         <PageButton key={i} onClick={() => {
-                            const offset = i*productsPerPage;
                             console.log("goToPage("+(i+1)+")")
-                            console.log("setPageOffset("+(offset)+")")
-                            setPageOffset(offset)
+                            setPageNumber(i+1, location)
                         }}>
                             {i+1}
                         </PageButton>

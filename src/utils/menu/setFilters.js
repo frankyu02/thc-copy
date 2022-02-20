@@ -91,6 +91,10 @@ const setCBD = ({min, max, unit, clear, location}) => {
 const setStrainType = (value, location) => {
     setFilterReplace('strain', value, location)
 }
+////Pagination
+const setPageNumber = (value, location) => {
+    setFilterReplace('page', value, location)
+}
 ///Multi Value Filters
 const setWeight = (arr, value, location, remove=false) => {
     multiValueFilterReplace('weights', arr, value, location, remove);
@@ -100,4 +104,4 @@ const setEffects = (arr, value, location, remove=false) => {
     multiValueFilterReplace('effects', arr, value, location, remove);
 }
 
-export {setCategory, setSubcategory, setEffects, setTHC}
+export {setCategory, setSubcategory, setEffects, setTHC, setPageNumber}

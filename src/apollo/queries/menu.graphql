@@ -20,5 +20,6 @@ query Menu(
     products {
       ...MenuProduct
     }
+    productsCount
   }
 }

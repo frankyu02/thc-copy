@@ -70,6 +70,7 @@ export default function MenuHubApollo(){
     //Pagination States
     const [pageLimit, setPageLimit] = useState(12);
     const [pageOffset, setPageOffset] = useState(0);
+    const [pageNumber, setPageNumberQuery] = useQueryParam('page', StringParam)
 
     //Others States n Variables
     const [menuVariables, setMenuVariables] = useState({});
@@ -97,13 +98,13 @@ export default function MenuHubApollo(){
             effects: effects,
             potencyThc: thc,
             limit: pageLimit,
-            offset: pageOffset
+            offset: ((pageNumber-1)*pageLimit)
         }));
 
         console.log("----useEffect offset->", pageOffset)
         console.log("----useEffect menuVariables->", menuVariables)
         
-    },[category, subcategory, effects, thc, pageOffset])
+    },[category, subcategory, effects, thc, pageNumber])
     
     return(
         <LayoutWrapper>
@@ -178,7 +179,13 @@ export default function MenuHubApollo(){
         </Wrapper>
 
         { (data && !loading) ?
-            <MenuGrid setPageOffset={setPageOffset} products={data?.menu?.products} />
+            <MenuGrid 
+                setPageOffset={setPageOffset} 
+                numberOfProducts={data?.menu?.productsCount}
+                productsPerPage={pageLimit}
+                products={data?.menu?.products} 
+                location={location}
+            />
             :
             (
                 (loading) ?
