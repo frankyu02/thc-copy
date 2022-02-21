@@ -125,6 +125,7 @@ export default function MenuHubApollo(){
             <Breadcrumbs 
                 category={category}
                 subcategory={subcategory}
+                location={location}
             />
             <div style={{display: 'flex'}}>
                 <ProductCount>
