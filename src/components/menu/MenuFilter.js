@@ -8,6 +8,17 @@ const Wrapper = styled.div`
     width: 100%;
 `;
 
+const effectLabels = ["CALM",
+    "CLEAR_MIND",
+    "CREATIVE",
+    "ENERGETIC",
+    "FOCUSED",
+    "HAPPY",
+    "INSPIRED",
+    "RELAXED",
+    "SLEEPY",
+    "UPLIFTED"]
+
 export default function MenuFilter({
     location, onSale, setOnSale, effects, setEffects
 }){
@@ -21,10 +32,7 @@ export default function MenuFilter({
 //Effects
     return(
         <Wrapper>
-            <AccordItem title={"Effects"} defaultOpen={true}>
-                <CheckboxCollection 
-                    
-                />
+            <AccordItem title={"Format & Size"} defaultOpen={true}>
             </AccordItem>
             <AccordItem defaultOpen={true}>
                 <SingleCheckbox 
@@ -32,6 +40,14 @@ export default function MenuFilter({
                     setCheckState={setOnSale}
                     label={"On Sale"}
                     location={location}
+                />
+            </AccordItem>
+            <AccordItem title={"Effects"} defaultOpen={true}>
+                <CheckboxCollection
+                    location={location}
+                    allValues={effectLabels}
+                    activeValues={effects}
+                    setActiveValues={setEffects}
                 />
             </AccordItem>
         </Wrapper>

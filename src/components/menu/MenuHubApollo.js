@@ -147,6 +147,8 @@ export default function MenuHubApollo(){
                 location={location}
                 onSale={onSale}
                 setOnSale={setOnSale}
+                effects={effects}
+                setEffects={setEffects}
             />
         </Wrapper>
 

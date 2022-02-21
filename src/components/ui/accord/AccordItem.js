@@ -14,9 +14,9 @@ const Content = styled.div`
         height: 100%;
         padding: 30px 0px;
     }
-    &.close{
-        height: 0;
-        overflow-y: hidden;
+    &.closed{
+        height: 0px;
+        overflow: hidden;
         padding: 0px 0px;
     }
     
