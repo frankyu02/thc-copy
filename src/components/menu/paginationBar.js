@@ -56,9 +56,6 @@ const PaginationBar = ({setPageOffset, numberOfProducts, productsPerPage, locati
 
     return (
         <>
-        <div>
-            totalPages: {totalPages}
-        </div>
         <Wrapper>
             <MoveButton><MdArrowBackIos/></MoveButton>
 

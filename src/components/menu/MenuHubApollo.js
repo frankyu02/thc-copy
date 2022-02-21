@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useReducer} from 'react';
 import styled from 'styled-components';
-import MenuGrid from './menuHub';
+import ProductsGrid from './productsGrid';
 
 //Apollo
 import { useApollo } from '../../apollo/apollo';
@@ -19,15 +19,28 @@ import { setCategory,
     setTHC, 
     setEffects } from '../../utils/menu/setFilters';
 import { useLocation } from '@reach/router';
+import Breadcrumbs from './options/Breadcrumbs';
+
+const TopOptions = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0px;
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+    margin-bottom: 20px;
+`;
 
 const LayoutWrapper = styled.div`
     display: flex;
 `;
 
+const ProductCount = styled.div`
+    font-family: "Integral CF";
+`;
+
 const Wrapper = styled.div`
-    width: 20vw;
+    width: 20%;
     min-height: 100vh;
-    background: #d3fff2;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -107,6 +120,19 @@ export default function MenuHubApollo(){
     },[category, subcategory, effects, thc, pageNumber])
     
     return(
+        <div className="container">
+        <TopOptions>
+            <Breadcrumbs 
+                category={category}
+                subcategory={subcategory}
+            />
+            <div style={{display: 'flex'}}>
+                <ProductCount>
+                    {data?.menu.productsCount ? data.menu.productsCount : 0} PRODUCTS
+                </ProductCount>
+                <div>SORT</div>
+            </div>
+        </TopOptions>
         <LayoutWrapper>
         <Wrapper>
             <TestingDisplay>
@@ -179,7 +205,7 @@ export default function MenuHubApollo(){
         </Wrapper>
 
         { (data && !loading) ?
-            <MenuGrid 
+            <ProductsGrid 
                 setPageOffset={setPageOffset} 
                 numberOfProducts={data?.menu?.productsCount}
                 productsPerPage={pageLimit}
@@ -195,5 +221,6 @@ export default function MenuHubApollo(){
             )
         }
         </LayoutWrapper>
+        </div>
     )
 }

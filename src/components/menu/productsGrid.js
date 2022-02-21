@@ -8,7 +8,7 @@ const MenuGridStyles = styled.div`
     display: flex;
     justify-content: flex-end;
     .wrapper {
-        width: 80vw;
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -75,7 +75,7 @@ const MenuGridStyles = styled.div`
 }
 `
 
-const MenuGrid = ({setPageOffset, products, addToCart, location }) => {
+const ProductsGrid = ({setPageOffset, products, addToCart, location }) => {
     
     if (products){
         const NOP = products.length;
@@ -106,4 +106,4 @@ const MenuGrid = ({setPageOffset, products, addToCart, location }) => {
     }
 }
 
-export default MenuGrid;
+export default ProductsGrid;
