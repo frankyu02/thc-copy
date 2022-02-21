@@ -6,27 +6,28 @@ import ProductsGrid from './productsGrid';
 import { useApollo } from '../../apollo/apollo';
 import { useQuery, useMutation } from '@apollo/client';
 import  MENU_QUERY  from '../../apollo/queries/menu.graphql'
+import MENU_SALE_QUERY from '../../apollo/queries/menu-sale.graphql'
 import  RETAILERS_QUERY from '../../apollo/queries/retailerlist.graphql'
 import gql from 'graphql-tag'
 
 //Helpers
 import queryString from 'query-string'
 import { createVariablesObj } from '../../utils/menu/queryUtils';
-import { useQueryParam, StringParam, ArrayParam, ObjectParam, JsonParam } from 'use-query-params'
+import { useQueryParam, StringParam, ArrayParam, ObjectParam, 
+    JsonParam, BooleanParam } from 'use-query-params'
 import { navigate } from 'gatsby';
-import { setCategory, 
-    setSubcategory, 
-    setTHC, 
-    setEffects } from '../../utils/menu/setFilters';
+import { setCategory, setSubcategory, setTHC, 
+    setEffects, setOnSale } from '../../utils/menu/setFilters';
 import { useLocation } from '@reach/router';
 import Breadcrumbs from './options/Breadcrumbs';
+import MenuFilter from './MenuFilter';
 
 const TopOptions = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 30px 0px;
-    border-bottom: 1px solid rgba(0,0,0,0.3);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
     margin-bottom: 20px;
 `;
 
@@ -36,6 +37,8 @@ const LayoutWrapper = styled.div`
 
 const ProductCount = styled.div`
     font-family: "Integral CF";
+    font-size: 14px;
+    margin-right: 40px;
 `;
 
 const Wrapper = styled.div`
@@ -76,6 +79,8 @@ export default function MenuHubApollo(){
     const [category, setCategoryQuery] = useQueryParam('category', StringParam);
     const [subcategory, setSubategoryQuery] = useQueryParam('subcategory', StringParam);
     const [thc, setThcQuery] = useQueryParam('thc', JsonParam)
+    ///On Sale
+    const [onSale, setOnSaleQuery] = useQueryParam('onsale', BooleanParam)
 
     //Multi Value Filters
     const [effects, setEffectsQuery] = useQueryParam('effects', ArrayParam);
@@ -90,8 +95,9 @@ export default function MenuHubApollo(){
     const location = useLocation();
 
      //Queries
-    const {loading, error, data, refetch} = useQuery(MENU_QUERY, {
-        variables: menuVariables, fetchPolicy: "network-only" })
+    const {loading, error, data, refetch} = useQuery(
+        MENU_QUERY, 
+        {variables: menuVariables, fetchPolicy: "network-only" })
 
     //Debugging Stuff
     const [count, setCount] = useState(0);
@@ -102,7 +108,7 @@ export default function MenuHubApollo(){
         setCount(count+1);
 
         console.log("----useEffect hit!----")
-        
+        console.log("useEffect onSale-->", onSale)
         //Re-Query with new variables
         setMenuVariables(createVariablesObj({
             retailerId: '4c9422c5-d248-415b-8a88-0a75822c50e6',
@@ -111,7 +117,8 @@ export default function MenuHubApollo(){
             effects: effects,
             potencyThc: thc,
             limit: pageLimit,
-            offset: ((pageNumber-1)*pageLimit)
+            offset: ((pageNumber-1)*pageLimit),
+            onSale: onSale
         }));
 
         console.log("----useEffect offset->", pageOffset)
@@ -127,7 +134,7 @@ export default function MenuHubApollo(){
                 subcategory={subcategory}
                 location={location}
             />
-            <div style={{display: 'flex'}}>
+            <div style={{display: 'flex', alignItems: 'center'}}>
                 <ProductCount>
                     {data?.menu.productsCount ? data.menu.productsCount : 0} PRODUCTS
                 </ProductCount>
@@ -136,73 +143,11 @@ export default function MenuHubApollo(){
         </TopOptions>
         <LayoutWrapper>
         <Wrapper>
-            <TestingDisplay>
-                category: {category}
-                <br/>
-                subcategory: {subcategory}
-                <br/>
-                count: {count}
-                <br/>
-                effects: {effects}, typeof: {typeof effects}
-                <br/>
-            </TestingDisplay>
-            <TestButtons>
-                <h3>setCategory() - my method</h3>
-                <button onClick={()=>{setCategory('EDIBLES', location)}}>
-                    Change category to EDIBLES
-                </button>
-                <button onClick={()=>{setCategory('FLOWER', location)}}>
-                    Change category to FLOWER
-                </button>
-                <button onClick={()=>{setCategory('PRE_ROLLS', location)}}>
-                    Change category to PRE_ROLLS
-                </button>
-                <button onClick={()=>{setCategory('', location)}}>
-                    Change category to null
-                </button>
-            </TestButtons>
-            <TestButtons>
-                <h3>setTHC() - my method</h3>
-                <button onClick={()=>{setTHC({min:1.5, max:20, unit:"PERCENTAGE", location:location})}}>
-                    Change THC to 1.5 - 20 %
-                </button>
-                <button onClick={()=>{setTHC({min:0, max:100, unit:"", clear:true, location:location})}}>
-                    Change category to null
-                </button>
-            </TestButtons>
-            <TestButtons>
-                <h3>Subcategory</h3>
-                <button onClick={()=>{setSubcategory('SINGLES', location)}}>
-                    SINGLES
-                </button>
-                <button onClick={()=>{setSubcategory('PACKS', location)}}>
-                    PACKS
-                </button>
-            </TestButtons>
-            <TestButtons>
-                <h3>Effects</h3>
-                <button onClick={()=>{setEffects(effects, 'HAPPY', location)}}>
-                    HAPPY
-                </button>
-                <button onClick={()=>{setEffects(effects, 'FOCUS', location)}}>
-                    FOCUS
-                </button>
-                <button onClick={()=>{setEffects(effects, 'ENERGIZE', location)}}>
-                    ENERGIZE
-                </button>
-            </TestButtons>
-            <TestButtons>
-                <h3>Remove Effects</h3>
-                <button onClick={()=>{setEffects(effects, 'HAPPY', location, true)}}>
-                    HAPPY
-                </button>
-                <button onClick={()=>{setEffects(effects, 'FOCUS', location, true)}}>
-                    FOCUS
-                </button>
-                <button onClick={()=>{setEffects(effects, 'ENERGIZE', location, true)}}>
-                    ENERGIZE
-                </button>
-            </TestButtons>
+            <MenuFilter 
+                location={location}
+                onSale={onSale}
+                setOnSale={setOnSale}
+            />
         </Wrapper>
 
         { (data && !loading) ?

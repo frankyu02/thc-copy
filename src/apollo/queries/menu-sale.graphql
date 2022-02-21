@@ -1,0 +1,27 @@
+#import '../fragments/menu-product.graphql'
+
+query Menu(
+  $category: Category
+  $subcategory: Subcategory
+  $retailerId: ID!
+  $potencyThc: PotencyRange
+  $limit: Int!
+  $offset: Int!
+  $menuSection: MenuSectionFilterType!
+) {
+  menu(
+    retailerId: $retailerId
+    filter: {
+      category: $category
+      subcategory: $subcategory
+      potencyThc: $potencyThc
+      menuSection: { type: $menuSection }
+    }
+    pagination: { limit: $limit, offset: $offset }
+  ) {
+    products {
+      ...MenuProduct
+    }
+    productsCount
+  }
+}
