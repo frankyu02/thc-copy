@@ -96,7 +96,7 @@ export default function MenuHubApollo(){
 
      //Queries
     const {loading, error, data, refetch} = useQuery(
-        MENU_QUERY, 
+        onSale ? MENU_SALE_QUERY : MENU_QUERY, 
         {variables: menuVariables, fetchPolicy: "network-only" })
 
     //Debugging Stuff

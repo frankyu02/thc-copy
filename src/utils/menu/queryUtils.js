@@ -3,12 +3,12 @@ const createVariablesObj =
     potencyCbd, potencyThc, weights, limit, offset, sortDirection, sort,
     pageLimit, pageOffset, onSale}) => {
     var variables = {};
-    
-    //Menu Selection type (Staff Pick, Special, Custom)
-    if(onSale){variables["menuSection"] = "SPECIAL"}
 
     //Retailer Id
     if (retailerId){variables["retailerId"] = retailerId}
+
+    //Menu Selection type (Staff Pick, Special, Custom)
+    if(onSale){variables["menuSection"] = "SPECIALS"}
 
     //Filters
     if (category){variables["category"] = category}
