@@ -10,7 +10,7 @@ const setFilterReplace = (filter, value, location, dependent) => {
         const parsedSearch = queryString.parse(location.search);
         parsedSearch[filter] = value
         if (dependent){
-            delete parsedSearch[filter]
+            delete parsedSearch[dependent]
         }
         const newNav = queryString.stringify(parsedSearch);
         navigate("?"+newNav);
