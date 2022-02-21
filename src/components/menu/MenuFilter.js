@@ -1,11 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import CheckboxCollection from '../ui/checkbox/CheckboxCollection';
 import SingleCheckbox from '../ui/checkbox/SingleCheckbox';
+import AccordItem from '../ui/accord/AccordItem';
+
 const Wrapper = styled.div`
+    width: 100%;
 `;
 
 export default function MenuFilter({
-    onSale, setOnSale, location
+    location, onSale, setOnSale, effects, setEffects
 }){
 //Categories/Subcategories
 //Format & Size
@@ -17,12 +21,19 @@ export default function MenuFilter({
 //Effects
     return(
         <Wrapper>
-            <SingleCheckbox 
-                checkState={onSale}
-                setCheckState={setOnSale}
-                label={"On Sale"}
-                location={location}
-            />
+            <AccordItem title={"Effects"} defaultOpen={true}>
+                <CheckboxCollection 
+                    
+                />
+            </AccordItem>
+            <AccordItem defaultOpen={true}>
+                <SingleCheckbox 
+                    checkState={onSale}
+                    setCheckState={setOnSale}
+                    label={"On Sale"}
+                    location={location}
+                />
+            </AccordItem>
         </Wrapper>
     )
 }
