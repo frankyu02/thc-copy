@@ -12,7 +12,7 @@ const Content = styled.div`
     width: 100%;
     &.open{
         height: 100%;
-        padding: 30px 0px;
+        padding: 10px 0px;
     }
     &.closed{
         height: 0px;
