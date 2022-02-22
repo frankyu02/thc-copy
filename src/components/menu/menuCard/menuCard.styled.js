@@ -23,8 +23,9 @@ const MenuCardStyles = styled.div`
             width: auto;
             height: auto;
             .realImage {
-                width: 228px;
+                width: 215px;
                 height: auto;
+                max-height: 265px;
             }
         }
         .brand {
@@ -85,6 +86,10 @@ const MenuCardStyles = styled.div`
             color: black;
             font-size: 17px;
             font-family: 'Integral CF Bold';
+        }
+        .originalPrice {
+            text-decoration: line-through;
+            text-decoration-thickness: 2px;
         }
     }
     .cartBannerBottom {

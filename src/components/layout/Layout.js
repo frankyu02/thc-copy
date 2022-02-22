@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
       <Typography />
       <AgeGate/>
         <HeaderMenu cart={FilledCart}/>
-        <ShopLink/>
+        <ShopLink />
         <main>
           {children}
         </main>

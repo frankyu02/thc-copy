@@ -10,16 +10,21 @@ const Wrapper = styled.div`
 
 const Content = styled.div`
     width: 100%;
+    transition: max-height 0.5s, padding-top 0.5s, padding-bottom 0.5s;
+    transition-timing-function: cubic-bezier(.85,-0.01,.15,1);
+    overflow: hidden;
+    padding-left: 0px;
+    padding-right: 0px;
     &.open{
-        height: 100%;
-        padding: 10px 0px;
+        max-height: 800px;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
     &.closed{
-        height: 0px;
-        overflow: hidden;
-        padding: 0px 0px;
+        max-height: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
     }
-    
 `;
 
 const Title = styled.div`
