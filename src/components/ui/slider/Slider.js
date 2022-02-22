@@ -21,7 +21,7 @@ const Inputs = styled.div`
         border-right: 0px white solid;
     }
     .unit{
-        padding: 4px;
+        padding: 5px;
         border: 1px solid rgba(0,0,0,0.4);
         border-left: 0px white solid;
         display: inline-block;
