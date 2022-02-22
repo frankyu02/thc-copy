@@ -67,7 +67,7 @@ const MenuCard = ({ product, addToCart }) => {
                         onMouseEnter={()=>{setStyles({opacity: 1, height: 60})}} 
                         onMouseLeave={()=>{setStyles({opacity: 0, height: 0})}}
                         >
-                        <div className="brand"><BrandLogoBanner brand={product.brand}/></div>
+                        <div className="brand"><BrandLogoBanner brand={product.brand} size={"14px"}/></div>
                         <div className="strain"><TypeBanner text={product.strainType} size={"14px"}/></div>
                         <div className="image"><Img className="realImage" src={product.image} alt={product.name}/></div>
                         <div className="cartBanner" onClick={addToCart} style={{opacity: styles.opacity, height: styles.height}}>

@@ -9,10 +9,11 @@ const Wrapper = styled.div`
         width: auto;
     }
     p{
-        font-family: "Integral CF Heavy";
+        font-family: "Integral CF Bold";
+        font-size: ${props => props.fontsize || "100%"};
     }
 `;
-export default function BrandLogoBanner({ brand }){
+export default function BrandLogoBanner({ brand, size }){
     return(
         <>
             {brand.image ? 
@@ -20,7 +21,7 @@ export default function BrandLogoBanner({ brand }){
                     <Img src={brand.imageUrl} alt={brand.name} />
                 </Wrapper>
             :
-                <Wrapper>
+                <Wrapper fontsize={size}>
                     <p>{brand.name}</p>
                 </Wrapper>
             }
