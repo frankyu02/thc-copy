@@ -111,7 +111,7 @@ const FilterWrapper = styled.div`
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     z-index: 100;
-    padding: 0px 20px;
+    padding: 60px 20px;
 
     transition: all 0.5s ease;
 
@@ -124,6 +124,7 @@ const FilterWrapper = styled.div`
         align-items: center;
         flex-direction: column;
         height: auto;
+        padding: 0px 0px;
         h3{
             font-size: 16px;
         }
