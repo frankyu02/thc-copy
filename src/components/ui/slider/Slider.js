@@ -55,8 +55,13 @@ export default function Slider({thc, setTHC, unit="PERCENTAGE", location}){
                     value={minMax[0]}
                     onChange={(event) => {
                         let newArr = [...minMax];
-                        newArr[0] = event.target.value;
-                        setMinMax(newArr);
+                        newArr[0] = parseInt(event.target.value)
+                        setTHC({min: parseInt(newArr[0]), 
+                            max: parseInt(newArr[1]), 
+                            unit: unit,
+                            clear: false,
+                            location: location
+                        });
                     }}
                 />
                 <div className="unit">{unitIcon[unit]}</div>
@@ -67,8 +72,14 @@ export default function Slider({thc, setTHC, unit="PERCENTAGE", location}){
                     value={minMax[1]}
                     onChange={(event) => {
                         let newArr = [...minMax];
-                        newArr[1] = event.target.value;
+                        newArr[1] = parseInt(event.target.value);
                         setMinMax(newArr);
+                        setTHC({min: parseInt(newArr[0]), 
+                            max: parseInt(newArr[1]), 
+                            unit: unit,
+                            clear: false,
+                            location: location
+                        });
                     }}
                 />
                 <div className="unit">{unitIcon[unit]}</div>
