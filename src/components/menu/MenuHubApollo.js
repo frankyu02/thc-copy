@@ -122,10 +122,11 @@ const FilterWrapper = styled.div`
         justify-content: flex-start;
         align-items: center;
         flex-direction: column;
-
+        height: auto;
         h3{
             font-size: 16px;
         }
+        overflow-y: hidden;
     `)}
 `;
 
