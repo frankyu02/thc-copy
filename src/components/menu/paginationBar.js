@@ -12,13 +12,18 @@ const Wrapper = styled.div`
 
 const MoveButton = styled.div`
     margin: 6px;
-    margin-top: 10px;
     padding: 0px;
     color: black;
-
-    &:hover{
+    button{
+        background: none;
+        border: none;
+        &:hover{
         cursor: pointer;
         color: var(--lightpurple);
+        }
+        &:disabled{
+            pointer-events: none;
+        }
     }
 `;
 
@@ -28,51 +33,102 @@ const PageButton = styled.div`
     padding: 7px;
     width: 30px;
     height: 30px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
+    opacity: ${props => props.selected ? '100%' : '20%'};
     font-family: "Integral CF";
-    font-size: 15px;
+    font-size: 10px;
     color: black;
-
     &:hover{
         cursor: pointer;
         color: white;
         background: var(--lightpurple);
         border: 1px solid var(--lightpurple);
+        opacity: 100%;
     }
 `;
-
+const TransitionButton = styled.div`
+    margin: 6px;
+    border: 1px solid black;
+    padding: 7px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: ${props => props.selected ? '100%' : '20%'};
+    font-family: "Integral CF";
+    font-size: 10px;
+    color: black;
+    pointer-events: none;
+`
 const PageButtonsWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
 `;
 
-const PaginationBar = ({setPageOffset, numberOfProducts, productsPerPage, location}) => {
+const PaginationBar = ({setPageOffset, numberOfProducts, productsPerPage, location, page}) => {
     const totalPages = Math.ceil(numberOfProducts / productsPerPage)
-
+    let pageMax = 7;
+    if(pageMax > totalPages){
+        pageMax = totalPages;
+    }
+    let pageStart = totalPages - pageMax + 1;
+    if(parseInt(page) < totalPages - pageMax){
+        pageStart = parseInt(page);
+    }
     return (
         <>
         <Wrapper>
-            <MoveButton><MdArrowBackIos/></MoveButton>
+            <MoveButton><button disabled={parseInt(page) === 1} onClick={() => {setPageNumber(parseInt(page) - 1), location}}><MdArrowBackIos/></button></MoveButton>
 
             <PageButtonsWrapper>
+                {parseInt(page) > 2 && pageMax != totalPages &&
+                <>
+                    <PageButton onClick={() => {
+                        setPageNumber(1, location)
+                    }}>
+                        1
+                    </PageButton>    
+                    <TransitionButton >
+                        ...
+                    </TransitionButton>
+                </>
+                }
+                {pageStart != 1 && parseInt(page) <= totalPages - pageMax + 1 && 
+                    <PageButton onClick={() => {
+                        setPageNumber(parseInt(page) - 1, location)
+                    }}>
+                        {parseInt(page) - 1}
+                    </PageButton>
+                }
                 {
-                    [...Array(totalPages)].map((e, i) => (
+                    [...Array(totalPages)].slice(pageStart - 1, pageStart+pageMax - 1).map((e, i) => (
                         <PageButton key={i} onClick={() => {
-                            console.log("goToPage("+(i+1)+")")
-                            setPageNumber(i+1, location)
-                        }}>
-                            {i+1}
+                            // console.log("goToPage("+(i+1)+")")
+                            setPageNumber(pageStart - 1 + i + 1, location)
+                        }} selected={pageStart + i === parseInt(page)}>
+                            {pageStart + i}
                         </PageButton>
                     ))
                 }
+                {pageStart != totalPages - pageMax + 1 &&
+                    <>
+                        <TransitionButton>
+                            ...
+                        </TransitionButton> 
+                        <PageButton key={totalPages} onClick={() => {
+                            setPageNumber(totalPages, location)
+                        }}>
+                            {totalPages}          
+                        </PageButton>
+                    </>
+                }
             </PageButtonsWrapper>
 
-            <MoveButton><MdArrowForwardIos/></MoveButton>
+            <MoveButton><button disabled={parseInt(page) === totalPages} onClick={() => {setPageNumber(parseInt(page) + 1), location}}><MdArrowForwardIos/></button></MoveButton>
         </Wrapper>
         </>
     )

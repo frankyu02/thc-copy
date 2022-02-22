@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PaginationBar from "./paginationBar";
 import MenuCard from "./menuCard/menuCard";
+import { number } from "prop-types";
 
 const MenuGridStyles = styled.div`
 .container {
@@ -75,8 +76,8 @@ const MenuGridStyles = styled.div`
 }
 `
 
-const ProductsGrid = ({setPageOffset, products, addToCart, location }) => {
-    
+const ProductsGrid = ({setPageOffset, products, addToCart, location, numberOfProducts, productsPerPage, page }) => {
+
     if (products){
         const NOP = products.length;
         return (
@@ -93,9 +94,10 @@ const ProductsGrid = ({setPageOffset, products, addToCart, location }) => {
                         </div>
                         <PaginationBar 
                             setPageOffset={setPageOffset} 
-                            numberOfProducts={36} 
-                            productsPerPage={12}
+                            numberOfProducts={numberOfProducts} 
+                            productsPerPage={productsPerPage}
                             location={location}
+                            page={page}
                         />
                     </div>
                 </div>

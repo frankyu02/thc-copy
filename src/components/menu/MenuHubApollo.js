@@ -134,7 +134,7 @@ export default function MenuHubApollo(){
         
     },[category, subcategory, effects, thc, cbd, pageNumber, strainType,
         weights])
-    
+    let page= pageNumber || 1;
     return(
         <div className="container">
         <TopOptions>
@@ -184,6 +184,7 @@ export default function MenuHubApollo(){
                 productsPerPage={pageLimit}
                 products={data?.menu?.products} 
                 location={location}
+                page={page}
             />
             :
             (
