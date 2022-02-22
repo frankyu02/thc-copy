@@ -92,6 +92,8 @@ export default function MenuHubApollo(){
     const [brand, setBrandQuery] = useQueryParam('brand', StringParam)
     ///On Sale
     const [onSale, setOnSaleQuery] = useQueryParam('onsale', BooleanParam)
+    ///Search
+    const [search, setSearchQuery] = useQueryParam('search', StringParam)
 
     //Multi Value Filters
     const [effects, setEffectsQuery] = useQueryParam('effects', ArrayParam);
@@ -129,6 +131,7 @@ export default function MenuHubApollo(){
 
         console.log("----useEffect hit!----")
         console.log("useEffect onSale-->", onSale)
+        console.log("search--->, ", search)
         //Re-Query with new variables
         setMenuVariables(createVariablesObj({
             retailerId: '4c9422c5-d248-415b-8a88-0a75822c50e6',
@@ -142,11 +145,12 @@ export default function MenuHubApollo(){
             offset: ((pageNumber-1)*pageLimit),
             onSale: onSale,
             weights: weights,
-            brand: brand
+            brand: brand,
+            search: search
         }));
 
     },[category, subcategory, effects, thc, cbd, pageNumber, strainType,
-        weights, brand])
+        weights, brand, search])
 
     let page= pageNumber || 1;
     return(

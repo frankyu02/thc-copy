@@ -1,7 +1,7 @@
 const createVariablesObj = 
 ({category, subcategory, effects, strainType, retailerId, 
     potencyCbd, potencyThc, brand, weights, limit, offset, sortDirection, sort,
-    pageLimit, pageOffset, onSale}) => {
+    pageLimit, pageOffset, onSale, search}) => {
     var variables = {};
 
     //Retailer Id
@@ -19,6 +19,8 @@ const createVariablesObj =
     if (strainType){variables["strainType"] = strainType}
     if (potencyThc){variables["potencyThc"] = potencyThc}
     if (potencyCbd){variables["potencyCbd"] = potencyCbd}
+    //Search
+    if (search){variables["search"] = search}
 
     //Pagination
     if (pageLimit){
