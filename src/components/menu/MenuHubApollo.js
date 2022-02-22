@@ -23,6 +23,7 @@ import { useLocation } from '@reach/router';
 import Breadcrumbs from './options/Breadcrumbs';
 import MenuFilter from './MenuFilter';
 import CategoryWidget from './CategoryWidget';
+import Loader from './other/Loader';
 
 const TopOptions = styled.div`
     display: flex;
@@ -75,7 +76,11 @@ const TestButtons = styled.div`
         padding: 3px;
     }
 `;
-
+const AnimationLoader = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+`
 export default function MenuHubApollo(){
     //Single Value Filters
     const [category, setCategoryQuery] = useQueryParam('category', StringParam);
@@ -189,7 +194,9 @@ export default function MenuHubApollo(){
             :
             (
                 (loading) ?
-                <>loading...MenuHubApollo</>
+                <AnimationLoader>
+                    <Loader />
+                </AnimationLoader>
                 :
                 <>error...MenuHubApollo</>
             )
