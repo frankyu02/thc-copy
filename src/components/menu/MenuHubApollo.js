@@ -21,6 +21,7 @@ import { setCategory, setSubcategory, setTHC,
 import { useLocation } from '@reach/router';
 import Breadcrumbs from './options/Breadcrumbs';
 import MenuFilter from './MenuFilter';
+import CategoryWidget from './CategoryWidget';
 
 const TopOptions = styled.div`
     display: flex;
@@ -143,6 +144,13 @@ export default function MenuHubApollo(){
         </TopOptions>
         <LayoutWrapper>
         <Wrapper>
+            <CategoryWidget
+                category={category}
+                subcategory={subcategory}
+                setCategory={setCategory}
+                setSubcategory={setSubcategory}
+                location={location}
+            />
             <MenuFilter 
                 location={location}
                 onSale={onSale}

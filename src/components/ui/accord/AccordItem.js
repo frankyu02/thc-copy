@@ -23,9 +23,9 @@ const Content = styled.div`
 `;
 
 const Title = styled.div`
-    font-family: 'MADE Outer Sans Light'
+    font-family: 'MADE Outer Sans Light';
     font-weight: 900;
-    font-size: 20px;
+    font-size: 14px;
     padding: 5px 0px;
     user-select: none;
     -moz-user-select: none;

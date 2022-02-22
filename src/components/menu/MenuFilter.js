@@ -42,7 +42,15 @@ export default function MenuFilter({
                     location={location}
                 />
             </AccordItem>
-            <AccordItem title={"Effects"} defaultOpen={true}>
+            <AccordItem title={"THC"} defaultOpen={true}>
+            </AccordItem>
+            <AccordItem title={"CBD"} defaultOpen={true}>
+            </AccordItem>
+            <AccordItem title={"Strain Type"} defaultOpen={true}>
+            </AccordItem>
+            <AccordItem title={"Brand"} defaultOpen={false}>
+            </AccordItem>
+            <AccordItem title={"Effects"} defaultOpen={false}>
                 <CheckboxCollection
                     location={location}
                     allValues={effectLabels}
