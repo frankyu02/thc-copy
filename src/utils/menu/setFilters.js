@@ -122,4 +122,4 @@ const setEffects = (arr, value, location, remove=false) => {
 
 export {setCategory, setSubcategory, setEffects, setTHC, 
     setPageNumber, clearAllFilters, setOnSale, setStrainType,
-    setWeights}
+    setWeights, setCBD}

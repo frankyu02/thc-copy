@@ -35,14 +35,14 @@ const unitIcon = {
     PERCENTAGE: "%"
 }
 
-export default function Slider({thc, setTHC, unit="PERCENTAGE", location}){
+export default function Slider({potency, setPotency, unit="PERCENTAGE", location}){
     const [minMax, setMinMax] = useState([0, 50])
 
     // useEffect(()=>{
     //     console.log("useEffect hit Slider")
-    //     if (thc){   
-    //         console.log("useEffect hit Slider, thc")
-    //         setTHC({min: minMax.min, max: minMax.max, unit: unit})
+    //     if (potency){   
+    //         console.log("useEffect hit Slider, potency")
+    //         setPotency({min: minMax.min, max: minMax.max, unit: unit})
     //     }
     // },[minMax])
 
@@ -56,7 +56,7 @@ export default function Slider({thc, setTHC, unit="PERCENTAGE", location}){
                     onChange={(event) => {
                         let newArr = [...minMax];
                         newArr[0] = parseInt(event.target.value)
-                        setTHC({min: parseInt(newArr[0]), 
+                        setPotency({min: parseInt(newArr[0]), 
                             max: parseInt(newArr[1]), 
                             unit: unit,
                             clear: false,
@@ -74,7 +74,7 @@ export default function Slider({thc, setTHC, unit="PERCENTAGE", location}){
                         let newArr = [...minMax];
                         newArr[1] = parseInt(event.target.value);
                         setMinMax(newArr);
-                        setTHC({min: parseInt(newArr[0]), 
+                        setPotency({min: parseInt(newArr[0]), 
                             max: parseInt(newArr[1]), 
                             unit: unit,
                             clear: false,
@@ -91,7 +91,7 @@ export default function Slider({thc, setTHC, unit="PERCENTAGE", location}){
                     setMinMax([...minMax]);
                 }}
                 onAfterChange={(minMax) => {
-                    setTHC({min: minMax[0], 
+                    setPotency({min: minMax[0], 
                         max: minMax[1], 
                         unit: unit,
                         clear: false,

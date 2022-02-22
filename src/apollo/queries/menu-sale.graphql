@@ -5,6 +5,7 @@ query Menu(
   $subcategory: Subcategory
   $retailerId: ID!
   $potencyThc: PotencyRange
+  $potencyCbd: PotencyRange
   $limit: Int!
   $offset: Int!
   $effects: [Effects!]
@@ -17,6 +18,7 @@ query Menu(
       category: $category
       subcategory: $subcategory
       potencyThc: $potencyThc
+      potencyCbd: $potencyCbd
       effects: $effects
       strainType: $strainType
       weights: $weights

@@ -31,7 +31,8 @@ const strainTypeLabels = [
 
 export default function MenuFilter({
     location, onSale, setOnSale, effects, setEffects, strainType, 
-    setStrainType, availWeights, weights, setWeights, thc, setTHC
+    setStrainType, availWeights, weights, setWeights, thc, setTHC,
+    cbd, setCBD
 }){
 //Categories/Subcategories
 //Format & Size
@@ -61,12 +62,17 @@ export default function MenuFilter({
             </AccordItem>
             <AccordItem title={"THC"} defaultOpen={true}>
                 <Slider
-                    thc={thc}
-                    setTHC={setTHC}
+                    potency={thc}
+                    setPotency={setTHC}
                     location={location}
                 />
             </AccordItem>
             <AccordItem title={"CBD"} defaultOpen={true}>
+                <Slider
+                    potency={cbd}
+                    setPotency={setCBD}
+                    location={location}
+                />
             </AccordItem>
             <AccordItem title={"Strain Type"} defaultOpen={true}>
                 <CheckboxCollectionSingle

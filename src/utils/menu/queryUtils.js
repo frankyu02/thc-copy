@@ -17,6 +17,7 @@ const createVariablesObj =
     if (weights){variables["weights"] = weights}
     if (strainType){variables["strainType"] = strainType}
     if (potencyThc){variables["potencyThc"] = potencyThc}
+    if (potencyCbd){variables["potencyCbd"] = potencyCbd}
 
     //Pagination
     if (pageLimit){

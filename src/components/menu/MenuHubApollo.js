@@ -18,7 +18,7 @@ import { useQueryParam, StringParam, ArrayParam, ObjectParam,
 import { navigate } from 'gatsby';
 import { setCategory, setSubcategory, setTHC, 
     setEffects, setOnSale, setStrainType,
-    setWeights } from '../../utils/menu/setFilters';
+    setWeights, cbd, setCBD } from '../../utils/menu/setFilters';
 import { useLocation } from '@reach/router';
 import Breadcrumbs from './options/Breadcrumbs';
 import MenuFilter from './MenuFilter';
@@ -81,6 +81,7 @@ export default function MenuHubApollo(){
     const [category, setCategoryQuery] = useQueryParam('category', StringParam);
     const [subcategory, setSubategoryQuery] = useQueryParam('subcategory', StringParam);
     const [thc, setThcQuery] = useQueryParam('thc', JsonParam)
+    const [cbd, setCbdQuery] = useQueryParam('cbd', JsonParam)
     const [strainType, setStrainTypeQuery] = useQueryParam('straintype', StringParam)
     ///On Sale
     const [onSale, setOnSaleQuery] = useQueryParam('onsale', BooleanParam)
@@ -121,6 +122,7 @@ export default function MenuHubApollo(){
             strainType: strainType,
             effects: effects,
             potencyThc: thc,
+            potencyCbd: cbd,
             limit: pageLimit,
             offset: ((pageNumber-1)*pageLimit),
             onSale: onSale,
@@ -130,7 +132,7 @@ export default function MenuHubApollo(){
         console.log("----useEffect offset->", pageOffset)
         console.log("----useEffect menuVariables->", menuVariables)
         
-    },[category, subcategory, effects, thc, pageNumber, strainType,
+    },[category, subcategory, effects, thc, cbd, pageNumber, strainType,
         weights])
     
     return(
@@ -170,6 +172,8 @@ export default function MenuHubApollo(){
                 availWeights={data?.menu?.weights}
                 thc={thc}
                 setTHC={setTHC}
+                cbd={cbd}
+                setCBD={setCBD}
             />
         </Wrapper>
 
