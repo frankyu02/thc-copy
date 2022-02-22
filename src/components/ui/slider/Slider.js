@@ -15,6 +15,7 @@ const Inputs = styled.div`
     input{
         max-width: 50px;
         font-family: 'MADE Outer Sans Light';
+        font-size: 13px;
         padding: 4px;
         text-align: center;
         border: 1px solid rgba(0,0,0,0.4);
@@ -22,6 +23,7 @@ const Inputs = styled.div`
     }
     .unit{
         padding: 5px;
+        font-size: 13px;
         border: 1px solid rgba(0,0,0,0.4);
         border-left: 0px white solid;
         display: inline-block;
