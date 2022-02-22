@@ -168,6 +168,8 @@ export default function MenuHubApollo(){
                 weights={weights}
                 setWeights={setWeights}
                 availWeights={data?.menu?.weights}
+                thc={thc}
+                setTHC={setTHC}
             />
         </Wrapper>
 

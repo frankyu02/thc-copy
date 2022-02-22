@@ -5,6 +5,7 @@ import CheckboxCollectionSingle from '../ui/checkbox/CheckboxCollectionSingle';
 import SingleCheckbox from '../ui/checkbox/SingleCheckbox';
 import AccordItem from '../ui/accord/AccordItem';
 import WeightBlocks from './WeightBlocks';
+import Slider from '../ui/slider/Slider';
 
 const Wrapper = styled.div`
     width: 100%;
@@ -30,7 +31,7 @@ const strainTypeLabels = [
 
 export default function MenuFilter({
     location, onSale, setOnSale, effects, setEffects, strainType, 
-    setStrainType, availWeights, weights, setWeights
+    setStrainType, availWeights, weights, setWeights, thc, setTHC
 }){
 //Categories/Subcategories
 //Format & Size
@@ -42,7 +43,7 @@ export default function MenuFilter({
 //Effects
     return(
         <Wrapper>
-            <AccordItem title={"Format & Size"} defaultOpen={true}>
+            <AccordItem title={"Format & Size"} defaultOpen={false}>
                 <WeightBlocks 
                     availWeights={availWeights}
                     weights={weights}
@@ -59,6 +60,11 @@ export default function MenuFilter({
                 />
             </AccordItem>
             <AccordItem title={"THC"} defaultOpen={true}>
+                <Slider
+                    thc={thc}
+                    setTHC={setTHC}
+                    location={location}
+                />
             </AccordItem>
             <AccordItem title={"CBD"} defaultOpen={true}>
             </AccordItem>

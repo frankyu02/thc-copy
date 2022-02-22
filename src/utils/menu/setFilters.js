@@ -86,6 +86,7 @@ const setTHC = ({min, max, unit, clear, location}) => {
         removeFilter("thc", location)
         return;
     }
+    console.log("setTHC, min, max, unit", min, max, unit)
     const value = rangeValueFormatter(min, max, unit);
     setFilterReplace('thc', value, location)
 }

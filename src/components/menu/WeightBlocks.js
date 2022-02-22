@@ -4,7 +4,8 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
     display: block;
     padding: 5px;
-    padding-left: -5px;
+    padding-left: 0px;
+    margin-left: -5px;
 `;
 
 const Block = styled.div`
