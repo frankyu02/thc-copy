@@ -68,7 +68,7 @@ const MenuCard = ({ product, addToCart }) => {
                         onMouseLeave={()=>{setStyles({opacity: 0, height: 0})}}
                         >
                         <div className="brand"><BrandLogoBanner brand={product.brand} size={"14px"}/></div>
-                        <div className="strain"><TypeBanner text={product.strainType} size={"14px"}/></div>
+                        <div className="strain"><TypeBanner text={product.strainType} size={"12px"}/></div>
                         <div className="image"><Img className="realImage" src={product.image} alt={product.name}/></div>
                         <div className="cartBanner" onClick={addToCart} style={{opacity: styles.opacity, height: styles.height}}>
                             ADD TO CART
@@ -84,7 +84,13 @@ const MenuCard = ({ product, addToCart }) => {
                     </a>
                 </div>
                 <div className="price">
-                    <h5>{product.variants[index].specialPriceRec === null ? `$ ${product.variants[index].priceRec.toFixed(2)}` : `$ ${product.variants[index].specialPriceRec.toFixed(2)}`}</h5>
+                    {product.variants[index].specialPriceRec === null ? 
+                    <h5>$ {product.variants[index].priceRec.toFixed(2)}</h5> : 
+                    <>
+                        <h5>$&nbsp;</h5>
+                        <h5 className="originalPrice">{product.variants[index].priceRec.toFixed(2)}</h5> 
+                        <h5>&nbsp;{product.variants[index].specialPriceRec.toFixed(2)}</h5>
+                    </>}
                     <Dropdown index={index} setIndex={setIndex} variant={product.variants}/>
                 </div>
                 <div className="cartBannerBottom" onClick={addToCart}>
