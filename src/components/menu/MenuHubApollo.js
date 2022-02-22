@@ -17,7 +17,8 @@ import { useQueryParam, StringParam, ArrayParam, ObjectParam,
     JsonParam, BooleanParam } from 'use-query-params'
 import { navigate } from 'gatsby';
 import { setCategory, setSubcategory, setTHC, 
-    setEffects, setOnSale, setStrainType } from '../../utils/menu/setFilters';
+    setEffects, setOnSale, setStrainType,
+    setWeights } from '../../utils/menu/setFilters';
 import { useLocation } from '@reach/router';
 import Breadcrumbs from './options/Breadcrumbs';
 import MenuFilter from './MenuFilter';
@@ -86,6 +87,7 @@ export default function MenuHubApollo(){
 
     //Multi Value Filters
     const [effects, setEffectsQuery] = useQueryParam('effects', ArrayParam);
+    const [weights, setWeightsQuery] = useQueryParam('weights', ArrayParam);
 
     //Pagination States
     const [pageLimit, setPageLimit] = useState(12);
@@ -121,13 +123,15 @@ export default function MenuHubApollo(){
             potencyThc: thc,
             limit: pageLimit,
             offset: ((pageNumber-1)*pageLimit),
-            onSale: onSale
+            onSale: onSale,
+            weights: weights
         }));
 
         console.log("----useEffect offset->", pageOffset)
         console.log("----useEffect menuVariables->", menuVariables)
         
-    },[category, subcategory, effects, thc, pageNumber, strainType])
+    },[category, subcategory, effects, thc, pageNumber, strainType,
+        weights])
     
     return(
         <div className="container">
@@ -161,6 +165,9 @@ export default function MenuHubApollo(){
                 setEffects={setEffects}
                 strainType={strainType}
                 setStrainType={setStrainType}
+                weights={weights}
+                setWeights={setWeights}
+                availWeights={data?.menu?.weights}
             />
         </Wrapper>
 

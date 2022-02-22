@@ -4,6 +4,7 @@ import CheckboxCollection from '../ui/checkbox/CheckboxCollection';
 import CheckboxCollectionSingle from '../ui/checkbox/CheckboxCollectionSingle';
 import SingleCheckbox from '../ui/checkbox/SingleCheckbox';
 import AccordItem from '../ui/accord/AccordItem';
+import WeightBlocks from './WeightBlocks';
 
 const Wrapper = styled.div`
     width: 100%;
@@ -28,7 +29,8 @@ const strainTypeLabels = [
 ]
 
 export default function MenuFilter({
-    location, onSale, setOnSale, effects, setEffects, strainType, setStrainType
+    location, onSale, setOnSale, effects, setEffects, strainType, 
+    setStrainType, availWeights, weights, setWeights
 }){
 //Categories/Subcategories
 //Format & Size
@@ -41,6 +43,12 @@ export default function MenuFilter({
     return(
         <Wrapper>
             <AccordItem title={"Format & Size"} defaultOpen={true}>
+                <WeightBlocks 
+                    availWeights={availWeights}
+                    weights={weights}
+                    setWeights={setWeights}
+                    location={location}
+                />
             </AccordItem>
             <AccordItem defaultOpen={true}>
                 <SingleCheckbox 

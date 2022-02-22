@@ -111,7 +111,7 @@ const setOnSale = (value, location) => {
     setFilterReplace('onsale', value, null)
 }
 ///Multi Value Filters
-const setWeight = (arr, value, location, remove=false) => {
+const setWeights = (arr, value, location, remove=false) => {
     multiValueFilterReplace('weights', arr, value, location, remove);
 }
 
@@ -120,4 +120,5 @@ const setEffects = (arr, value, location, remove=false) => {
 }
 
 export {setCategory, setSubcategory, setEffects, setTHC, 
-    setPageNumber, clearAllFilters, setOnSale, setStrainType}
+    setPageNumber, clearAllFilters, setOnSale, setStrainType,
+    setWeights}

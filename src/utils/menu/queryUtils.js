@@ -14,6 +14,7 @@ const createVariablesObj =
     if (category){variables["category"] = category}
     if (subcategory){variables["subcategory"] = subcategory}
     if (effects){variables["effects"] = effects}
+    if (weights){variables["weights"] = weights}
     if (strainType){variables["strainType"] = strainType}
     if (potencyThc){variables["potencyThc"] = potencyThc}
 
