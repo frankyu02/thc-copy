@@ -17,7 +17,7 @@ import { useQueryParam, StringParam, ArrayParam, ObjectParam,
     JsonParam, BooleanParam } from 'use-query-params'
 import { navigate } from 'gatsby';
 import { setCategory, setSubcategory, setTHC, 
-    setEffects, setOnSale } from '../../utils/menu/setFilters';
+    setEffects, setOnSale, setStrainType } from '../../utils/menu/setFilters';
 import { useLocation } from '@reach/router';
 import Breadcrumbs from './options/Breadcrumbs';
 import MenuFilter from './MenuFilter';
@@ -80,6 +80,7 @@ export default function MenuHubApollo(){
     const [category, setCategoryQuery] = useQueryParam('category', StringParam);
     const [subcategory, setSubategoryQuery] = useQueryParam('subcategory', StringParam);
     const [thc, setThcQuery] = useQueryParam('thc', JsonParam)
+    const [strainType, setStrainTypeQuery] = useQueryParam('straintype', StringParam)
     ///On Sale
     const [onSale, setOnSaleQuery] = useQueryParam('onsale', BooleanParam)
 
@@ -115,6 +116,7 @@ export default function MenuHubApollo(){
             retailerId: '4c9422c5-d248-415b-8a88-0a75822c50e6',
             category: category,
             subcategory: subcategory,
+            strainType: strainType,
             effects: effects,
             potencyThc: thc,
             limit: pageLimit,
@@ -125,7 +127,7 @@ export default function MenuHubApollo(){
         console.log("----useEffect offset->", pageOffset)
         console.log("----useEffect menuVariables->", menuVariables)
         
-    },[category, subcategory, effects, thc, pageNumber])
+    },[category, subcategory, effects, thc, pageNumber, strainType])
     
     return(
         <div className="container">
@@ -157,6 +159,8 @@ export default function MenuHubApollo(){
                 setOnSale={setOnSale}
                 effects={effects}
                 setEffects={setEffects}
+                strainType={strainType}
+                setStrainType={setStrainType}
             />
         </Wrapper>
 

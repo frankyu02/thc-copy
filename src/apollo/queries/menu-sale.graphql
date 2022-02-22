@@ -8,6 +8,7 @@ query Menu(
   $limit: Int!
   $offset: Int!
   $effects: [Effects!]
+  $strainType: StrainType
 ) {
   menu(
     retailerId: $retailerId
@@ -16,6 +17,7 @@ query Menu(
       subcategory: $subcategory
       potencyThc: $potencyThc
       effects: $effects
+      strainType: $strainType
       menuSection: { type: SPECIALS }
     }
     pagination: { limit: $limit, offset: $offset }

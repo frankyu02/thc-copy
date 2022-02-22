@@ -100,7 +100,7 @@ const setCBD = ({min, max, unit, clear, location}) => {
 }
 
 const setStrainType = (value, location) => {
-    setFilterReplace('strain', value, location)
+    setFilterReplace('straintype', value, location)
 }
 ////Pagination
 const setPageNumber = (value, location) => {
@@ -120,4 +120,4 @@ const setEffects = (arr, value, location, remove=false) => {
 }
 
 export {setCategory, setSubcategory, setEffects, setTHC, 
-    setPageNumber, clearAllFilters, setOnSale}
+    setPageNumber, clearAllFilters, setOnSale, setStrainType}

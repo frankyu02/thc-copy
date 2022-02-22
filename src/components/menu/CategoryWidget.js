@@ -8,6 +8,7 @@ const Wrapper = styled.div`
     align-items: flex-start;
     flex-direction: column;
     margin: 3px 0px;
+    margin-top: -6px;
 
     .entry{
         font-family: 'MADE Outer Sans Light';

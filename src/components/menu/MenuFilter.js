@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import CheckboxCollection from '../ui/checkbox/CheckboxCollection';
+import CheckboxCollectionSingle from '../ui/checkbox/CheckboxCollectionSingle';
 import SingleCheckbox from '../ui/checkbox/SingleCheckbox';
 import AccordItem from '../ui/accord/AccordItem';
 
@@ -19,8 +20,15 @@ const effectLabels = ["CALM",
     "SLEEPY",
     "UPLIFTED"]
 
+const strainTypeLabels = [
+    "INDICA",
+    "SATIVA",
+    "HYBRID",
+    "HIGH_CBD"
+]
+
 export default function MenuFilter({
-    location, onSale, setOnSale, effects, setEffects
+    location, onSale, setOnSale, effects, setEffects, strainType, setStrainType
 }){
 //Categories/Subcategories
 //Format & Size
@@ -47,6 +55,12 @@ export default function MenuFilter({
             <AccordItem title={"CBD"} defaultOpen={true}>
             </AccordItem>
             <AccordItem title={"Strain Type"} defaultOpen={true}>
+                <CheckboxCollectionSingle
+                    location={location}
+                    allValues={strainTypeLabels}
+                    activeValue={strainType}
+                    setActiveValue={setStrainType}
+                />
             </AccordItem>
             <AccordItem title={"Brand"} defaultOpen={false}>
             </AccordItem>
