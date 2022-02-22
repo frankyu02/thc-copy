@@ -11,6 +11,7 @@ query Menu(
   $effects: [Effects!]
   $strainType: StrainType
   $weights: [String!]
+  $brandId: String
 ) {
   menu(
     retailerId: $retailerId
@@ -22,6 +23,7 @@ query Menu(
       effects: $effects
       strainType: $strainType
       weights: $weights
+      brandId: $brandId
     }
     pagination: { limit: $limit, offset: $offset }
   ) {

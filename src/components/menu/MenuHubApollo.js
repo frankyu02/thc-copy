@@ -8,6 +8,7 @@ import { useQuery, useMutation } from '@apollo/client';
 import  MENU_QUERY  from '../../apollo/queries/menu.graphql'
 import MENU_SALE_QUERY from '../../apollo/queries/menu-sale.graphql'
 import  RETAILERS_QUERY from '../../apollo/queries/retailerlist.graphql'
+import BRANDS_QUERY from '../../apollo/queries/brands.graphql'
 import gql from 'graphql-tag'
 
 //Helpers
@@ -18,7 +19,7 @@ import { useQueryParam, StringParam, ArrayParam, ObjectParam,
 import { navigate } from 'gatsby';
 import { setCategory, setSubcategory, setTHC, 
     setEffects, setOnSale, setStrainType,
-    setWeights, cbd, setCBD } from '../../utils/menu/setFilters';
+    setWeights, cbd, setCBD, setBrand } from '../../utils/menu/setFilters';
 import { useLocation } from '@reach/router';
 import Breadcrumbs from './options/Breadcrumbs';
 import MenuFilter from './MenuFilter';
@@ -83,6 +84,7 @@ export default function MenuHubApollo(){
     const [thc, setThcQuery] = useQueryParam('thc', JsonParam)
     const [cbd, setCbdQuery] = useQueryParam('cbd', JsonParam)
     const [strainType, setStrainTypeQuery] = useQueryParam('straintype', StringParam)
+    const [brand, setBrandQuery] = useQueryParam('brand', StringParam)
     ///On Sale
     const [onSale, setOnSaleQuery] = useQueryParam('onsale', BooleanParam)
 
@@ -100,9 +102,17 @@ export default function MenuHubApollo(){
     const location = useLocation();
 
      //Queries
-    const {loading, error, data, refetch} = useQuery(
+    const {loading: loading, error: error, data: data } = useQuery(
         onSale ? MENU_SALE_QUERY : MENU_QUERY, 
         {variables: menuVariables, fetchPolicy: "network-only" })
+
+    const {loading: loadingBrands, error: errorBrands, data: dataBrands } = useQuery(
+        BRANDS_QUERY, 
+        {variables: {retailerId:'4c9422c5-d248-415b-8a88-0a75822c50e6'}, 
+        fetchPolicy: "network-only", 
+        nextFetchPolicy: "cache-fist"})
+
+        
 
     //Debugging Stuff
     const [count, setCount] = useState(0);
@@ -126,14 +136,13 @@ export default function MenuHubApollo(){
             limit: pageLimit,
             offset: ((pageNumber-1)*pageLimit),
             onSale: onSale,
-            weights: weights
+            weights: weights,
+            brand: brand
         }));
 
-        console.log("----useEffect offset->", pageOffset)
-        console.log("----useEffect menuVariables->", menuVariables)
-        
     },[category, subcategory, effects, thc, cbd, pageNumber, strainType,
-        weights])
+        weights, brand])
+
     let page= pageNumber || 1;
     return(
         <div className="container">
@@ -174,6 +183,9 @@ export default function MenuHubApollo(){
                 setTHC={setTHC}
                 cbd={cbd}
                 setCBD={setCBD}
+                brand={brand}
+                setBrand={setBrand}
+                allBrands={dataBrands?.menu?.brands}
             />
         </Wrapper>
 
