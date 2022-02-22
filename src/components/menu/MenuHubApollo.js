@@ -225,11 +225,11 @@ export default function MenuHubApollo(){
     useEffect(() => {
         if (mobileMenuOpen) {
             document.getElementsByTagName('html')[0].style.overflowY = 'hidden';
-            // document.getElementsByTagName('html')[0].style.position = 'fixed';
+            document.getElementsByTagName('html')[0].style.position = 'fixed';
             // document.getElementsByTagName('body')[0].style.position = 'fixed';
         }else{
             document.getElementsByTagName('html')[0].style.overflowY = '';
-            // document.getElementsByTagName('html')[0].style.position = 'static';
+            document.getElementsByTagName('html')[0].style.position = 'static';
             // document.getElementsByTagName('body')[0].style.position = 'static';
         }
     }, [mobileMenuOpen]);
