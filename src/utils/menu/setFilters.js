@@ -111,6 +111,10 @@ const setPageNumber = (value, location) => {
 const setOnSale = (value, location) => {
     setFilterReplace('onsale', value, null)
 }
+////Search 
+const setSearch = (value, location) => {
+    setFilterReplace('search', value, location)
+}
 ///Multi Value Filters
 const setWeights = (arr, value, location, remove=false) => {
     multiValueFilterReplace('weights', arr, value, location, remove);
@@ -122,4 +126,4 @@ const setEffects = (arr, value, location, remove=false) => {
 
 export {setCategory, setSubcategory, setEffects, setTHC, 
     setPageNumber, clearAllFilters, setOnSale, setStrainType,
-    setWeights, setCBD}
+    setWeights, setCBD, setBrand, setSearch}

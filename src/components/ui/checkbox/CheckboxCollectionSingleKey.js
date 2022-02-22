@@ -2,17 +2,17 @@ import React from 'react'
 import styled from 'styled-components'
 import SingleCheckbox from './SingleCheckbox'
 
-export default function CheckboxCollectionSingle({location, allValues, activeValue, setActiveValue}){
+export default function CheckboxCollectionSingleKey({location, allValues, activeValue, setActiveValue}){
     console.log("allValues, ", allValues)
     //setEffects(arr, value, location, remove=false)
-    if(allValues){
+    if (allValues){
         return(
             <>
-                {allValues.map((label) => {
-                    const isChecked = (label === activeValue); 
+                {allValues.map((valObj) => {
+                    const isChecked = (valObj.id === activeValue); 
                     const handleCheckState = (value, location) => {
                         if (value==1){
-                            setActiveValue(label, location)
+                            setActiveValue(valObj.id, location)
                         }else if (value==0){
                             setActiveValue("", location)
                         }
@@ -22,7 +22,7 @@ export default function CheckboxCollectionSingle({location, allValues, activeVal
                             checkState={isChecked}
                             setCheckState={handleCheckState}
                             location={location}
-                            label={label}
+                            label={valObj.name}
                         />
                     )
                 })}

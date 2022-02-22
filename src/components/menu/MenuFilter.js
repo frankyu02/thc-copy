@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import CheckboxCollection from '../ui/checkbox/CheckboxCollection';
 import CheckboxCollectionSingle from '../ui/checkbox/CheckboxCollectionSingle';
+import CheckboxCollectionSingleKey from '../ui/checkbox/CheckboxCollectionSingleKey';
 import SingleCheckbox from '../ui/checkbox/SingleCheckbox';
 import AccordItem from '../ui/accord/AccordItem';
 import WeightBlocks from './WeightBlocks';
@@ -32,7 +33,7 @@ const strainTypeLabels = [
 export default function MenuFilter({
     location, onSale, setOnSale, effects, setEffects, strainType, 
     setStrainType, availWeights, weights, setWeights, thc, setTHC,
-    cbd, setCBD
+    cbd, setCBD, brand, setBrand, allBrands
 }){
 //Categories/Subcategories
 //Format & Size
@@ -42,6 +43,7 @@ export default function MenuFilter({
 //Stain Type
 //Brand
 //Effects
+console.log("allBrands", allBrands)
     return(
         <Wrapper>
             <AccordItem title={"Format & Size"} defaultOpen={false}>
@@ -83,6 +85,12 @@ export default function MenuFilter({
                 />
             </AccordItem>
             <AccordItem title={"Brand"} defaultOpen={false}>
+                <CheckboxCollectionSingleKey
+                    location={location}
+                    allValues={allBrands}
+                    activeValue={brand}
+                    setActiveValue={setBrand}
+                />
             </AccordItem>
             <AccordItem title={"Effects"} defaultOpen={false}>
                 <CheckboxCollection
