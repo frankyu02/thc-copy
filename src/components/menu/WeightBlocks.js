@@ -38,10 +38,19 @@ const Block = styled.div`
 export default function WeightBlocks({availWeights, weights, setWeights, location}){
     console.log("availWeights---->", availWeights)
     if(availWeights){
+        let tempWeights = [];
+        availWeights.forEach((weight)=>{
+            tempWeights.push(weight.replace('g', ''));
+        })
+        tempWeights.sort(function(a, b){return a-b});
+        let sortedWeights = [];
+        tempWeights.forEach((weight)=>{
+            sortedWeights.push(weight + 'g');
+        })
         return(
             <Wrapper>
                 {
-                    availWeights.map((weightLabel)=>{
+                    sortedWeights.map((weightLabel)=>{
                         const selected = weights ? (weights.includes(weightLabel)) : false;
                         return(
                             <Block 

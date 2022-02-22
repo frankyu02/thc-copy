@@ -17,7 +17,7 @@ align-items: center;
 export default function TypeBanner({ text, size }){
     return(
         <Wrapper fontsize={size}>
-            <p>{text}</p>
+            <p>{text.replace(/_/g, " ")}</p>
         </Wrapper>
     )
 }
