@@ -24,6 +24,7 @@ import Breadcrumbs from './options/Breadcrumbs';
 import MenuFilter from './MenuFilter';
 import CategoryWidget from './CategoryWidget';
 import Loader from './other/Loader';
+import NoProduct from './other/noProduct';
 
 const TopOptions = styled.div`
     display: flex;
@@ -183,14 +184,18 @@ export default function MenuHubApollo(){
         </Wrapper>
 
         { (data && !loading) ?
+            ((data?.menu.productsCount > 0) ?
             <ProductsGrid 
-                setPageOffset={setPageOffset} 
-                numberOfProducts={data?.menu?.productsCount}
-                productsPerPage={pageLimit}
-                products={data?.menu?.products} 
-                location={location}
-                page={page}
+            setPageOffset={setPageOffset} 
+            numberOfProducts={data?.menu?.productsCount}
+            productsPerPage={pageLimit}
+            products={data?.menu?.products} 
+            location={location}
+            page={page}
             />
+            :
+            <NoProduct />
+            )
             :
             (
                 (loading) ?
