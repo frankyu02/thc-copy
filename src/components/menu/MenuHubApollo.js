@@ -139,7 +139,7 @@ const BackgroundMobileFilter = styled.div`
     left: ${props => props.open ? "0" : "-100%"};
     width: 15vw;
     height: 100vh;
-    index:  ${props => props.open ? "99" : "-5"};
+    z-index:  ${props => props.open ? "99" : "-5"};
     background: var(--darkpurple);
     opacity: 0.4;
     transition: all 0.5s ease;
