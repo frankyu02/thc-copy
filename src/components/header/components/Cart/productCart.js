@@ -107,7 +107,7 @@ const CartContent = styled.div`
         }
     }
 `;
-export default function ProductCart({ closed, setClosed, deleteFunc, addFunc, subFunc }){
+export default function ProductCart({ closed, setClosed }){
     const { checkout } = useContext(CheckoutContext)
 
     var Quanttotal = 0;
@@ -138,7 +138,10 @@ export default function ProductCart({ closed, setClosed, deleteFunc, addFunc, su
                 <div className="content">
                     {checkout?.items.map((item, index) => {
                         return(
-                            <CartItem key={index} item={item} />
+                            <CartItem 
+                                key={index} 
+                                item={item} 
+                            />
                         )
                     })}
                     <CartTotal subtotal={subtotal} discount={discount} tax={taxes} total={total}/>

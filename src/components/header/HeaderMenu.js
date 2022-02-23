@@ -33,8 +33,8 @@ export const HeaderMenu = () => {
   const headerRef = useRef()
   const [closed, setClosed] = useState(true);
   var Quanttotal = 0;
-    for(var i = 0; i < checkout.items.length; i++){
-        Quanttotal += checkout.items[i].quantity;
+    for(var i = 0; i < checkout?.items?.length; i++){
+        Quanttotal += checkout?.items[i]?.quantity;
     }
   return (
     <HeaderMenuStyled cartState={closed}>
