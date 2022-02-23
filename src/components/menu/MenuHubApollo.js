@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import ProductsGrid from './productsGrid';
 
 //Apollo
-import { useQuery, useMutation } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import  MENU_QUERY  from '../../apollo/queries/menu.graphql'
 import MENU_SALE_QUERY from '../../apollo/queries/menu-sale.graphql'
 import  RETAILERS_QUERY from '../../apollo/queries/retailerlist.graphql'
