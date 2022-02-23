@@ -12,7 +12,20 @@ const Content = styled.div`
     width: 100%;
     transition: max-height 0.5s, padding-top 0.5s, padding-bottom 0.5s;
     transition-timing-function: cubic-bezier(.85,-0.01,.15,1);
-    overflow: hidden;
+    overflow: ${props => props.over ? 'auto' : 'hidden'};
+    scrollbar-width: thin;          /* "auto" or "thin" */
+    scrollbar-color: var(--darkpurple) var(--lightpurple);   /* scroll thumb and track */ 
+    &::-webkit-scrollbar {
+        width: 5px;               /* width of the entire scrollbar */
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: var(--lightpurple);        /* color of the tracking area */
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--darkpurple);    /* color of the scroll thumb */
+    }
     padding-left: 0px;
     padding-right: 0px;
     &.open{
@@ -41,12 +54,12 @@ const Title = styled.div`
     }
 `
 
-export default function AccordItem({title, defaultOpen, children}){
+export default function AccordItem({title, defaultOpen, overflowAuto, children}){
     const [open, setOpen] = useState(defaultOpen)
     return(
         <Wrapper>
         {title && <Title onClick={()=>{setOpen(!open)}}>{title}</Title>}
-        <Content className={open ? 'open' : 'closed'}>
+        <Content className={open ? 'open' : 'closed'} over={overflowAuto}>
             {children}
         </Content>
         </Wrapper>
