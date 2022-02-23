@@ -62,13 +62,8 @@ export default function AccordItem({title, defaultOpen, overflowAuto, children})
     const [open, setOpen] = useState(defaultOpen)
     return(
         <Wrapper>
-<<<<<<< HEAD
-        {title && <Title onClick={()=>{setOpen(!open)}}>{title}</Title>}
-        <Content className={open ? 'open' : 'closed'} over={overflowAuto}>
-=======
         {title && <Title onClick={()=>{setOpen(!open)}}>{title}<div className='sign'>{open ? "-" : "+"}</div></Title>}
         <Content className={open ? 'open' : 'closed'}>
->>>>>>> origin/fix/steven_fix
             {children}
         </Content>
         </Wrapper>
