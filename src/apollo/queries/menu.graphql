@@ -13,6 +13,8 @@ query Menu(
   $weights: [String!]
   $brandId: String
   $search: String
+  $sortDirection: SortDirection!
+  $sortKey: MenuSortKey!
 ) {
   menu(
     retailerId: $retailerId
@@ -27,6 +29,7 @@ query Menu(
       brandId: $brandId
       search: $search
     }
+    sort: { direction: $sortDirection, key: $sortKey }
     pagination: { limit: $limit, offset: $offset }
   ) {
     products {

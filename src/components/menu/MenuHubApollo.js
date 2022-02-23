@@ -1,10 +1,9 @@
-import React, {useEffect, useState, useReducer} from 'react';
+import React, {useEffect, useState, useReducer, useContext} from 'react';
 import styled from 'styled-components';
 import ProductsGrid from './productsGrid';
 
 //Apollo
-import { useApollo } from '../../apollo/apollo';
-import { useQuery, useMutation } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import  MENU_QUERY  from '../../apollo/queries/menu.graphql'
 import MENU_SALE_QUERY from '../../apollo/queries/menu-sale.graphql'
 import  RETAILERS_QUERY from '../../apollo/queries/retailerlist.graphql'
@@ -19,21 +18,78 @@ import { useQueryParam, StringParam, ArrayParam, ObjectParam,
 import { navigate } from 'gatsby';
 import { setCategory, setSubcategory, setTHC, 
     setEffects, setOnSale, setStrainType,
-    setWeights, cbd, setCBD, setBrand } from '../../utils/menu/setFilters';
+    setWeights, cbd, setCBD, setBrand, setSort } from '../../utils/menu/setFilters';
 import { useLocation } from '@reach/router';
 import Breadcrumbs from './options/Breadcrumbs';
 import MenuFilter from './MenuFilter';
+import SortDropdown from './SortDropdown'
 import CategoryWidget from './CategoryWidget';
 import Loader from './other/Loader';
 import NoProduct from './other/noProduct';
 
+//Style Helpers
+import { lg } from '../../styles/utils/media_queries';
+import {GoSettings} from 'react-icons/go';
+import { CheckoutContext } from '../../contexts/checkout';
+
 const TopOptions = styled.div`
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
     padding: 30px 0px;
+    padding-bottom: 10px;
     border-bottom: 1px solid rgba(0,0,0,0.1);
     margin-bottom: 20px;
+
+    .breadcrumbs{
+        margin-bottom: 40px;
+    }
+
+    .other{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .sort{
+        display: none;
+    }
+
+    .filtersButton{
+        border: 2px solid var(--darkpurple);
+        color: var(--darkpurple);
+        font-size: 14px;
+        font-family: "Integral CF";
+        padding: 7px;
+        margin: 3px;
+        text-align: center;
+        svg{
+            margin-right: 5px;
+        }
+    }
+
+    ${lg(`
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        padding-bottom: 30px;
+        .breadcrumbs{
+            width: 100%;
+            margin-bottom: 0px;
+        }
+        .other{
+            display: flex;
+            justify-content: flex-end;
+        }
+        .sort{
+            display: block;
+        }
+        .filtersButton{
+            display: none;
+        }
+    `)}
 `;
 
 const LayoutWrapper = styled.div`
@@ -46,38 +102,52 @@ const ProductCount = styled.div`
     margin-right: 40px;
 `;
 
-const Wrapper = styled.div`
-    width: 20%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
+const FilterWrapper = styled.div`
+    position: fixed;
+    top: 120px;
+    right: ${(props) => props.open ? '0' : "-100%"};
+    background: white;
+    width: 85vw;
+    height: calc(100vh - 120px);
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    z-index: 100;
+    padding: 60px 20px;
+    padding-bottom: 100px;
+    transition: all 0.5s ease;
 
-    h3{
-        font-size: 16px;
-    }
+    ${lg(`
+        position: static;
+        width: 20%;
+        min-height: 100vh;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        height: auto;
+        padding: 0px 0px;
+        h3{
+            font-size: 16px;
+        }
+        overflow-y: hidden;
+    `)}
 `;
 
-const TestingDisplay = styled.div`
-    margin: 5px;
-    border: 3px solid #3caff6;
-    padding: 10px;
-    border-radius: 5px;
-    width: 300px;
+const BackgroundMobileFilter = styled.div`
+    position: fixed;
+    top: 0;
+    left: ${props => props.open ? "0" : "-100%"};
+    width: 15vw;
+    height: 100vh;
+    index:  ${props => props.open ? "99" : "-5"};
+    background: var(--darkpurple);
+    opacity: 0.4;
+    transition: all 0.5s ease;
+    ${lg(`
+        display: none;
+    `)}
 `;
 
-const TestButtons = styled.div`
-    margin: 5px;
-    padding: 10px;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    button{
-        margin: 5px;
-        padding: 3px;
-    }
-`;
 const AnimationLoader = styled.div`
     width: 100%;
     display: flex;
@@ -95,6 +165,8 @@ export default function MenuHubApollo(){
     const [onSale, setOnSaleQuery] = useQueryParam('onsale', BooleanParam)
     ///Search
     const [search, setSearchQuery] = useQueryParam('search', StringParam)
+    ///Sort
+    const [sort, setSortQuery] =useQueryParam('sort', JsonParam)
 
     //Multi Value Filters
     const [effects, setEffectsQuery] = useQueryParam('effects', ArrayParam);
@@ -108,6 +180,8 @@ export default function MenuHubApollo(){
     //Others States n Variables
     const [menuVariables, setMenuVariables] = useState({});
     const location = useLocation();
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    
 
      //Queries
     const {loading: loading, error: error, data: data } = useQuery(
@@ -147,30 +221,47 @@ export default function MenuHubApollo(){
             onSale: onSale,
             weights: weights,
             brand: brand,
-            search: search
+            search: search,
+            sort: sort
         }));
 
     },[category, subcategory, effects, thc, cbd, pageNumber, strainType,
-        weights, brand, search])
+        weights, brand, search, sort])
+    
+    useEffect(() => {
+        if (mobileMenuOpen) {
+            document.getElementsByTagName('html')[0].style.overflowY = 'hidden';
+            document.getElementsByTagName('html')[0].style.position = 'fixed';
+            // document.getElementsByTagName('body')[0].style.position = 'fixed';
+        }else{
+            document.getElementsByTagName('html')[0].style.overflowY = '';
+            document.getElementsByTagName('html')[0].style.position = 'static';
+            // document.getElementsByTagName('body')[0].style.position = 'static';
+        }
+    }, [mobileMenuOpen]);
 
     let page= pageNumber || 1;
     return(
+        <>
         <div className="container">
         <TopOptions>
-            <Breadcrumbs 
-                category={category}
-                subcategory={subcategory}
-                location={location}
-            />
-            <div style={{display: 'flex', alignItems: 'center'}}>
+            <div className='breadcrumbs'>
+                <Breadcrumbs 
+                    category={category}
+                    subcategory={subcategory}
+                    location={location}
+                />
+            </div>
+            <div className={"other"}>
                 <ProductCount>
                     {data?.menu.productsCount ? data.menu.productsCount : 0} PRODUCTS
                 </ProductCount>
-                <div>SORT</div>
+                <div className='sort'><SortDropdown sort={sort} setSort={setSort} location={location}/></div>
+                <div className='filtersButton' onClick={()=>{setMobileMenuOpen(true)}}><GoSettings/>FILTERS</div>
             </div>
         </TopOptions>
         <LayoutWrapper>
-        <Wrapper>
+        <FilterWrapper open={mobileMenuOpen}>
             <CategoryWidget
                 category={category}
                 subcategory={subcategory}
@@ -197,7 +288,7 @@ export default function MenuHubApollo(){
                 setBrand={setBrand}
                 allBrands={dataBrands?.menu?.brands}
             />
-        </Wrapper>
+        </FilterWrapper>
 
         { (data && !loading) ?
             ((data?.menu.productsCount > 0) ?
@@ -224,5 +315,7 @@ export default function MenuHubApollo(){
         }
         </LayoutWrapper>
         </div>
+        <BackgroundMobileFilter open={mobileMenuOpen} onClick={()=>{setMobileMenuOpen(false)}}/>
+        </>
     )
 }

@@ -1,5 +1,6 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useContext } from "react";
 import styled from "styled-components";
+import { CheckoutContext } from "../../../../contexts/checkout";
 import { __BREAKPOINTS } from "../../../../styles/utils/variables";
 import { NoScroll } from "../../../../utils/noScroll";
 import CartButton from "./CartButton";
@@ -106,10 +107,12 @@ const CartContent = styled.div`
         }
     }
 `;
-export default function ProductCart({ closed, setClosed, cart, deleteFunc, addFunc, subFunc }){
+export default function ProductCart({ closed, setClosed }){
+    const { checkout } = useContext(CheckoutContext)
+
     var Quanttotal = 0;
-    for(var i = 0; i < cart.items.length; i++){
-        Quanttotal += cart.items[i].quantity;
+    for(var i = 0; i < checkout?.items?.length; i++){
+        Quanttotal += checkout?.items[i]?.quantity;
     }
     const closePage = useCallback(() => {
         setClosed((c) => {
@@ -120,11 +123,11 @@ export default function ProductCart({ closed, setClosed, cart, deleteFunc, addFu
     let discount = 0.00;
     let taxes = 0.00;
     let total = 0.00;
-    if(cart.priceSummary){
-        subtotal = cart.priceSummary.subtotal / 100;
-        discount = cart.priceSummary.discounts / 100;
-        taxes = cart.priceSummary.taxes / 100;
-        total = cart.priceSummary.total / 100;
+    if(checkout?.priceSummary){
+        subtotal = checkout.priceSummary.subtotal / 100;
+        discount = checkout.priceSummary.discounts / 100;
+        taxes = checkout.priceSummary.taxes / 100;
+        total = checkout.priceSummary.total / 100;
     }
     return(
         <Wrapper closed={closed}>
@@ -133,14 +136,17 @@ export default function ProductCart({ closed, setClosed, cart, deleteFunc, addFu
             <CartContent>
                 <h2>CART ({Quanttotal})</h2>
                 <div className="content">
-                    {cart.items.map((item, index) => {
+                    {checkout?.items.map((item, index) => {
                         return(
-                            <CartItem key={index} item={item} />
+                            <CartItem 
+                                key={index} 
+                                item={item} 
+                            />
                         )
                     })}
                     <CartTotal subtotal={subtotal} discount={discount} tax={taxes} total={total}/>
                 </div> 
-                <CartButton redirect={cart.redirectUrl}/>
+                <CartButton redirect={checkout?.redirectUrl}/>
                 <p className="close" onClick={closePage}>CONTINUE SHOPPING</p>
             </CartContent>
         </Wrapper>

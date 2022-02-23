@@ -5,6 +5,10 @@ import ProductPageDetail from "../components/productpage/ProductPageDetail";
 import ProductPageImage from "../components/productpage/ProductPageImage";
 import ProductProfile from "../components/productpage/ProductProfile";
 import { __BREAKPOINTS } from "../styles/utils/variables";
+import { useQuery } from '@apollo/client';
+import PRODUCT_QUERY from '../apollo/queries/product.graphql';
+import Loader from '../components/menu/other/Loader';
+
 const Wrapper = styled.div`
     border: 1px solid black;
     width: 100%;
@@ -59,25 +63,56 @@ const Wrapper = styled.div`
         }
     }
 `;
-export default function ProductPage({ product }){
+
+const AnimationLoader = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+`
+
+export default function ProductPage({id}){
+
+    const {loading: loading, error: error, data: data } = useQuery(
+    PRODUCT_QUERY, 
+    {variables: {retailerId:"4c9422c5-d248-415b-8a88-0a75822c50e6", id: id}, fetchPolicy: "network-only" })
+
+    if (data && !loading){
     return(
         <div className="container">
             <Wrapper>
                 <div className="top">
-                    <ProductPageImage imgurl={product.image} name={product.name} brand={product.brand}/>
+                    <ProductPageImage 
+                        imgurl={data.product.image} 
+                        name={data.product.name} 
+                        brand={data.product.brand}
+                    />
                     <ProductPageDetail 
-                        brand={product.brand}
-                        name={product.name}
-                        cbd={product.potencyCbd}
-                        thc={product.potencyThc}
-                        strainType={product.strainType}
-                        variants={product.variants}/>
+                        brand={data.product.brand}
+                        name={data.product.name}
+                        cbd={data.product.potencyCbd}
+                        thc={data.product.potencyThc}
+                        strainType={data.product.strainType}
+                        variants={data.product.variants}/>
                 </div>
                 <div className="bottom">
-                    <ProductPageAbout description={product.description}/>
-                    <ProductProfile brand={product.brand} thc={product.potencyThc} cbd={product.potencyCbd} category={product.category} effect={product.effects}/>
+                    <ProductPageAbout description={data.product.description}/>
+                    <ProductProfile 
+                        brand={data.product.brand} 
+                        thc={data.product.potencyThc} 
+                        cbd={data.product.potencyCbd} 
+                        category={data.product.category} 
+                        effect={data.product.effects}
+                    />
                 </div>
             </Wrapper>
         </div>
-    )
+    )}
+    else{
+        return(
+                (loading) &&
+                <AnimationLoader>
+                    <Loader />
+                </AnimationLoader>
+        )
+    }
 }

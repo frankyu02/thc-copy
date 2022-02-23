@@ -21,6 +21,14 @@ const createVariablesObj =
     if (potencyCbd){variables["potencyCbd"] = potencyCbd}
     //Search
     if (search){variables["search"] = search}
+    //Sort
+    if (sort){
+        variables["sortDirection"] = sort.dir
+        variables["sortKey"] = sort.key
+    }else{
+        variables["sortDirection"] = "ASC"
+        variables["sortKey"] = "POPULAR"
+    }
 
     //Pagination
     if (pageLimit){

@@ -34,7 +34,7 @@ export default function Breadcrumbs({category, subcategory, location}){
     if(!category && !subcategory){
         return(
             <Wrapper>
-            <div className="crumb small">All</div>
+            <div className="crumb small" onClick={()=>{clearAllFilters()}}>All</div>
             <div className='slash'>/</div>
             <div className='crumb large'>All Products</div>
             </Wrapper>

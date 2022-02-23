@@ -10,6 +10,7 @@ import Slider from '../ui/slider/Slider';
 
 const Wrapper = styled.div`
     width: 100%;
+    position: relative;
 `;
 
 const effectLabels = ["CALM",

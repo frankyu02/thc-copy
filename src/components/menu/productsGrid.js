@@ -41,9 +41,12 @@ const MenuGridStyles = styled.div`
     }
 }
 @media (max-width: 780px) {
+    
+    max-width: 100%;
     .container {
         display: flex;
         justify-content: center;
+        max-width: 100%;
         .wrapper {
             width: 100%;
             display: flex;

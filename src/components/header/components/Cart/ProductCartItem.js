@@ -5,6 +5,8 @@ import { CgClose } from "react-icons/cg";
 import { __BREAKPOINTS } from "../../../../styles/utils/variables";
 import CartQuantity from "./CartQuantity";
 import ItemPrice from "./ItemPrice";
+import { useContext } from "react";
+import { CheckoutContext } from "../../../../contexts/checkout";
 const ItemWrapper=styled.div`
     max-width: 100%;
     height: 110px;
@@ -63,10 +65,20 @@ const ItemWrapper=styled.div`
         }
 `;
 
-export default function CartItem({ item, del, add, sub }){
+export default function CartItem({ item }){
+    const {removeFromCart, updateQuantity} = useContext(CheckoutContext)
+
+    const sub = () => {
+        updateQuantity(item.id, item.quantity-1)
+    }
+    const add = () => {
+        updateQuantity(item.id, item.quantity+1)
+    }
     return(
         <ItemWrapper>
-            <button onClick={del}><CgClose /></button>
+            <button onClick={()=>{removeFromCart(item.id)}}>
+                <CgClose />
+            </button>
             <Img src={item.product.image} alt={item.product.name} />
             <p>{item.product.name}</p>
             <CartQuantity add={add} sub={sub} quantity={item.quantity}/>
