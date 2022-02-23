@@ -7,6 +7,7 @@ import ProductProfile from "../components/productpage/ProductProfile";
 import { __BREAKPOINTS } from "../styles/utils/variables";
 import { useQuery } from '@apollo/client';
 import PRODUCT_QUERY from '../apollo/queries/product.graphql';
+import Loader from '../components/menu/other/Loader';
 
 const Wrapper = styled.div`
     border: 1px solid black;
@@ -62,6 +63,13 @@ const Wrapper = styled.div`
         }
     }
 `;
+
+const AnimationLoader = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+`
+
 export default function ProductPage({id}){
 
     const {loading: loading, error: error, data: data } = useQuery(
@@ -100,6 +108,11 @@ export default function ProductPage({id}){
         </div>
     )}
     else{
-        return<>loading...</>
+        return(
+                (loading) &&
+                <AnimationLoader>
+                    <Loader />
+                </AnimationLoader>
+        )
     }
 }

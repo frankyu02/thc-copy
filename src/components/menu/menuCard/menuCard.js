@@ -73,7 +73,7 @@ const MenuCard = ({ product}) => {
                         <div className="strain"><TypeBanner text={product.strainType} size={"12px"}/></div>
                         
                         <div className="image">
-                            <a href={`/product/`+product.slug}>
+                            <a href={`/products/`+product.id}>
                                 <Img className="realImage" src={product.image} alt={product.name}/>
                             </a>
                         </div>
@@ -91,7 +91,7 @@ const MenuCard = ({ product}) => {
                     <p>{detailDisplay(product)}</p>
                 </div>
                 <div className="title">
-                    <a href={`/product/`+product.slug}>
+                    <a href={`/products/`+product.id}>
                         <h4>{nameDisplay(product)}</h4>
                     </a>
                 </div>

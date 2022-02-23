@@ -6,9 +6,7 @@ export default function Products()
 {
     return(
         <Router>
-            <ProductPage 
-                path="/products/:id" 
-            />
+            <ProductPage  path="/products/:id" />
         </Router>
     )
 }
