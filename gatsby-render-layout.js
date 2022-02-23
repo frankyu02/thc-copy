@@ -1,7 +1,7 @@
 import React from 'react';
-import Layout from './src/components/layout/Layout';
+import {Layout, MenuLayout} from './src/components/layout/Layout';
 
-const Wrapper = ({element, props}) => {
+export const Wrapper = ({element, props}) => {
     return(
         <Layout {...props}>
             {element}
@@ -9,4 +9,10 @@ const Wrapper = ({element, props}) => {
     )
 }
 
-export default Wrapper;
+export const MenuWrapper = ({element, props}) => {
+    return(
+        <MenuLayout {...props}>
+            {element}
+        </MenuLayout>
+    )
+}

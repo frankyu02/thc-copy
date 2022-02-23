@@ -36,6 +36,10 @@ const Title = styled.div`
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+    .sign {
+        float: right;
+        font-size: 22px;
+    }
     &:hover{
         cursor: pointer;
     }
@@ -45,7 +49,7 @@ export default function AccordItem({title, defaultOpen, children}){
     const [open, setOpen] = useState(defaultOpen)
     return(
         <Wrapper>
-        {title && <Title onClick={()=>{setOpen(!open)}}>{title}</Title>}
+        {title && <Title onClick={()=>{setOpen(!open)}}>{title}<div className='sign'>{open ? "-" : "+"}</div></Title>}
         <Content className={open ? 'open' : 'closed'}>
             {children}
         </Content>

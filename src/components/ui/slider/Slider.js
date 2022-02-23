@@ -57,13 +57,18 @@ export default function Slider({potency, setPotency, unit="PERCENTAGE", location
                     value={minMax[0]}
                     onChange={(event) => {
                         let newArr = [...minMax];
-                        newArr[0] = parseInt(event.target.value)
-                        setPotency({min: parseInt(newArr[0]), 
-                            max: parseInt(newArr[1]), 
-                            unit: unit,
-                            clear: false,
-                            location: location
-                        });
+                        newArr[0] = parseInt(event.target.value) || 0;
+                        setMinMax(newArr); 
+                    }}
+                    onKeyUp={(event) => {
+                        if (event.key === 'Enter') {
+                            setPotency({min: parseInt(minMax[0]), 
+                                max: parseInt(minMax[1]), 
+                                unit: unit,
+                                clear: false,
+                                location: location
+                            });
+                        }
                     }}
                 />
                 <div className="unit">{unitIcon[unit]}</div>
@@ -74,14 +79,18 @@ export default function Slider({potency, setPotency, unit="PERCENTAGE", location
                     value={minMax[1]}
                     onChange={(event) => {
                         let newArr = [...minMax];
-                        newArr[1] = parseInt(event.target.value);
+                        newArr[1] = parseInt(event.target.value) || 0;
                         setMinMax(newArr);
-                        setPotency({min: parseInt(newArr[0]), 
-                            max: parseInt(newArr[1]), 
-                            unit: unit,
-                            clear: false,
-                            location: location
-                        });
+                    }}
+                    onKeyUp={(event) => {
+                        if (event.key === 'Enter') {
+                            setPotency({min: parseInt(minMax[0]), 
+                                max: parseInt(minMax[1]), 
+                                unit: unit,
+                                clear: false,
+                                location: location
+                            });
+                        }
                     }}
                 />
                 <div className="unit">{unitIcon[unit]}</div>
