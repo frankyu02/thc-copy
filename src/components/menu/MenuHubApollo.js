@@ -315,7 +315,7 @@ export default function MenuHubApollo(){
         }
         </LayoutWrapper>
         </div>
-        <BackgroundMobileFilter open={mobileMenuOpen} onClick={()=>{setMobileMenuOpen(false)}}/>
+        <BackgroundMobileFilter open={mobileMenuOpen} onClick={()=>{setMobileMenuOpen(false)}} className="MobileBackground"/>
         </>
     )
 }

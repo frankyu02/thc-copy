@@ -53,7 +53,7 @@ export default function CategoryWidget({category, subcategory,
         )
     }else if (allCats[category].length > 0) {
         return(
-            <Wrapper>
+            <Wrapper className="categories">
                 {
                     allCats[category].map((subcat) => {
                         const prettySubcat = subcat.toLowerCase().replace("_", " ")

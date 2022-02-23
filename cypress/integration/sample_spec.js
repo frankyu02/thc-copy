@@ -6,7 +6,8 @@ describe('My First Test', () => {
         // in your Resources -> Cookies panel in the Chrome Dev Tools.
         cy.setLocalStorage("accessTime", 1645033041559)
     })
-    it('Visit homepage', () => {
-        cy.visit("/")
+    it('visits menu page', () => {
+        cy.visit("/menu")
+        cy.get('.filtersButton').click()
     })
 })

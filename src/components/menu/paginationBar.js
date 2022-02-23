@@ -81,10 +81,11 @@ const PaginationBar = ({setPageOffset, numberOfProducts, productsPerPage, locati
     }
     return (
         <>
-        <Wrapper>
+        <Wrapper className="paginationDiv">
             <MoveButton>
                 <button disabled={parseInt(page) === 1} 
-                onClick={() => {setPageNumber((parseInt(page) - 1), location)}}>
+                onClick={() => {setPageNumber((parseInt(page) - 1), location)}}
+                className="paginationBack">
                     <MdArrowBackIos/>
                 </button>
             </MoveButton>
@@ -135,7 +136,8 @@ const PaginationBar = ({setPageOffset, numberOfProducts, productsPerPage, locati
 
             <MoveButton>
                 <button disabled={parseInt(page) === totalPages} 
-                onClick={() => {setPageNumber((parseInt(page) + 1), location)}}>
+                onClick={() => {setPageNumber((parseInt(page) + 1), location)}}
+                className="paginationNext">
                     <MdArrowForwardIos/>
                 </button>
             </MoveButton>
