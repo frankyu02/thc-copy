@@ -1,9 +1,8 @@
-import React, {useEffect, useState, useReducer} from 'react';
+import React, {useEffect, useState, useReducer, useContext} from 'react';
 import styled from 'styled-components';
 import ProductsGrid from './productsGrid';
 
 //Apollo
-import { useApollo } from '../../apollo/apollo';
 import { useQuery, useMutation } from '@apollo/client';
 import  MENU_QUERY  from '../../apollo/queries/menu.graphql'
 import MENU_SALE_QUERY from '../../apollo/queries/menu-sale.graphql'
@@ -31,6 +30,7 @@ import NoProduct from './other/noProduct';
 //Style Helpers
 import { lg } from '../../styles/utils/media_queries';
 import {GoSettings} from 'react-icons/go';
+import { CheckoutContext } from '../../contexts/checkout';
 
 const TopOptions = styled.div`
     display: flex;
@@ -181,6 +181,7 @@ export default function MenuHubApollo(){
     const [menuVariables, setMenuVariables] = useState({});
     const location = useLocation();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    
 
      //Queries
     const {loading: loading, error: error, data: data } = useQuery(

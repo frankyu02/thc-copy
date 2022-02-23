@@ -17,6 +17,7 @@ const MenuCardStyles = styled.div`
         background: white;
         border: 1px solid black;
         .image {
+            outline: solid 1px red;
             position: absolute;
             top: 90px;
             bottom: 60px;

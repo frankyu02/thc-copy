@@ -1,16 +1,19 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import MenuCardStyles from "./menuCard.styled";
 import BrandLogoBanner from "../../global_component/BrandLogoBanner/BrandLogoBanner";
 import TypeBanner from "../../global_component/StrainTypeBanner/TypeBanner";
 import Img from "react-cool-img";
 import Dropdown from "./menuDropdown";
+import { CheckoutContext } from "../../../contexts/checkout";
 
-const MenuCard = ({ product, addToCart }) => {
+const MenuCard = ({ product}) => {
     const [index, setIndex] = useState(0);
     const [styles, setStyles] = useState({
         opacity: 0,
         height: 0
     });
+
+    const {addToCart} = useContext(CheckoutContext);
 
     function detailDisplay (product) {
         if (typeof product.potencyThc === 'undefined' && typeof product.potencyCbd === 'undefined') {
@@ -62,19 +65,28 @@ const MenuCard = ({ product, addToCart }) => {
     return (
         <MenuCardStyles>
             <div className="card">
-                <a href={`/product/`+product.slug}>
                     <div className="imgDiv"
                         onMouseEnter={()=>{setStyles({opacity: 1, height: 60})}} 
                         onMouseLeave={()=>{setStyles({opacity: 0, height: 0})}}
                         >
                         <div className="brand"><BrandLogoBanner brand={product.brand} size={"14px"}/></div>
                         <div className="strain"><TypeBanner text={product.strainType} size={"12px"}/></div>
-                        <div className="image"><Img className="realImage" src={product.image} alt={product.name}/></div>
-                        <div className="cartBanner" onClick={addToCart} style={{opacity: styles.opacity, height: styles.height}}>
+                        
+                        <div className="image">
+                            <a href={`/product/`+product.slug}>
+                                <Img className="realImage" src={product.image} alt={product.name}/>
+                            </a>
+                        </div>
+                        
+                        <div className="cartBanner" 
+                            onClick={() => {
+                                addToCart(product.id, 1, product.variants[index].option)
+                            }} 
+                            style={{opacity: styles.opacity, height: styles.height}}
+                        >
                             ADD TO CART
                         </div>
                     </div>
-                </a>
                 <div className="detail">
                     <p>{detailDisplay(product)}</p>
                 </div>
