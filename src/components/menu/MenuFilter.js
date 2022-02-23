@@ -84,7 +84,7 @@ console.log("allBrands", allBrands)
                     setActiveValue={setStrainType}
                 />
             </AccordItem>
-            <AccordItem title={"Brand"} defaultOpen={false}>
+            <AccordItem title={"Brand"} defaultOpen={false} overflowAuto={true}>
                 <CheckboxCollectionSingleKey
                     location={location}
                     allValues={allBrands}
