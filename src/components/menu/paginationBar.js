@@ -76,9 +76,12 @@ const PaginationBar = ({setPageOffset, numberOfProducts, productsPerPage, locati
         pageMax = totalPages;
     }
     let pageStart = totalPages - pageMax + 1;
-    if(parseInt(page) < totalPages - pageMax){
+    if(parseInt(page) <= totalPages - pageMax){
         pageStart = parseInt(page);
     }
+    console.log("total pages", totalPages);
+    console.log("Max Pagination", pageMax);
+    console.log("pageStart", pageStart);
     return (
         <>
         <Wrapper className="paginationDiv">
