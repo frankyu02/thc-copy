@@ -105,7 +105,11 @@ const MenuCard = ({ product}) => {
                     </>}
                     <Dropdown index={index} setIndex={setIndex} variant={product.variants}/>
                 </div>
-                <div className="cartBannerBottom" onClick={addToCart}>
+                <div className="cartBannerBottom"
+                    onClick={() => {
+                        addToCart(product.id, 1, product.variants[index].option)
+                    }} 
+                >
                     ADD TO CART
                 </div>
             </div>
