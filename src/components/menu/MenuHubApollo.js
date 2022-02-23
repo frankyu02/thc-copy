@@ -19,10 +19,11 @@ import { useQueryParam, StringParam, ArrayParam, ObjectParam,
 import { navigate } from 'gatsby';
 import { setCategory, setSubcategory, setTHC, 
     setEffects, setOnSale, setStrainType,
-    setWeights, cbd, setCBD, setBrand } from '../../utils/menu/setFilters';
+    setWeights, cbd, setCBD, setBrand, setSort } from '../../utils/menu/setFilters';
 import { useLocation } from '@reach/router';
 import Breadcrumbs from './options/Breadcrumbs';
 import MenuFilter from './MenuFilter';
+import SortDropdown from './SortDropdown'
 import CategoryWidget from './CategoryWidget';
 import Loader from './other/Loader';
 import NoProduct from './other/noProduct';
@@ -112,7 +113,7 @@ const FilterWrapper = styled.div`
     -webkit-overflow-scrolling: touch;
     z-index: 100;
     padding: 60px 20px;
-
+    padding-bottom: 100px;
     transition: all 0.5s ease;
 
     ${lg(`
@@ -164,6 +165,8 @@ export default function MenuHubApollo(){
     const [onSale, setOnSaleQuery] = useQueryParam('onsale', BooleanParam)
     ///Search
     const [search, setSearchQuery] = useQueryParam('search', StringParam)
+    ///Sort
+    const [sort, setSortQuery] =useQueryParam('sort', JsonParam)
 
     //Multi Value Filters
     const [effects, setEffectsQuery] = useQueryParam('effects', ArrayParam);
@@ -217,11 +220,12 @@ export default function MenuHubApollo(){
             onSale: onSale,
             weights: weights,
             brand: brand,
-            search: search
+            search: search,
+            sort: sort
         }));
 
     },[category, subcategory, effects, thc, cbd, pageNumber, strainType,
-        weights, brand, search])
+        weights, brand, search, sort])
     
     useEffect(() => {
         if (mobileMenuOpen) {
@@ -251,7 +255,7 @@ export default function MenuHubApollo(){
                 <ProductCount>
                     {data?.menu.productsCount ? data.menu.productsCount : 0} PRODUCTS
                 </ProductCount>
-                <div className='sort'>SORT</div>
+                <div className='sort'><SortDropdown sort={sort} setSort={setSort} location={location}/></div>
                 <div className='filtersButton' onClick={()=>{setMobileMenuOpen(true)}}><GoSettings/>FILTERS</div>
             </div>
         </TopOptions>

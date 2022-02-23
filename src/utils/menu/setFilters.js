@@ -115,6 +115,12 @@ const setOnSale = (value, location) => {
 const setSearch = (value, location) => {
     setFilterReplace('search', value, location)
 }
+////Sort
+const setSort = (value, location) => {
+    const jsonvalue = JSON.stringify(value);
+    console.log("value---> setSort", value)
+    setFilterReplace('sort', jsonvalue, location)
+}
 ///Multi Value Filters
 const setWeights = (arr, value, location, remove=false) => {
     multiValueFilterReplace('weights', arr, value, location, remove);
@@ -126,4 +132,4 @@ const setEffects = (arr, value, location, remove=false) => {
 
 export {setCategory, setSubcategory, setEffects, setTHC, 
     setPageNumber, clearAllFilters, setOnSale, setStrainType,
-    setWeights, setCBD, setBrand, setSearch}
+    setWeights, setCBD, setBrand, setSearch, setSort}
