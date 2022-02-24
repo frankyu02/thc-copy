@@ -38,7 +38,7 @@ export default function CategoryWidget({category, subcategory,
     setCategory, setSubcategory, location}){
     if (!category){
         return(
-            <Wrapper>
+            <Wrapper className="categories">
                 {
                     Object.entries(allCats).map(([key, value]) => {
                         const prettyKey = key.toLowerCase().replace("_", " ")
