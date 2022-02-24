@@ -26,9 +26,9 @@ const Wrapper = styled.div`
         margin-top: 80px;
         h2{
             text-transform: uppercase;
-            font-family: "Neumatic Compressed Bold";
+            font-family: "Integral CF";
             font-weight: bolder;
-            font-size: 70px;
+            font-size: 40px;
             
         }
         p{
