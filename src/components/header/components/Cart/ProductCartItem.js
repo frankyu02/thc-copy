@@ -37,7 +37,7 @@ const ItemWrapper=styled.div`
         min-width: 200px;
         max-width: 200px;
     }
-    @media (max-width:${__BREAKPOINTS.xxs}px){
+    @media (max-width:${__BREAKPOINTS.sm}px){
         flex-wrap: wrap;
         height: auto;
         padding-bottom: 25px;
@@ -51,15 +51,16 @@ const ItemWrapper=styled.div`
             margin-left: 10px;
         }
         p{
-            min-width: none;
-            max-width: none;
             width: 50%;
             margin: 0;
             margin-left: 15%;
         }
+        .title{
+            min-width: 0;
+        }
         }
         @media(max-width: 350px){
-            p{
+            .title{
                 margin-left: 15px;
             }
         }
@@ -80,7 +81,7 @@ export default function CartItem({ item }){
                 <CgClose />
             </button>
             <Img src={item.product.image} alt={item.product.name} />
-            <p>{item.product.name}</p>
+            <p className="title">{item.product.name}</p>
             <CartQuantity add={add} sub={sub} quantity={item.quantity}/>
             <ItemPrice variants={item.product.variants} option={item.option} quantity={item.quantity}/>
         </ItemWrapper>

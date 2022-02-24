@@ -38,7 +38,7 @@ export default function SingleCheckbox({checkState, setCheckState,
     location, label}){
     const prettyLabel = label.toLowerCase().replace("_"," ")
     return(
-        <Wrapper>
+        <Wrapper className="Sale">
             <Box 
             className={checkState ? "on" : "off"}
             onClick={()=>{setCheckState(!checkState+0, location)}}/>

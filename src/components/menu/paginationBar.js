@@ -76,15 +76,19 @@ const PaginationBar = ({setPageOffset, numberOfProducts, productsPerPage, locati
         pageMax = totalPages;
     }
     let pageStart = totalPages - pageMax + 1;
-    if(parseInt(page) < totalPages - pageMax){
+    if(parseInt(page) <= totalPages - pageMax){
         pageStart = parseInt(page);
     }
+    console.log("total pages", totalPages);
+    console.log("Max Pagination", pageMax);
+    console.log("pageStart", pageStart);
     return (
         <>
-        <Wrapper>
+        <Wrapper className="paginationDiv">
             <MoveButton>
                 <button disabled={parseInt(page) === 1} 
-                onClick={() => {setPageNumber((parseInt(page) - 1), location)}}>
+                onClick={() => {setPageNumber((parseInt(page) - 1), location)}}
+                className="paginationBack">
                     <MdArrowBackIos/>
                 </button>
             </MoveButton>
@@ -135,7 +139,8 @@ const PaginationBar = ({setPageOffset, numberOfProducts, productsPerPage, locati
 
             <MoveButton>
                 <button disabled={parseInt(page) === totalPages} 
-                onClick={() => {setPageNumber((parseInt(page) + 1), location)}}>
+                onClick={() => {setPageNumber((parseInt(page) + 1), location)}}
+                className="paginationNext">
                     <MdArrowForwardIos/>
                 </button>
             </MoveButton>
