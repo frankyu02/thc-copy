@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import styled from "styled-components";
 import { __BREAKPOINTS } from "../../styles/utils/variables";
 import TypeBanner from "../global_component/StrainTypeBanner/TypeBanner";
@@ -83,6 +84,12 @@ const Wrapper = styled.div`
             }
         }
     }
+    .Toastify__progress-bar {
+    background: var(--darkpurple);
+    }
+    .Toastify__toast-body{
+        color: black;
+    }
     @media (max-width: ${__BREAKPOINTS.sm}px){
         width: 100%;
         height: auto;
@@ -143,6 +150,16 @@ export default function ProductPageDetail({ brand, name, cbd, thc, strainType, v
     }
 
     total=total.toFixed(2);
+
+    const handleAddToCart = () => {
+        toast("Added Item To Cart!",{
+            position: "bottom-right",
+            autoClose: 5000,
+            newestOnTop: false,
+            closeOnClick: true,
+            pauseOnHover: false
+        })
+    }
     return(
         <Wrapper a={show}>
             <div className="strandType">
@@ -170,7 +187,7 @@ export default function ProductPageDetail({ brand, name, cbd, thc, strainType, v
                     <p className="total">${total}</p>
                 </div>
             </div>
-            <ProductCartButton />
+            <ProductCartButton func={handleAddToCart}/>
         </Wrapper>
     )
 }

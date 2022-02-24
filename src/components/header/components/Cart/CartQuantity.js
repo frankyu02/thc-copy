@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { FiPlus, FiMinus } from "react-icons/fi";
 import { __BREAKPOINTS } from "../../../../styles/utils/variables";
 const CartItemWrapper = styled.div`
-    width: 130px;
     margin-bottom: 34px;
     margin-left: 20px;
     padding: 0;
@@ -58,14 +57,15 @@ const CartItemWrapper = styled.div`
         .selector{
             justify-content: flex-start;
             .quantity{
-                min-width: 0;
-                max-width: none;
+
+                min-width: 30px;
+                text-align: center;
                 margin-left: 10px;
                 margin-right: 10px;
             }
         }
     }
-    @media (max-width:${__BREAKPOINTS.xxs}px){
+    @media (max-width:${__BREAKPOINTS.sm}px){
         margin: 0;
         margin-left: 18px;
         width: 45%;

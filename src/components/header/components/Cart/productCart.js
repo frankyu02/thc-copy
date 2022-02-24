@@ -92,7 +92,7 @@ const CartContent = styled.div`
     @media (min-width: ${__BREAKPOINTS.xl}px){
         width: 50%;
     }
-    @media (max-width: ${__BREAKPOINTS.xxs}px){
+    @media (max-width: ${__BREAKPOINTS.sm}px){
         width: 100%;
         padding-top: 20px;
         padding-left: 0px;
