@@ -17,7 +17,7 @@ export default function CheckboxCollectionSingleKey({location, allValues, active
     const [brandCount, setBrandCount] = useState(10);
     if (allValues){
         return(
-            <>
+            <div className="brands">
                 {allValues.slice(0, brandCount).map((valObj) => {
                     const isChecked = (valObj.id === activeValue); 
                     const handleCheckState = (value, location) => {
@@ -40,7 +40,7 @@ export default function CheckboxCollectionSingleKey({location, allValues, active
                 <Read onClick={() => {setBrandCount(brandCount + 10)}}>SHOW MORE...</Read>:
                 <Read onClick={() => {setBrandCount(10)}}>COLLAPSE</Read>
                 }
-            </>
+            </div>
         )
     }else{
         return<></>

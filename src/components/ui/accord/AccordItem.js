@@ -63,7 +63,7 @@ export default function AccordItem({title, defaultOpen, overflowAuto, children})
     return(
         <Wrapper>
         {title && <Title onClick={()=>{setOpen(!open)}}>{title}<div className='sign'>{open ? "-" : "+"}</div></Title>}
-        <Content className={open ? 'open' : 'closed'}>
+        <Content className={open ? 'open' : 'closed'} over={overflowAuto}>
             {children}
         </Content>
         </Wrapper>
