@@ -20,7 +20,7 @@ const PriceWrapper = styled.div`
         margin-top: 22px;
         margin-bottom: 5px;
     }
-    @media (max-width:${__BREAKPOINTS.xxs}px){
+    @media (max-width:${__BREAKPOINTS.sm}px){
         width: 40%;
         margin: 0;
         margin-top: 40px;
