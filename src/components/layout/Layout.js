@@ -12,7 +12,7 @@ import {globalHistory, Location} from '@reach/router'
 //Apollo
 
 
-const Layout = ({ children }) => {
+export const Layout = ({ children }) => {
   return (
     <>
       <GlobalStyles />
@@ -28,4 +28,17 @@ const Layout = ({ children }) => {
   )
 }
 
-export default Layout;
+export const MenuLayout = ({ children }) => {
+  return (
+    <>
+      <GlobalStyles />
+      <Typography />
+      <AgeGate/>
+        <HeaderMenu cart={FilledCart}/>
+        <main>
+          {children}
+        </main>
+      <Footer />      
+    </>
+  )
+}
