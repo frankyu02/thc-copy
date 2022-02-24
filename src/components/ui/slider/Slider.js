@@ -22,7 +22,7 @@ const Inputs = styled.div`
         border-right: 0px white solid;
     }
     .unit{
-        padding: 5px;
+        padding: 4px;
         font-size: 13px;
         border: 1px solid rgba(0,0,0,0.4);
         border-left: 0px white solid;
