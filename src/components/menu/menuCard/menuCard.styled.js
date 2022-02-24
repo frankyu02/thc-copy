@@ -100,6 +100,8 @@ const MenuCardStyles = styled.div`
     }
     .Toastify__toast-body{
         color: black;
+        text-align: center;
+        font-family: "MADE Outer Sans Light";
     }
 }
 

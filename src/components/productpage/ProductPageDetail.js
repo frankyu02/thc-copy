@@ -89,6 +89,9 @@ const Wrapper = styled.div`
     }
     .Toastify__toast-body{
         color: black;
+        text-align: center;
+        font-family: "MADE Outer Sans Light";
+        font-size: 15px;
     }
     @media (max-width: ${__BREAKPOINTS.sm}px){
         width: 100%;
