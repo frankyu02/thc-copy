@@ -87,6 +87,9 @@ const Wrapper = styled.div`
     .Toastify__progress-bar {
     background: var(--darkpurple);
     }
+    .Toastify__toast-body{
+        color: black;
+    }
     @media (max-width: ${__BREAKPOINTS.sm}px){
         width: 100%;
         height: auto;

@@ -95,6 +95,12 @@ const MenuCardStyles = styled.div`
     .cartBannerBottom {
         display: none;
     }
+    .Toastify__progress-bar {
+    background: var(--darkpurple);
+    }
+    .Toastify__toast-body{
+        color: black;
+    }
 }
 
 @media (max-width: 900px) {
