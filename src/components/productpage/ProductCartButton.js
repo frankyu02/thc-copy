@@ -1,4 +1,6 @@
 import React from "react";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import styled from "styled-components";
 import { __BREAKPOINTS } from "../../styles/utils/variables";
 
@@ -27,8 +29,17 @@ const CartButton = styled.button`
 
 export default function ProductCartButton({ func, toastify }){
     return(
-        <CartButton onClick={func}>
-            ADD TO CART
-        </CartButton>
+        <>
+            <CartButton onClick={func}>
+                ADD TO CART
+            </CartButton>
+            <ToastContainer 
+                position="bottom-right"
+                autoClose={5000}
+                newestOnTop={false}
+                closeOnClick={true}
+                pauseOnHover={false}
+            />
+        </>
     )
 }
