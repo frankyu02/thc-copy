@@ -82,6 +82,7 @@ const setBrand = (value, location) => {
 }
 
 const setTHC = ({min, max, unit, clear, location}) => {
+    console.log("setTHC, remove thc")
     if (clear){
         removeFilter("thc", location)
         return;

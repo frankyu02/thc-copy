@@ -26,6 +26,7 @@ import SortDropdown from './SortDropdown'
 import CategoryWidget from './CategoryWidget';
 import Loader from './other/Loader';
 import NoProduct from './other/noProduct';
+import ActiveFilters from './ActiveFilters';
 
 //Style Helpers
 import { lg } from '../../styles/utils/media_queries';
@@ -44,6 +45,9 @@ const TopOptions = styled.div`
 
     .breadcrumbs{
         margin-bottom: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .other{
@@ -74,10 +78,13 @@ const TopOptions = styled.div`
         justify-content: space-between;
         align-items: center;
         flex-direction: row;
-        padding-bottom: 30px;
+        padding-bottom: 10px;
         .breadcrumbs{
             width: 100%;
             margin-bottom: 0px;
+            flex-direction: column;
+            just-content: center;
+            align-items: flex-start;
         }
         .other{
             display: flex;
@@ -249,6 +256,23 @@ export default function MenuHubApollo(){
                 <Breadcrumbs 
                     category={category}
                     subcategory={subcategory}
+                    location={location}
+                />
+                <ActiveFilters
+                    weights={weights}
+                    setWeights={setWeights}
+                    onSale={onSale}
+                    setOnSale={setOnSale}
+                    thc={thc}
+                    setTHC={setTHC}
+                    cbd={cbd}
+                    setCBD={setCBD}
+                    strainType={strainType}
+                    setStrainType={setStrainType}
+                    brand={brand}
+                    setBrand={setBrand}
+                    effects={effects}
+                    setEffects={setEffects}
                     location={location}
                 />
             </div>
