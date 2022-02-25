@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import {Range} from 'rc-slider'
 import 'rc-slider/assets/index.css';
-
+import './sliderStyle.css';
 const Wrapper = styled.div`
     padding: 4px 10px;
 `;
