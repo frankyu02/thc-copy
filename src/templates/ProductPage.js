@@ -92,7 +92,8 @@ export default function ProductPage({id}){
                         cbd={data.product.potencyCbd}
                         thc={data.product.potencyThc}
                         strainType={data.product.strainType}
-                        variants={data.product.variants}/>
+                        variants={data.product.variants}
+                        id={id}/>
                 </div>
                 <div className="bottom">
                     <ProductPageAbout description={data.product.description}/>

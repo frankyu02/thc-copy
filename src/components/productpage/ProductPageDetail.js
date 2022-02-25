@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import styled from "styled-components";
+import { CheckoutContext } from "../../contexts/checkout";
 import { __BREAKPOINTS } from "../../styles/utils/variables";
 import TypeBanner from "../global_component/StrainTypeBanner/TypeBanner";
 import ProductCartButton from "./ProductCartButton";
@@ -141,7 +142,7 @@ const Wrapper = styled.div`
     }
 `;
 
-export default function ProductPageDetail({ brand, name, cbd, thc, strainType, variants, cart }){
+export default function ProductPageDetail({ brand, name, cbd, thc, strainType, variants, id }){
     var show = (cbd?.formatted !== "") || (thc?.formatted !== "");
     const [index, setIndex] = useState(0);
     const [quantity, setQuantity] = useState(1);
@@ -151,10 +152,12 @@ export default function ProductPageDetail({ brand, name, cbd, thc, strainType, v
     } else{
         total = variants[index]?.priceRec * quantity;
     }
-
+    console.log('variants ---> ', variants);
+    const {addToCart} = useContext(CheckoutContext);
     total=total.toFixed(2);
 
     const handleAddToCart = () => {
+        addToCart(id, quantity, variants[index].option)
         toast("Added Item To Cart!",{
             position: "bottom-right",
             autoClose: 5000,
