@@ -16,7 +16,22 @@ const Wrapper = styled.div`
     }
     .content{
         padding-top: 20px;
-        height: auto;
+        height: 90%;
+        overflow: auto;
+        scrollbar-width: thin;          /* "auto" or "thin" */
+        scrollbar-color: var(--darkpurple) var(--lightpurple);   /* scroll thumb and track */ 
+        &::-webkit-scrollbar {
+            width: 5px;               /* width of the entire scrollbar */
+        }
+
+        &::-webkit-scrollbar-track {
+            background: var(--lightpurple);        /* color of the tracking area */
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--darkpurple);    /* color of the scroll thumb */
+        }
+        height: 65%;
         p{
             font-size: 18px;
             font-family: "MADE Outer Sans Light";
