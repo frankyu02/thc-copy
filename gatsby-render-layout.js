@@ -1,8 +1,8 @@
 import React from 'react';
+import Layout from './src/components/layout/Layout';
 import CheckoutProvider from './src/contexts/checkout';
-import {Layout, MenuLayout} from './src/components/layout/Layout';
 
-export const Wrapper = ({element, props}) => {
+const Wrapper = ({element, props}) => {
     return(
         <CheckoutProvider>
             <Layout {...props}>
@@ -12,12 +12,4 @@ export const Wrapper = ({element, props}) => {
     )
 }
 
-export const MenuWrapper = ({element, props}) => {
-    return(
-        <CheckoutProvider>
-            <MenuLayout {...props}>
-                {element}
-            </MenuLayout>
-        </CheckoutProvider>
-    )
-}
+export default Wrapper;
