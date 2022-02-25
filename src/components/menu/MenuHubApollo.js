@@ -241,6 +241,8 @@ export default function MenuHubApollo(){
     }, [mobileMenuOpen]);
 
     let page= pageNumber || 1;
+
+    const [reset, setReset] = useState(false);
     return(
         <>
         <div className="container">
@@ -250,6 +252,7 @@ export default function MenuHubApollo(){
                     category={category}
                     subcategory={subcategory}
                     location={location}
+                    setReset={setReset}
                 />
             </div>
             <div className={"other"}>
@@ -287,6 +290,8 @@ export default function MenuHubApollo(){
                 brand={brand}
                 setBrand={setBrand}
                 allBrands={dataBrands?.menu?.brands}
+                reset={reset}
+                setReset={setReset}
             />
         </FilterWrapper>
 

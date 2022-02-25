@@ -27,14 +27,16 @@ const Wrapper = styled.div`
     }
 `;
 
-export default function Breadcrumbs({category, subcategory, location}){
+export default function Breadcrumbs({category, subcategory, location, setReset }){
     const prettyCategory = category ? category.toLowerCase().replace("_","-") : "";
     const prettySubcategory = subcategory ? subcategory.toLowerCase().replace("_","-") : "";
-
     if(!category && !subcategory){
         return(
             <Wrapper>
-            <div className="crumb small" onClick={()=>{clearAllFilters()}}>All</div>
+            <div className="crumb small" onClick={()=>{
+                clearAllFilters();
+                setReset(true);
+                }}>All</div>
             <div className='slash'>/</div>
             <div className='crumb large'>All Products</div>
             </Wrapper>
