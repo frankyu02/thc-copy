@@ -146,7 +146,7 @@ const BackgroundMobileFilter = styled.div`
     left: ${props => props.open ? "0" : "-100%"};
     width: 15vw;
     height: 100vh;
-    index:  ${props => props.open ? "99" : "-5"};
+    z-index:  ${props => props.open ? "99" : "-5"};
     background: var(--darkpurple);
     opacity: 0.4;
     transition: all 0.5s ease;
@@ -248,6 +248,8 @@ export default function MenuHubApollo(){
     }, [mobileMenuOpen]);
 
     let page= pageNumber || 1;
+
+    const [reset, setReset] = useState(false);
     return(
         <>
         <div className="container">
@@ -257,6 +259,7 @@ export default function MenuHubApollo(){
                     category={category}
                     subcategory={subcategory}
                     location={location}
+                    setReset={setReset}
                 />
                 <ActiveFilters
                     weights={weights}
@@ -311,6 +314,8 @@ export default function MenuHubApollo(){
                 brand={brand}
                 setBrand={setBrand}
                 allBrands={dataBrands?.menu?.brands}
+                reset={reset}
+                setReset={setReset}
             />
         </FilterWrapper>
 
@@ -339,7 +344,7 @@ export default function MenuHubApollo(){
         }
         </LayoutWrapper>
         </div>
-        <BackgroundMobileFilter open={mobileMenuOpen} onClick={()=>{setMobileMenuOpen(false)}}/>
+        <BackgroundMobileFilter open={mobileMenuOpen} onClick={()=>{setMobileMenuOpen(false)}} className="MobileBackground"/>
         </>
     )
 }

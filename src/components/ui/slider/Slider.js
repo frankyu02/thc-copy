@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import {Range} from 'rc-slider'
 import 'rc-slider/assets/index.css';
-
+import './sliderStyle.css';
 const Wrapper = styled.div`
     padding: 4px 10px;
 `;
@@ -22,7 +22,7 @@ const Inputs = styled.div`
         border-right: 0px white solid;
     }
     .unit{
-        padding: 5px;
+        padding: 4px;
         font-size: 13px;
         border: 1px solid rgba(0,0,0,0.4);
         border-left: 0px white solid;
@@ -37,7 +37,7 @@ const unitIcon = {
     PERCENTAGE: "%"
 }
 
-export default function Slider({potency, setPotency, unit="PERCENTAGE", location}){
+export default function Slider({potency, setPotency, unit="PERCENTAGE", location, reset, setReset }){
     const [minMax, setMinMax] = useState([0, 50])
 
     // useEffect(()=>{
@@ -47,7 +47,11 @@ export default function Slider({potency, setPotency, unit="PERCENTAGE", location
     //         setPotency({min: minMax.min, max: minMax.max, unit: unit})
     //     }
     // },[minMax])
-
+    if(reset){
+        setReset(false);
+        minMax[0] = 0;
+        minMax[1] = 50;
+    }
     return(
         <Wrapper>
             <Inputs>
@@ -57,13 +61,18 @@ export default function Slider({potency, setPotency, unit="PERCENTAGE", location
                     value={minMax[0]}
                     onChange={(event) => {
                         let newArr = [...minMax];
-                        newArr[0] = parseInt(event.target.value)
-                        setPotency({min: parseInt(newArr[0]), 
-                            max: parseInt(newArr[1]), 
-                            unit: unit,
-                            clear: false,
-                            location: location
-                        });
+                        newArr[0] = parseInt(event.target.value) || 0;
+                        setMinMax(newArr); 
+                    }}
+                    onKeyUp={(event) => {
+                        if (event.key === 'Enter') {
+                            setPotency({min: parseInt(minMax[0]), 
+                                max: parseInt(minMax[1]), 
+                                unit: unit,
+                                clear: false,
+                                location: location
+                            });
+                        }
                     }}
                 />
                 <div className="unit">{unitIcon[unit]}</div>
@@ -74,14 +83,18 @@ export default function Slider({potency, setPotency, unit="PERCENTAGE", location
                     value={minMax[1]}
                     onChange={(event) => {
                         let newArr = [...minMax];
-                        newArr[1] = parseInt(event.target.value);
+                        newArr[1] = parseInt(event.target.value) || 0;
                         setMinMax(newArr);
-                        setPotency({min: parseInt(newArr[0]), 
-                            max: parseInt(newArr[1]), 
-                            unit: unit,
-                            clear: false,
-                            location: location
-                        });
+                    }}
+                    onKeyUp={(event) => {
+                        if (event.key === 'Enter') {
+                            setPotency({min: parseInt(minMax[0]), 
+                                max: parseInt(minMax[1]), 
+                                unit: unit,
+                                clear: false,
+                                location: location
+                            });
+                        }
                     }}
                 />
                 <div className="unit">{unitIcon[unit]}</div>

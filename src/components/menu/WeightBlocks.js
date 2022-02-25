@@ -48,7 +48,7 @@ export default function WeightBlocks({availWeights, weights, setWeights, locatio
             sortedWeights.push(weight + 'g');
         })
         return(
-            <Wrapper>
+            <Wrapper className="weights">
                 {
                     sortedWeights.map((weightLabel)=>{
                         const selected = weights ? (weights.includes(weightLabel)) : false;

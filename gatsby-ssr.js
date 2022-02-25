@@ -1,5 +1,5 @@
 import React from 'react';
-import Wrapper from './gatsby-render-layout';
+import {Wrapper} from './gatsby-render-layout';
 
 export function wrapPageElement({element, props}) {
     return (

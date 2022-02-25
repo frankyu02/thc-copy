@@ -5,6 +5,8 @@ import TypeBanner from "../../global_component/StrainTypeBanner/TypeBanner";
 import Img from "react-cool-img";
 import Dropdown from "./menuDropdown";
 import { CheckoutContext } from "../../../contexts/checkout";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const MenuCard = ({ product}) => {
     const [index, setIndex] = useState(0);
@@ -81,6 +83,13 @@ const MenuCard = ({ product}) => {
                         <div className="cartBanner" 
                             onClick={() => {
                                 addToCart(product.id, 1, product.variants[index].option)
+                                toast("Added Item To Cart!",{
+                                    position: "bottom-right",
+                                    autoClose: 5000,
+                                    newestOnTop: false,
+                                    closeOnClick: true,
+                                    pauseOnHover: false
+                                })
                             }} 
                             style={{opacity: styles.opacity, height: styles.height}}
                         >
@@ -108,10 +117,18 @@ const MenuCard = ({ product}) => {
                 <div className="cartBannerBottom"
                     onClick={() => {
                         addToCart(product.id, 1, product.variants[index].option)
+                        toast("Added Item To Cart!",{
+                            position: "bottom-right",
+                            autoClose: 5000,
+                            newestOnTop: false,
+                            closeOnClick: true,
+                            pauseOnHover: false
+                        })
                     }} 
                 >
                     ADD TO CART
                 </div>
+                <ToastContainer />
             </div>
         </MenuCardStyles>
     )

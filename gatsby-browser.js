@@ -1,10 +1,19 @@
 import React from 'react';
-import Wrapper from './gatsby-render-layout';
+import {Wrapper, MenuWrapper} from './gatsby-render-layout';
 
 export function wrapPageElement({element, props}) {
-    return (
-        <>
-            <Wrapper {...props} element={element}/>
-        </>
-    )
+    if (props.location.pathname.includes("menu")){
+        return (
+            <>
+                <MenuWrapper {...props} element={element}/>
+            </>
+        )
+    }
+    else {
+        return (
+            <>
+                <Wrapper {...props} element={element}/>
+            </>
+        )
+    }
 }
