@@ -22,8 +22,8 @@ export default function ProductProfile({ brand, thc, cbd, category, effect }){
     return(
         <Wrapper>
             <ProfileItem title="BRAND" content={brand.name} />
-            <ProfileItem title="THC" content={thc.formatted} optional=" MG/G" />
-            <ProfileItem title="CBD" content={cbd.formatted} optional=" MG/G" />
+            <ProfileItem title="THC" content={thc.formatted || 0} optional=" MG/G" />
+            <ProfileItem title="CBD" content={cbd.formatted || 0} optional=" MG/G" />
             <ProfileItem title="PLANT TYPE" content={category} />
             <ProfileItem title="EFFECTS" content={effects} />
         </Wrapper>
