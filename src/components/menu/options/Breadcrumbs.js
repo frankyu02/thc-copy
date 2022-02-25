@@ -45,7 +45,10 @@ export default function Breadcrumbs({category, subcategory, location, setReset }
         return(
             <Wrapper>
                 <div className="crumb small"
-                    onClick={()=>{clearAllFilters()}}>
+                    onClick={()=>{
+                        clearAllFilters();
+                        setReset(true);
+                        }}>
                         All
                 </div>
                 {
