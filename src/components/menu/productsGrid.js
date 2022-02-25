@@ -80,9 +80,8 @@ const MenuGridStyles = styled.div`
 `
 
 const ProductsGrid = ({setPageOffset, products, addToCart, location, numberOfProducts, productsPerPage, page }) => {
-
+    console.log(products)
     if (products){
-        const NOP = products.length;
         return (
             <MenuGridStyles>
                 <div className="container">

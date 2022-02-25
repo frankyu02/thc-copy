@@ -15,9 +15,14 @@ align-items: center;
     }
 `;
 export default function TypeBanner({ text, size }){
-    return(
-        <Wrapper fontsize={size}>
-            <p>{text.replace(/_/g, " ")}</p>
-        </Wrapper>
-    )
+    if (text === "NOT_APPLICABLE") {
+        return (<></>)
+    }
+    else {
+        return(
+            <Wrapper fontsize={size}>
+                <p>{text.replace(/_/g, " ")}</p>
+            </Wrapper>
+        )
+    }
 }

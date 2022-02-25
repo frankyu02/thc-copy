@@ -73,8 +73,8 @@ const MenuCardStyles = styled.div`
         margin-right: 100px;
         h4 {
             color: black;
-            font-family: 'Neumatic Compressed Bold';
-            font-size: 42px;
+            font-family: 'Integral CF';
+            font-size: 24px;
         }
     }
     .price {
