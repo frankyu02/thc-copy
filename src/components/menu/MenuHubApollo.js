@@ -18,7 +18,7 @@ import { useQueryParam, StringParam, ArrayParam, ObjectParam,
 import { navigate } from 'gatsby';
 import { setCategory, setSubcategory, setTHC, 
     setEffects, setOnSale, setStrainType,
-    setWeights, cbd, setCBD, setBrand, setSort } from '../../utils/menu/setFilters';
+    setWeights, cbd, setCBD, setBrand, setSort, clearAllFilters } from '../../utils/menu/setFilters';
 import { useLocation } from '@reach/router';
 import Breadcrumbs from './options/Breadcrumbs';
 import MenuFilter from './MenuFilter';
@@ -47,7 +47,8 @@ const TopOptions = styled.div`
         margin-bottom: 40px;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
+        flex-direction: column;
     }
 
     .other{
@@ -277,6 +278,7 @@ export default function MenuHubApollo(){
                     effects={effects}
                     setEffects={setEffects}
                     location={location}
+                    clearAllFilters={clearAllFilters}
                 />
             </div>
             <div className={"other"}>

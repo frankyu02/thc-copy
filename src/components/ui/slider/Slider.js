@@ -52,6 +52,17 @@ export default function Slider({potency, setPotency, unit="PERCENTAGE", location
         minMax[0] = 0;
         minMax[1] = 50;
     }
+
+    useEffect(() => {
+        if (potency){
+            minMax[0] = potency.min;
+            minMax[1] = potency.max;
+        }else{
+            minMax[0] = 0;
+            minMax[1] = 50;
+        }
+    }, [potency])
+
     return(
         <Wrapper>
             <Inputs>

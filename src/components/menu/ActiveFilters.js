@@ -32,6 +32,22 @@ const BlockStyle = styled.div`
     }
 `;
 
+const ClearAll = styled.div`
+    display: inline-block;
+    font-family: 'MADE Outer Sans Light';
+    font-size: 12px;
+    color: var(--darkpurple);
+    text-decoration: underline;
+    margin: 0px 8px;
+
+    &:hover{
+        cursor: pointer;
+        color: var(--lightpurple);
+    }
+`;
+
+
+
 const Block = ({title, handleClear}) => {
     console.log(title)
     return(
@@ -57,7 +73,7 @@ function prettyBrand(branddata){
 
 export default function ActiveFilters({weights, setWeights, onSale, setOnSale, 
     thc, setTHC, cbd, setCBD, strainType, setStrainType, brand, setBrand, 
-    effects, setEffects, location}){
+    effects, setEffects, location, clearAllFilters}){
 
     const {loading: loadingBrand, error: errorBrand, data: dataBrand } = useQuery(
     BRAND_NAME_QUERY, 
@@ -76,9 +92,23 @@ export default function ActiveFilters({weights, setWeights, onSale, setOnSale,
             <Block title={prettyPotency("thc", thc)} 
             handleClear={() => setTHC({min:0,max:0,unit:"",clear:true,location:location})} />}
             {cbd &&
-            <Block title={prettyPotency("cbd", thc)} 
+            <Block title={prettyPotency("cbd", thc)}
             handleClear={() => setCBD({min:0,max:0,unit:"",clear:true,location:location})} />}
 
+            {weights && weights.map((w) => (
+                <Block title={w}
+                handleClear={()=>setWeights(weights, w, location, true)} />
+            ))}  
+
+            {effects && effects.map((e) => (
+                <Block title={prettyText(e)}
+                handleClear={()=>setEffects(effects, e, location, true)} />
+            ))}
+            
+            {(weights || onSale || thc || cbd || strainType || brand || effects)
+                &&
+                <ClearAll onClick={()=>clearAllFilters()}>clear all filters</ClearAll>
+            }
 
         </Wrapper>
     )
