@@ -94,7 +94,7 @@ const setTHC = ({min, max, unit, clear, location}) => {
 
 const setCBD = ({min, max, unit, clear, location}) => {
     if (clear){
-        removeFilter("thc", location)
+        removeFilter("cbd", location)
         return;
     }
     const value = rangeValueFormatter(min, max, unit);
