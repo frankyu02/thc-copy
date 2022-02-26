@@ -12,6 +12,9 @@ const setFilterReplace = (filter, value, location, dependent) => {
         if (dependent){
             delete parsedSearch[dependent]
         }
+        if (parsedSearch["page"] && filter!="page"){
+            delete parsedSearch["page"]
+        }
         const newNav = queryString.stringify(parsedSearch);
         navigate("?"+newNav);
     }else {

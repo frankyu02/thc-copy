@@ -110,6 +110,9 @@ const CartContent = styled.div`
 export default function ProductCart({ closed, setClosed }){
     const { checkout } = useContext(CheckoutContext)
 
+    const dutchieDispenaryId = '601c613e4f4adc00aa7da2b7';
+    const checkoutUrl = 'https://checkout.thccanada.ca/checkouts/'+dutchieDispenaryId+"/"+checkout?.id;
+
     var Quanttotal = 0;
     for(var i = 0; i < checkout?.items?.length; i++){
         Quanttotal += checkout?.items[i]?.quantity;
@@ -146,7 +149,7 @@ export default function ProductCart({ closed, setClosed }){
                     })}
                     <CartTotal subtotal={subtotal} discount={discount} tax={taxes} total={total}/>
                 </div> 
-                <CartButton redirect={checkout?.redirectUrl}/>
+                <CartButton redirect={checkoutUrl}/>
                 <p className="close" onClick={closePage}>CONTINUE SHOPPING</p>
             </CartContent>
         </Wrapper>
