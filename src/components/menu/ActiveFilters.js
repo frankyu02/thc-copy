@@ -97,12 +97,12 @@ export default function ActiveFilters({weights, setWeights, onSale, setOnSale,
 
             {weights && weights.map((w) => (
                 <Block title={w}
-                handleClear={()=>setWeights(weights, w, location, true)} />
+                handleClear={()=>setWeights(weights, w, location, true, refetch)} />
             ))}  
 
             {effects && effects.map((e) => (
                 <Block title={prettyText(e)}
-                handleClear={()=>setEffects(effects, e, location, true)} />
+                handleClear={()=>setEffects(effects, e, location, true, refetch)} />
             ))}
             
             {(weights || onSale || thc || cbd || strainType || brand || effects)

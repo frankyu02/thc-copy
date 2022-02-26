@@ -295,6 +295,7 @@ export default function MenuHubApollo(){
                     setEffects={setEffects}
                     location={location}
                     clearAllFilters={clearAllFilters}
+                    refetch={refetch}
                 />
             </div>
             <div className={"other"}>
