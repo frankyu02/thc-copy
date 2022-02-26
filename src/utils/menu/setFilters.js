@@ -124,12 +124,18 @@ const setSort = (value, location) => {
 }
 ///Multi Value Filters
 const setWeights = (arr, value, location, remove=false, refetch=null) => {
+    console.log("setWeights() - remove, refetch -> pre pre arr", arr)
     multiValueFilterReplace('weights', arr, value, location, remove);
     if (refetch && arr && arr.length >= 1){
         if(remove){ 
-            const tempIndex = arr.indexOf(value)
-            const newarr = arr.splice(tempIndex, 1)
-            refetch({weights: newarr})
+            // console.log("setWeights() - remove, refetch -> pre arr", arr)
+            // const tempIndex = arr.indexOf(value)
+            // const newarr = arr.splice(tempIndex, 1)
+            // console.log("setWeights() - remove, refetch -> newarr", newarr)
+            // console.log("setWeights() - remove, refetch -> arr", arr)
+            
+            //arr will be update wit multiValueFilterReplace's call
+            refetch({weights: arr})
         }else{
             refetch({weights: [...arr, value]})
         }
