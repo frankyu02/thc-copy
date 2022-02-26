@@ -92,7 +92,7 @@ export default function ActiveFilters({weights, setWeights, onSale, setOnSale,
             <Block title={prettyPotency("thc", thc)} 
             handleClear={() => setTHC({min:0,max:0,unit:"",clear:true,location:location})} />}
             {cbd &&
-            <Block title={prettyPotency("cbd", thc)}
+            <Block title={prettyPotency("cbd", cbd)}
             handleClear={() => setCBD({min:0,max:0,unit:"",clear:true,location:location})} />}
 
             {weights && weights.map((w) => (
