@@ -34,7 +34,7 @@ const strainTypeLabels = [
 export default function MenuFilter({
     location, onSale, setOnSale, effects, setEffects, strainType, 
     setStrainType, availWeights, weights, setWeights, thc, setTHC,
-    cbd, setCBD, brand, setBrand, allBrands, reset , setReset
+    cbd, setCBD, brand, setBrand, allBrands, reset , setReset, refetch
 }){
 //Categories/Subcategories
 //Format & Size
@@ -53,6 +53,7 @@ console.log("allBrands", allBrands)
                     weights={weights}
                     setWeights={setWeights}
                     location={location}
+                    refetch={refetch}
                 />
             </AccordItem>
             <AccordItem defaultOpen={true}>

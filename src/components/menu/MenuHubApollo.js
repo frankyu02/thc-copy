@@ -192,9 +192,9 @@ export default function MenuHubApollo(){
     
 
      //Queries
-    const {loading: loading, error: error, data: data } = useQuery(
+    const {loading: loading, error: error, data: data, refetch: refetch } = useQuery(
         onSale ? MENU_SALE_QUERY : MENU_QUERY, 
-        {variables: menuVariables, fetchPolicy: "network-only" })
+        {variables: menuVariables, fetchPolicy: "no-cache" })
 
     const {loading: loadingBrands, error: errorBrands, data: dataBrands } = useQuery(
         BRANDS_QUERY, 
@@ -213,8 +213,7 @@ export default function MenuHubApollo(){
         setCount(count+1);
 
         console.log("----useEffect hit!----")
-        console.log("useEffect onSale-->", onSale)
-        console.log("search--->, ", search)
+        console.log("useEffect weights-->", weights)
         //Re-Query with new variables
         setMenuVariables(createVariablesObj({
             retailerId: '4c9422c5-d248-415b-8a88-0a75822c50e6',
@@ -233,8 +232,25 @@ export default function MenuHubApollo(){
             sort: sort
         }));
 
-    },[category, subcategory, effects, thc, cbd, pageNumber, strainType,
-        weights, brand, search, sort])
+        // refetch(createVariablesObj({
+        //     retailerId: '4c9422c5-d248-415b-8a88-0a75822c50e6',
+        //     category: category,
+        //     subcategory: subcategory,
+        //     strainType: strainType,
+        //     effects: effects,
+        //     potencyThc: thc,
+        //     potencyCbd: cbd,
+        //     limit: pageLimit,
+        //     offset: ((pageNumber-1)*pageLimit),
+        //     onSale: onSale,
+        //     weights: weights,
+        //     brand: brand,
+        //     search: search,
+        //     sort: sort
+        // }));
+
+    },[category, subcategory, JSON.stringify(effects), thc, cbd, pageNumber, strainType,
+        JSON.stringify(weights), brand, search, sort])
     
     useEffect(() => {
         if (mobileMenuOpen) {
@@ -318,6 +334,7 @@ export default function MenuHubApollo(){
                 allBrands={dataBrands?.menu?.brands}
                 reset={reset}
                 setReset={setReset}
+                refetch={refetch}
             />
         </FilterWrapper>
 

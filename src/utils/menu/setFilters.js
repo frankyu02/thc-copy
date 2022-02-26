@@ -123,12 +123,32 @@ const setSort = (value, location) => {
     setFilterReplace('sort', jsonvalue, location)
 }
 ///Multi Value Filters
-const setWeights = (arr, value, location, remove=false) => {
+const setWeights = (arr, value, location, remove=false, refetch=null) => {
     multiValueFilterReplace('weights', arr, value, location, remove);
+    if (refetch && arr && arr.length >= 1){
+        if(remove){ 
+            const tempIndex = arr.indexOf(value)
+            const newarr = arr.splice(tempIndex, 1)
+            refetch({weights: newarr})
+        }else{
+            refetch({weights: [...arr, value]})
+        }
+        
+    }
 }
 
-const setEffects = (arr, value, location, remove=false) => {
+const setEffects = (arr, value, location, remove=false, refetch=null) => {
     multiValueFilterReplace('effects', arr, value, location, remove);
+    if (refetch && arr && arr.length >= 1){
+        if(remove){ 
+            const tempIndex = arr.indexOf(value)
+            const newarr = arr.splice(tempIndex, 1)
+            refetch({weights: newarr})
+        }else{
+            refetch({weights: [...arr, value]})
+        }
+        
+    }
 }
 
 export {setCategory, setSubcategory, setEffects, setTHC, 
