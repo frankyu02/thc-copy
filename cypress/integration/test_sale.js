@@ -9,6 +9,6 @@ describe('Test Sale Button', () => {
     it('Tests on sale button interaction', () => {
         cy.visit("/menu")
         cy.get('.filtersButton').click()
-        cy.get('.Sale').contains('on sale').get('div').click()
+        cy.get('#sale').find('.off').click();
     })
 })

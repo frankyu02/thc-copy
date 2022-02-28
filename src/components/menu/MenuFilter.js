@@ -58,6 +58,7 @@ console.log("allBrands", allBrands)
             </AccordItem>
             <AccordItem defaultOpen={true}>
                 <SingleCheckbox 
+                    id="sale"
                     checkState={onSale}
                     setCheckState={setOnSale}
                     label={"On Sale"}
