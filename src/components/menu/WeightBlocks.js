@@ -35,7 +35,8 @@ const Block = styled.div`
     }
 `;
 
-export default function WeightBlocks({availWeights, weights, setWeights, location}){
+export default function WeightBlocks({availWeights, weights, setWeights, 
+    location, refetch}){
     console.log("availWeights---->", availWeights)
     if(availWeights){
         let tempWeights = [];
@@ -55,7 +56,9 @@ export default function WeightBlocks({availWeights, weights, setWeights, locatio
                         return(
                             <Block 
                                 className={selected ? "on" : ""}
-                                onClick={()=>{setWeights(weights, weightLabel, location, selected)}}
+                                onClick={()=>{
+                                    setWeights(weights, weightLabel, location, selected, refetch)
+                                }}
                             >
                                 {weightLabel}
                             </Block>

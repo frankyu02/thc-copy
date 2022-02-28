@@ -18,7 +18,7 @@ import { useQueryParam, StringParam, ArrayParam, ObjectParam,
 import { navigate } from 'gatsby';
 import { setCategory, setSubcategory, setTHC, 
     setEffects, setOnSale, setStrainType,
-    setWeights, cbd, setCBD, setBrand, setSort } from '../../utils/menu/setFilters';
+    setWeights, cbd, setCBD, setBrand, setSort, clearAllFilters } from '../../utils/menu/setFilters';
 import { useLocation } from '@reach/router';
 import Breadcrumbs from './options/Breadcrumbs';
 import MenuFilter from './MenuFilter';
@@ -26,6 +26,7 @@ import SortDropdown from './SortDropdown'
 import CategoryWidget from './CategoryWidget';
 import Loader from './other/Loader';
 import NoProduct from './other/noProduct';
+import ActiveFilters from './ActiveFilters';
 
 //Style Helpers
 import { lg } from '../../styles/utils/media_queries';
@@ -44,6 +45,10 @@ const TopOptions = styled.div`
 
     .breadcrumbs{
         margin-bottom: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
     }
 
     .other{
@@ -74,10 +79,13 @@ const TopOptions = styled.div`
         justify-content: space-between;
         align-items: center;
         flex-direction: row;
-        padding-bottom: 30px;
+        padding-bottom: 10px;
         .breadcrumbs{
             width: 100%;
             margin-bottom: 0px;
+            flex-direction: column;
+            just-content: center;
+            align-items: flex-start;
         }
         .other{
             display: flex;
@@ -184,9 +192,9 @@ export default function MenuHubApollo(){
     
 
      //Queries
-    const {loading: loading, error: error, data: data } = useQuery(
+    const {loading: loading, error: error, data: data, refetch: refetch } = useQuery(
         onSale ? MENU_SALE_QUERY : MENU_QUERY, 
-        {variables: menuVariables, fetchPolicy: "network-only" })
+        {variables: menuVariables, fetchPolicy: "no-cache" })
 
     const {loading: loadingBrands, error: errorBrands, data: dataBrands } = useQuery(
         BRANDS_QUERY, 
@@ -205,8 +213,7 @@ export default function MenuHubApollo(){
         setCount(count+1);
 
         console.log("----useEffect hit!----")
-        console.log("useEffect onSale-->", onSale)
-        console.log("search--->, ", search)
+        console.log("useEffect weights-->", weights)
         //Re-Query with new variables
         setMenuVariables(createVariablesObj({
             retailerId: '4c9422c5-d248-415b-8a88-0a75822c50e6',
@@ -225,8 +232,25 @@ export default function MenuHubApollo(){
             sort: sort
         }));
 
-    },[category, subcategory, effects, thc, cbd, pageNumber, strainType,
-        weights, brand, search, sort])
+        // refetch(createVariablesObj({
+        //     retailerId: '4c9422c5-d248-415b-8a88-0a75822c50e6',
+        //     category: category,
+        //     subcategory: subcategory,
+        //     strainType: strainType,
+        //     effects: effects,
+        //     potencyThc: thc,
+        //     potencyCbd: cbd,
+        //     limit: pageLimit,
+        //     offset: ((pageNumber-1)*pageLimit),
+        //     onSale: onSale,
+        //     weights: weights,
+        //     brand: brand,
+        //     search: search,
+        //     sort: sort
+        // }));
+
+    },[category, subcategory, JSON.stringify(effects), thc, cbd, pageNumber, strainType,
+        JSON.stringify(weights), brand, search, sort])
     
     useEffect(() => {
         if (mobileMenuOpen) {
@@ -253,6 +277,25 @@ export default function MenuHubApollo(){
                     subcategory={subcategory}
                     location={location}
                     setReset={setReset}
+                />
+                <ActiveFilters
+                    weights={weights}
+                    setWeights={setWeights}
+                    onSale={onSale}
+                    setOnSale={setOnSale}
+                    thc={thc}
+                    setTHC={setTHC}
+                    cbd={cbd}
+                    setCBD={setCBD}
+                    strainType={strainType}
+                    setStrainType={setStrainType}
+                    brand={brand}
+                    setBrand={setBrand}
+                    effects={effects}
+                    setEffects={setEffects}
+                    location={location}
+                    clearAllFilters={clearAllFilters}
+                    refetch={refetch}
                 />
             </div>
             <div className={"other"}>
@@ -292,6 +335,7 @@ export default function MenuHubApollo(){
                 allBrands={dataBrands?.menu?.brands}
                 reset={reset}
                 setReset={setReset}
+                refetch={refetch}
             />
         </FilterWrapper>
 

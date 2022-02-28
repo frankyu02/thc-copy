@@ -12,6 +12,9 @@ const setFilterReplace = (filter, value, location, dependent) => {
         if (dependent){
             delete parsedSearch[dependent]
         }
+        if (parsedSearch["page"] && filter!="page"){
+            delete parsedSearch["page"]
+        }
         const newNav = queryString.stringify(parsedSearch);
         navigate("?"+newNav);
     }else {
@@ -82,6 +85,7 @@ const setBrand = (value, location) => {
 }
 
 const setTHC = ({min, max, unit, clear, location}) => {
+    console.log("setTHC, remove thc")
     if (clear){
         removeFilter("thc", location)
         return;
@@ -93,7 +97,7 @@ const setTHC = ({min, max, unit, clear, location}) => {
 
 const setCBD = ({min, max, unit, clear, location}) => {
     if (clear){
-        removeFilter("thc", location)
+        removeFilter("cbd", location)
         return;
     }
     const value = rangeValueFormatter(min, max, unit);
@@ -122,12 +126,38 @@ const setSort = (value, location) => {
     setFilterReplace('sort', jsonvalue, location)
 }
 ///Multi Value Filters
-const setWeights = (arr, value, location, remove=false) => {
+const setWeights = (arr, value, location, remove=false, refetch=null) => {
+    console.log("setWeights() - remove, refetch -> pre pre arr", arr)
     multiValueFilterReplace('weights', arr, value, location, remove);
+    if (refetch && arr && arr.length >= 1){
+        if(remove){ 
+            // console.log("setWeights() - remove, refetch -> pre arr", arr)
+            // const tempIndex = arr.indexOf(value)
+            // const newarr = arr.splice(tempIndex, 1)
+            // console.log("setWeights() - remove, refetch -> newarr", newarr)
+            // console.log("setWeights() - remove, refetch -> arr", arr)
+            
+            //arr will be update wit multiValueFilterReplace's call
+            refetch({weights: arr})
+        }else{
+            refetch({weights: [...arr, value]})
+        }
+        
+    }
 }
 
-const setEffects = (arr, value, location, remove=false) => {
+const setEffects = (arr, value, location, remove=false, refetch=null) => {
     multiValueFilterReplace('effects', arr, value, location, remove);
+    if (refetch && arr && arr.length >= 1){
+        if(remove){ 
+            const tempIndex = arr.indexOf(value)
+            const newarr = arr.splice(tempIndex, 1)
+            refetch({weights: newarr})
+        }else{
+            refetch({weights: [...arr, value]})
+        }
+        
+    }
 }
 
 export {setCategory, setSubcategory, setEffects, setTHC, 

@@ -69,12 +69,12 @@ const selectStyle = {
 const options = [
     {label:"NAME ASC" , value: {dir:"ASC" ,key:"NAME"}},
     {label:"NAME DESC" , value: {dir:"DESC" ,key:"NAME"}},
-    {label:"POPULAR" , value: {dir:"ASC" ,key:"POPULAR"}},
-    {label:"UNPOPULAR" , value: {dir:"DESC" ,key:"POPULAR"}},
-    {label:"HIGH PRICE" , value: {dir:"ASC" ,key:"PRICE"}},
-    {label:"LOW PRICE" , value: {dir:"DESC" ,key:"PRICE"}},
-    {label:"HIGH POTENCY" , value: {dir:"ASC" ,key:"POTENCY"}},
-    {label:"LOW POTENCY" , value: {dir:"DESC" ,key:"POTENCY"}}
+    {label:"POPULAR" , value: {dir:"DESC" ,key:"POPULAR"}},
+    {label:"UNPOPULAR" , value: {dir:"ASC" ,key:"POPULAR"}},
+    {label:"HIGH PRICE" , value: {dir:"DESC" ,key:"PRICE"}},
+    {label:"LOW PRICE" , value: {dir:"ASC" ,key:"PRICE"}},
+    {label:"HIGH POTENCY" , value: {dir:"DESC" ,key:"POTENCY"}},
+    {label:"LOW POTENCY" , value: {dir:"ASC" ,key:"POTENCY"}}
 ]
 
 export default function SortDropdown({setSort, sort, location}){
