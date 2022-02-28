@@ -5,6 +5,6 @@ describe('Test Categories', () => {
     it('Navigates through menu Brands', () => {
         cy.visit("/menu")
         cy.get('.filtersButton').click()
-        cy.contains('sekect...')
+        cy.contains('select...')
     })
 })
