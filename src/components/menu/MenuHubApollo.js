@@ -350,7 +350,7 @@ export default function MenuHubApollo(){
             page={page}
             />
             :
-            <NoProduct />
+            <NoProduct clear={clearAllFilters}/>
             )
             :
             (
