@@ -42,7 +42,7 @@ describe('Test Pagination', () => {
         cy.get('.filtersButton').click()
         cy.get('div').contains('edibles').click()
         cy.get('.MobileBackground').click()
-        cy.url().should('include', 'menu?category=EDIBLES&page=1')
+        cy.url().should('include', 'menu?category=EDIBLES')
         cy.get('.paginationDiv').contains(2).click()
         cy.url().should('include', 'menu?category=EDIBLES&page=2')
     })
