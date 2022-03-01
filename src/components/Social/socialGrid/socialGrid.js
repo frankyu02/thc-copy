@@ -36,6 +36,7 @@ const SocialGrid = () => {
                           }
                         }
                       }
+                      socialFollowLink
                     }
                   }
                 }
@@ -54,7 +55,7 @@ const SocialGrid = () => {
                     <div className="header">{socialFollowTitle}</div>
                     <div className="grid">
                         {socialFollowCard?.map?.((item, key) => (
-                          <a href="#" target="_blank">
+                          <a href={item.socialFollowLink} target="_blank">
                             <div key={key} className="cell">
                                 <div className="filler"></div>
                                 <GatsbyImage 

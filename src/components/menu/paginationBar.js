@@ -100,10 +100,11 @@ const PaginationBar = ({setPageOffset, numberOfProducts, productsPerPage, locati
                         setPageNumber(1, location)
                     }}>
                         1
-                    </PageButton>    
+                    </PageButton>
+                    {(parseInt(page) > 3 &&     
                     <TransitionButton >
                         ...
-                    </TransitionButton>
+                    </TransitionButton>)}
                 </>
                 }
                 {pageStart != 1 && parseInt(page) <= totalPages - pageMax + 1 && 
