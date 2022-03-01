@@ -7,8 +7,20 @@ describe('Test Sale Button', () => {
         cy.setLocalStorage("accessTime", 1645033041559)
     })
     it('Tests on sale button interaction', () => {
+        //test number of products change
         cy.visit("/menu")
-        cy.get('.filtersButton').click()
-        cy.get('#sale').find('.off').click();
+        cy.wait(5000)
+        cy.get('.ProductCount').then(($count) => {
+            const val = $count.text()
+            cy.get('.filtersButton').click()
+            cy.get('#sale').find('.off').click();
+            cy.get('#sale').find('.on').should('have.css', 'background-color', 'rgb(97, 44, 143)')
+            cy.url().should('eq', 'http://localhost:8000/menu?onsale=1')
+            cy.get('.MobileBackground').click()
+            cy.wait(2000)
+            cy.get('.ProductCount').should(($count2) =>{
+                expect($count2.text()).not.to.eq(val)
+            })
+        })
     })
 })
