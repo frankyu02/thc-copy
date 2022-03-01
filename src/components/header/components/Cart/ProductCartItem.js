@@ -56,12 +56,19 @@ const ItemWrapper=styled.div`
             margin-left: 15%;
         }
         .title{
+            margin-left: 40%;
+            right: 0;
             min-width: 0;
         }
+    }
+    @media (max-width: ${__BREAKPOINTS.xxs}px){
+        .title{
+            margin-left: 20%;
         }
+    }
         @media(max-width: 350px){
             .title{
-                margin-left: 15px;
+                margin-left: 45px;
             }
         }
 `;

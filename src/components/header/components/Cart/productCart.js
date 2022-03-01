@@ -36,7 +36,7 @@ const Background = styled.div`
     }
 `;
 const CartContent = styled.div`
-    width: 60%;
+    width: 70%;
     height: 100%;
     float: right;
     border-left: 1px solid black;
@@ -104,6 +104,9 @@ const CartContent = styled.div`
         .content{
             width: 100%;
             margin: 0;
+            &::-webkit-scrollbar {
+            width: 5px;               /* width of the entire scrollbar */
+        }
         }
     }
 `;
