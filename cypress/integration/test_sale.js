@@ -8,6 +8,7 @@ describe('Test Sale Button', () => {
     })
     it('Tests on sale button interaction', () => {
         //test number of products change
+        cy.log('pagination test')
         cy.visit("/menu")
         cy.wait(2000)
         cy.get('.ProductCount').then(($count) => {
@@ -21,19 +22,21 @@ describe('Test Sale Button', () => {
             cy.get('.ProductCount').should(($count2) =>{
                 expect($count2.text()).not.to.eq(val)
             })
-            //testing adding other filters after On Sale
-            cy.visit("/menu")
-            cy.get('.filtersButton').click()
-            cy.get('#sale').find('.off').click();
-            cy.url().should('eq', 'http://localhost:8000/menu?onsale=1')
-            cy.contains('edibles').click()
-            cy.url().should('eq', 'http://localhost:8000/menu?category=EDIBLES&onsale=1')
-            //testing On Sale with other filter already applied (currently expect fail)
-            cy.visit("/menu")
-            cy.get('.filtersButton').click()
-            cy.contains('edibles').click()
-            cy.get('#sale').find('.off').click();
-            cy.url().should('eq','http://localhost:8000/menu?category=EDIBLES&onsale=1')
         })
+        //testing adding other filters after On Sale
+        cy.log('filter after On Sale test')
+        cy.visit("/menu")
+        cy.get('.filtersButton').click()
+        cy.get('#sale').find('.off').click();
+        cy.url().should('eq', 'http://localhost:8000/menu?onsale=1')
+        cy.contains('edibles').click()
+        cy.url().should('eq', 'http://localhost:8000/menu?category=EDIBLES&onsale=1')
+        //testing On Sale with other filter already applied (currently expect fail)
+        cy.log('On Sale after Filter Test')
+        cy.visit("/menu")
+        cy.get('.filtersButton').click()
+        cy.contains('edibles').click()
+        cy.get('#sale').find('.off').click();
+        cy.url().should('eq','http://localhost:8000/menu?category=EDIBLES&onsale=1')
     })
 })
