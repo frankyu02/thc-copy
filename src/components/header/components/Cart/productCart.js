@@ -29,7 +29,7 @@ const Background = styled.div`
         width: 20%;
     }
     @media (min-width: ${__BREAKPOINTS.xl}px){
-        width: 50%;
+        width: 45%;
     }
     @media (max-width: ${__BREAKPOINTS.xxs}px){
         width: 0%;
@@ -47,7 +47,7 @@ const CartContent = styled.div`
     padding-left: 73.06px;
     position: relative;
     h2{
-        margin-left: 30px;
+        margin-left: 40px;
         font-size: 36px;
         font-family: "Integral CF";
         font-style: italic;
@@ -90,7 +90,7 @@ const CartContent = styled.div`
         width: 80%;
     }
     @media (min-width: ${__BREAKPOINTS.xl}px){
-        width: 50%;
+        width: 55%;
     }
     @media (max-width: ${__BREAKPOINTS.sm}px){
         width: 100%;
@@ -106,7 +106,7 @@ const CartContent = styled.div`
             margin: 0;
             &::-webkit-scrollbar {
             width: 5px;               /* width of the entire scrollbar */
-        }
+            }
         }
     }
 `;
