@@ -33,7 +33,7 @@ TINCTURES: [],
 TOPICALS: ["TOPICAL_OILS", "LOTION", "TRANSDERMALS", "BATH_PRODUCTS", "LIP_BALMS"],
 SEEDS:[],
 CBD:[],
-ACCESSORIES:[]
+ACCESSORIES:["BATTERIES", "LIGHTERS", "PAPERS_ROLLING_SUPPLIES", "GRINDERS", "GLASSWARE", "TRAYS", "DAB_TOOLS", "STORAGE_CONTAINERS"]
 }
 
 
@@ -59,7 +59,7 @@ export default function CategoryWidget({category, subcategory,
             <Wrapper className="categories">
                 {
                     allCats[category].map((subcat) => {
-                        const prettySubcat = subcat.toLowerCase().replace("_", " ")
+                        const prettySubcat = subcat.toLowerCase().replaceAll("_", " ")
                         return(
                             <div className="entry" onClick={()=>{setSubcategory(subcat, location)}}>
                                 {prettySubcat}
