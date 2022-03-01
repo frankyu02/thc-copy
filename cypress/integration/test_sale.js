@@ -21,12 +21,19 @@ describe('Test Sale Button', () => {
             cy.get('.ProductCount').should(($count2) =>{
                 expect($count2.text()).not.to.eq(val)
             })
-            //testing On Sale with other filter (currently expect fail)
+            //testing adding other filters after On Sale
+            cy.visit("/menu")
+            cy.get('.filtersButton').click()
+            cy.get('#sale').find('.off').click();
+            cy.url().should('eq', 'http://localhost:8000/menu?onsale=1')
+            cy.contains('edibles').click()
+            cy.url().should('eq', 'http://localhost:8000/menu?category=EDIBLES&onsale=1')
+            //testing On Sale with other filter already applied (currently expect fail)
             cy.visit("/menu")
             cy.get('.filtersButton').click()
             cy.contains('edibles').click()
             cy.get('#sale').find('.off').click();
-            cy.url().should('eq','/menu?category=EDIBLES&onsale=1')
+            cy.url().should('eq','http://localhost:8000/menu?category=EDIBLES&onsale=1')
         })
     })
 })
