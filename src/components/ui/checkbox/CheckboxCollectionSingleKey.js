@@ -33,6 +33,7 @@ export default function CheckboxCollectionSingleKey({location, allValues, active
                             setCheckState={handleCheckState}
                             location={location}
                             label={valObj.name}
+                            id={valObj.name}
                         />
                     )
                 })}

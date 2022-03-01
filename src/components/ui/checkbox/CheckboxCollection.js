@@ -19,6 +19,7 @@ export default function CheckboxCollection({location, allValues, activeValues, s
                         setCheckState={handleCheckState}
                         location={location}
                         label={label}
+                        id={label}
                     />
                 )
             })}
