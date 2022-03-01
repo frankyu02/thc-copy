@@ -1,4 +1,4 @@
-describe('Test Categories', () => {
+describe('Test Weight', () => {
     before(() => {
         // log in only once before any of the tests run.
         // your app will likely set some sort of session cookie.
@@ -6,7 +6,7 @@ describe('Test Categories', () => {
         // in your Resources -> Cookies panel in the Chrome Dev Tools.
         cy.setLocalStorage("accessTime", 1645033041559)
     })
-    it('Navigates through menu categories', () => {
+    it('Navigates through menu Weight', () => {
         //add weight category
         cy.visit("/menu")
         cy.get('.filtersButton').click()

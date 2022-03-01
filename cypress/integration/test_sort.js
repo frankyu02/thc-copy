@@ -1,8 +1,8 @@
-describe('Test Categories', () => {
+describe('Test Sort', () => {
     before(() => {
         cy.setLocalStorage("accessTime", 1645033041559)
     })
-    it('Navigates through menu Brands', () => {
+    it('Tests Menu Sort', () => {
         cy.visit("/menu")
         cy.get('.filtersButton').click()
         cy.contains('select...')
