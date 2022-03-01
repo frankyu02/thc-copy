@@ -26,8 +26,10 @@ const ItemWrapper=styled.div`
     }
     img{
         border: 1px solid black;
-        width: 60px;
-        height: 60px;
+        min-width: 60px;
+        max-width: 60px;
+        min-height: 60px;
+        max-height: 60px;
         margin-left: 50px;
     }
     p{
