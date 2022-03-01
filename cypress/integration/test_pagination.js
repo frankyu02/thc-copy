@@ -34,7 +34,7 @@ describe('Test Pagination', () => {
         cy.get('.paginationDiv').contains(1).should('have.css', 'opacity', '0.2')
         cy.get('.paginationDiv').contains(3).should('have.css', 'opacity', '0.2')
         //go to last page
-        cy.get('.paginationDiv').contains(37).click()
+        cy.get('#ToLastPage').click()
         //go to next page using pagination arrow however should be disabled
         cy.get('.paginationNext').should('be.disabled')
         //check query is kept

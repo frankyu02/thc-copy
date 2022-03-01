@@ -129,7 +129,7 @@ const PaginationBar = ({setPageOffset, numberOfProducts, productsPerPage, locati
                         <TransitionButton>
                             ...
                         </TransitionButton> 
-                        <PageButton key={totalPages} onClick={() => {
+                        <PageButton key={totalPages} id="ToLastPage" onClick={() => {
                             setPageNumber(totalPages, location)
                         }}>
                             {totalPages}          
