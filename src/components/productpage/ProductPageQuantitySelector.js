@@ -14,7 +14,7 @@ const Wrapper = styled.div`
         color: #797979;
     }
     .selector{
-        margin-top: 10px;
+        margin-top: 17.3px;
         display: flex;
         
         overflow: visible;

@@ -73,7 +73,7 @@ function prettyBrand(branddata){
 
 export default function ActiveFilters({weights, setWeights, onSale, setOnSale, 
     thc, setTHC, cbd, setCBD, strainType, setStrainType, brand, setBrand, 
-    effects, setEffects, location, clearAllFilters}){
+    effects, setEffects, location, clearAllFilters, refetch}){
 
     const {loading: loadingBrand, error: errorBrand, data: dataBrand } = useQuery(
     BRAND_NAME_QUERY, 

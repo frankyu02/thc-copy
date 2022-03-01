@@ -31,8 +31,8 @@ const PageButton = styled.div`
     margin: 6px;
     border: 1px solid black;
     padding: 7px;
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -100,10 +100,11 @@ const PaginationBar = ({setPageOffset, numberOfProducts, productsPerPage, locati
                         setPageNumber(1, location)
                     }}>
                         1
-                    </PageButton>    
+                    </PageButton>
+                    {(parseInt(page) > 3 &&     
                     <TransitionButton >
                         ...
-                    </TransitionButton>
+                    </TransitionButton>)}
                 </>
                 }
                 {pageStart != 1 && parseInt(page) <= totalPages - pageMax + 1 && 

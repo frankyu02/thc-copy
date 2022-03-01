@@ -28,9 +28,12 @@ FLOWER: [],
 PRE_ROLLS: ["SINGLES", "PACKS", "INFUSED", "BLUNTS"],
 EDIBLES: ["CHOCOLATES", "GUMMIES", "BAKED_GOODS", "DRINKS", "CAPSULES_TABLETS", "DISSOLVABLES"],
 VAPORIZERS: ["CATRIDGES", "PODS", "DISPOSABLES"],
-CONCENTRATES: ["LIVE_RESIN", "SHATTER", "WAX", "ROSIN", "KIEF", "DIAMONDS", "ISOLATE", "HASH"],
-TINCTURES: [],
-TOPICALS: ["TOPICAL_OILS", "LOTION", "TRANSDERMALS", "BATH_PRODUCTS", "LIP_BALMS"]
+CONCENTRATES: ["LIVE_RESIN", "SHATTER", "WAX", "ROSIN", "KIEF", "DIAMONDS", "ISOLATE", "INFUSED_FLOWER", "HASH"],
+TINCTURES: ["UNFLAVORED"],
+TOPICALS: ["TOPICAL_OILS", "LOTION", "TRANSDERMALS", "BATH_PRODUCTS", "LIP_BALMS"],
+SEEDS:[],
+CBD:[],
+ACCESSORIES:["BATTERIES", "LIGHTERS", "PAPERS_ROLLING_SUPPLIES", "GRINDERS", "GLASSWARE", "TRAYS", "DAB_TOOLS", "STORAGE_CONTAINERS"]
 }
 
 
@@ -56,7 +59,7 @@ export default function CategoryWidget({category, subcategory,
             <Wrapper className="categories">
                 {
                     allCats[category].map((subcat) => {
-                        const prettySubcat = subcat.toLowerCase().replace("_", " ")
+                        const prettySubcat = subcat.toLowerCase().replaceAll("_", " ")
                         return(
                             <div className="entry" onClick={()=>{setSubcategory(subcat, location)}}>
                                 {prettySubcat}
