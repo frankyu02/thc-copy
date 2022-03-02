@@ -26,8 +26,10 @@ const ItemWrapper=styled.div`
     }
     img{
         border: 1px solid black;
-        width: 60px;
-        height: 60px;
+        min-width: 60px;
+        max-width: 60px;
+        min-height: 60px;
+        max-height: 60px;
         margin-left: 50px;
     }
     p{
@@ -56,12 +58,19 @@ const ItemWrapper=styled.div`
             margin-left: 15%;
         }
         .title{
+            margin-left: 40%;
+            right: 0;
             min-width: 0;
         }
+    }
+    @media (max-width: ${__BREAKPOINTS.xxs}px){
+        .title{
+            margin-left: 20%;
         }
+    }
         @media(max-width: 350px){
             .title{
-                margin-left: 15px;
+                margin-left: 45px;
             }
         }
 `;
