@@ -1,6 +1,7 @@
+import {accessTime} from './variable';
 describe('Test Strain', () => {
     before(() => {
-        cy.setLocalStorage("accessTime", 1645033041559)
+        cy.setLocalStorage("accessTime", accessTime)
     })
     it('Tests Menu Strains', () => {
         //pagination and URL test

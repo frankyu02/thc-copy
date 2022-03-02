@@ -1,10 +1,11 @@
+import {accessTime} from './variable';
 describe('Test Categories', () => {
     before(() => {
         // log in only once before any of the tests run.
         // your app will likely set some sort of session cookie.
         // you'll need to know the name of the cookie(s), which you can find
         // in your Resources -> Cookies panel in the Chrome Dev Tools.
-        cy.setLocalStorage("accessTime", 1645033041559)
+        cy.setLocalStorage("accessTime", accessTime)
     })
     it('Navigates through menu categories', () => {
         cy.visit("/menu")
