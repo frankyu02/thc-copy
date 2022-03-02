@@ -15,13 +15,16 @@ const Wrapper = styled.div`
         bottom: 0;
         width: 100%;
         height: auto;
+        max-height: 100%;
     }
     .brandLogo{
         position: absolute;
-        width: 99px;
+        width: 100px;
+        min-height: 100px;
         height: auto;
         top: 10px;
         left: 20px;
+        z-index: 500;
         p{
             font-size: 11px;
             font-weight: bold;
@@ -48,6 +51,7 @@ const Wrapper = styled.div`
     }
 `;
 export default function ProductPageImage({ imgurl, name, brand }){
+    console.log('BRAND.IMAGE--->', brand.imageUrl);
     return(
         <Wrapper>
             <div className="brandLogo">
