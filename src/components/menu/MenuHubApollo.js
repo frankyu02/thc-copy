@@ -299,7 +299,7 @@ export default function MenuHubApollo(){
                 />
             </div>
             <div className={"other"}>
-                <ProductCount className="ProductCount">
+                <ProductCount data-cy="ProductCount">
                     {data?.menu.productsCount ? data.menu.productsCount : 0} PRODUCTS
                 </ProductCount>
                 <div className='sort'><SortDropdown sort={sort} setSort={setSort} location={location}/></div>
