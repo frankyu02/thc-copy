@@ -24,7 +24,6 @@ const Wrapper = styled.div`
         height: auto;
         top: 10px;
         left: 20px;
-        z-index: 500;
         p{
             font-size: 11px;
             font-weight: bold;
