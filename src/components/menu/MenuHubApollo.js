@@ -303,7 +303,7 @@ export default function MenuHubApollo(){
                     {data?.menu.productsCount ? data.menu.productsCount : 0} PRODUCTS
                 </ProductCount>
                 <div className='sort'><SortDropdown sort={sort} setSort={setSort} location={location}/></div>
-                <div className='filtersButton' onClick={()=>{setMobileMenuOpen(true)}}><GoSettings/>FILTERS</div>
+                <div className='filtersButton' data-cy="filtersButton" onClick={()=>{setMobileMenuOpen(true)}}><GoSettings/>FILTERS</div>
             </div>
         </TopOptions>
         <LayoutWrapper>
