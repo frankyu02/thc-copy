@@ -44,7 +44,6 @@ export default function MenuFilter({
 //Stain Type
 //Brand
 //Effects
-console.log("allBrands", allBrands)
     return(
         <Wrapper>
             <AccordItem title={"Format & Size"} defaultOpen={false}>
@@ -90,7 +89,7 @@ console.log("allBrands", allBrands)
                     setActiveValue={setStrainType}
                 />
             </AccordItem>
-            <AccordItem title={"Brand"} defaultOpen={false} overflowAuto={true}>
+            <AccordItem title={"Brand"} defaultOpen={(brand ? true : false)} overflowAuto={true}>
                 <CheckboxCollectionSingleKey
                     location={location}
                     allValues={allBrands}
