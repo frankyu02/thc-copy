@@ -80,10 +80,9 @@ const MenuGridStyles = styled.div`
 `
 
 const ProductsGrid = ({setPageOffset, products, addToCart, location, numberOfProducts, productsPerPage, page }) => {
-    console.log(products)
     if (products){
         return (
-            <MenuGridStyles>
+            <MenuGridStyles data-cy="menuGrid">
                 <div className="container">
                     <div className="wrapper">
                         <div className="grid">
