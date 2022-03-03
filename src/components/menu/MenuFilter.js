@@ -47,7 +47,7 @@ export default function MenuFilter({
 console.log("allBrands", allBrands)
     return(
         <Wrapper>
-            <AccordItem title={"Format & Size"} defaultOpen={false}>
+            <AccordItem title={"Format & Size"} defaultOpen={false} id="WeightBlock">
                 <WeightBlocks 
                     availWeights={availWeights}
                     weights={weights}
@@ -56,7 +56,7 @@ console.log("allBrands", allBrands)
                     refetch={refetch}
                 />
             </AccordItem>
-            <AccordItem defaultOpen={true}>
+            <AccordItem defaultOpen={true} id="SaleBlock">
                 <SingleCheckbox 
                     id="sale"
                     checkState={onSale}
@@ -65,7 +65,7 @@ console.log("allBrands", allBrands)
                     location={location}
                 />
             </AccordItem>
-            <AccordItem title={"THC"} defaultOpen={true}>
+            <AccordItem title={"THC"} defaultOpen={true} id="THCBlock">
                 <Slider
                     potency={thc}
                     setPotency={setTHC}
@@ -74,7 +74,7 @@ console.log("allBrands", allBrands)
                     setReset={setReset}
                 />
             </AccordItem>
-            <AccordItem title={"CBD"} defaultOpen={true}>
+            <AccordItem title={"CBD"} defaultOpen={true} id="CBDBlock">
                 <Slider
                     potency={cbd}
                     setPotency={setCBD}
@@ -83,7 +83,7 @@ console.log("allBrands", allBrands)
                     setReset={setReset}
                 />
             </AccordItem>
-            <AccordItem title={"Strain Type"} defaultOpen={true}>
+            <AccordItem title={"Strain Type"} defaultOpen={true} id="StrainBlock">
                 <CheckboxCollectionSingle
                     location={location}
                     allValues={strainTypeLabels}
@@ -91,7 +91,7 @@ console.log("allBrands", allBrands)
                     setActiveValue={setStrainType}
                 />
             </AccordItem>
-            <AccordItem title={"Brand"} defaultOpen={false} overflowAuto={true}>
+            <AccordItem title={"Brand"} defaultOpen={false} overflowAuto={true} id="BrandBlock">
                 <CheckboxCollectionSingleKey
                     location={location}
                     allValues={allBrands}
@@ -99,7 +99,7 @@ console.log("allBrands", allBrands)
                     setActiveValue={setBrand}
                 />
             </AccordItem>
-            <AccordItem title={"Effects"} defaultOpen={false}>
+            <AccordItem title={"Effects"} defaultOpen={false} id="EffectsBlock">
                 <CheckboxCollection
                     location={location}
                     allValues={effectLabels}
