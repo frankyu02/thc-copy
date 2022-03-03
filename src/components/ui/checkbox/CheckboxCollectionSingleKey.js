@@ -12,9 +12,8 @@ const Read = styled.p`
     }
 `
 export default function CheckboxCollectionSingleKey({location, allValues, activeValue, setActiveValue}){
-    console.log("allValues, ", allValues)
     //setEffects(arr, value, location, remove=false)
-    const [brandCount, setBrandCount] = useState(10);
+    const [brandCount, setBrandCount] = useState(activeValue ? allValues?.length : 10);
     if (allValues){
         return(
             <div className="brands">
@@ -38,7 +37,7 @@ export default function CheckboxCollectionSingleKey({location, allValues, active
                     )
                 })}
                 {(brandCount < allValues.length) ? 
-                <Read onClick={() => {setBrandCount(brandCount + 10)}}>SHOW MORE...</Read>:
+                <Read onClick={() => {setBrandCount(allValues.length)}}>SHOW MORE...</Read>:
                 <Read onClick={() => {setBrandCount(10)}}>COLLAPSE</Read>
                 }
             </div>
