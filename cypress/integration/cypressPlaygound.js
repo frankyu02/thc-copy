@@ -26,5 +26,7 @@ describe('#', () => {
         //     expect(c.length).to.equal(55) //this code checks that the length of the weights are equal
         // })
         // cy.log('aaaaaaaaaa', c)
+
+        cy.get('[data-cy=THC-right]').type(30)
     })
 })
