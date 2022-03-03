@@ -1,5 +1,5 @@
 import {accessTime} from './variable';
-describe('Test Weight', (fdfdf) => {
+describe('Test Weight', () => {
     before(() => {
         cy.setLocalStorage("accessTime", accessTime)
     })
@@ -17,9 +17,9 @@ describe('Test Weight', (fdfdf) => {
         cy.get('[data-cy=AHLOT]').find('.on').click();
         cy.get('[data-cy=AHLOT]').find('.off').should('have.css', 'background-color', 'rgb(255, 255, 255)')
         cy.url().should('equal', 'http://localhost:8000/menu?brand=')
-        cy.get('[data-cy=Ace Valley]').find('.off').click();
+        cy.get('[data-cy=AceValley]').find('.off').click();
         cy.contains('edibles').click()
-        cy.get('[data-cy=Ace Valley]').find('.on').should('have.css', 'background-color', 'rgb(97, 44, 143)')
+        cy.get('[data-cy=AceValley]').find('.on').should('have.css', 'background-color', 'rgb(97, 44, 143)')
         cy.url().should('equal', 'http://localhost:8000/menu?brand=66c4e2b1-87b9-4d95-9663-6020cf083f0e&category=EDIBLES')
         cy.visit("/menu")
         cy.wait(6000)
@@ -27,7 +27,7 @@ describe('Test Weight', (fdfdf) => {
             const val = $count.text()
             cy.get('[data-cy=filtersButton]').click()
             cy.contains('Brand').click()
-            cy.get('[data-cy=1964 Supply Co.]').find('.off').click();
+            cy.get('[data-cy=A1Cannabis]').find('.off').click();
             cy.get('[data-cy=ProductCount]').should(($count2) =>{
                 expect($count2.text()).not.to.eq(val)
             })
