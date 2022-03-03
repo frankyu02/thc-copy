@@ -71,6 +71,7 @@ export default function MenuFilter({
                     location={location}
                     reset={reset}
                     setReset={setReset}
+                    id="THC"
                 />
             </AccordItem>
             <AccordItem title={"CBD"} defaultOpen={true} id="CBDBlock">

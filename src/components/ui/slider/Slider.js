@@ -37,7 +37,7 @@ const unitIcon = {
     PERCENTAGE: "%"
 }
 
-export default function Slider({potency, setPotency, unit="PERCENTAGE", location, reset, setReset }){
+export default function Slider({potency, setPotency, unit="PERCENTAGE", location, reset, setReset, id }){
     const [minMax, setMinMax] = useState([0, 50])
 
     // useEffect(()=>{
@@ -85,6 +85,7 @@ export default function Slider({potency, setPotency, unit="PERCENTAGE", location
                             });
                         }
                     }}
+                    data-cy={(id) + '-left'}
                 />
                 <div className="unit">{unitIcon[unit]}</div>
                 </div>
@@ -107,6 +108,7 @@ export default function Slider({potency, setPotency, unit="PERCENTAGE", location
                             });
                         }
                     }}
+                    data-cy={(id) + '-right'}
                 />
                 <div className="unit">{unitIcon[unit]}</div>
                 </div>
