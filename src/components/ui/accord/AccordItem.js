@@ -58,11 +58,11 @@ const Title = styled.div`
     }
 `
 
-export default function AccordItem({title, defaultOpen, overflowAuto, children}){
+export default function AccordItem({title, defaultOpen, overflowAuto, children, id }){
     const [open, setOpen] = useState(defaultOpen)
     return(
         <Wrapper>
-        {title && <Title onClick={()=>{setOpen(!open)}}>{title}<div className='sign'>{open ? "-" : "+"}</div></Title>}
+        {title && <Title onClick={()=>{setOpen(!open)}} data-cy={id}>{title}<div className='sign'>{open ? "-" : "+"}</div></Title>}
         <Content className={open ? 'open' : 'closed'} over={overflowAuto}>
             {children}
         </Content>
