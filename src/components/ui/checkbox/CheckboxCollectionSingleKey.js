@@ -37,7 +37,7 @@ export default function CheckboxCollectionSingleKey({location, allValues, active
                     )
                 })}
                 {(brandCount < allValues.length) ? 
-                <Read onClick={() => {setBrandCount(brandCount + 10)}}>SHOW MORE...</Read>:
+                <Read onClick={() => {setBrandCount(allValues.length)}}>SHOW MORE...</Read>:
                 <Read onClick={() => {setBrandCount(10)}}>COLLAPSE</Read>
                 }
             </div>
