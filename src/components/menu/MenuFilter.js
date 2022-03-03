@@ -81,6 +81,7 @@ export default function MenuFilter({
                     location={location}
                     reset={reset}
                     setReset={setReset}
+                    id="CBD"
                 />
             </AccordItem>
             <AccordItem title={"Strain Type"} defaultOpen={true} id="StrainBlock">
