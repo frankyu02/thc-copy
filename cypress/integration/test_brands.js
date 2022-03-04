@@ -1,5 +1,5 @@
 import {accessTime} from './variable';
-describe('Test Weight', () => {
+describe('Test Brands', () => {
     before(() => {
         cy.setLocalStorage("accessTime", accessTime)
     })

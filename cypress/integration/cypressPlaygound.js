@@ -9,7 +9,6 @@ describe('#', () => {
     })
     it('#', () => {
         cy.visit("/menu")
-        cy.request("/menu")
         cy.get('[data-cy="menuGrid"]', {timeout: 60000}) //this ensures that the product data is queried before any other tests are called 
 
         // cy.get('[data-cy=ProductCount]').then(($count) => { //This code gets the product count
@@ -27,6 +26,6 @@ describe('#', () => {
         // })
         // cy.log('aaaaaaaaaa', c)
 
-        cy.get('[data-cy=THC-right]').type(30)
+        cy.get('[data-cy=THC-right]').type('{backspace}{backspace}30')
     })
 })

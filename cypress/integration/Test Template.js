@@ -1,4 +1,5 @@
 import {accessTime} from './variable';
+
 describe('#', () => {
     before(() => {
         // log in only once before any of the tests run.
@@ -10,6 +11,7 @@ describe('#', () => {
     it('#', () => {
         cy.log('#')
         cy.visit("/menu")
-        cy.get('.filtersButton').click()
+        cy.get('[data-cy="menuGrid"]', {timeout: 60000}) //this ensures that the product data is queried before any other tests are called 
+        cy.get('[data-cy=filtersButton]').click()
     })
 })
