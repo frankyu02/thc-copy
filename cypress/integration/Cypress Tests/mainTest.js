@@ -1,5 +1,5 @@
 import TestSlider from "./testSlider";
 
-export default function MainText(){
+export default function MainTest(){
     TestSlider;
 }
