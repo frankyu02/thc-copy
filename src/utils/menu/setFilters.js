@@ -9,6 +9,9 @@ const setFilterReplace = (filter, value, location, dependent) => {
     if (location?.search){
         const parsedSearch = queryString.parse(location.search);
         parsedSearch[filter] = value
+        if (value == ""){
+            delete parsedSearch[filter]
+        }
         if (dependent){
             delete parsedSearch[dependent]
         }

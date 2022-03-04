@@ -48,7 +48,7 @@ export const Brands = ({ lazyLoading }) => {
           <div key={key} className={"brand-item"}>
             <Fade><div>
             <GatsbyImage image={getImage(item?.brandsLogoItem?.localFile?.childrenImageSharp[0]?.gatsbyImageData)}
-                         alt={"brands"} />
+                        alt={"brands"} />
             </div></Fade>
           </div>
         ))}
