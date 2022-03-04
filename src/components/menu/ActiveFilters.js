@@ -107,7 +107,7 @@ export default function ActiveFilters({weights, setWeights, onSale, setOnSale,
             
             {(weights || onSale || thc || cbd || strainType || brand || effects)
                 &&
-                <ClearAll onClick={()=>clearAllFilters()}>clear all filters</ClearAll>
+                <ClearAll onClick={()=>clearAllFilters()} data-cy="clearAll">clear all filters</ClearAll>
             }
 
         </Wrapper>
