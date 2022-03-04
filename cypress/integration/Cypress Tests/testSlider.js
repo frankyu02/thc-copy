@@ -1,5 +1,4 @@
 import {accessTime} from '../variable';
-
     describe('Test the THC and CBD Sliders', () => {
         before(() => {
             // log in only once before any of the tests run.
