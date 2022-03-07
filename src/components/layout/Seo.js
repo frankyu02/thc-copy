@@ -8,7 +8,7 @@ const Seo = ({title, description, schemaMarkup, image, location}) => {
     console.log("SEO - sharepic", sharepic)
     console.log("SEO - sharepic2", sharepic2)
 
-    const sharepicURL = '/images/favicon.png';
+    const sharepicURL = 'https://thcwebsitedevelopment.gatsbyjs.io/images/favicon.png';
     return(
         <Helmet>
             <html lang="en"/>
