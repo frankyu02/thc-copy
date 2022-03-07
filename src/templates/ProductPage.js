@@ -8,6 +8,7 @@ import { __BREAKPOINTS } from "../styles/utils/variables";
 import { useQuery } from '@apollo/client';
 import PRODUCT_QUERY from '../apollo/queries/product.graphql';
 import Loader from '../components/menu/other/Loader';
+import Seo from "../components/layout/Seo";
 
 const Wrapper = styled.div`
     border: 1px solid black;
@@ -75,9 +76,19 @@ export default function ProductPage({id}){
     const {loading: loading, error: error, data: data } = useQuery(
     PRODUCT_QUERY, 
     {variables: {retailerId:"4e81dfd3-e789-4712-b60c-5e22e7844322", id: id}, fetchPolicy: "network-only" })
+    var seo = {};
+    if (data){
+        seo = {
+            title: data.product.name,
+            description: data.product.description,
+            image: data.product.image
+        };
+    }
 
     if (data && !loading){
     return(
+        <>
+        <Seo {...seo}/>
         <div className="container">
             <Wrapper>
                 <div className="top">
@@ -107,6 +118,7 @@ export default function ProductPage({id}){
                 </div>
             </Wrapper>
         </div>
+        </>
     )}
     else{
         return(
