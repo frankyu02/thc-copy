@@ -16,7 +16,7 @@ const useCheckout = (initialOrderType, initialPricingType) => {
     //Local Storage States
     const [checkoutId, setCheckoutId] = useLocalStorage('dutchie-plus--checkout-id');
     //const [currentRetailer, setCurrentRetailer] = useLocalStorage('dutchie-plus--retailer-id');
-    const [currentRetailer, setCurrentRetailer] = useState('4c9422c5-d248-415b-8a88-0a75822c50e6')
+    const [currentRetailer, setCurrentRetailer] = useState('4e81dfd3-e789-4712-b60c-5e22e7844322')
 
     //Query
     const {

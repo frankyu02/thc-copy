@@ -34,10 +34,13 @@ const Inputs = styled.div`
 `;
 
 const unitIcon = {
-    PERCENTAGE: "%"
+    PERCENTAGE: "%",
+    MILLIGRAMS: "mg",
+    MILLIGRAMS_PER_GRAM: "mg/g",
+    MILLIGRAMS_PER_ML: "mg/mg"
 }
 
-export default function Slider({potency, setPotency, unit="PERCENTAGE", location, reset, setReset }){
+export default function Slider({potency, setPotency, location, reset, setReset, category }){
     const [minMax, setMinMax] = useState([0, 50])
 
     // useEffect(()=>{
@@ -62,6 +65,11 @@ export default function Slider({potency, setPotency, unit="PERCENTAGE", location
             minMax[1] = 50;
         }
     }, [potency])
+
+    var unit = "PERCENTAGE";
+    if (category=="EDIBLES"){
+        unit = "MILLIGRAMS"
+    }
 
     return(
         <Wrapper>

@@ -23,9 +23,10 @@ const MenuCardStyles = styled.div`
             width: auto;
             height: auto;
             .realImage {
-                width: 215px;
+                max-width: 215px;
                 height: auto;
                 max-height: 265px;
+                width: auto;
             }
         }
         .brand {

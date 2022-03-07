@@ -36,7 +36,8 @@ const strainTypeLabels = [
 export default function MenuFilter({
     location, onSale, setOnSale, effects, setEffects, strainType, 
     setStrainType, availWeights, weights, setWeights, thc, setTHC,
-    cbd, setCBD, brand, setBrand, allBrands, reset , setReset, refetch
+    cbd, setCBD, brand, setBrand, allBrands, reset , setReset, refetch,
+    category
 }){
 //Categories/Subcategories
 //Format & Size
@@ -73,6 +74,7 @@ console.log("allBrands", allBrands)
                     location={location}
                     reset={reset}
                     setReset={setReset}
+                    category={category}
                 />
             </AccordItem>
             <AccordItem title={"CBD"} defaultOpen={true}>
@@ -82,6 +84,7 @@ console.log("allBrands", allBrands)
                     location={location}
                     reset={reset}
                     setReset={setReset}
+                    category={category}
                 />
             </AccordItem>
             <AccordItem title={"Strain Type"} defaultOpen={true}>

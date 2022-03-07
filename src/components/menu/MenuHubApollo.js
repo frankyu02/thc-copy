@@ -213,7 +213,7 @@ export default function MenuHubApollo(){
 
     const {loading: loadingBrands, error: errorBrands, data: dataBrands } = useQuery(
         BRANDS_QUERY, 
-        {variables: {retailerId:'4c9422c5-d248-415b-8a88-0a75822c50e6'}, 
+        {variables: {retailerId:'4e81dfd3-e789-4712-b60c-5e22e7844322'}, 
         fetchPolicy: "network-only", 
         nextFetchPolicy: "cache-fist"})
 
@@ -231,7 +231,7 @@ export default function MenuHubApollo(){
         console.log("useEffect weights-->", weights)
         //Re-Query with new variables
         setMenuVariables(createVariablesObj({
-            retailerId: '4c9422c5-d248-415b-8a88-0a75822c50e6',
+            retailerId: '4e81dfd3-e789-4712-b60c-5e22e7844322',
             category: category,
             subcategory: subcategory,
             strainType: strainType,
@@ -248,7 +248,7 @@ export default function MenuHubApollo(){
         }));
 
         // refetch(createVariablesObj({
-        //     retailerId: '4c9422c5-d248-415b-8a88-0a75822c50e6',
+        //     retailerId: '4e81dfd3-e789-4712-b60c-5e22e7844322',
         //     category: category,
         //     subcategory: subcategory,
         //     strainType: strainType,
@@ -359,6 +359,7 @@ export default function MenuHubApollo(){
                 reset={reset}
                 setReset={setReset}
                 refetch={refetch}
+                category={category}
             />
         </FilterWrapper>
 
