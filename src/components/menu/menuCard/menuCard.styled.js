@@ -18,14 +18,13 @@ const MenuCardStyles = styled.div`
         border: 1px solid black;
         .image {
             position: absolute;
-            top: 90px;
-            bottom: 60px;
+            top: 85px;
             width: auto;
             height: auto;
             .realImage {
-                width: 215px;
-                height: auto;
                 max-height: 265px;
+                width: auto;
+                max-width: 100%;
             }
         }
         .brand {
