@@ -2,8 +2,13 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import icon from '../../assets/images/favicon.png'
 import sharepic from '../../assets/images/favicon.png';
+import sharepic2 from '../../../static/images/favicon.png'
 
 const Seo = ({title, description, schemaMarkup, image, location}) => {
+    console.log("SEO - sharepic", sharepic)
+    console.log("SEO - sharepic2", sharepic2)
+
+    const sharepicURL = '/images/favicon.png';
     return(
         <Helmet>
             <html lang="en"/>
@@ -13,7 +18,7 @@ const Seo = ({title, description, schemaMarkup, image, location}) => {
             <meta charSet="utf-8" />
 
             {location && <meta property="og:url" content={location.href} />}
-            <meta property="og:image" content={image || sharepic} />
+            <meta property="og:image" content={image || sharepicURL} />
             <meta property="og:title" content={title}  />
             <meta property='og:type' content="website"/>
             <meta property="og:site_name" content={title} />
@@ -27,6 +32,7 @@ const Seo = ({title, description, schemaMarkup, image, location}) => {
             {location && <meta name="twitter:url" content={location.href}/>}
             <meta name="twitter:card" content="summary" />
             <meta name="twitter:description" content={description}/>
+            <meta name="twitter:image" content={image || sharepicURL}/>
 
             {schemaMarkup &&
                 <script type="application/ld+json">
