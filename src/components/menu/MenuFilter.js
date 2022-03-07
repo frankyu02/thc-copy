@@ -7,6 +7,8 @@ import SingleCheckbox from '../ui/checkbox/SingleCheckbox';
 import AccordItem from '../ui/accord/AccordItem';
 import WeightBlocks from './WeightBlocks';
 import Slider from '../ui/slider/Slider';
+import SortDropdown from './SortDropdown';
+
 
 const Wrapper = styled.div`
     width: 100%;

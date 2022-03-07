@@ -161,6 +161,21 @@ const AnimationLoader = styled.div`
     display: flex;
     justify-content: center;
 `
+
+const SortWrapperMobileOnly = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 30px;
+    .label{
+        font-family: "Integral CF";
+        font-size: 15px;
+        padding-right: 5px;
+    }
+    ${lg(`
+        display: none;
+    `)}
+`;
 export default function MenuHubApollo(){
     //Single Value Filters
     const [category, setCategoryQuery] = useQueryParam('category', StringParam);
@@ -308,6 +323,14 @@ export default function MenuHubApollo(){
         </TopOptions>
         <LayoutWrapper>
         <FilterWrapper open={mobileMenuOpen}>
+            <SortWrapperMobileOnly>
+                <div className="label">SORT </div>
+                <SortDropdown 
+                    sort={sort} 
+                    setSort={setSort} 
+                    location={location} 
+                />
+            </SortWrapperMobileOnly>
             <CategoryWidget
                 category={category}
                 subcategory={subcategory}
