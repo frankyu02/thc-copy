@@ -13,6 +13,14 @@ const Wrapper = styled.div`
         font-family: "Integral CF";
         color: #797979;
     }
+    .icon{
+        display: flex;
+        justify-content: center;
+        font-family: "Integral CF";
+        font-size: 30px;
+        height: 100%;
+        width: 100%;
+    }
     .selector{
         margin-top: 10px;
         display: flex;
@@ -91,11 +99,11 @@ export default function QuantitySelector({ quantity, setQuantity }){
             <p className="subtitle">QUANTITY</p>
             <div className="selector">
                 <button onClick={subtract} disabled={quantity <= 1}>
-                    <FiMinus className="icon"/>
+                    <div className="icon">-</div>
                 </button>
                 <p>{quantity}</p>
                 <button onClick={add}>
-                    <FiPlus className="icon" />
+                <div className="icon">+</div>
                 </button>
             </div>
         </Wrapper>
