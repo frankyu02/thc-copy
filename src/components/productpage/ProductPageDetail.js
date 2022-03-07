@@ -26,11 +26,11 @@ const Wrapper = styled.div`
     }
     .title{
         margin-top: 80px;
-        h2{
+        h1{
             text-transform: uppercase;
             font-family: "Integral CF";
             font-weight: bolder;
-            font-size: 40px;
+            font-size: 25px;
             
         }
         p{
@@ -172,7 +172,7 @@ export default function ProductPageDetail({ brand, name, cbd, thc, strainType, v
                 <TypeBanner text={strainType} size="24px" />
             </div>
             <div className="title">
-                <h2>{name}</h2>
+                <h1>{name}</h1>
                 <p>By {brand.name}</p>
             </div>
             <div className="lowerStrand">

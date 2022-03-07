@@ -26,6 +26,7 @@ const Wrapper = styled.div`
             width: 24px;
             border: 1px solid #612C8F;
             background: white;
+            color: #612C8F;
             .icon{
                 color: #612C8F;
             }
@@ -34,6 +35,7 @@ const Wrapper = styled.div`
             }
             &:disabled{
                 border: 1px solid #C4C4C4;
+                color: #C4C4C4;
                 .icon{
                     color: #C4C4C4;
                 }
