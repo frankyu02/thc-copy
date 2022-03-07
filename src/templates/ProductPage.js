@@ -20,7 +20,7 @@ const Wrapper = styled.div`
     padding-bottom: 92px;
     .top{
         width: auto;
-        height: 60%;
+        min-height: 60%;
         margin-top: 78px;
         padding-left: 8%;
         padding-right: 8%;
@@ -28,7 +28,7 @@ const Wrapper = styled.div`
     }
     .bottom{
         width: auto;
-        height: 40%;
+        min-height: 40%;
         padding-left: 8%;
         padding-right: 8%;
         display: flex;

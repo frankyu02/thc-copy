@@ -5,6 +5,7 @@ import { __BREAKPOINTS } from "../../styles/utils/variables";
 const Wrapper = styled.div`
     width: 100%;
     height: 100%;
+    
     p{
         margin: 0;
     }
@@ -16,8 +17,9 @@ const Wrapper = styled.div`
     .icon{
         display: flex;
         justify-content: center;
+        align-items: center;
         font-family: "Integral CF";
-        font-size: 30px;
+        font-size: 20px;
         height: 100%;
         width: 100%;
     }
@@ -59,6 +61,14 @@ const Wrapper = styled.div`
     }
     @media (max-width: ${__BREAKPOINTS.sm}px){
         padding: 0 30%;
+        .icon{
+            display: flex;
+            justify-content: center;
+            font-family: "Integral CF";
+            font-size: 30px;
+            height: 100%;
+            width: 100%;
+        }
         .selector{
             button{
                 min-width: 44px;

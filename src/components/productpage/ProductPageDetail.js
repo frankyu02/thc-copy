@@ -13,6 +13,7 @@ const Wrapper = styled.div`
     margin-left: 10%;
     position: relative;
     width: 80%;
+
     .strandType{
         width: 37%;
         height: 57px;
@@ -21,7 +22,7 @@ const Wrapper = styled.div`
     }
     .lowerStrand{
         width: 116px;
-        height: 35px;
+        min-height: 35px;
         display: none;
     }
     .title{
@@ -30,7 +31,7 @@ const Wrapper = styled.div`
             text-transform: uppercase;
             font-family: "Integral CF";
             font-weight: bolder;
-            font-size: 25px;
+            font-size: 60px;
             
         }
         p{
@@ -56,7 +57,7 @@ const Wrapper = styled.div`
         }
     }
     .details{
-        height: 10%;
+        min-height: 10%;
         display: flex;
         flex-wrap: wrap;
         margin-top: 30px;
@@ -99,6 +100,7 @@ const Wrapper = styled.div`
         height: auto;
         margin: 0;
         padding: 0 13px;
+        
         .strandType{
             visibility: hidden;
         }
@@ -107,8 +109,8 @@ const Wrapper = styled.div`
         }
         .title{
             margin: 5px;
-            h2{
-                font-size: 60px;
+            h1{
+                font-size: 25px;
             }
         }
         .dosage{
