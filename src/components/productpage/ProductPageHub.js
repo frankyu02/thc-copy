@@ -111,7 +111,7 @@ export default function ProductPageHub({data, loading, error}){
                         thc={data.product.potencyThc} 
                         cbd={data.product.potencyCbd} 
                         category={data.product.category} 
-                        effect={data.product.effects}
+                        strain={data.product.strainType}
                     />
                 </div>
             </Wrapper>
