@@ -77,7 +77,7 @@ export default function ActiveFilters({weights, setWeights, onSale, setOnSale,
 
     const {loading: loadingBrand, error: errorBrand, data: dataBrand } = useQuery(
     BRAND_NAME_QUERY, 
-    {variables: {retailerId:'4e81dfd3-e789-4712-b60c-5e22e7844322', brandId: brand}, 
+    {variables: {retailerId:'4c9422c5-d248-415b-8a88-0a75822c50e6', brandId: brand}, 
     fetchPolicy: "network-only"})
 
     return(

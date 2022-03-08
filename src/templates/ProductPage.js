@@ -14,7 +14,7 @@ export default function ProductPage({id, pageContext, location}){
 
     const {loading: loading, error: error, data: data } = useQuery(
     PRODUCT_QUERY, 
-    {variables: {retailerId:"4e81dfd3-e789-4712-b60c-5e22e7844322", id: (id|| backupId)}, fetchPolicy: "network-only" })
+    {variables: {retailerId:"4c9422c5-d248-415b-8a88-0a75822c50e6", id: (id|| backupId)}, fetchPolicy: "network-only" })
     
     console.log("Product Page - location",location.pathname);
     
