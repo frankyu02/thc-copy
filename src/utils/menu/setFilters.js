@@ -120,7 +120,8 @@ const setOnSale = (value, location) => {
 }
 ////Search 
 const setSearch = (value, location) => {
-    setFilterReplace('search', value, location)
+    navigate("/menu/?search="+value);
+    //setFilterReplace('search', value, location)
 }
 ////Sort
 const setSort = (value, location) => {

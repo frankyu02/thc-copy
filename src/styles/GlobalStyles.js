@@ -19,6 +19,10 @@ const GlobalStyles = createGlobalStyle`
     word-break: break-word;
     font-size: 10px;
     background-color: var(--white);
+    &::selection {
+      background: var(--darkpurple);
+      color: white;
+    }
   }
 
   body {
@@ -27,7 +31,16 @@ const GlobalStyles = createGlobalStyle`
     font-size: 2rem;
     scrollbar-width: thin;
     scrollbar-color: #612C8F #EEEEEF;
+    &::selection {
+      background: var(--darkpurple);
+      color: white;
+    }
   }
+
+  ::selection {
+      background: var(--darkpurple);
+      color: white;
+    }
 
   * {
     box-sizing: border-box;
