@@ -33,7 +33,7 @@ export const MenuLayout = ({ children }) => {
     <>
       <GlobalStyles />
       <Typography />
-      {/* <AgeGate/> */}
+      <AgeGate/>
         <HeaderMenu cart={FilledCart}/>
         <main>
           {children}
