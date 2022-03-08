@@ -1,0 +1,35 @@
+#import '../fragments/menu-product.graphql'
+
+query Menu(
+  $category: Category
+  $subcategory: Subcategory
+  $retailerId: ID!
+  $potencyThc: PotencyRange
+  $potencyCbd: PotencyRange
+  $limit: Int!
+  $offset: Int!
+  $effects: [Effects!]
+  $strainType: StrainType
+  $weights: [String!]
+) {
+  menu(
+    retailerId: $retailerId
+    filter: {
+      category: $category
+      subcategory: $subcategory
+      potencyThc: $potencyThc
+      potencyCbd: $potencyCbd
+      effects: $effects
+      strainType: $strainType
+      weights: $weights
+      menuSection: { type: SPECIALS }
+    }
+    pagination: { limit: $limit, offset: $offset }
+  ) {
+    products {
+      ...MenuProduct
+    }
+    productsCount
+    weights
+  }
+}

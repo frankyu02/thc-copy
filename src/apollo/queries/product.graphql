@@ -1,0 +1,40 @@
+query fetchProduct($id: ID!, $retailerId: ID!) {
+  product(id: $id, retailerId: $retailerId) {
+    id
+    effects
+    descriptionHtml
+    description
+    category
+    brand {
+      description
+      id
+      imageUrl
+      name
+    }
+    image
+    name
+    potencyCbd {
+      formatted
+      range
+      unit
+    }
+    potencyThc {
+      formatted
+      range
+      unit
+    }
+    slug
+    staffPick
+    strainType
+    subcategory
+    variants {
+      id
+      option
+      priceMed
+      priceRec
+      quantity
+      specialPriceMed
+      specialPriceRec
+    }
+  }
+}

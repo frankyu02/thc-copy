@@ -3,7 +3,7 @@ export const NoItem = {
     "items": [],
     "orderType": "PICKUP",
     "pricingType": "RECREATIONAL",
-    "redirectUrl": "https://checkout-barrie.thehousecannabis.ca/checkouts/5fea271a61f32a29fd85a828/2c908cac-cf7d-4442-859b-6bf9b596c6bd",
+    "redirectUrl": "",
     "__typename": "Checkout"
   }
 
@@ -79,7 +79,7 @@ export const NoItem = {
     ],
     "orderType": "PICKUP",
     "pricingType": "RECREATIONAL",
-    "redirectUrl": "https://checkout-barrie.thehousecannabis.ca/checkouts/5fea271a61f32a29fd85a828/2c908cac-cf7d-4442-859b-6bf9b596c6bd",
+    "redirectUrl": "",
     "priceSummary": {
       "discounts": 0,
       "fees": 0,

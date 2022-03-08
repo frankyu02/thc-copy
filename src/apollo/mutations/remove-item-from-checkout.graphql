@@ -1,0 +1,42 @@
+fragment CheckoutItem on Item {
+  id
+  option
+  product {
+    id
+    image
+    name
+    brand {
+      name
+    }
+    variants {
+      option
+      priceRec
+    }
+  }
+  quantity
+}
+
+fragment Checkout on Checkout {
+  id
+  items {
+    ...CheckoutItem
+  }
+  orderType
+  pricingType
+  redirectUrl
+  priceSummary {
+    discounts
+    fees
+    mixAndMatch
+    rewards
+    subtotal
+    taxes
+    total
+  }
+}
+
+mutation RemoveItemFromCheckout($checkoutId: ID!, $itemId: ID!, $retailerId: ID!) {
+  removeItem(checkoutId: $checkoutId, itemId: $itemId, retailerId: $retailerId) {
+    ...Checkout
+  }
+}

@@ -72,14 +72,24 @@ export const Footer = () => {
               ))}
             </div>
           </div>
-          <form className="footer-form" action="#">
-            <h3>{footer?.footerEmail?.footerEmailTitle}</h3>
+
+
+          <form className="footer-form" 
+            action="https://www.getdrip.com/forms/219361297/submissions" 
+            data-drip-embedded-form="219361297"
+            method="post"
+          >
+            <h3 data-drip-attribute="headline">{footer?.footerEmail?.footerEmailTitle}</h3>
             <label className="footer-form__email" htmlFor="footerFormEmail">
-              <input id="footerFormEmail" type="email"
-                     placeholder={footer?.footerEmail?.footerEmailPlaceholder} />
+              <input 
+                id="footerFormEmail" 
+                type="email"
+                placeholder={footer?.footerEmail?.footerEmailPlaceholder}
+                name="fields[email]"
+              />
               <button aria-label={"subscribe on updates"} type="submit">
                 <svg width="36" height="32" viewBox="0 0 36 32" fill="none"
-                     xmlns="http://www.w3.org/2000/svg">
+                    xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M20.7325 0L36 15.5604V16.5275L20.7325 32L17.3494 28.6593L29.841 17.7582L21.8602 18.2857H0V13.7143H21.8602L29.841 14.2418L17.4361 3.34066L20.7325 0Z"
                     fill="black" />
@@ -91,6 +101,8 @@ export const Footer = () => {
               <label htmlFor="footer_form_agree">{footer?.footerEmail?.footerEmailCheckboxText}</label>
             </div>
           </form>
+
+
           <div className="footer-location">
             <div className="location">
               {footer?.footerContact?.footerLocation?.map?.((item, key) => (

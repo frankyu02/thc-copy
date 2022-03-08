@@ -23,8 +23,10 @@ const MenuCardStyles = styled.div`
             width: auto;
             height: auto;
             .realImage {
-                width: 228px;
+                max-width: 215px;
                 height: auto;
+                max-height: 265px;
+                width: auto;
             }
         }
         .brand {
@@ -72,8 +74,8 @@ const MenuCardStyles = styled.div`
         margin-right: 100px;
         h4 {
             color: black;
-            font-family: 'Neumatic Compressed Bold';
-            font-size: 42px;
+            font-family: 'Integral CF';
+            font-size: 24px;
         }
     }
     .price {
@@ -86,9 +88,21 @@ const MenuCardStyles = styled.div`
             font-size: 17px;
             font-family: 'Integral CF Bold';
         }
+        .originalPrice {
+            text-decoration: line-through;
+            text-decoration-thickness: 2px;
+        }
     }
     .cartBannerBottom {
         display: none;
+    }
+    .Toastify__progress-bar {
+    background: var(--darkpurple);
+    }
+    .Toastify__toast-body{
+        color: black;
+        text-align: center;
+        font-family: "MADE Outer Sans Light";
     }
 }
 

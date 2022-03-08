@@ -2,13 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import PaginationBar from "./paginationBar";
 import MenuCard from "./menuCard/menuCard";
+import { number } from "prop-types";
 
 const MenuGridStyles = styled.div`
 .container {
     display: flex;
     justify-content: flex-end;
     .wrapper {
-        width: 80%;
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -40,9 +41,12 @@ const MenuGridStyles = styled.div`
     }
 }
 @media (max-width: 780px) {
+    
+    max-width: 100%;
     .container {
         display: flex;
         justify-content: center;
+        max-width: 100%;
         .wrapper {
             width: 100%;
             display: flex;
@@ -75,26 +79,35 @@ const MenuGridStyles = styled.div`
 }
 `
 
-const MenuGrid = ({ products, addToCart }) => {
-    const NOP = products.length;
-
-    return (
-        <MenuGridStyles>
-            <div className="container">
-                <div className="wrapper">
-                    <div className="grid">
-                        {products.map((item, i) => {
-                            return (
-                            <div className="cell" key={i}>
-                                <MenuCard product={item} addToCart={addToCart}/>
-                            </div> 
-                        )})}
+const ProductsGrid = ({setPageOffset, products, addToCart, location, numberOfProducts, productsPerPage, page }) => {
+    console.log(products)
+    if (products){
+        return (
+            <MenuGridStyles>
+                <div className="container">
+                    <div className="wrapper">
+                        <div className="grid">
+                            {products.map((item, i) => {
+                                return (
+                                <div className="cell" key={i}>
+                                    <MenuCard product={item} addToCart={addToCart}/>
+                                </div> 
+                            )})}
+                        </div>
+                        <PaginationBar 
+                            setPageOffset={setPageOffset} 
+                            numberOfProducts={numberOfProducts} 
+                            productsPerPage={productsPerPage}
+                            location={location}
+                            page={page}
+                        />
                     </div>
-                    <PaginationBar numberOfProducts={NOP} productsPerPage={9}/>
                 </div>
-            </div>
-        </MenuGridStyles>
-    )
+            </MenuGridStyles>
+        )
+    } else {
+        return (<>loading...</>)
+    }
 }
 
-export default MenuGrid;
+export default ProductsGrid;

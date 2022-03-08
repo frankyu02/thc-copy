@@ -7,6 +7,13 @@ const {
   SITE_URL
 } = process.env
 
+const apolloConfig = {
+  uri: process.env.DUTCHIE_API_URL,
+  headers: {
+    Authorization: `Bearer ${process.env.DUTCHIE_API_KEY}`
+  }
+}
+
 module.exports = {
   siteMetadata: {
     title: `THC`,
@@ -15,8 +22,14 @@ module.exports = {
     siteUrl: SITE_URL
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-apollo`,
+      options: apolloConfig
+    },
+    "gatsby-plugin-use-query-params",
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
+    `gatsby-plugin-graphql-loader`,
     //
     // {
     //   resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
@@ -24,7 +37,17 @@ module.exports = {
     //     devMode: false
     //   }
     // },
-
+    {
+      resolve:'gatsby-source-graphql',
+      options: {
+          typeName: "DutchiePlus",
+          fieldName: "dutchieplus",
+          url: process.env.DUTCHIE_API_URL,
+          headers: {
+              Authorization: process.env.DUTCHIE_API_KEY
+          }
+      }
+    },
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
@@ -65,7 +88,6 @@ module.exports = {
           placeholder: `dominantColor`,
           quality: 80,
           breakpoints: [780, 1920]
-       
         }
       }
     },

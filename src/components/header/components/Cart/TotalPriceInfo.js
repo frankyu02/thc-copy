@@ -63,7 +63,7 @@ const TotalPriceWrapper = styled.div`
             }
         }
     }
-    @media (max-width: ${__BREAKPOINTS.xxs}px){
+    @media (max-width: ${__BREAKPOINTS.sm}px){
         margin-left: 18px;
         margin-right: 4px;
         margin-top: 0;
@@ -71,6 +71,18 @@ const TotalPriceWrapper = styled.div`
         .priceBreakdown{
             p{
                 font-size: 20px;
+            }
+        }
+    }
+    @media (max-width: ${__BREAKPOINTS.xxs}px){
+        .priceBreakdown{
+            p{
+                font-size: 17px;
+            }
+        }
+        .total{
+            p{
+                font-size: 17px;
             }
         }
     }

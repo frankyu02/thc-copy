@@ -1,20 +1,34 @@
-import * as React from "react"
+import React from 'react';
+import { graphql, useStaticQuery } from "gatsby"
+import MenuHubApollo from '../components/menu/MenuHubApollo';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Seo from "../components/layout/Seo"
-import MenuGrid from "../components/menu/menuHub"
-import products from "../components/menu/dutchie-dumby-data.json"
-const Menu = () => {
 
-  const seo = {
-    title: "Menu",
-    description: "shop cannabis"
-  }
-
-  return (
-    <>
-      <Seo {...seo} />
-      <MenuGrid products={products.data.dutchieplus.menu.products}/>
-    </>
-  )
+export default function Menu(){
+    const data = useStaticQuery(graphql`
+        query {
+            allWpPage(filter: {slug: {eq: "menu"}}) {
+                nodes {
+                    template {
+                        seoMetaTags {
+                            seoMetaTagsDescription
+                            seoMetaTagsJsonShema
+                            seoMetaTagsTitle
+                        }
+                    }
+                }
+            }
+        }
+    `)
+    const seoData = data?.allWpPage?.nodes[0]?.template?.seoMetaTags
+    const seo = {
+        title: seoData?.seoMetaTagsTitle,
+        description: seoData?.seoMetaTagsDescription
+    }
+    return(
+        <>
+        <Seo {...seo} />
+        <MenuHubApollo />
+        </>
+    )
 }
-
-export default Menu

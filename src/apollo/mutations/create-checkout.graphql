@@ -1,0 +1,33 @@
+fragment CheckoutItem on Item {
+  id
+  option
+  product {
+    id
+    image
+    name
+    brand {
+      name
+    }
+    variants {
+      option
+      priceRec
+    }
+  }
+  quantity
+}
+
+fragment Checkout on Checkout {
+  id
+  items {
+    ...CheckoutItem
+  }
+  orderType
+  pricingType
+  redirectUrl
+}
+
+mutation CreateCheckout($orderType: OrderType!, $pricingType: PricingType!, $retailerId: ID!) {
+  createCheckout(orderType: $orderType, pricingType: $pricingType, retailerId: $retailerId) {
+    ...Checkout
+  }
+}

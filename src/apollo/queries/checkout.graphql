@@ -1,0 +1,43 @@
+fragment CheckoutItem on Item {
+  id
+  option
+  product {
+    id
+    image
+    name
+    brand {
+      name
+    }
+    variants {
+      id
+      option
+      priceRec
+    }
+  }
+  quantity
+}
+
+fragment Checkout on Checkout {
+  id
+  items {
+    ...CheckoutItem
+  }
+  orderType
+  pricingType
+  priceSummary {
+    discounts
+    fees
+    mixAndMatch
+    rewards
+    subtotal
+    taxes
+    total
+  }
+  redirectUrl
+}
+
+query Checkout($id: ID!, $retailerId: ID!) {
+  checkout(id: $id, retailerId: $retailerId) {
+    ...Checkout
+  }
+}

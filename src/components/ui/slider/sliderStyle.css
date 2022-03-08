@@ -1,0 +1,12 @@
+/* firefox */
+@-moz-document url-prefix() {
+    .unit.unit{
+        padding: 5px !important; 
+    }
+}
+/* safari */
+@supports (background: -webkit-named-image(i)){
+    .unit.unit{
+        padding: 5px !important;
+    }
+}

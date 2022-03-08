@@ -1,0 +1,63 @@
+fragment hoursDayFragment on HoursDay {
+  active
+  start
+  end
+}
+
+fragment hoursFragment on Hours {
+  Sunday {
+    ...hoursDayFragment
+  }
+  Monday {
+    ...hoursDayFragment
+  }
+  Tuesday {
+    ...hoursDayFragment
+  }
+  Wednesday {
+    ...hoursDayFragment
+  }
+  Thursday {
+    ...hoursDayFragment
+  }
+  Friday {
+    ...hoursDayFragment
+  }
+  Saturday {
+    ...hoursDayFragment
+  }
+}
+
+query Retailer {
+  retailers {
+    id
+    name
+    address
+    hours {
+      delivery {
+        ...hoursFragment
+      }
+      pickup {
+        ...hoursFragment
+      }
+      special {
+        startDate
+        endDate
+        hoursPerDay {
+          date
+          deliveryHours {
+            ...hoursDayFragment
+          }
+          pickupHours {
+            ...hoursDayFragment
+          }
+        }
+        name
+      }
+    }
+    coordinates {
+        latitude
+        longitude
+    }
+  }
+}

@@ -1,0 +1,8 @@
+query Brands($retailerId: ID!) {
+  menu(retailerId: $retailerId) {
+    brands {
+      name
+      id
+    }
+  }
+}

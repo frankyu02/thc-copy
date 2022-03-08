@@ -5,6 +5,7 @@ import { __BREAKPOINTS } from "../../styles/utils/variables";
 const Wrapper = styled.div`
     width: 100%;
     height: 100%;
+    
     p{
         margin: 0;
     }
@@ -12,6 +13,15 @@ const Wrapper = styled.div`
         font-size: 14px;
         font-family: "Integral CF";
         color: #797979;
+    }
+    .icon{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Integral CF";
+        font-size: 20px;
+        height: 100%;
+        width: 100%;
     }
     .selector{
         margin-top: 10px;
@@ -26,6 +36,7 @@ const Wrapper = styled.div`
             width: 24px;
             border: 1px solid #612C8F;
             background: white;
+            color: #612C8F;
             .icon{
                 color: #612C8F;
             }
@@ -34,6 +45,7 @@ const Wrapper = styled.div`
             }
             &:disabled{
                 border: 1px solid #C4C4C4;
+                color: #C4C4C4;
                 .icon{
                     color: #C4C4C4;
                 }
@@ -49,6 +61,14 @@ const Wrapper = styled.div`
     }
     @media (max-width: ${__BREAKPOINTS.sm}px){
         padding: 0 30%;
+        .icon{
+            display: flex;
+            justify-content: center;
+            font-family: "Integral CF";
+            font-size: 30px;
+            height: 100%;
+            width: 100%;
+        }
         .selector{
             button{
                 min-width: 44px;
@@ -89,11 +109,11 @@ export default function QuantitySelector({ quantity, setQuantity }){
             <p className="subtitle">QUANTITY</p>
             <div className="selector">
                 <button onClick={subtract} disabled={quantity <= 1}>
-                    <FiMinus className="icon"/>
+                    <div className="icon">-</div>
                 </button>
                 <p>{quantity}</p>
                 <button onClick={add}>
-                    <FiPlus className="icon" />
+                <div className="icon">+</div>
                 </button>
             </div>
         </Wrapper>

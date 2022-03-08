@@ -17,15 +17,17 @@ const Wrapper = styled.div`
     }
 `;
 
-export default function ProductProfile({ brand, thc, cbd, category, effect }){
-    const effects = effect.join(', ');
+export default function ProductProfile({ brand, thc, cbd, category, strain }){
+    const prettyStrain = strain.replaceAll('_', ' ');
     return(
         <Wrapper>
             <ProfileItem title="BRAND" content={brand.name} />
-            <ProfileItem title="THC" content={thc.formatted} optional=" MG/G" />
-            <ProfileItem title="CBD" content={cbd.formatted} optional=" MG/G" />
-            <ProfileItem title="PLANT TYPE" content={category} />
-            <ProfileItem title="EFFECTS" content={effects} />
+            <ProfileItem title="THC" content={thc.formatted || 0} optional=" MG/G" />
+            <ProfileItem title="CBD" content={cbd.formatted || 0} optional=" MG/G" />
+            <ProfileItem title="Category" content={category} />
+            {strain != "NOT_APPLICABLE" && 
+            <ProfileItem title="Strain Type" content={prettyStrain} />
+            }
         </Wrapper>
     )
 }

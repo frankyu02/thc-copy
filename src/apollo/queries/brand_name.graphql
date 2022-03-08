@@ -1,0 +1,9 @@
+query Brands($retailerId: ID!, $brandId: String) {
+  menu(retailerId: $retailerId, filter: { brandId: $brandId }) {
+    products {
+      brand {
+        name
+      }
+    }
+  }
+}

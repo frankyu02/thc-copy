@@ -41,7 +41,7 @@ const Content = styled.div`
         }
         .content{
             font-size: 15px;
-            left: 30%;
+            left: 15%;
         }
     }
     @media (max-width: 300px){

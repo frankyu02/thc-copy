@@ -4,17 +4,22 @@ import styled from "styled-components";
 import { __BREAKPOINTS } from "../../styles/utils/variables";
 import BrandLogoBanner from "../global_component/BrandLogoBanner/BrandLogoBanner";
 const Wrapper = styled.div`
-    border: 1px solid black;
+    outline: 1px solid black;
     max-width: 454px;
     min-width: 454px;
     height: 501px;
     position: relative;
     background-color: white;
+    display: flex;
+    justify-content: center;
     img{
         position: absolute;
         bottom: 0;
         width: 100%;
         height: auto;
+
+        max-height: 501px;
+        width: auto;
     }
     .brandLogo{
         position: absolute;
@@ -22,6 +27,7 @@ const Wrapper = styled.div`
         height: auto;
         top: 10px;
         left: 20px;
+        z-index: 5;
         p{
             font-size: 11px;
             font-weight: bold;
@@ -32,8 +38,10 @@ const Wrapper = styled.div`
         max-width: 400px;
         height: 450px;
         .img{
-            width: 454px;
+            max-height: 450px;
+            max-width: 454px;
             height: auto;
+            width: auto;
         }
     }
     @media (max-width: ${__BREAKPOINTS.sm}px){

@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { toast } from "react-toastify";
 import styled from "styled-components";
+import { CheckoutContext } from "../../contexts/checkout";
 import { __BREAKPOINTS } from "../../styles/utils/variables";
 import TypeBanner from "../global_component/StrainTypeBanner/TypeBanner";
 import ProductCartButton from "./ProductCartButton";
@@ -11,6 +13,7 @@ const Wrapper = styled.div`
     margin-left: 10%;
     position: relative;
     width: 80%;
+
     .strandType{
         width: 37%;
         height: 57px;
@@ -19,16 +22,16 @@ const Wrapper = styled.div`
     }
     .lowerStrand{
         width: 116px;
-        height: 35px;
+        min-height: 35px;
         display: none;
     }
     .title{
         margin-top: 80px;
-        h2{
+        h1{
             text-transform: uppercase;
-            font-family: "Neumatic Compressed Bold";
+            font-family: "Integral CF";
             font-weight: bolder;
-            font-size: 70px;
+            font-size: 60px;
             
         }
         p{
@@ -54,7 +57,7 @@ const Wrapper = styled.div`
         }
     }
     .details{
-        height: 10%;
+        min-height: 10%;
         display: flex;
         flex-wrap: wrap;
         margin-top: 30px;
@@ -83,11 +86,21 @@ const Wrapper = styled.div`
             }
         }
     }
+    .Toastify__progress-bar {
+    background: var(--darkpurple);
+    }
+    .Toastify__toast-body{
+        color: black;
+        text-align: center;
+        font-family: "MADE Outer Sans Light";
+        font-size: 15px;
+    }
     @media (max-width: ${__BREAKPOINTS.sm}px){
         width: 100%;
         height: auto;
         margin: 0;
         padding: 0 13px;
+        
         .strandType{
             visibility: hidden;
         }
@@ -96,8 +109,8 @@ const Wrapper = styled.div`
         }
         .title{
             margin: 5px;
-            h2{
-                font-size: 60px;
+            h1{
+                font-size: 25px;
             }
         }
         .dosage{
@@ -131,7 +144,7 @@ const Wrapper = styled.div`
     }
 `;
 
-export default function ProductPageDetail({ brand, name, cbd, thc, strainType, variants, cart }){
+export default function ProductPageDetail({ brand, name, cbd, thc, strainType, variants, id }){
     var show = (cbd?.formatted !== "") || (thc?.formatted !== "");
     const [index, setIndex] = useState(0);
     const [quantity, setQuantity] = useState(1);
@@ -141,15 +154,27 @@ export default function ProductPageDetail({ brand, name, cbd, thc, strainType, v
     } else{
         total = variants[index]?.priceRec * quantity;
     }
-
+    console.log('variants ---> ', variants);
+    const {addToCart} = useContext(CheckoutContext);
     total=total.toFixed(2);
+
+    const handleAddToCart = () => {
+        addToCart(id, quantity, variants[index].option)
+        toast("Added Item To Cart!",{
+            position: "bottom-right",
+            autoClose: 5000,
+            newestOnTop: false,
+            closeOnClick: true,
+            pauseOnHover: false
+        })
+    }
     return(
         <Wrapper a={show}>
             <div className="strandType">
                 <TypeBanner text={strainType} size="24px" />
             </div>
             <div className="title">
-                <h2>{name}</h2>
+                <h1>{name}</h1>
                 <p>By {brand.name}</p>
             </div>
             <div className="lowerStrand">
@@ -170,7 +195,7 @@ export default function ProductPageDetail({ brand, name, cbd, thc, strainType, v
                     <p className="total">${total}</p>
                 </div>
             </div>
-            <ProductCartButton />
+            <ProductCartButton func={handleAddToCart}/>
         </Wrapper>
     )
 }
