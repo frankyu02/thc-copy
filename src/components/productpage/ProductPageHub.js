@@ -77,7 +77,7 @@ export default function ProductPageHub({data, loading, error}){
     var seo = {};
     if (data){
         seo = {
-            title: data.product.name,
+            title: data.product.name + " - " + data.product.brand.name,
             description: data.product.description,
             image: data.product.image
         };
