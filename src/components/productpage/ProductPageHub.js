@@ -11,7 +11,7 @@ import Seo from "../layout/Seo";
 const Wrapper = styled.div`
     border: 1px solid black;
     width: 100%;
-    height: 1182px;
+    min-height: 1182px;
     background-color: #F0F0F0;
     display: flex;
     flex-direction: column;
@@ -19,6 +19,7 @@ const Wrapper = styled.div`
     .top{
         width: auto;
         min-height: 60%;
+        height: auto;
         margin-top: 78px;
         padding-left: 8%;
         padding-right: 8%;
@@ -27,6 +28,7 @@ const Wrapper = styled.div`
     .bottom{
         width: auto;
         min-height: 40%;
+        height: auto;
         padding-left: 8%;
         padding-right: 8%;
         display: flex;
@@ -45,6 +47,7 @@ const Wrapper = styled.div`
         height: 100%;
         padding-bottom: 0;
         .top{
+            
             width: 100%;
             height: 100%;
             margin: 0;
@@ -53,6 +56,7 @@ const Wrapper = styled.div`
             padding-right: 1px;
         }
         .bottom{
+            
             width: 100%;
             height: auto;
             flex-direction: column-reverse;

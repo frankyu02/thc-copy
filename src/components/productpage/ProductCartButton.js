@@ -8,7 +8,7 @@ const CartButton = styled.button`
     width: 99%;
     height: 59px;
     margin-left: 1%;
-    position: absolute;
+    position: static;
     margin-top: 25px;
     background: #612C8F;
     color: white;
