@@ -156,9 +156,9 @@ const setEffects = (arr, value, location, remove=false, refetch=null) => {
         if(remove){ 
             const tempIndex = arr.indexOf(value)
             const newarr = arr.splice(tempIndex, 1)
-            refetch({weights: newarr})
+            refetch({effects: newarr})
         }else{
-            refetch({weights: [...arr, value]})
+            refetch({effects: [...arr, value]})
         }
         
     }
