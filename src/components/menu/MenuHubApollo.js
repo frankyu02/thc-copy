@@ -18,7 +18,8 @@ import { useQueryParam, StringParam, ArrayParam, ObjectParam,
 import { navigate } from 'gatsby';
 import { setCategory, setSubcategory, setTHC, 
     setEffects, setOnSale, setStrainType,
-    setWeights, cbd, setCBD, setBrand, setSort, clearAllFilters } from '../../utils/menu/setFilters';
+    setWeights, cbd, setCBD, setBrand, setSort, clearAllFilters,
+    setSearch} from '../../utils/menu/setFilters';
 import { useLocation } from '@reach/router';
 import Breadcrumbs from './options/Breadcrumbs';
 import MenuFilter from './MenuFilter';
@@ -311,6 +312,8 @@ export default function MenuHubApollo(){
                     location={location}
                     clearAllFilters={clearAllFilters}
                     refetch={refetch}
+                    search={search}
+                    setSearch={setSearch}
                 />
             </div>
             <div className={"other"}>

@@ -109,6 +109,7 @@ console.log("allBrands", allBrands)
                     allValues={effectLabels}
                     activeValues={effects}
                     setActiveValues={setEffects}
+                    refetch={refetch}
                 />
             </AccordItem>
         </Wrapper>

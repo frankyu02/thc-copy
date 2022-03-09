@@ -73,7 +73,8 @@ function prettyBrand(branddata){
 
 export default function ActiveFilters({weights, setWeights, onSale, setOnSale, 
     thc, setTHC, cbd, setCBD, strainType, setStrainType, brand, setBrand, 
-    effects, setEffects, location, clearAllFilters, refetch}){
+    effects, setEffects, location, clearAllFilters, refetch,
+    search, setSearch}){
 
     const {loading: loadingBrand, error: errorBrand, data: dataBrand } = useQuery(
     BRAND_NAME_QUERY, 
@@ -109,6 +110,8 @@ export default function ActiveFilters({weights, setWeights, onSale, setOnSale,
                 &&
                 <ClearAll onClick={()=>clearAllFilters()}>clear all filters</ClearAll>
             }
+            {search &&
+            <Block title={"search= " + prettyText(search)} handleClear={() => setSearch("", location)} />}
 
         </Wrapper>
     )

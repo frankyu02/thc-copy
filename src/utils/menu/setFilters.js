@@ -120,7 +120,8 @@ const setOnSale = (value, location) => {
 }
 ////Search 
 const setSearch = (value, location) => {
-    setFilterReplace('search', value, location)
+    navigate("/menu/?search="+value);
+    //setFilterReplace('search', value, location)
 }
 ////Sort
 const setSort = (value, location) => {
@@ -155,9 +156,9 @@ const setEffects = (arr, value, location, remove=false, refetch=null) => {
         if(remove){ 
             const tempIndex = arr.indexOf(value)
             const newarr = arr.splice(tempIndex, 1)
-            refetch({weights: newarr})
+            refetch({effects: newarr})
         }else{
-            refetch({weights: [...arr, value]})
+            refetch({effects: [...arr, value]})
         }
         
     }
