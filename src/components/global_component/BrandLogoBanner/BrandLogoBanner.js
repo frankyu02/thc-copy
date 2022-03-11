@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 export default function BrandLogoBanner({ brand, size }){
     return(
         <>
-            {brand.image ? 
+            {brand?.image ? 
                 <Wrapper>
                     <Img src={brand?.imageUrl} alt={brand?.name} />
                 </Wrapper>
