@@ -5,8 +5,6 @@ import sharepic from '../../assets/images/favicon.png';
 import sharepic2 from '../../../static/images/favicon.png'
 
 const Seo = ({title, description, schemaMarkup, image, location}) => {
-    console.log("SEO - sharepic", sharepic)
-    console.log("SEO - sharepic2", sharepic2)
 
     const sharepicURL = 'https://thcwebsitedevelopment.gatsbyjs.io/images/favicon.png';
     return(
