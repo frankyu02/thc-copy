@@ -55,6 +55,7 @@ module.exports = {
           allSitePage: { nodes: allPages },
           allWpContentNode: { nodes: allWpNodes },
         }) => {
+          console.log("[SITEMAP DEBUG] resolvePages: allPages ", allPages, " allWpNodes: ", allWpNodes)
           const wpNodeMap = allWpNodes.reduce((acc, node) => {
             const { uri } = node
             acc[uri] = node
@@ -63,12 +64,13 @@ module.exports = {
           }, {})
 
           return allPages.map(page => {
+            console.log("[SITEMAP DEBUG] allPages:  page", page, " wpNodeMap[page.path] ", wpNodeMap[page.path])
             return { ...page, ...wpNodeMap[page.path] }
           })
         },
         excludes: ["/products", "/checkouts/*"],
         serialize: ({ path, modifiedGmt }) => {
-          console.log("[SITEMAP DEBUG]",{
+          console.log("[SITEMAP DEBUG] serialize: ",{
             url: path,
             lastmod: modifiedGmt,
           })
