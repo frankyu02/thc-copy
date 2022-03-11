@@ -50,7 +50,7 @@ module.exports = {
           }
         }
       `,
-        resolveSiteUrl: () => siteUrl,
+        resolveSiteUrl: () => SITE_URL,
         resolvePages: ({
           allSitePage: { nodes: allPages },
           allWpContentNode: { nodes: allWpNodes },
