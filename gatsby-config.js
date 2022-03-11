@@ -58,9 +58,11 @@ module.exports = {
           const wpNodeMap = allWpNodes.reduce((acc, node) => {
             const { uri } = node
             acc[uri] = node
-
+          
             return acc
           }, {})
+          
+          console.log("[gatsby-plugin-sitemap DEBUG]: resolvePages wpNodeMap-", wpNodeMap)
 
           return allPages.map(page => {
             return { ...page, ...wpNodeMap[page.path] }
