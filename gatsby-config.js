@@ -67,6 +67,7 @@ module.exports = {
           })
         },
         serialize: ({ path, modifiedGmt }) => {
+          console.log("[gatsby-plugin-sitemap DEBUG]: serialize ", {url: path, lastmod: modifiedGmt})
           return {
             url: path,
             lastmod: modifiedGmt,
