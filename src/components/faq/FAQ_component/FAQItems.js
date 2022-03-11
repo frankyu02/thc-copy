@@ -2,7 +2,6 @@ import React, { useCallback, useRef, useState } from "react";
 import { Answer, ArrowIcon, ArrowWrap, CloseArrow, FaqWrap, Text } from "./FAQStyles";
 
 const FAQItem = ({ data: { question }}) => {
-    console.log({question});
     const answerRef = useRef(null);
     const [closed, setClosed] = useState(true);
     const [height, setHeight] = useState(0);
