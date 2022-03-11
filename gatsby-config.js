@@ -39,16 +39,7 @@ module.exports = {
         }
       `,
         resolveSiteUrl: () => SITE_URL,
-        resolvePages: ({
-          allSitePage: { nodes: allPages },
-        }) => {
-          
-          return allPages.map(page => {
-            // {page.path, "something"}
-            return { ...page }
-          })
-        },
-        serialize: ({ path}) => {
+        serialize: ({ path }) => {
           console.log("[gatsby-plugin-sitemap DEBUG]: serialize ", {url: path, lastmod:null})
           return {
             url: path,
