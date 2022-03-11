@@ -47,7 +47,6 @@ export default function MenuFilter({
 //Stain Type
 //Brand
 //Effects
-console.log("allBrands", allBrands)
     return(
         <Wrapper>
             <AccordItem title={"Format & Size"} defaultOpen={false}>

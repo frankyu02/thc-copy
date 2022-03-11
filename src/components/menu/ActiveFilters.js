@@ -49,7 +49,7 @@ const ClearAll = styled.div`
 
 
 const Block = ({title, handleClear}) => {
-    console.log(title)
+
     return(
         <BlockStyle onClick={handleClear}>{title}<MdClose/></BlockStyle>
     )
@@ -64,7 +64,6 @@ function prettyPotency(potency, obj){
 }
 
 function prettyBrand(branddata){
-    console.log("branddata--->", branddata)
     if (branddata?.menu?.products)
         return branddata?.menu?.products[0]?.brand?.name;
     else

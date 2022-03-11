@@ -228,8 +228,6 @@ export default function MenuHubApollo(){
         //when category changes, increase count
         setCount(count+1);
 
-        console.log("----useEffect hit!----")
-        console.log("useEffect weights-->", weights)
         //Re-Query with new variables
         setMenuVariables(createVariablesObj({
             retailerId: '4c9422c5-d248-415b-8a88-0a75822c50e6',

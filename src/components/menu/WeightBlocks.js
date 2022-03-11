@@ -37,7 +37,6 @@ const Block = styled.div`
 
 export default function WeightBlocks({availWeights, weights, setWeights, 
     location, refetch}){
-    console.log("availWeights---->", availWeights)
     if(availWeights){
         let tempWeights = [];
         availWeights.forEach((weight)=>{

@@ -16,8 +16,6 @@ export default function ProductPage({id, pageContext, location}){
     PRODUCT_QUERY, 
     {variables: {retailerId:"4c9422c5-d248-415b-8a88-0a75822c50e6", id: (id|| backupId)}, fetchPolicy: "network-only" })
     
-    console.log("Product Page - location",location.pathname);
-    
     if (typeof window == "undefined"){
         const tempdata = {
             product: pageContext.product

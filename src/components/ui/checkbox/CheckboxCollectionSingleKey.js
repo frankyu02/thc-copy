@@ -12,7 +12,6 @@ const Read = styled.p`
     }
 `
 export default function CheckboxCollectionSingleKey({location, allValues, activeValue, setActiveValue}){
-    console.log("allValues, ", allValues)
     //setEffects(arr, value, location, remove=false)
     const [brandCount, setBrandCount] = useState(10);
     if (allValues){

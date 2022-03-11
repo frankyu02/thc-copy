@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import SingleCheckbox from './SingleCheckbox'
 
 export default function CheckboxCollectionSingle({location, allValues, activeValue, setActiveValue}){
-    console.log("allValues, ", allValues)
     //setEffects(arr, value, location, remove=false)
     if(allValues){
         return(

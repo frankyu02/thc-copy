@@ -19,7 +19,7 @@ const CartButtonStyle = styled.a`
 
 export default function CartButton({ redirect }){
     var checkoutLink = redirect;
-    console.log(checkoutLink);
+
     return(
         <CartButtonStyle href={checkoutLink} target="_blank">
             Checkout

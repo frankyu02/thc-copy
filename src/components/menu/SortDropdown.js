@@ -78,7 +78,6 @@ const options = [
 ]
 
 export default function SortDropdown({setSort, sort, location}){
-    console.log("SortDropdown, sort-->", sort)
 
     var sortVal = null;
     if (sort){
