@@ -140,7 +140,7 @@ export const createPages = async ({ page, graphql, actions }) => {
   console.log("Building all (Dutchie) Product pages...");
   console.log("products.length: "+ productsQuery.data.dutchieplus.menu.productsCount)
   productsQuery.data.dutchieplus.menu.products.forEach((product) => {
-    console.log(product.slug)
+    //console.log(product.slug)
     createPage({
       path: `/products/${product.id}`,
       component: ProductTemplate,
