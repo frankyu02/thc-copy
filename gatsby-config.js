@@ -36,43 +36,23 @@ module.exports = {
               path
             }
           }
-          allWpContentNode(filter: {nodeType: {in: ["Post", "Page"]}}) {
-            nodes {
-              ... on WpPost {
-                uri
-                modifiedGmt
-              }
-              ... on WpPage {
-                uri
-                modifiedGmt
-              }
-            }
-          }
         }
       `,
         resolveSiteUrl: () => SITE_URL,
         resolvePages: ({
           allSitePage: { nodes: allPages },
-          allWpContentNode: { nodes: allWpNodes },
         }) => {
-          const wpNodeMap = allWpNodes.reduce((acc, node) => {
-            const { uri } = node
-            acc[uri] = node
           
-            return acc
-          }, {})
-          
-          console.log("[gatsby-plugin-sitemap DEBUG]: resolvePages wpNodeMap-", wpNodeMap)
-
           return allPages.map(page => {
-            return { ...page, ...wpNodeMap[page.path] }
+            // {page.path, "something"}
+            return { ...page }
           })
         },
-        serialize: ({ path, modifiedGmt }) => {
-          console.log("[gatsby-plugin-sitemap DEBUG]: serialize ", {url: path, lastmod: modifiedGmt})
+        serialize: ({ path}) => {
+          console.log("[gatsby-plugin-sitemap DEBUG]: serialize ", {url: path, lastmod:null})
           return {
             url: path,
-            lastmod: modifiedGmt,
+            lastmod: null,
           }
         },
       },
