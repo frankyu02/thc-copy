@@ -154,7 +154,7 @@ export default function ProductPageDetail({ brand, name, cbd, thc, strainType, v
     } else{
         total = variants[index]?.priceRec * quantity;
     }
-    console.log('variants ---> ', variants);
+
     const {addToCart} = useContext(CheckoutContext);
     total=total.toFixed(2);
 

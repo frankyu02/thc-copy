@@ -37,6 +37,7 @@ module.exports = {
     //     devMode: false
     //   }
     // },
+    `gatsby-plugin-sitemap`,
     {
       resolve:'gatsby-source-graphql',
       options: {
