@@ -36,53 +36,32 @@ module.exports = {
               path
             }
           }
-          allWpContentNode(filter: {nodeType: {in: ["Post", "Page"]}}) {
-            nodes {
-              ... on WpPost {
-                uri
-                modifiedGmt
-              }
-              ... on WpPage {
-                uri
-                modifiedGmt
-              }
-            }
-          }
         }
       `,
         resolveSiteUrl: () => SITE_URL,
         resolvePages: ({
           allSitePage: { nodes: allPages },
-          allWpContentNode: { nodes: allWpNodes },
           }) => {
-            console.log("[SITEMAP DEBUG] resolvePages: allPages ", allPages, " allWpNodes: ", allWpNodes)
+            console.log("[SITEMAP DEBUG] resolvePages: allPages ", allPages)
             
-            const wpNodeMap = allWpNodes.reduce((acc, node) => {
-              const { uri } = node
-              acc[uri] = node
-
-              return acc
-            }, {})
-
-            console.log("[SITEMAP DEBUG] resolvePages: wpNodeMap ", wpNodeMap)
-
             return allPages.map(page => {
-              console.log("[SITEMAP DEBUG] allPages:  page", page, " wpNodeMap[page.path] ", wpNodeMap[page.path])
-              return { ...page, ...wpNodeMap[page.path] }
+              console.log("[SITEMAP DEBUG] allPages:  path", page)
+              return page.path
             })
         },
-        serialize: ({ path, modifiedGmt }) => {
-          console.log("[SITEMAP DEBUG] serialize: ",{
-            url: path,
-            lastmod: modifiedGmt,
-          })
-          if (url && modifiedGmt){
-            return {
-              url: path,
-              lastmod: modifiedGmt,
-            }
-          }
-        },
+        exclude: ["/products, products/*"],
+      //   serialize: ({ path, modifiedGmt }) => {
+      //     console.log("[SITEMAP DEBUG] serialize: ",{
+      //       url: path,
+      //       lastmod: modifiedGmt,
+      //     })
+      //     if (path && modifiedGmt){
+      //       return {
+      //         url: path,
+      //         lastmod: modifiedGmt,
+      //       }
+      //     }
+      //   },
       },
     },
     "gatsby-plugin-use-query-params",
