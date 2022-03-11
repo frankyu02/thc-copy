@@ -77,7 +77,7 @@ export default function ProductPageHub({data, loading, error}){
     var seo = {};
     if (data){
         seo = {
-            title: data.product.name + " - " + data.product.brand.name,
+            title: data.product.name + " - " + data.product?.brand?.name,
             description: data.product.description,
             image: data.product.image
         };
@@ -93,7 +93,7 @@ export default function ProductPageHub({data, loading, error}){
                     <ProductPageImage 
                         imgurl={data.product.image} 
                         name={data.product.name} 
-                        brand={data.product.brand}
+                        brand={data.product?.brand}
                     />
                     <ProductPageDetail 
                         brand={data.product.brand}

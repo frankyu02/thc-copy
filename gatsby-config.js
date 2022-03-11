@@ -29,26 +29,26 @@ module.exports = {
     {
       resolve: "gatsby-plugin-sitemap",
       options: {
-        query: `
-        {
-          allSitePage {
-            nodes {
-              path
-            }
-          }
-        }
-      `,
+      //   query: `
+      //   {
+      //     allSitePage {
+      //       nodes {
+      //         path
+      //       }
+      //     }
+      //   }
+      // `,
         resolveSiteUrl: () => SITE_URL,
-        resolvePages: ({
-          allSitePage: { nodes: allPages },
-          }) => {
-            console.log("[SITEMAP DEBUG] resolvePages: allPages ", allPages)
+        // resolvePages: ({
+        //   allSitePage: { nodes: allPages },
+        //   }) => {
+        //     console.log("[SITEMAP DEBUG] resolvePages: allPages ", allPages)
             
-            return allPages.map(page => {
-              console.log("[SITEMAP DEBUG] allPages:  path", page)
-              return page.path
-            })
-        },
+        //     return allPages.map(page => {
+        //       console.log("[SITEMAP DEBUG] allPages:  path", page)
+        //       return page.path
+        //     })
+        // },
         exclude: ["/products, products/*"],
       //   serialize: ({ path, modifiedGmt }) => {
       //     console.log("[SITEMAP DEBUG] serialize: ",{

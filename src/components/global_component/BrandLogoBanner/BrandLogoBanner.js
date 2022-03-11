@@ -18,11 +18,11 @@ export default function BrandLogoBanner({ brand, size }){
         <>
             {brand.image ? 
                 <Wrapper>
-                    <Img src={brand.imageUrl} alt={brand.name} />
+                    <Img src={brand?.imageUrl} alt={brand?.name} />
                 </Wrapper>
             :
                 <Wrapper fontsize={size}>
-                    <p>{brand.name}</p>
+                    <p>{brand?.name}</p>
                 </Wrapper>
             }
         </>
