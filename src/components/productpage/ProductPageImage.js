@@ -58,9 +58,10 @@ const Wrapper = styled.div`
 export default function ProductPageImage({ imgurl, name, brand }){
     return(
         <Wrapper>
+            {brand &&
             <div className="brandLogo">
                 <BrandLogoBanner brand={brand} />
-            </div>
+            </div>}
             <Img src={imgurl} alt={name} />
         </Wrapper>
     )

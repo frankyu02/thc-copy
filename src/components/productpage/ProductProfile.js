@@ -21,7 +21,7 @@ export default function ProductProfile({ brand, thc, cbd, category, strain }){
     const prettyStrain = strain.replaceAll('_', ' ');
     return(
         <Wrapper>
-            <ProfileItem title="BRAND" content={brand.name} />
+            {brand && <ProfileItem title="BRAND" content={brand.name} />}
             <ProfileItem title="THC" content={thc.formatted || 0} optional=" MG/G" />
             <ProfileItem title="CBD" content={cbd.formatted || 0} optional=" MG/G" />
             <ProfileItem title="Category" content={category} />

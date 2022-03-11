@@ -175,7 +175,7 @@ export default function ProductPageDetail({ brand, name, cbd, thc, strainType, v
             </div>
             <div className="title">
                 <h1>{name}</h1>
-                <p>By {brand.name}</p>
+                {brand && <p>By {brand.name}</p>}
             </div>
             <div className="lowerStrand">
                 <TypeBanner text={strainType} size="14px" />
