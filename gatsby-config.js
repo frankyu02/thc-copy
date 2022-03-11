@@ -26,28 +26,59 @@ module.exports = {
       resolve: `gatsby-plugin-apollo`,
       options: apolloConfig
     },
-    {
-      resolve: "gatsby-plugin-sitemap",
-      options: {
-        query: `
-        {
-          allSitePage {
-            nodes {
-              path
-            }
-          }
-        }
-      `,
-        resolveSiteUrl: () => SITE_URL,
-        serialize: ({ path }) => {
-          console.log("[gatsby-plugin-sitemap DEBUG]: serialize ", {url: path, lastmod:null})
-          return {
-            url: path,
-            lastmod: null,
-          }
-        },
-      },
-    },
+    // {
+    //   resolve: "gatsby-plugin-sitemap",
+    //   options: {
+    //     query: `
+    //     {
+    //       allSitePage {
+    //         nodes {
+    //           path
+    //         }
+    //       }
+    //       allWpContentNode(filter: {nodeType: {in: ["Post", "Page"]}}) {
+    //         nodes {
+    //           ... on WpPost {
+    //             uri
+    //             modifiedGmt
+    //           }
+    //           ... on WpPage {
+    //             uri
+    //             modifiedGmt
+    //           }
+    //         }
+    //       }
+    //     }
+    //   `,
+    //     resolveSiteUrl: () => SITE_URL,
+    //     resolvePages: ({
+    //       allSitePage: { nodes: allPages },
+    //       allWpContentNode: { nodes: allWpNodes },
+    //     }) => {
+    //       const wpNodeMap = allWpNodes.reduce((acc, node) => {
+    //         const { uri } = node
+    //         acc[uri] = node
+          
+    //         return acc
+    //       }, {})
+          
+    //       console.log("[gatsby-plugin-sitemap DEBUG]: resolvePages wpNodeMap-", wpNodeMap)
+
+    //       return allPages.map(page => {
+    //         // {page.path, "something"}
+    //         return { ...page, ...wpNodeMap[page.path] }
+    //       })
+    //     },
+    //     serialize: ({ path, modifiedGmt }) => {
+    //       console.log("[gatsby-plugin-sitemap DEBUG]: serialize ", {url: path, lastmod: modifiedGmt})
+    //       return {
+    //         url: path,
+    //         lastmod: modifiedGmt,
+    //       }
+    //     },
+    //   },
+    // },
+    "gatsby-plugin-sitemap",
     "gatsby-plugin-use-query-params",
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
