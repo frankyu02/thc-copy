@@ -66,6 +66,7 @@ module.exports = {
             return { ...page, ...wpNodeMap[page.path] }
           })
         },
+        excludes: ["/products"],
         serialize: ({ path, modifiedGmt }) => {
           return {
             url: path,
