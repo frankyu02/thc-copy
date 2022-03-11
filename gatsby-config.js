@@ -68,6 +68,10 @@ module.exports = {
         },
         excludes: ["/products"],
         serialize: ({ path, modifiedGmt }) => {
+          console.log("[SITEMAP DEBUG]",{
+            url: path,
+            lastmod: modifiedGmt,
+          })
           return {
             url: path,
             lastmod: modifiedGmt,
