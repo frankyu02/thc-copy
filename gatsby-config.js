@@ -72,9 +72,11 @@ module.exports = {
             url: path,
             lastmod: modifiedGmt,
           })
-          return {
-            url: path,
-            lastmod: modifiedGmt,
+          if (url && modifiedGmt){
+            return {
+              url: path,
+              lastmod: modifiedGmt,
+            }
           }
         },
       },
