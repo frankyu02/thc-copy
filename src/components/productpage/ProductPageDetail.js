@@ -48,7 +48,7 @@ const Wrapper = styled.div`
         margin-top: 30px;
         padding: 10px 0;
         visibility: ${props => props.a ? 'visible' : 'hidden'};
-        
+        height: ${props => props.a ? 'auto' : '0'};
         p{
             font-family: "MADE Outer Sans Light";
             font-weight: bold;
