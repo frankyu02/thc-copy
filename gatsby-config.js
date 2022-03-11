@@ -26,6 +26,7 @@ module.exports = {
       resolve: `gatsby-plugin-apollo`,
       options: apolloConfig
     },
+    `gatsby-plugin-sitemap`,
     "gatsby-plugin-use-query-params",
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
