@@ -66,7 +66,7 @@ module.exports = {
             return { ...page, ...wpNodeMap[page.path] }
           })
         },
-        excludes: ["/products"],
+        excludes: ["/products", "/checkouts/*"],
         serialize: ({ path, modifiedGmt }) => {
           console.log("[SITEMAP DEBUG]",{
             url: path,
