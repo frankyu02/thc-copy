@@ -1,0 +1,13 @@
+#import '../fragments/menu-product.graphql'
+
+query Menu($custom_name: String, $retailerId: ID!) {
+  menu(
+    retailerId: $retailerId
+    filter: { menuSection: { name: $custom_name, type: CUSTOM_SECTION } }
+  ) {
+    products {
+      ...MenuProduct
+    }
+    productsCount
+  }
+}

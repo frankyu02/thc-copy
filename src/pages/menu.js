@@ -28,7 +28,7 @@ export default function Menu(){
     return(
         <>
         <Seo {...seo} />
-        <MenuHubApollo />
+            <MenuHubApollo />
         </>
     )
 }
