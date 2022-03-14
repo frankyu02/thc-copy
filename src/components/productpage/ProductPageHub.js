@@ -7,6 +7,7 @@ import ProductPageImage from "./ProductPageImage";
 import ProductProfile from "./ProductProfile";
 import Loader from '../menu/other/Loader';
 import Seo from "../layout/Seo";
+import { productSchemaMaker } from '../../utils/menu/productSchema';
 
 const Wrapper = styled.div`
     border: 1px solid black;
@@ -76,10 +77,12 @@ const AnimationLoader = styled.div`
 export default function ProductPageHub({data, loading, error}){
     var seo = {};
     if (data){
+        const schema = productSchemaMaker(data.product, process.env.SITE_URL)
         seo = {
             title: data.product.name + (data.product.brand && " - " + data.product?.brand?.name),
             description: data.product.description,
-            image: data.product.image
+            image: data.product.image,
+            schema: schema
         };
     }
 
