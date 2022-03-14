@@ -26,6 +26,42 @@ module.exports = {
       resolve: `gatsby-plugin-apollo`,
       options: apolloConfig
     },
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        query: `
+        {
+          site {
+            siteMetadata {
+              siteUrl
+            }
+          }
+          allSitePage {
+            edges {
+              node {
+                path
+              }
+            }
+          }
+        }
+      `,
+        serialize: ({ site, allSitePage }) => {
+          console.log("[gatsby-plugin-sitemap DEBUG]: serialize ", allSitePage)
+          let pages = [];
+          allSitePage.edges.map(edge => {
+            console.log("[gatsby-plugin-sitemap DEBUG]: serialize ", SITE_URL + edge.node.path)
+            pages.push({
+              url: SITE_URL + edge.node.path,
+              changefreq: `daily`,
+              priority: 0.7,
+            })
+          })
+
+          return pages;
+        },
+      },
+    },
+    "gatsby-plugin-sitemap",
     "gatsby-plugin-use-query-params",
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
