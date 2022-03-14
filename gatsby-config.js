@@ -39,7 +39,7 @@ module.exports = {
         }
       `,
         serialize: ({ allSitePage }) => {
-          
+          console.log("[gatsby-plugin-sitemap DEBUG]: serialize ", allSitePage)
           let pages = [];
           allSitePage.edges.map(edge => {
             console.log("[gatsby-plugin-sitemap DEBUG]: serialize ", SITE_URL + edge.node.path)
