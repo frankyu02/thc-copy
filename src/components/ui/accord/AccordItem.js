@@ -71,10 +71,15 @@ export default function AccordItem({title, defaultOpen, overflowAuto, children, 
         setOpen(defaultOpen)
     },[defaultOpen])
 
+    const [client, setClient] = useState(false)
+    useEffect(() => {
+        setClient(true)
+    }, [])
+
     return(
         <Wrapper>
         {title && <Title onClick={()=>{setOpen(!open)}} data-cy={id}>{title}<div className='sign'>{open ? "-" : "+"}</div></Title>}
-        <Content className={defaultOpen ? "open" : "close"} over={overflowAuto}>
+        <Content className={(open && client) ? "open" : "close"} over={overflowAuto}>
             {children}
         </Content>
         </Wrapper>
