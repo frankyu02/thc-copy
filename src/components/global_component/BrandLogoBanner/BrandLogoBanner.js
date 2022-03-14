@@ -16,15 +16,15 @@ const Wrapper = styled.div`
 export default function BrandLogoBanner({ brand, size }){
     return(
         <>
-            {brand.imageUrl ? 
+            {/* {brand.imageUrl ? 
                 <Wrapper>
                     <Img src={brand?.imageUrl} alt={brand?.name} />
                 </Wrapper>
-            :
+            : */}
                 <Wrapper fontsize={size}>
                     <p>{brand?.name}</p>
                 </Wrapper>
-            }
+            
         </>
     )
 }
