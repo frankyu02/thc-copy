@@ -46,7 +46,7 @@ export default function SingleCheckbox({checkState, setCheckState,
     return(
         <Wrapper data-cy={id.replace(/\s+/g, '').split('.').join("")}>
             <Box 
-            className={checkState+0 ? "on" : "off"}
+            className={checkState ? "on" : "off"}
             onClick={()=>{setCheckState(!checkState+0, location)}}/>
             <Label>{prettyLabel}</Label>
         </Wrapper>

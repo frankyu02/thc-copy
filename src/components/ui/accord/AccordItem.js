@@ -28,16 +28,11 @@ const Content = styled.div`
     }
     padding-left: 0px;
     padding-right: 0px;
-    &.open{
-        max-height: 800px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-    &.closed{
-        max-height: 0px;
-        padding-top: 0px;
-        padding-bottom: 0px;
-    }
+
+   
+        max-height: ${props => props.open ? "800px" : "0px"};
+        padding-top:  ${props => props.open ? "10px" : "0px"};
+        padding-bottom:  ${props => props.open ? "10px" : "0px"};
 `;
 
 const Title = styled.div`
@@ -63,7 +58,7 @@ export default function AccordItem({title, defaultOpen, overflowAuto, children, 
     return(
         <Wrapper>
         {title && <Title onClick={()=>{setOpen(!open)}} data-cy={id}>{title}<div className='sign'>{open ? "-" : "+"}</div></Title>}
-        <Content className={open ? 'open' : 'closed'} over={overflowAuto}>
+        <Content open={open} over={overflowAuto}>
             {children}
         </Content>
         </Wrapper>
