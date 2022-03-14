@@ -49,7 +49,7 @@ export default function MenuFilter({
 //Effects
     return(
         <Wrapper>
-            <AccordItem title={"Format & Size"} defaultOpen={false}>
+            <AccordItem title={"Format & Size"} defaultOpen={false} id="WeightBlock">
                 <WeightBlocks 
                     availWeights={availWeights}
                     weights={weights}
@@ -58,15 +58,16 @@ export default function MenuFilter({
                     refetch={refetch}
                 />
             </AccordItem>
-            <AccordItem defaultOpen={true}>
+            <AccordItem defaultOpen={true} id="SaleBlock">
                 <SingleCheckbox 
+                    id="sale"
                     checkState={onSale}
                     setCheckState={setOnSale}
                     label={"On Sale"}
                     location={location}
                 />
             </AccordItem>
-            <AccordItem title={"THC"} defaultOpen={true}>
+            <AccordItem title={"THC"} defaultOpen={true} id="THCBlock">
                 <Slider
                     potency={thc}
                     setPotency={setTHC}
@@ -74,9 +75,10 @@ export default function MenuFilter({
                     reset={reset}
                     setReset={setReset}
                     category={category}
+                    id="THC"
                 />
             </AccordItem>
-            <AccordItem title={"CBD"} defaultOpen={true}>
+            <AccordItem title={"CBD"} defaultOpen={true} id="CBDBlock">
                 <Slider
                     potency={cbd}
                     setPotency={setCBD}
@@ -84,9 +86,10 @@ export default function MenuFilter({
                     reset={reset}
                     setReset={setReset}
                     category={category}
+                    id="CBD"
                 />
             </AccordItem>
-            <AccordItem title={"Strain Type"} defaultOpen={true}>
+            <AccordItem title={"Strain Type"} defaultOpen={true} id="StrainBlock">
                 <CheckboxCollectionSingle
                     location={location}
                     allValues={strainTypeLabels}
@@ -94,7 +97,7 @@ export default function MenuFilter({
                     setActiveValue={setStrainType}
                 />
             </AccordItem>
-            <AccordItem title={"Brand"} defaultOpen={false} overflowAuto={true}>
+            <AccordItem title={"Brand"} defaultOpen={(brand ? true : false)} overflowAuto={true} id="BrandBlock">
                 <CheckboxCollectionSingleKey
                     location={location}
                     allValues={allBrands}
@@ -102,7 +105,7 @@ export default function MenuFilter({
                     setActiveValue={setBrand}
                 />
             </AccordItem>
-            <AccordItem title={"Effects"} defaultOpen={false}>
+            <AccordItem title={"Effects"} defaultOpen={false} id="EffectsBlock">
                 <CheckboxCollection
                     location={location}
                     allValues={effectLabels}

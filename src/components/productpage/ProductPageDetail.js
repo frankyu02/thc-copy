@@ -79,6 +79,12 @@ const Wrapper = styled.div`
                 font-family: "Integral CF";
                 color: #797979;
             }
+            .specialPrice{
+                font-size: 14px;
+                position: absolute;
+                text-decoration: line-through;
+                font-family: "MADE Outer Sans Light";
+            }
             .total{
                 margin-top: 17.3px;
                 font-size: 20px;
@@ -136,7 +142,7 @@ const Wrapper = styled.div`
                     font-size: 14px;
                 }
                 .total{
-                    margin: 0;
+                    margin-top: 10px;
                     font-size: 30px;
                 }
             }
@@ -192,6 +198,8 @@ export default function ProductPageDetail({ brand, name, cbd, thc, strainType, v
                 </div>
                 <div className="price">
                     <p className="subtitle">PRICE</p>
+                    {variants[index]?.specialPriceRec &&
+                    <p className="specialPrice">${(variants[index]?.priceRec * quantity).toFixed(2)}</p>}
                     <p className="total">${total}</p>
                 </div>
             </div>

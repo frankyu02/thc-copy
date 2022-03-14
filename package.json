@@ -53,7 +53,7 @@
     "use-query-params": "^1.2.3"
   },
   "devDependencies": {
-    "cypress": "^9.5.0",
+    "cypress": "^9.5.1",
     "cypress-localstorage-commands": "^1.6.1",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.26",
     "prettier": "^2.5.1"

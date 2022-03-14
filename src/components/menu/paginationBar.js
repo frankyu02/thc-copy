@@ -81,11 +81,11 @@ const PaginationBar = ({setPageOffset, numberOfProducts, productsPerPage, locati
     }
     return (
         <>
-        <Wrapper className="paginationDiv">
+        <Wrapper data-cy="paginationDiv">
             <MoveButton>
                 <button disabled={parseInt(page) === 1} 
                 onClick={() => {setPageNumber((parseInt(page) - 1), location)}}
-                className="paginationBack">
+                data-cy="paginationBack">
                     <MdArrowBackIos/>
                 </button>
             </MoveButton>
@@ -97,10 +97,11 @@ const PaginationBar = ({setPageOffset, numberOfProducts, productsPerPage, locati
                         setPageNumber(1, location)
                     }}>
                         1
-                    </PageButton>    
+                    </PageButton>
+                    {(parseInt(page) > 3 &&     
                     <TransitionButton >
                         ...
-                    </TransitionButton>
+                    </TransitionButton>)}
                 </>
                 }
                 {pageStart != 1 && parseInt(page) <= totalPages - pageMax + 1 && 
@@ -125,7 +126,7 @@ const PaginationBar = ({setPageOffset, numberOfProducts, productsPerPage, locati
                         <TransitionButton>
                             ...
                         </TransitionButton> 
-                        <PageButton key={totalPages} onClick={() => {
+                        <PageButton key={totalPages} data-cy="ToLastPage" onClick={() => {
                             setPageNumber(totalPages, location)
                         }}>
                             {totalPages}          
@@ -137,7 +138,7 @@ const PaginationBar = ({setPageOffset, numberOfProducts, productsPerPage, locati
             <MoveButton>
                 <button disabled={parseInt(page) === totalPages} 
                 onClick={() => {setPageNumber((parseInt(page) + 1), location)}}
-                className="paginationNext">
+                data-cy="paginationNext">
                     <MdArrowForwardIos/>
                 </button>
             </MoveButton>

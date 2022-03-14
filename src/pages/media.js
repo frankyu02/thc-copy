@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { SmallHero } from "../components/global_component/small_hero/SmallHero"
 import { LargeBanner } from "../components/global_component/large_banner/LargeBanner"
 import { getImage, withArtDirection } from "gatsby-plugin-image"
+import SocialGrid from "../components/Social/socialGrid/socialGrid"
 import Seo from "../components/layout/Seo"
 
 const ReviewsPage = () => {
@@ -77,6 +78,7 @@ const ReviewsPage = () => {
 
       <SmallHero banner={smallBanner?.socialBannerImg?.localFile?.childImageSharp?.gatsbyImageData}
                  title={smallBanner?.socialBannerTitile} />
+      <SocialGrid/>
       <LargeBanner images={images} butonLargeBanner={largeBanner?.socialLargeOrderBannerButton}
                    textLargeBanner={largeBanner?.socialLargeOrderBannerText}
                    titleLargeBanner={largeBanner?.socialLargeOrderBannerTitle} />

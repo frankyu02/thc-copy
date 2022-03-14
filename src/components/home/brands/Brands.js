@@ -1,9 +1,10 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { BrandsStyled } from "./Brands.styled"
 import { MainButton } from "../../ui/main_button/MainButton"
 import { Fade } from "react-awesome-reveal"
+
 
 export const Brands = ({ lazyLoading }) => {
   const data = useStaticQuery(graphql`
@@ -26,6 +27,7 @@ export const Brands = ({ lazyLoading }) => {
                       }
                       link
                     }
+                    brandLink
                   }
                   brandsSubTitle
                   brandsTitle
@@ -46,10 +48,10 @@ export const Brands = ({ lazyLoading }) => {
       <div className={"brand-grid"}>
         {brands?.brandsLogo?.map?.((item, key) => (
           <div key={key} className={"brand-item"}>
-            <Fade><div>
+            <Fade><Link href={item.brandLink}>
             <GatsbyImage image={getImage(item?.brandsLogoItem?.localFile?.childrenImageSharp[0]?.gatsbyImageData)}
-                        alt={"brands"} />
-            </div></Fade>
+                         alt={"brands"} />
+            </Link></Fade>
           </div>
         ))}
       </div>

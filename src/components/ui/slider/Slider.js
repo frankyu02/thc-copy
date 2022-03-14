@@ -40,7 +40,7 @@ const unitIcon = {
     MILLIGRAMS_PER_ML: "mg/mg"
 }
 
-export default function Slider({potency, setPotency, location, reset, setReset, category }){
+export default function Slider({potency, setPotency, unit="PERCENTAGE", location, reset, setReset, id }){
     const [minMax, setMinMax] = useState([0, 50])
 
     // useEffect(()=>{
@@ -93,6 +93,7 @@ export default function Slider({potency, setPotency, location, reset, setReset, 
                             });
                         }
                     }}
+                    data-cy={(id) + '-left'}
                 />
                 <div className="unit">{unitIcon[unit]}</div>
                 </div>
@@ -115,6 +116,7 @@ export default function Slider({potency, setPotency, location, reset, setReset, 
                             });
                         }
                     }}
+                    data-cy={(id) + '-right'}
                 />
                 <div className="unit">{unitIcon[unit]}</div>
                 </div>

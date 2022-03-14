@@ -14,16 +14,20 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     img{
-        /* width: auto; */
+        position: absolute;
+        bottom: 0;
+        width: auto;
         max-width: 100%;
-        /* height: 100%; */
+        height: 100%;
         max-height: 100%;
         right: 0;
     }
     .brandLogo{
         position: absolute;
-        width: 99px;
+        width: 100px;
+        min-height: 100px;
         height: auto;
+        z-index: 10;
         top: 10px;
         left: 20px;
         z-index: 5;
@@ -55,6 +59,7 @@ const Wrapper = styled.div`
     }
 `;
 export default function ProductPageImage({ imgurl, name, brand }){
+    console.log('BRAND.IMAGE--->', brand.imageUrl);
     return(
         <Wrapper>
             {brand &&

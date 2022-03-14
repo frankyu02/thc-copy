@@ -315,11 +315,11 @@ export default function MenuHubApollo(){
                 />
             </div>
             <div className={"other"}>
-                <ProductCount>
+                <ProductCount data-cy="ProductCount">
                     {data?.menu.productsCount ? data.menu.productsCount : 0} PRODUCTS
                 </ProductCount>
                 <div className='sort'><SortDropdown sort={sort} setSort={setSort} location={location}/></div>
-                <div className='filtersButton' onClick={()=>{setMobileMenuOpen(true)}}><GoSettings/>FILTERS</div>
+                <div className='filtersButton' data-cy="filtersButton" onClick={()=>{setMobileMenuOpen(true)}}><GoSettings/>FILTERS</div>
             </div>
         </TopOptions>
         <LayoutWrapper>
@@ -375,7 +375,7 @@ export default function MenuHubApollo(){
             page={page}
             />
             :
-            <NoProduct />
+            <NoProduct clear={clearAllFilters}/>
             )
             :
             (
@@ -389,7 +389,7 @@ export default function MenuHubApollo(){
         }
         </LayoutWrapper>
         </div>
-        <BackgroundMobileFilter open={mobileMenuOpen} onClick={()=>{setMobileMenuOpen(false)}} className="MobileBackground"/>
+        <BackgroundMobileFilter open={mobileMenuOpen} onClick={()=>{setMobileMenuOpen(false)}} data-cy="MobileBackground"/>
         </>
     )
 }
