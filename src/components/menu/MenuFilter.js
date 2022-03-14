@@ -49,7 +49,7 @@ export default function MenuFilter({
 //Effects
     return(
         <Wrapper>
-            <AccordItem title={"Format & Size"} defaultOpen={false} id="WeightBlock">
+            <AccordItem title={"Format & Size"} defaultOpen={weights ? true : false} id="WeightBlock">
                 <WeightBlocks 
                     availWeights={availWeights}
                     weights={weights}
@@ -105,7 +105,7 @@ export default function MenuFilter({
                     setActiveValue={setBrand}
                 />
             </AccordItem>
-            <AccordItem title={"Effects"} defaultOpen={false} id="EffectsBlock">
+            <AccordItem title={"Effects"} defaultOpen={(effects ? true : false)} id="EffectsBlock">
                 <CheckboxCollection
                     location={location}
                     allValues={effectLabels}
