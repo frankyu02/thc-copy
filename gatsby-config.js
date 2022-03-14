@@ -38,35 +38,19 @@ module.exports = {
           }
         }
       `,
-        exclude: ["blogs/*", "education/*", "/products", "/products/"],
-        resolveSiteUrl: () => SITE_URL,
-        resolvePages: ({
-          allSitePage: { nodes: allPages },
-          // allWpContentNode: { nodes: allWpNodes },
-        }) => {
-          // const wpNodeMap = allWpNodes.reduce((acc, node) => {
-          //   const { uri } = node
-          //   acc[uri] = node
+        serialize: ({ allSitePage }) => {
           
-          //   return acc
-          // }, {})
-          
-          // console.log("[gatsby-plugin-sitemap DEBUG]: resolvePages wpNodeMap-", wpNodeMap)
-
-          return allPages.map(page => {
-            // {page.path, "something"}
-            //...wpNodeMap[page.path] 
-            return { ...page }
+          let pages = [];
+          allSitePage.edges.map(edge => {
+            console.log("[gatsby-plugin-sitemap DEBUG]: serialize ", SITE_URL + edge.node.path)
+            pages.push({
+              url: SITE_URL + edge.node.path,
+              changefreq: `daily`,
+              priority: 0.7,
+            })
           })
-        },
-        serialize: ({ path}) => {
-          //, modifiedGmt 
-          //, lastmod: modifiedGmt
-          //lastmod: modifiedGmt,
-          console.log("[gatsby-plugin-sitemap DEBUG]: serialize ", {url: path})
-          return {
-            url: path
-          }
+
+          return pages;
         },
       },
     },
