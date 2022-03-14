@@ -61,7 +61,7 @@ export default function MenuFilter({
             <AccordItem defaultOpen={true} id="SaleBlock">
                 <SingleCheckbox 
                     id="sale"
-                    checkState={onSale}
+                    checkState={(onSale && onSale==1)}
                     setCheckState={setOnSale}
                     label={"On Sale"}
                     location={location}
