@@ -73,10 +73,10 @@ export const Reviews = styled.div`
     }
     .review{
         p{
-            font-family: "MADE Outer Sans"
+            font-family: "MADE Outer Sans";
             font-size: 18px;
             color: black;
-            font-weight: bold;
+            font-weight: bolder;
             text-align: center;
         }
     }
@@ -86,7 +86,7 @@ export const Reviews = styled.div`
         p{
             font-family: "Integral CF";
             font-size: 25px;
-            font-weight: bold;
+            font-weight: bolder;
             color: #612C8F;
         }
     }
