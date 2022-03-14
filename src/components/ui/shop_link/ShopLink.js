@@ -29,7 +29,7 @@ export const ShopLink = () => {
   const shopLogo = data?.wp?.thcwebsiteGeneralOption?.shoplink?.shopLogo?.localFile?.childImageSharp?.gatsbyImageData;
   return (
     <LinkStyles>
-      <UniversalLink aria-label={"link to menu"} to={MENU_LINK}>
+      <UniversalLink aria-label={"link to menu"} to={'/featured-menu'}>
         <GatsbyImage image={shopLogo} imgClassName="gatsby-img"/>
       </UniversalLink>
     </LinkStyles>
