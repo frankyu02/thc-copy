@@ -49,8 +49,8 @@ export const HeroHome = () => {
         document.getElementsByClassName("poster")[0].style.display = 'none';
         document.getElementsByClassName("background")[0].style.display = 'block';
     }
-    const img = getImage(banner).sources[0].srcSet
-    console.log('IMAGE BANNER', getImage(banner))
+    // const img = getImage(banner).sources[0].srcSet
+    // console.log('IMAGE BANNER', getImage(banner))
     return (
         <HeroStyled >
         <div className="container">
