@@ -57,14 +57,14 @@ export default function FeaturedMenuHub(){
     return(
         <>
             <Seo 
-                title={"Featured Menu - THC Cananda"}
+                title={"Curated Menu - THC Cananda"}
                 description={`Same day legal cannabis delivery and pick-up in Vancouver. 
                 Browse the widest selection of weed in the city and reserve for pick-up today. 
                 We carry all types of products including sativa, hybrid and indica flower, 
                 concentrates, pre-rolls, edibles, beverages, CBD oil and CBD-dominant product`}
             />
             <PageTitle>
-                <h1>The THC <i>Featured Cannabis Menu</i></h1>
+                <h1>THC <i>Curated Menu</i></h1>
                 <p>
                     Take a look at our featured products, specials, and other currated collections,
                     or check out our <Link to={'/menu'}>full menu</Link>.
@@ -73,7 +73,7 @@ export default function FeaturedMenuHub(){
                 <div className='menuLinkWrap'>
                     <Link to={'/menu'}>
                     <button className='main_button'>
-                        Checkout out <u>FULL MENU</u>
+                        Checkout our <u>FULL MENU</u>
                     </button>
                     </Link>
                 </div>
