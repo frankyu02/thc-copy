@@ -31,7 +31,10 @@ export const onCreatePage = async({ page, actions }) => {
 
 // Create blog pages dynamically
 export const createPages = async ({ page, graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
+
+  //301 Redirects
+  createRedirect({ fromPath: "/vancouver-weed-delivery-same-day", toPath: "/delivery", isPermanent: true })
 
 
   const blogPostTemplate = path.resolve(`src/templates/Blog-post.js`);

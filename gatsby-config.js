@@ -22,6 +22,7 @@ module.exports = {
     siteUrl: SITE_URL
   },
   plugins: [
+    `gatsby-plugin-gatsby-cloud`,
     {
       resolve: `gatsby-plugin-apollo`,
       options: apolloConfig
