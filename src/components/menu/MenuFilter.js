@@ -47,6 +47,8 @@ export default function MenuFilter({
 //Stain Type
 //Brand
 //Effects
+
+    console.log("[MenuFilter Debug]: onSale, ", onSale)
     return(
         <Wrapper>
             <AccordItem title={"Format & Size"} defaultOpen={weights ? true : false} id="WeightBlock">
