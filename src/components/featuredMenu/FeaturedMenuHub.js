@@ -71,9 +71,11 @@ export default function FeaturedMenuHub(){
                 </p>
 
                 <div className='menuLinkWrap'>
+                    <Link to={'/menu'}>
                     <button className='main_button'>
                         Checkout out <u>FULL MENU</u>
                     </button>
+                    </Link>
                 </div>
             </PageTitle>
             <FeaturedRow title={"staff picks"}
