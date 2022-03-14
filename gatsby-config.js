@@ -31,6 +31,11 @@ module.exports = {
       options: {
         query: `
         {
+          site {
+            siteMetadata {
+              siteUrlNoSlash
+            }
+          }
           allSitePage {
             nodes {
               path
@@ -38,7 +43,7 @@ module.exports = {
           }
         }
       `,
-        serialize: ({ allSitePage }) => {
+        serialize: ({ site, allSitePage }) => {
           console.log("[gatsby-plugin-sitemap DEBUG]: serialize ", allSitePage)
           let pages = [];
           allSitePage.edges.map(edge => {
