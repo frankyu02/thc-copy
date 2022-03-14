@@ -122,7 +122,11 @@ export default function FeaturedRow({title, QUERY, variables}){
                         "spaceBetween": 15
                     },
                     "900": {
-                        "slidesPerView": 4,
+                        "slidesPerView": 3,
+                        "spaceBetween": 15
+                    },
+                    "1400": {
+                        "slidesPerView": 5,
                         "spaceBetween": 15
                     }
                 }} 

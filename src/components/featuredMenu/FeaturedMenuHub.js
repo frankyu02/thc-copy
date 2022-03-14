@@ -1,4 +1,5 @@
 import React, {useEffect, useState, useReducer, useContext} from 'react';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 //Apollo
@@ -6,6 +7,45 @@ import  SPECIALS_QUERY  from '../../apollo/queries/menu_specials.graphql';
 import  CUSTOM_SECTION_QUERY  from '../../apollo/queries/menu_custom_section.graphql';
 import  STAFF_PICKS_QUERY  from '../../apollo/queries/menu_staff_picks.graphql';
 import FeaturedRow from './FeaturedRow';
+
+const PageTitle = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 50px;
+    
+    p {
+        width: 45%;
+        opacity: 0.6;
+        text-align: center;
+        font-size: 13px;
+        min-width: 300px;
+
+        margin-top: 20px;
+        padding-top: 0px;
+    }
+
+    p a{
+        text-decoration: underline;
+        color: var(--darkpurple);
+    }
+    h1{
+        text-align: center;
+    }
+    h1 i{
+        color: var(--darkpurple);
+    }
+
+    .menuLinkWrap{
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+`;
 
 export default function FeaturedMenuHub(){
     const retailerId = "4c9422c5-d248-415b-8a88-0a75822c50e6";
@@ -15,6 +55,19 @@ export default function FeaturedMenuHub(){
     "CBD", "PAX pods", "bulk"]
     return(
         <>
+            <PageTitle>
+                <h1>The THC <i>Featured Cannabis Menu</i></h1>
+                <p>
+                    Take a look at our featured products, specials, and other currated collections,
+                    or checkout our <Link to={'/menu'}>full menu</Link>.
+                </p>
+
+                <div className='menuLinkWrap'>
+                    <button className='main_button'>
+                        Checkout out <u>FULL MENU</u>
+                    </button>
+                </div>
+            </PageTitle>
             <FeaturedRow title={"staff picks"}
                 QUERY={STAFF_PICKS_QUERY}
                 variables={{
