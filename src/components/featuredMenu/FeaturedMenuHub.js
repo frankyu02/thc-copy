@@ -66,14 +66,14 @@ export default function FeaturedMenuHub(){
             <PageTitle>
                 <h1>THC <i>Curated Menu</i></h1>
                 <p>
-                    Take a look at our featured products, specials, and other currated collections,
+                    Take a look at our featured products, specials, and other curated collections,
                     or check out our <Link to={'/menu'}>full menu</Link>.
                 </p>
 
                 <div className='menuLinkWrap'>
                     <Link to={'/menu'}>
                     <button className='main_button'>
-                        Checkout our <u>FULL MENU</u>
+                        Check out our <u>FULL MENU</u>
                     </button>
                     </Link>
                 </div>
