@@ -1,5 +1,5 @@
 const productSchemaMaker = (product, siteUrl) => {
-    
+    const prodUrl = siteUrl + "/products/" + product
     const schema = {
         "@context": "https://schema.org/",
         "@type": "Product",
@@ -14,9 +14,9 @@ const productSchemaMaker = (product, siteUrl) => {
         "category": product.category,
         "offers": {
             "@type": "Offer",
-            "url": siteUrl+"/products/"+product.id,
+            "url": prodUrl,
             "priceCurrency": "CAD",
-            "price": product?.variants[0].price,
+            "price": product?.variants[0].priceRec,
             "availability": "https://schema.org/InStock",
             "itemCondition": "https://schema.org/NewCondition",
         },
