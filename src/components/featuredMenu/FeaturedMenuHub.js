@@ -7,6 +7,7 @@ import  SPECIALS_QUERY  from '../../apollo/queries/menu_specials.graphql';
 import  CUSTOM_SECTION_QUERY  from '../../apollo/queries/menu_custom_section.graphql';
 import  STAFF_PICKS_QUERY  from '../../apollo/queries/menu_staff_picks.graphql';
 import FeaturedRow from './FeaturedRow';
+import Seo from '../layout/Seo';
 
 const PageTitle = styled.div`
     display: flex;
@@ -55,6 +56,13 @@ export default function FeaturedMenuHub(){
     "CBD", "PAX pods", "bulk"]
     return(
         <>
+            <Seo 
+                title={"Featured Menu - THC Cananda"}
+                description={`Same day legal cannabis delivery and pick-up in Vancouver. 
+                Browse the widest selection of weed in the city and reserve for pick-up today. 
+                We carry all types of products including sativa, hybrid and indica flower, 
+                concentrates, pre-rolls, edibles, beverages, CBD oil and CBD-dominant product`}
+            />
             <PageTitle>
                 <h1>The THC <i>Featured Cannabis Menu</i></h1>
                 <p>
