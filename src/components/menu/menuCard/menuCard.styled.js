@@ -22,7 +22,7 @@ const MenuCardStyles = styled.div`
             width: auto;
             height: auto;
             .realImage {
-                max-width: 215px;
+                max-width: 100%;
                 height: auto;
                 max-height: 265px;
                 width: auto;
