@@ -17,6 +17,7 @@ const Box = styled.div`
         background: var(--darkpurple)
     }
     &.off{
+        background: white;
         &:hover{
             border: 1px solid var(--darkpurple);
             background: var(--lightpurple);
@@ -37,6 +38,11 @@ const Label = styled.div`
 export default function SingleCheckbox({checkState, setCheckState, 
     location, label, id}){
     const prettyLabel = label.toLowerCase().replace("_"," ")
+
+    if (label == "On Sale"){
+        console.log("[SingleCheckbox Debug]: checkState, ", checkState)
+    }
+    
     return(
         <Wrapper data-cy={id.replace(/\s+/g, '').split('.').join("")}>
             <Box 
