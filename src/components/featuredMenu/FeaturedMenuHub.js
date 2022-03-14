@@ -15,7 +15,7 @@ const PageTitle = styled.div`
     flex-direction: column;
     width: 100%;
     padding-bottom: 50px;
-    
+
     p {
         width: 45%;
         opacity: 0.6;
@@ -59,7 +59,7 @@ export default function FeaturedMenuHub(){
                 <h1>The THC <i>Featured Cannabis Menu</i></h1>
                 <p>
                     Take a look at our featured products, specials, and other currated collections,
-                    or checkout our <Link to={'/menu'}>full menu</Link>.
+                    or check out our <Link to={'/menu'}>full menu</Link>.
                 </p>
 
                 <div className='menuLinkWrap'>
