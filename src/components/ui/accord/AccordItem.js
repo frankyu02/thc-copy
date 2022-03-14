@@ -74,7 +74,7 @@ export default function AccordItem({title, defaultOpen, overflowAuto, children, 
     return(
         <Wrapper>
         {title && <Title onClick={()=>{setOpen(!open)}} data-cy={id}>{title}<div className='sign'>{open ? "-" : "+"}</div></Title>}
-        <Content className={open ? "open" : "close"} over={overflowAuto}>
+        <Content className={defaultOpen ? "open" : "close"} over={overflowAuto}>
             {children}
         </Content>
         </Wrapper>
