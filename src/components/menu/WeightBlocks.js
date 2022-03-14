@@ -67,7 +67,7 @@ export default function WeightBlocks({availWeights, weights, setWeights,
             </Wrapper>
         )
     }else{
-        return(<>empty</>)
+        return(<></>)
     }
     
 }

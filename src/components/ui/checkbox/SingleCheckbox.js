@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -39,6 +39,11 @@ export default function SingleCheckbox({checkState, setCheckState,
     location, label, id}){
     const prettyLabel = label.toLowerCase().replace("_"," ")
 
+    const [client, setClient] = useState(false)
+    useEffect(() => {
+        setClient(true)
+    }, [])
+
     if (label == "On Sale"){
         console.log("[SingleCheckbox Debug]: checkState, ", checkState)
     }
@@ -46,7 +51,7 @@ export default function SingleCheckbox({checkState, setCheckState,
     return(
         <Wrapper data-cy={id.replace(/\s+/g, '').split('.').join("")}>
             <Box 
-            className={checkState ? "on" : "off"}
+            className={(checkState && client) ? "on" : "off"}
             onClick={()=>{setCheckState(!checkState+0, location)}}/>
             <Label>{prettyLabel}</Label>
         </Wrapper>
