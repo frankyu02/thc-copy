@@ -4,8 +4,8 @@ import { graphql, useStaticQuery } from "gatsby"
 import { SmallHero } from "../components/global_component/small_hero/SmallHero"
 import DoublePageLink from "../components/reviews/doublePageLink/doublePageLink"
 import ReviewGrid from "../components/reviews/reviewGrid/reviewGrid"
-import { ClientReview } from "../components/reviews/ClientReview/ClientReview"
 import Seo from "../components/layout/Seo"
+import ClientReview from "../components/reviews/ClientReview/ClientReview"
 
 const ReviewsPage = () => {
 
