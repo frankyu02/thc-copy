@@ -29,7 +29,7 @@ const TotalPriceWrapper = styled.div`
             .value{
                 position: absolute;
                 top: 0;
-                left: 66%;
+                left: 63%;
                 font-style: normal;
             }
         }
@@ -45,21 +45,35 @@ const TotalPriceWrapper = styled.div`
             .value{
                 position: absolute;
                 top: 0;
-                left: 66%;
+                left: 63%;
                 font-style: normal;
             }
     }
-    @media (max-width: ${__BREAKPOINTS.lg}px){
+    @media (min-width: ${__BREAKPOINTS.xl}px){
         .priceBreakdown{
             .PriceContent{
                 .value{
-                    left: 63%;
+                    left: 74%;
                 }
             }
         }
         .total{
             .value{
-                left: 63%;
+                left: 74%;
+            }
+        }
+    }
+    @media (max-width: ${__BREAKPOINTS.lg}px){
+        .priceBreakdown{
+            .PriceContent{
+                .value{
+                    left: 61%;
+                }
+            }
+        }
+        .total{
+            .value{
+                left: 61%;
             }
         }
     }

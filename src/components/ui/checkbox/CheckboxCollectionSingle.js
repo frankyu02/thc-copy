@@ -22,6 +22,7 @@ export default function CheckboxCollectionSingle({location, allValues, activeVal
                             setCheckState={handleCheckState}
                             location={location}
                             label={label}
+                            id={label}
                         />
                     )
                 })}

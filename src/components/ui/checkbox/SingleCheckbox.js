@@ -35,10 +35,10 @@ const Label = styled.div`
 `;
 
 export default function SingleCheckbox({checkState, setCheckState, 
-    location, label}){
+    location, label, id}){
     const prettyLabel = label.toLowerCase().replace("_"," ")
     return(
-        <Wrapper className="Sale">
+        <Wrapper data-cy={id.replace(/\s+/g, '').split('.').join("")}>
             <Box 
             className={checkState ? "on" : "off"}
             onClick={()=>{setCheckState(!checkState+0, location)}}/>

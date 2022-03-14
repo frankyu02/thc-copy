@@ -23,12 +23,12 @@ const Wrapper = styled.div`
         font-size: 50px;
     }
 `;
-export default function NoProduct( clear ){
+export default function NoProduct( { clear } ){
     return(
         <Wrapper>
             <h2>NO RESULTS FOUND</h2>
             <p className="icon"><MdErrorOutline /></p>
-            <p>try adjusting your search or <span onClick={clear}>Clear Filters</span> <br /> to find what you're looking for.</p>
+            <p>try adjusting your search or <span onClick={()=>clear()}>Clear Filters</span> <br /> to find what you're looking for.</p>
         </Wrapper>
     )
 }

@@ -7,31 +7,30 @@ import { Fade } from "react-awesome-reveal"
 const ReviewGrid = () => {
 
   const data = useStaticQuery(graphql`
-        query  {
-            wpPage(title: {eq: "Reviews"}) {
-                reviews {
-                    cardsCompany {
-                        cardsCompanyTitle
-                        cardsCompanyItem {
-                            cardsCompanyItemLogo {
-                                altText
-                                localFile {
-                                    childImageSharp {
-                                        gatsbyImageData
-                                    }
-                                }
-                            }
-                        }
+  query{
+        wpPage(title: {eq: "Reviews"}) {
+          reviews {
+            cardsCompany {
+              cardsCompanyTitle
+              cardsCompanyItem {
+                cardsCompanyItemLogo {
+                  altText
+                  localFile {
+                    childImageSharp {
+                      gatsbyImageData
                     }
+                  }
                 }
-                link
+                cardsCompanyItemLink
+              }
             }
+          }
         }
+      }
     `)
 
   const cardsCompanyTitle = data?.wpPage?.reviews?.cardsCompany?.cardsCompanyTitle;
   const cardsCompanyItem = data?.wpPage?.reviews?.cardsCompany?.cardsCompanyItem;
-  const link = data?.wpPage?.link;
   return (
     <div className="container">
       <ReviewGridStyles>
@@ -42,7 +41,7 @@ const ReviewGrid = () => {
           <div className="grid">
             {cardsCompanyItem?.map?.((item, key) => (
               <div key={key} className="cell">
-                <a href={link} rel="noreferrer" target="_blank" className="logoBox">
+                <a href={item?.cardsCompanyItemLink} rel="noreferrer" target="_blank" className="logoBox">
                   <Fade><div>
                   <GatsbyImage
                     layout={"constrained"}

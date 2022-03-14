@@ -8,7 +8,7 @@ import CartItem from "./ProductCartItem";
 import CartTotal from "./TotalPriceInfo";
 
 const Wrapper = styled.div`
-    width: ${props => props.closed ? '0' : '99.1vw'};
+    width: ${props => props.closed ? '0' : '100vw'};
     transition: 0.2s;
     height: calc(100vh - 124px);
     overflow: hidden;
@@ -21,7 +21,7 @@ const Wrapper = styled.div`
     }
 `;
 const Background = styled.div`
-    width: 40%;
+    width: 30%;
     height: 100%;
     background: rgba(0,0,0,0.5);
     position: absolute;
@@ -29,14 +29,14 @@ const Background = styled.div`
         width: 20%;
     }
     @media (min-width: ${__BREAKPOINTS.xl}px){
-        width: 50%;
+        width: 45%;
     }
     @media (max-width: ${__BREAKPOINTS.xxs}px){
         width: 0%;
     }
 `;
 const CartContent = styled.div`
-    width: 60%;
+    width: 70%;
     height: 100%;
     float: right;
     border-left: 1px solid black;
@@ -47,7 +47,7 @@ const CartContent = styled.div`
     padding-left: 73.06px;
     position: relative;
     h2{
-        margin-left: 30px;
+        margin-left: 40px;
         font-size: 36px;
         font-family: "Integral CF";
         font-style: italic;
@@ -90,7 +90,7 @@ const CartContent = styled.div`
         width: 80%;
     }
     @media (min-width: ${__BREAKPOINTS.xl}px){
-        width: 50%;
+        width: 55%;
     }
     @media (max-width: ${__BREAKPOINTS.sm}px){
         width: 100%;
@@ -104,6 +104,9 @@ const CartContent = styled.div`
         .content{
             width: 100%;
             margin: 0;
+            &::-webkit-scrollbar {
+            width: 5px;               /* width of the entire scrollbar */
+            }
         }
     }
 `;

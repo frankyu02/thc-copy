@@ -1,0 +1,1 @@
+export const accessTime=Number(new Date());

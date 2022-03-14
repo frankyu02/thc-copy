@@ -11,6 +11,7 @@ fragment CheckoutItem on Item {
     variants {
       option
       priceRec
+      specialPriceRec
     }
   }
   quantity
