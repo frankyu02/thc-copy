@@ -82,7 +82,7 @@ export default function ProductPageHub({data, loading, error}){
             title: data.product.name + (data.product.brand && " - " + data.product?.brand?.name),
             description: data.product.description,
             image: data.product.image,
-            schema: schema
+            schemaMarkup: schema
         };
     }
 
