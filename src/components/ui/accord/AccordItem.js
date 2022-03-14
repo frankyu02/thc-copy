@@ -1,4 +1,4 @@
-import React, {Children, useState} from 'react';
+import React, {Children, useState, useEffect} from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -29,10 +29,9 @@ const Content = styled.div`
     padding-left: 0px;
     padding-right: 0px;
 
-   
-        max-height: ${props => props.open ? "800px" : "0px"};
-        padding-top:  ${props => props.open ? "10px" : "0px"};
-        padding-bottom:  ${props => props.open ? "10px" : "0px"};
+    max-height: ${props => props.open ? "800px" : "0px"};
+    padding-top:  ${props => props.open ? "10px" : "0px"};
+    padding-bottom:  ${props => props.open ? "10px" : "0px"};
 `;
 
 const Title = styled.div`
@@ -55,6 +54,11 @@ const Title = styled.div`
 
 export default function AccordItem({title, defaultOpen, overflowAuto, children, id }){
     const [open, setOpen] = useState(defaultOpen)
+
+    useEffect(() =>{
+        setOpen(defaultOpen)
+    },[defaultOpen])
+
     return(
         <Wrapper>
         {title && <Title onClick={()=>{setOpen(!open)}} data-cy={id}>{title}<div className='sign'>{open ? "-" : "+"}</div></Title>}
