@@ -36,6 +36,7 @@ module.exports = {
               path
             }
           }
+        }
       `,
         exclude: ["blogs/*", "education/*", "/products", "/products/"],
         resolveSiteUrl: () => SITE_URL,
