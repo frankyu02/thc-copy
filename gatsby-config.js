@@ -50,7 +50,7 @@ module.exports = {
           }
         }
       `,
-        excludes: ["blogs/*", "education/*", "/products", "/products/"],
+        exclude: ["blogs/*", "education/*", "/products", "/products/"],
         resolveSiteUrl: () => SITE_URL,
         resolvePages: ({
           allSitePage: { nodes: allPages },
