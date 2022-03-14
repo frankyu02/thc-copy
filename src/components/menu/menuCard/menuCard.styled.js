@@ -108,6 +108,7 @@ const MenuCardStyles = styled.div`
 
 @media (max-width: 900px) {
     .card {
+        height ${(props) => (props.mobileRowMode ? "625px" : "auto")};
         .imgDiv {
             margin: 20px 20px 0px 20px;
         }
@@ -133,6 +134,9 @@ const MenuCardStyles = styled.div`
             flex-wrap: nowrap;
             justify-content: center;
             align-items: center;
+
+            position: ${(props) => (props.mobileRowMode ? "absolute" : "static")};
+            width: ${(props) => (props.mobileRowMode ? "100%" : "auto")};
             bottom: 0px;
             height: 60px;
             margin-top: 25px;

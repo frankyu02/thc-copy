@@ -19,8 +19,7 @@ const Title = styled.h2`
 `;
 
 const Wrapper = styled.div`
-    margin: 50px;
-
+    margin: 50px 20px;
     .swiper-button-next{
         height: 100%;
         top: 0;
@@ -77,6 +76,10 @@ const Wrapper = styled.div`
         .swiper-button-next{
             display: none;
         }
+
+        .swiperCard{
+            border: 1px solid black;
+        }
     }
 `;
 
@@ -107,7 +110,7 @@ export default function FeaturedRow({title, QUERY, variables}){
         <Swiper 
                 className="swiper-product-row" 
                 spaceBetween={10} 
-                slidesPerView={1.5}
+                slidesPerView={1.25}
                 slidesPerGroup={1} 
                 pagination={{
                     "clickable": true
@@ -130,8 +133,9 @@ export default function FeaturedRow({title, QUERY, variables}){
                     <SwiperSlide
                         key={i}
                         virtualIndex={i}
+                        className="swiperCard"
                     >
-                        <MenuCard product={product}/>
+                        <MenuCard product={product} mobileRowMode={true}/>
                     </SwiperSlide>
                 ))
                 :

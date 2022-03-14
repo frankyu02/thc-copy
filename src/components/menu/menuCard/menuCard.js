@@ -8,7 +8,7 @@ import { CheckoutContext } from "../../../contexts/checkout";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
-const MenuCard = ({ product}) => {
+const MenuCard = ({ product, mobileRowMode=false}) => {
     const [index, setIndex] = useState(0);
     const [styles, setStyles] = useState({
         opacity: 0,
@@ -65,7 +65,7 @@ const MenuCard = ({ product}) => {
     }
 
     return (
-        <MenuCardStyles>
+        <MenuCardStyles mobileRowMode={mobileRowMode}>
             <div className="card">
                     <div className="imgDiv"
                         onMouseEnter={()=>{setStyles({opacity: 1, height: 60})}} 
