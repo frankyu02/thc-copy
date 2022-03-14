@@ -36,7 +36,7 @@ module.exports = {
               path
             }
           }
-          allWpContentNode(filter: {nodeType: {in: ["Post", "Page"]}}) {
+          allWpContentNode(filter: {nodeType: {in: ["Page"]}}) {
             nodes {
               ... on WpPost {
                 uri
@@ -50,6 +50,7 @@ module.exports = {
           }
         }
       `,
+        excludes: ["blogs/*", "education/*", "/products", "/products/"],
         resolveSiteUrl: () => SITE_URL,
         resolvePages: ({
           allSitePage: { nodes: allPages },
