@@ -36,45 +36,35 @@ module.exports = {
               path
             }
           }
-          allWpContentNode(filter: {nodeType: {in: ["Page"]}}) {
-            nodes {
-              ... on WpPost {
-                uri
-                modifiedGmt
-              }
-              ... on WpPage {
-                uri
-                modifiedGmt
-              }
-            }
-          }
-        }
       `,
         exclude: ["blogs/*", "education/*", "/products", "/products/"],
         resolveSiteUrl: () => SITE_URL,
         resolvePages: ({
           allSitePage: { nodes: allPages },
-          allWpContentNode: { nodes: allWpNodes },
+          // allWpContentNode: { nodes: allWpNodes },
         }) => {
-          const wpNodeMap = allWpNodes.reduce((acc, node) => {
-            const { uri } = node
-            acc[uri] = node
+          // const wpNodeMap = allWpNodes.reduce((acc, node) => {
+          //   const { uri } = node
+          //   acc[uri] = node
           
-            return acc
-          }, {})
+          //   return acc
+          // }, {})
           
-          console.log("[gatsby-plugin-sitemap DEBUG]: resolvePages wpNodeMap-", wpNodeMap)
+          // console.log("[gatsby-plugin-sitemap DEBUG]: resolvePages wpNodeMap-", wpNodeMap)
 
           return allPages.map(page => {
             // {page.path, "something"}
-            return { ...page, ...wpNodeMap[page.path] }
+            //...wpNodeMap[page.path] 
+            return { ...page }
           })
         },
-        serialize: ({ path, modifiedGmt }) => {
-          console.log("[gatsby-plugin-sitemap DEBUG]: serialize ", {url: path, lastmod: modifiedGmt})
+        serialize: ({ path}) => {
+          //, modifiedGmt 
+          //, lastmod: modifiedGmt
+          //lastmod: modifiedGmt,
+          console.log("[gatsby-plugin-sitemap DEBUG]: serialize ", {url: path})
           return {
-            url: path,
-            lastmod: modifiedGmt,
+            url: path
           }
         },
       },
