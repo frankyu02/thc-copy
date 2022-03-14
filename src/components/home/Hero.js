@@ -50,6 +50,8 @@ export const HeroHome = () => {
         document.getElementsByClassName("background")[0].style.display = 'block';
     }
 
+    console.log("hero - get")
+
     return (
         <HeroStyled >
         <div className="container">
@@ -77,7 +79,7 @@ export const HeroHome = () => {
                         width="100%"
                         height="100%"
                         playing={true}
-                        onReady={removePoster}
+                        onPlay={removePoster}
                     />
                 </div>
                 <div className="caption">
