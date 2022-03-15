@@ -9,11 +9,13 @@ const MenuCardStyles = styled.div`
 .card {
     .imgDiv {
         display: flex;
+        display: -webkit-flex;
+        justify-content: center;
+        -webkit-justify-content: center;
         margin: 30px 30px 0px 30px;
         position: relative;
         height: 360px;
         width: auto;
-        justify-content: center;
         background: white;
         border: 1px solid black;
         .image {
@@ -107,7 +109,7 @@ const MenuCardStyles = styled.div`
 
 @media (max-width: 900px) {
     .card {
-        height ${(props) => (props.mobileRowMode ? "625px" : "auto")};
+        height : ${(props) => (props.mobileRowMode ? "625px" : "auto")};
         .imgDiv {
             margin: 20px 20px 0px 20px;
         }
