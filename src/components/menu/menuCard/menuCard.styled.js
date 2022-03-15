@@ -20,7 +20,7 @@ const MenuCardStyles = styled.div`
         border: 1px solid black;
         .image {
             position: absolute;
-            top: 85px;
+            margin-top: 85px;
             width: auto;
             height: auto;
             .realImage {
