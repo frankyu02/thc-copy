@@ -22,8 +22,8 @@ export default function ProductProfile({ brand, thc, cbd, category, strain }){
     return(
         <Wrapper>
             {brand && <ProfileItem title="BRAND" content={brand.name} />}
-            <ProfileItem title="THC" content={thc.formatted || 0} optional=" MG/G" />
-            <ProfileItem title="CBD" content={cbd.formatted || 0} optional=" MG/G" />
+            <ProfileItem title="THC" content={thc.formatted || "0 MG/G"}/>
+            <ProfileItem title="CBD" content={cbd.formatted || "0 MG/G"}/>
             <ProfileItem title="Category" content={category} />
             {strain != "NOT_APPLICABLE" && strain &&
             <ProfileItem title="Strain Type" content={prettyStrain} />
