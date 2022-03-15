@@ -8,10 +8,10 @@ const MenuCardStyles = styled.div`
 
 .card {
     .imgDiv {
-        display: flex;
         display: -webkit-flex;
-        justify-content: center;
+        display: flex;
         -webkit-justify-content: center;
+        justify-content: center;
         margin: 30px 30px 0px 30px;
         position: relative;
         height: 360px;
