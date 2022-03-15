@@ -9,16 +9,23 @@ const MenuCardStyles = styled.div`
 .card {
     .imgDiv {
         display: flex;
+        display: -webkit-flex;
+        justify-content: center;
+        -webkit-justify-content: center;
+
+        outline: red 3px solid;
+
         margin: 30px 30px 0px 30px;
         position: relative;
         height: 360px;
         width: auto;
-        justify-content: center;
+        
         background: white;
         border: 1px solid black;
         .image {
-            position: absolute;
-            top: 85px;
+            outline: green 3px solid;
+            position: static;
+            margin-top: 85px;
             width: auto;
             height: auto;
             .realImage {
