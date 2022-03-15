@@ -8,6 +8,7 @@ const MenuCardStyles = styled.div`
 
 .card {
     .imgDiv {
+        display: -webkit-flex;
         display: flex;
         display: -webkit-flex;
         justify-content: center;
@@ -21,18 +22,21 @@ const MenuCardStyles = styled.div`
         width: auto;
         
         background: white;
-        border: 1px solid black;
         .image {
-            outline: green 3px solid;
             position: static;
             margin-top: 85px;
             width: auto;
             height: auto;
-            .realImage {
-                max-width: 100%;
-                height: auto;
-                max-height: 265px;
+            a {
+                display: block;
                 width: auto;
+                height: auto;
+                .realImage {
+                    max-width: 100%;
+                    height: auto;
+                    max-height: 265px;
+                    width: auto;
+                }
             }
         }
         .brand {
@@ -114,7 +118,7 @@ const MenuCardStyles = styled.div`
 
 @media (max-width: 900px) {
     .card {
-        height ${(props) => (props.mobileRowMode ? "625px" : "auto")};
+        height : ${(props) => (props.mobileRowMode ? "625px" : "auto")};
         .imgDiv {
             margin: 20px 20px 0px 20px;
         }
