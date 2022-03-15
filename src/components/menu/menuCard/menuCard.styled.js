@@ -13,7 +13,7 @@ const MenuCardStyles = styled.div`
         display: -webkit-flex;
         justify-content: center;
         -webkit-justify-content: center;
-
+        outline: 1px solid black;
         margin: 30px 30px 0px 30px;
         position: relative;
         height: 360px;
