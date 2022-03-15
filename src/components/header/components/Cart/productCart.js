@@ -114,7 +114,10 @@ export default function ProductCart({ closed, setClosed }){
     const { checkout } = useContext(CheckoutContext)
 
     const dutchieDispenaryId = '601c613e4f4adc00aa7da2b7';
-    const checkoutUrl = 'https://checkout.thccanada.ca/checkouts/'+dutchieDispenaryId+"/"+checkout?.id;
+    const checkoutUrl = 'https://checkout.thccanada.ca/checkouts/'
+    +dutchieDispenaryId
+    +"/"+checkout?.id
+    +"?r=https://thccanada.ca";
 
     var Quanttotal = 0;
     for(var i = 0; i < checkout?.items?.length; i++){
