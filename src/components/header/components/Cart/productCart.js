@@ -113,7 +113,7 @@ const CartContent = styled.div`
 export default function ProductCart({ closed, setClosed }){
     const { checkout } = useContext(CheckoutContext)
 
-    const dutchieDispenaryId = '601c613e4f4adc00aa7da2b7';
+    const dutchieDispenaryId = process.env.GATSBY_DISPENSARY_ID;
     const checkoutUrl = 'https://checkout.thccanada.ca/checkouts/'
     +dutchieDispenaryId
     +"/"+checkout?.id
