@@ -4,7 +4,6 @@ const createVariablesObj =
     pageLimit, pageOffset, onSale, search}) => {
     var variables = {};
 
-    console.log("createVaroablesObj-->weights", weights);
     //Retailer Id
     if (retailerId){variables["retailerId"] = retailerId}
 
@@ -42,8 +41,7 @@ const createVariablesObj =
     }else{
         variables["offset"] = 0;
     }
-
-    console.log("createVaroablesObj--> variables", variables);
+    
     return variables;
 }
 

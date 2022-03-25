@@ -127,8 +127,6 @@ const useCheckout = (initialOrderType, initialPricingType) => {
     // Wrapper Functions for Error Handling
     const addToCart = async (productId, quantity, option) => {
         try {
-        console.log("productId-------->"+productId);
-        console.log("currentRetailer-->"+currentRetailer);
         console.log(checkoutId, productId, quantity, option)
         const result = await addItemToCheckout({
             variables: {  retailerId: currentRetailer, checkoutId, productId, quantity, option },
@@ -162,10 +160,6 @@ const useCheckout = (initialOrderType, initialPricingType) => {
         const result = await updateCheckoutItemQuantity({
             variables: { checkoutId, itemId, quantity, retailerId: currentRetailer },
         });
-        console.log("updateQuantity result.data.updateItem:")
-        console.log(result.data.updateItem)
-        console.log("updateQuantity result.data:")
-        console.log(result.data)
         updateStateFromCheckout(result.data.updateQuantity);
         return checkout;
         } catch (e) {

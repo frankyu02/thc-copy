@@ -64,8 +64,6 @@ const rangeValueFormatter = (min, max, unit) => {
         max: max,
         unit: String(unit)
     }
-    console.log("rangerFormtter -> ", value)
-    console.log("rangerFormtter -> str", JSON.stringify(value))
     return JSON.stringify(value);
 }
 
@@ -88,12 +86,11 @@ const setBrand = (value, location) => {
 }
 
 const setTHC = ({min, max, unit, clear, location}) => {
-    console.log("setTHC, remove thc")
+    
     if (clear){
         removeFilter("thc", location)
         return;
     }
-    console.log("setTHC, min, max, unit", min, max, unit)
     const value = rangeValueFormatter(min, max, unit);
     setFilterReplace('thc', value, location)
 }
@@ -126,12 +123,12 @@ const setSearch = (value, location) => {
 ////Sort
 const setSort = (value, location) => {
     const jsonvalue = JSON.stringify(value);
-    console.log("value---> setSort", value)
+    
     setFilterReplace('sort', jsonvalue, location)
 }
 ///Multi Value Filters
 const setWeights = (arr, value, location, remove=false, refetch=null) => {
-    console.log("setWeights() - remove, refetch -> pre pre arr", arr)
+    
     multiValueFilterReplace('weights', arr, value, location, remove);
     if (refetch && arr && arr.length >= 1){
         if(remove){ 

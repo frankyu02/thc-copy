@@ -34,23 +34,20 @@ export const Search = () => {
   )
 }
 
-const SearchFrame = ({ isOpen, searchRef, onClose }) => {
+const SearchFrame = ({ isOpen,  searchRef, onClose }) => {
 
   //Reach-Router
   const location = useLocation();
 
   const [searchTerm, setSearchTerm] = useState("")
   const handleClick = () => {
-    console.log("handleClick()--->, ", searchTerm)
     setSearch(searchTerm, location);
   }
   const updateText = (event) => {
     setSearchTerm(event.target.value)
   }
   const handleKeypress = (event) => {
-    console.log("key press! ", event.key)
     if (event.keyCode === 13 || event.key === "Enter"){
-      console.log("key press! ENTER KEY")
       setSearch(searchTerm, location);
     }
   }

@@ -54,7 +54,7 @@ const Wrapper = styled.div`
     }
 `;
 export default function ProductPageImage({ imgurl, name, brand }){
-    console.log('BRAND.IMAGE--->', brand.imageUrl);
+    
     return(
         <Wrapper>
             {brand &&
