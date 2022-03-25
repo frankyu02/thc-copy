@@ -51,7 +51,7 @@ const PageTitle = styled.div`
 export default function FeaturedMenuHub(){
     const retailerId = "4c9422c5-d248-415b-8a88-0a75822c50e6";
 
-    const specialsNames = ["the huge clearence"]
+    const specialsNames = ["the huge clearance"]
     const customSectionNames = ["concentrate corner", "510 vapes", "dank PRJs", "drinks",
     "CBD", "PAX pods", "bulk"]
     return(

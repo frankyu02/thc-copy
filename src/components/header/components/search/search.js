@@ -47,10 +47,20 @@ const SearchFrame = ({ isOpen, searchRef, onClose }) => {
   const updateText = (event) => {
     setSearchTerm(event.target.value)
   }
+  const handleKeypress = (event) => {
+    console.log("key press! ", event.key)
+    if (event.keyCode === 13 || event.key === "Enter"){
+      console.log("key press! ENTER KEY")
+      setSearch(searchTerm, location);
+    }
+  }
 
   return <SearchFrameStyled isOpen={isOpen}>
     <div className="content">
-      <input type="text" className="input" placeholder={"Search"} onChange={updateText}/>
+      <input type="text" className="input" placeholder={"Search"} 
+        onChange={updateText}
+        onKeyPress={handleKeypress}
+      />
 
       <button aria-label={"search"} type={"button"} className={"search-btn"} onClick={()=>(handleClick())}> 
         <svg width="26" height="24" viewBox="0 0 26 24" fill="none"

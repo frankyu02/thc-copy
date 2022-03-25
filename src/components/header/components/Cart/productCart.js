@@ -118,7 +118,6 @@ export default function ProductCart({ closed, setClosed }){
     +dutchieDispenaryId
     +"/"+checkout?.id
     +"?r=https://thccanada.ca";
-
     var Quanttotal = 0;
     for(var i = 0; i < checkout?.items?.length; i++){
         Quanttotal += checkout?.items[i]?.quantity;

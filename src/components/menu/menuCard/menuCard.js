@@ -71,8 +71,13 @@ const MenuCard = ({ product, mobileRowMode=false}) => {
                         onMouseEnter={()=>{setStyles({opacity: 1, height: 60})}} 
                         onMouseLeave={()=>{setStyles({opacity: 0, height: 0})}}
                         >
-                        {product.brand && <div className="brand"><BrandLogoBanner brand={product.brand} size={"14px"}/></div>}
-                        <div className="strain"><TypeBanner text={product.strainType} size={"12px"}/></div>
+                        {product.brand && 
+                        <div className="brand">
+                            <BrandLogoBanner brand={product.brand} size={"14px"}/>
+                        </div>}
+                        <div className="strain">
+                            <TypeBanner text={product.strainType} size={"12px"}/>
+                        </div>
                         
                         <div className="image">
                             <a href={`/products/`+product.id}>
