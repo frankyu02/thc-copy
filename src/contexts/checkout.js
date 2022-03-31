@@ -22,7 +22,7 @@ const CheckoutProvider = ({ children }) => {
         updateQuantity,
         currentRetailer,
         setCurrentRetailer,
-    } = useDutchieCheckout(OrderTypes.Pickup, PricingTypes.Recreational);
+    } = useDutchieCheckout(OrderTypes.Delivery, PricingTypes.Recreational);
     return( 
         <CheckoutContext.Provider 
             value={{
