@@ -24,6 +24,7 @@ const Wrapper = styled.div`
             font-family: "Integral CF Bold";
             font-size: 40px;
             text-align: center;
+            font-style: italic;
             span{
                 color: var(--darkpurple);
             }
