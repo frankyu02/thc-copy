@@ -5,6 +5,7 @@ import Seo from "../components/layout/Seo"
 import ContactForm from "../components/ContactPage/ContactForm"
 import ContactMap from "../components/ContactPage/ContactMap/ContactMap"
 import styled from "styled-components"
+import LocationParking from "../components/location/location_map/location parking/locationParking"
 
 
 const ContactPage = () => {
@@ -55,6 +56,7 @@ const ContactPage = () => {
         <SmallHero banner={contactBunner?.contactUsBannerImg?.localFile}
                      title={contactBunner?.contactUsBannerTitle} />
         <ContactMap />
+        <LocationParking />
         <ContactForm />
       </>
     );

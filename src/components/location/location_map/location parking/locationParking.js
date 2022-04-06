@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
+import { Fade } from "react-awesome-reveal";
 import styled from "styled-components";
 import { __BREAKPOINTS } from "../../../../styles/utils/variables";
 const Background =styled.section`
@@ -20,7 +21,7 @@ const Wrapper = styled.div`
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        .title{
+        h2{
             font-family: "Integral CF Bold";
             font-size: 40px;
             text-align: center;
@@ -104,10 +105,13 @@ export default function LocationParking(){
     return(
         <Background>
             <div className="container">
+            
                 <Wrapper>
                     <div className="text">
-                        <h2 className="title" dangerouslySetInnerHTML={{ __html: title }} />
-                        <p>{subtitle}</p>
+                        <Fade cascade direction="up">
+                            <h2 className="title" dangerouslySetInnerHTML={{ __html: title }} />
+                            <p>{subtitle}</p>
+                        </Fade>
                     </div>
                     <div className="img">
                         <GatsbyImage image={getImage(locationImg)} alt={altText} />
@@ -116,6 +120,7 @@ export default function LocationParking(){
                         <p>{subtitle}</p>
                     </div>
                 </Wrapper>
+            
             </div>
         </Background>
     )

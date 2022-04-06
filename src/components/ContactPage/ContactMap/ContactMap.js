@@ -10,6 +10,7 @@ import { __BREAKPOINTS } from "../../../styles/utils/variables";
 import { Fade } from "react-awesome-reveal";
 const Wrapper=styled.div`
     margin: 100px 0;
+    margin-bottom: 0;
     width: 100%;
     height: 618px;
     display: flex;
@@ -105,6 +106,7 @@ const Wrapper=styled.div`
         flex-direction: column;
         height: auto;
         margin: 31px 0;
+        margin-bottom: 0;
         .img{
             width: 100%;
             height: 309px;
