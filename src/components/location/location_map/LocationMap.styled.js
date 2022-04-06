@@ -3,7 +3,7 @@ import { lg, md, xs, xxs } from "../../../styles/utils/media_queries"
 
 
 export const LocationMapStyle = styled.section`
-  padding: 30px 0 80px;
+  /* padding: 30px 0 80px; */
   background: rgb(240, 240, 240);
 
   .location_map {
@@ -77,7 +77,7 @@ export const LocationMapStyle = styled.section`
         }
     `)}
   ${xs(`
-        padding: 50px 0 80px;
+        // padding: 50px 0 80px;
         .location_map {
             display: flex;
             align-items: stretch;
@@ -97,7 +97,7 @@ export const LocationMapStyle = styled.section`
         }
   `)}
   ${md(`
-        padding: 100px 0 100px;
+        // padding: 100px 0 100px;
         .location_map {
             h4 {
                 font-size: 30px;

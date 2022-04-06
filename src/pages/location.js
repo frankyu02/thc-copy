@@ -6,6 +6,7 @@ import { LocationMap } from "../components/location/location_map/LocationMap"
 import { LargeBanner } from "../components/global_component/large_banner/LargeBanner"
 import { getImage, withArtDirection } from "gatsby-plugin-image"
 import Seo from "../components/layout/Seo"
+import LocationParking from "../components/location/location_map/location parking/locationParking"
 
 const Location = () => {
   const data = useStaticQuery(graphql`
@@ -78,6 +79,7 @@ const Location = () => {
       <SmallHero banner={locationImg?.locationBannerImg?.localFile?.childImageSharp?.gatsbyImageData}
                  title={location?.title} />
       <LocationMap />
+      <LocationParking />
       <LargeBanner butonLargeBanner={locationLarge?.locationLargeOrderBannerButton} images={images}
                    titleLargeBanner={locationLarge?.locationLargeOrderBannerTitle}
                    textLargeBanner={locationLarge?.locationLargeOrderBannerText} />
