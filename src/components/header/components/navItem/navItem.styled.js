@@ -59,11 +59,12 @@ export const MenuItem = styled.li`
       }
     }
 
-    & + .drop-down :hover {
-
+    & + .drop-down{
+    &:hover {
       ${lg(`
 max-height: 200vh;`)}
     }
+  }
 
     ${lg(`
 font-weight:400;
